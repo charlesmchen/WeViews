@@ -687,18 +687,22 @@
     }     
     
     
-    if ([windowModel.selection isKindOfClass:[WePanel class]] || 
+    if ([windowModel.selection isKindOfClass:[WePanel class]]) {
+        [contents addObject:[self makeAddRow:@"Layers"
+                                       items:[NSArray arrayWithObjects:
+                                              [WeViewsDemoUtils makeLink:@"WePanelLayer"
+                                                                  target:self
+                                                                selector:@selector(addFLayer)],
+                                              nil]]];
+    }
+    
+    if (windowModel.selection == windowModel.pseudoRoot ||
         [windowModel.selection isKindOfClass:[WePanelLayer class]] || 
         [windowModel.selection isKindOfClass:[WeScrollView class]]) {
+//    if ([windowModel.selection isKindOfClass:[WePanel class]] || 
+//        [windowModel.selection isKindOfClass:[WePanelLayer class]] || 
+//        [windowModel.selection isKindOfClass:[WeScrollView class]]) {
         
-        if ([windowModel.selection isKindOfClass:[WePanel class]]) {
-            [contents addObject:[self makeAddRow:@"Layers"
-                                           items:[NSArray arrayWithObjects:
-                                                  [WeViewsDemoUtils makeLink:@"WePanelLayer"
-                                                                       target:self
-                                                                     selector:@selector(addFLayer)],
-                                                  nil]]];
-        }
         [contents addObject:[self makeAddRow:@"Containers"
                                        items:[NSArray arrayWithObjects:
                                               [WeViewsDemoUtils makeLink:@"WePanel"

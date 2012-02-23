@@ -239,7 +239,9 @@
     [content removeFromSuperview];
     [content release];
     content = [value retain];
-    [self addSubview:value];    
+    [self addSubview:value];   
+    
+    [self layoutContents];
 }
 
 - (CGSize) sizeThatFits:(CGSize) value {
@@ -263,6 +265,8 @@
 
 - (void) layoutContents {
     if (content == nil) {
+        self.contentSize = CGSizeZero;
+        self.scrollEnabled = NO;
         return;
     }
     
@@ -306,6 +310,7 @@
               FormatCGRect(self.frame),
               self.scrollEnabled);
     }
+    [self setNeedsDisplay];
 }
 
 - (void) setBounds :(CGRect) value {

@@ -182,15 +182,19 @@
 
 /**
  * The stretch weight of the view.  
- * Extra space in stretching containers (ie. WePanel) is allocated proportionally
+ * Extra space in stretching layouts is allocated proportionally
  * based on stretch weight.
+ * Non-stretching views should have a stretch weight of zero.
+ * The default value is zero.
  *
  * Zero for non-stretching items (this is the default behavior).
  */
 - (CGFloat) stretchWeight;
 
 /**
- * Sets the stretch weight.
+ * Sets the stretch weight.  
+ *
+ * See [IWeView stretchWeight].
  *
  * @param value The stretch weight.
  */

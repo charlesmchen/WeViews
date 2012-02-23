@@ -238,10 +238,11 @@ typedef enum {
 /**
  * The layout strategy for a WePanelLayer.
  */
-@interface WePanelLayout : WeBaseObject {
-}
+@interface WePanelLayout : WeBaseObject
 
 /**
+ * Creates a new Layout instance that corresponds to the given layout mode.
+ *
  * @param value the layout mode.
  * @return A new WePanelLayout instance that corresponds to a given 
  * layout mode.

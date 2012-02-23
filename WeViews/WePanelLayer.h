@@ -223,37 +223,44 @@ typedef enum {
 @property (nonatomic, retain) WePanelLayout* layout;
 
 /**
- * Horizontal alignment.
+ * Horizontal alignment.  
+ * The default value is center (H_ALIGN_CENTER).
  */
 @property (nonatomic, assign) HAlign hAlign;
 
 /**
  * Vertical alignment.
+ * The default value is center (V_ALIGN_CENTER).
  */
 @property (nonatomic, assign) VAlign vAlign;
 
 /**
  * The top margin for this layer.
+ * The default value is zero.
  */
 @property (nonatomic, assign) int topMargin;
 
 /**
  * The bottom margin for this layer.
+ * The default value is zero.
  */
 @property (nonatomic, assign) int bottomMargin;
 
 /**
  * The left margin for this layer.
+ * The default value is zero.
  */
 @property (nonatomic, assign) int leftMargin;
 
 /**
  * The right margin for this layer.
+ * The default value is zero.
  */
 @property (nonatomic, assign) int rightMargin;
 
 /**
  * The default spacing between views in this layer.
+ * The default value is zero.
  */
 @property (nonatomic, assign) int spacing;
 
