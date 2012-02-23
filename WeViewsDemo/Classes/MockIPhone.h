@@ -185,9 +185,12 @@
 
 @interface MockIPhone : WePanel
 
+@property (assign, nonatomic) BOOL horizontal;
 @property (retain, nonatomic) WePanel* screen;
 
 + (MockIPhone*) createHorizontal;
 + (MockIPhone*) createVertical;
+
+- (void) toggleHorizontal;
 
 @end

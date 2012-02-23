@@ -569,6 +569,16 @@
                         code:code];
 }
 
+- (void) rotateMockIPhone { 
+    NSLog(@"rotateMockIPhone");
+    MockIPhone* selection = (MockIPhone*) windowModel.selection;
+    CGRect oldFrame = selection.frame;
+    [selection toggleHorizontal];
+    selection.frame = CGRectCenterOnRect(selection.frame, oldFrame);
+    [self animateRelayout:selection];
+    [self updateContents];
+}
+
 - (UIView*) makePropertyOptionRow:(NSString*) title 
                           options:(NSArray*) options 
                            labels:(NSArray*) labels 
@@ -780,6 +790,15 @@
         [contents addObject:row];            
     }
     
+    if ([windowModel.selection isKindOfClass:[MockIPhone class]]) {
+        WePanel* row = [[WePanel create]
+                        withClearBackground];
+        [[row addHTight1:[WeViewsDemoUtils makeLink:@"Rotate Mock IPhone"
+                  target:self
+                selector:@selector(rotateMockIPhone)]]
+          withHAlign:H_ALIGN_LEFT];
+        [contents addObject:row];      
+    }
     
     if ([windowModel.selection isKindOfClass:[WePanelLayer class]]) {
         WePanelLayer* layer = (WePanelLayer*) windowModel.selection;

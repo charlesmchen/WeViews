@@ -187,6 +187,7 @@
 
 @implementation MockIPhone
 
+@synthesize horizontal;
 @synthesize screen;
 
 - (void) dealloc {
@@ -195,27 +196,24 @@
     [super dealloc];
 }
 
-+ (MockIPhone*) create:(BOOL) horizontal {
-    MockIPhone* result = [[[MockIPhone alloc] init] autorelease];
-    [result withClearBackground];
+- (void) updateContents {
+    [self clearWithoutPurge];
+    [self.screen removeFromSuperview];
     
-    [result addVFill1:[WeViews createUIImageView:horizontal ? @"iphone_horizontal" : @"iphone_vertical"]];
+    [self addVFill1:[WeViews createUIImageView:horizontal ? @"iphone_horizontal" : @"iphone_vertical"]];
     
     WePanel* screenWrapper = [WePanel create];
     //    result.screen = [WePanel create];
     screenWrapper.clipsToBounds = YES;
     CGSize screenSize = horizontal ? CGSizeMake(480, 320) : CGSizeMake(320, 480);
     [screenWrapper setFixedSize:screenSize];
-    [[[[result addHTight1:screenWrapper]
+    [[[[self addHTight1:screenWrapper]
        withTopMargin:horizontal ? 28 : 133
        rightMargin:0 
        bottomMargin:0
        leftMargin:horizontal ? 133 : 33]
       withHAlign:H_ALIGN_LEFT]
      withVAlign:V_ALIGN_TOP];
-    
-    result.screen = [[[MockIPhoneScreen alloc] init] autorelease];
-    [result.screen withClearBackground];
     
     [screenWrapper addFill1:[[WePanel create]
                              withOpaqueBackground:UIColorRGB(0x3f3f3f)]];
@@ -225,13 +223,24 @@
       withHAlign:H_ALIGN_LEFT
       vAlign:V_ALIGN_TOP]
      withMargin:16];
-    [screenWrapper addFill1:result.screen];
+    [screenWrapper addFill1:self.screen];
     
     //    result.screen.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.25];
-//    result.screen.backgroundColor = UIColorRGB(0xE6E6E6);
-//    result.screen.opaque = NO;
+    //    result.screen.backgroundColor = UIColorRGB(0xE6E6E6);
+    //    result.screen.opaque = NO;
     
-    [result sizeToFit];
+    [self sizeToFit];
+}
+
++ (MockIPhone*) create:(BOOL) horizontal {
+    MockIPhone* result = [[[MockIPhone alloc] init] autorelease];
+    [result withClearBackground];
+    result.horizontal = horizontal;
+    
+    result.screen = [[[MockIPhoneScreen alloc] init] autorelease];
+    [result.screen withClearBackground];
+    
+    [result updateContents];
     
     return result;
 }
@@ -246,6 +255,11 @@
 
 - (NSArray*) mockSubviews {
     return [NSArray arrayWithObject:screen];
+}
+
+- (void) toggleHorizontal {
+    self.horizontal = !horizontal;
+    [self updateContents];
 }
 
 @end
