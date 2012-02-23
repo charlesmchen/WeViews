@@ -1,0 +1,1442 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>FUIViews Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.0.5 (build 752)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">FUIViews </a></h1>
+				<a id="developerHome" href="../index.html">charlesmchen</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">FUIViews Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/animateViewFrame:from:to:">&nbsp;&nbsp;&nbsp;&nbsp;+ animateViewFrame:from:to:</option>
+	
+	<option value="//api/name/animateViewFrame:from:to:durationSeconds:">&nbsp;&nbsp;&nbsp;&nbsp;+ animateViewFrame:from:to:durationSeconds:</option>
+	
+	<option value="//api/name/animateViewFrame:to:">&nbsp;&nbsp;&nbsp;&nbsp;+ animateViewFrame:to:</option>
+	
+	<option value="//api/name/animateViewFrame:to:durationSeconds:">&nbsp;&nbsp;&nbsp;&nbsp;+ animateViewFrame:to:durationSeconds:</option>
+	
+	<option value="//api/name/clearSubviews:">&nbsp;&nbsp;&nbsp;&nbsp;+ clearSubviews:</option>
+	
+	<option value="//api/name/createImageButton:">&nbsp;&nbsp;&nbsp;&nbsp;+ createImageButton:</option>
+	
+	<option value="//api/name/createImageButton:downImageName:target:selector:">&nbsp;&nbsp;&nbsp;&nbsp;+ createImageButton:downImageName:target:selector:</option>
+	
+	<option value="//api/name/createImageButton:target:selector:">&nbsp;&nbsp;&nbsp;&nbsp;+ createImageButton:target:selector:</option>
+	
+	<option value="//api/name/createUIImageView:">&nbsp;&nbsp;&nbsp;&nbsp;+ createUIImageView:</option>
+	
+	<option value="//api/name/createUILabel:font:color:">&nbsp;&nbsp;&nbsp;&nbsp;+ createUILabel:font:color:</option>
+	
+	<option value="//api/name/createUILabel:fontName:fontSize:color:">&nbsp;&nbsp;&nbsp;&nbsp;+ createUILabel:fontName:fontSize:color:</option>
+	
+	<option value="//api/name/createUILabel:fontSize:color:">&nbsp;&nbsp;&nbsp;&nbsp;+ createUILabel:fontSize:color:</option>
+	
+	<option value="//api/name/dumpUIResponderChain:">&nbsp;&nbsp;&nbsp;&nbsp;+ dumpUIResponderChain:</option>
+	
+	<option value="//api/name/findUIFont:fontSize:">&nbsp;&nbsp;&nbsp;&nbsp;+ findUIFont:fontSize:</option>
+	
+	<option value="//api/name/loadImage:">&nbsp;&nbsp;&nbsp;&nbsp;+ loadImage:</option>
+	
+	<option value="//api/name/traverseResponderChainForLastUIViewController:">&nbsp;&nbsp;&nbsp;&nbsp;+ traverseResponderChainForLastUIViewController:</option>
+	
+	<option value="//api/name/traverseResponderChainForUIViewController:">&nbsp;&nbsp;&nbsp;&nbsp;+ traverseResponderChainForUIViewController:</option>
+	
+	
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/animateViewFrame:from:to:">animateViewFrame:from:to:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/animateViewFrame:from:to:durationSeconds:">animateViewFrame:from:to:durationSeconds:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/animateViewFrame:to:">animateViewFrame:to:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/animateViewFrame:to:durationSeconds:">animateViewFrame:to:durationSeconds:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/clearSubviews:">clearSubviews:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createImageButton:">createImageButton:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createImageButton:downImageName:target:selector:">createImageButton:downImageName:target:selector:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createImageButton:target:selector:">createImageButton:target:selector:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createUIImageView:">createUIImageView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createUILabel:font:color:">createUILabel:font:color:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createUILabel:fontName:fontSize:color:">createUILabel:fontName:fontSize:color:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createUILabel:fontSize:color:">createUILabel:fontSize:color:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dumpUIResponderChain:">dumpUIResponderChain:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/findUIFont:fontSize:">findUIFont:fontSize:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/loadImage:">loadImage:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/traverseResponderChainForLastUIViewController:">traverseResponderChainForLastUIViewController:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/traverseResponderChainForUIViewController:">traverseResponderChainForUIViewController:</a></span></li>
+	
+</ul></li>
+
+
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="FUIViews Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">FUIViews Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value"><a href="../Classes/FBaseObject.html">FBaseObject</a> : NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">FUIViews.h<br />FUIViews.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Utility class for working with <a href="../Classes/FUIView.html">FUIView</a>.</p><div class="warning"><p>Do not instantiate; it is not necessary.</p></div>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/loadImage:">+&nbsp;loadImage:</a></code>
+		<span class="tooltip"><p>Loads an image by name, file extension optional.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createImageButton:">+&nbsp;createImageButton:</a></code>
+		<span class="tooltip"><p>Factory method for an image-based UIButton.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createImageButton:target:selector:">+&nbsp;createImageButton:target:selector:</a></code>
+		<span class="tooltip"><p>Factory method for an image-based UIButton.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createImageButton:downImageName:target:selector:">+&nbsp;createImageButton:downImageName:target:selector:</a></code>
+		<span class="tooltip"><p>Factory method for an image-based UIButton.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createUILabel:font:color:">+&nbsp;createUILabel:font:color:</a></code>
+		<span class="tooltip"><p>Factory method for a UILabel.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createUILabel:fontName:fontSize:color:">+&nbsp;createUILabel:fontName:fontSize:color:</a></code>
+		<span class="tooltip"><p>Factory method for a UILabel.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createUILabel:fontSize:color:">+&nbsp;createUILabel:fontSize:color:</a></code>
+		<span class="tooltip"><p>Factory method for a UILabel.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createUIImageView:">+&nbsp;createUIImageView:</a></code>
+		<span class="tooltip"><p>Factory method for a UIImageView.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/animateViewFrame:to:durationSeconds:">+&nbsp;animateViewFrame:to:durationSeconds:</a></code>
+		<span class="tooltip"><p>Animates a UIView to a frame value.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/animateViewFrame:to:">+&nbsp;animateViewFrame:to:</a></code>
+		<span class="tooltip"><p>Animates a UIView to a frame value with a default duration.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/animateViewFrame:from:to:durationSeconds:">+&nbsp;animateViewFrame:from:to:durationSeconds:</a></code>
+		<span class="tooltip"><p>Animates a UIView from a frame value to a frame value.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/animateViewFrame:from:to:">+&nbsp;animateViewFrame:from:to:</a></code>
+		<span class="tooltip"><p>Animates a UIView from a frame value to a frame value with a default duration.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dumpUIResponderChain:">+&nbsp;dumpUIResponderChain:</a></code>
+		<span class="tooltip"><p>Prints to the console the responder chain for a given UIResponder (usually a UIView).</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/traverseResponderChainForUIViewController:">+&nbsp;traverseResponderChainForUIViewController:</a></code>
+		<span class="tooltip"><p>Given a UIResponder (usually a UIView), it returns the nearest UIViewController
+in the responder chain.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/traverseResponderChainForLastUIViewController:">+&nbsp;traverseResponderChainForLastUIViewController:</a></code>
+		<span class="tooltip"><p>Given a UIResponder (usually a UIView), it returns the farthest UIViewController
+in the responder chain.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/clearSubviews:">+&nbsp;clearSubviews:</a></code>
+		<span class="tooltip"><p>Removes all of the subviews from a UIView.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/findUIFont:fontSize:">+&nbsp;findUIFont:fontSize:</a></code>
+		<span class="tooltip"><p>Find a UIFont by &ldquo;name&rdquo;.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/animateViewFrame:from:to:" title="animateViewFrame:from:to:"></a>
+	<h3 class="subsubtitle method-title">animateViewFrame:from:to:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Animates a UIView from a frame value to a frame value with a default duration.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (void)animateViewFrame:(UIView *)<em>view</em> from:(CGRect)<em>from</em> to:(CGRect)<em>to</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>view</em></dt>
+			<dd><p>The UIView to animate.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>from</em></dt>
+			<dd><p>The source frame.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>to</em></dt>
+			<dd><p>The destination frame.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Animates a UIView from a frame value to a frame value with a default duration.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FUIViews.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/animateViewFrame:from:to:durationSeconds:" title="animateViewFrame:from:to:durationSeconds:"></a>
+	<h3 class="subsubtitle method-title">animateViewFrame:from:to:durationSeconds:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Animates a UIView from a frame value to a frame value.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (void)animateViewFrame:(UIView *)<em>view</em> from:(CGRect)<em>from</em> to:(CGRect)<em>to</em> durationSeconds:(CGFloat)<em>durationSeconds</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>view</em></dt>
+			<dd><p>The UIView to animate.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>from</em></dt>
+			<dd><p>The source frame.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>to</em></dt>
+			<dd><p>The destination frame.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>durationSeconds</em></dt>
+			<dd><p>The animation duration, in seconds.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Animates a UIView from a frame value to a frame value.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FUIViews.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/animateViewFrame:to:" title="animateViewFrame:to:"></a>
+	<h3 class="subsubtitle method-title">animateViewFrame:to:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Animates a UIView to a frame value with a default duration.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (void)animateViewFrame:(UIView *)<em>view</em> to:(CGRect)<em>to</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>view</em></dt>
+			<dd><p>The UIView to animate.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>to</em></dt>
+			<dd><p>The destination frame.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Animates a UIView to a frame value with a default duration.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FUIViews.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/animateViewFrame:to:durationSeconds:" title="animateViewFrame:to:durationSeconds:"></a>
+	<h3 class="subsubtitle method-title">animateViewFrame:to:durationSeconds:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Animates a UIView to a frame value.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (void)animateViewFrame:(UIView *)<em>view</em> to:(CGRect)<em>to</em> durationSeconds:(CGFloat)<em>durationSeconds</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>view</em></dt>
+			<dd><p>The UIView to animate.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>to</em></dt>
+			<dd><p>The destination frame.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>durationSeconds</em></dt>
+			<dd><p>The animation duration, in seconds.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Animates a UIView to a frame value.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FUIViews.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/clearSubviews:" title="clearSubviews:"></a>
+	<h3 class="subsubtitle method-title">clearSubviews:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Removes all of the subviews from a UIView.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (void)clearSubviews:(UIView *)<em>parent</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>parent</em></dt>
+			<dd><p>the UIView.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Removes all of the subviews from a UIView.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FUIViews.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/createImageButton:" title="createImageButton:"></a>
+	<h3 class="subsubtitle method-title">createImageButton:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Factory method for an image-based UIButton.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (FButton *)createImageButton:(NSString *)<em>upImageName</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>upImageName</em></dt>
+			<dd><p>The default image name.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A <a href="../Classes/FButton.html">FButton</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Factory method for an image-based UIButton.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FUIViews.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/createImageButton:downImageName:target:selector:" title="createImageButton:downImageName:target:selector:"></a>
+	<h3 class="subsubtitle method-title">createImageButton:downImageName:target:selector:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Factory method for an image-based UIButton.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (FButton *)createImageButton:(NSString *)<em>upImageName</em> downImageName:(NSString *)<em>downImageName</em> target:(id)<em>target</em> selector:(SEL)<em>selector</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>upImageName</em></dt>
+			<dd><p>The default image name.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>downImageName</em></dt>
+			<dd><p>The down state image name.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>target</em></dt>
+			<dd><p>The click target.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>selector</em></dt>
+			<dd><p>The click selector.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A <a href="../Classes/FButton.html">FButton</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Factory method for an image-based UIButton.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FUIViews.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/createImageButton:target:selector:" title="createImageButton:target:selector:"></a>
+	<h3 class="subsubtitle method-title">createImageButton:target:selector:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Factory method for an image-based UIButton.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (FButton *)createImageButton:(NSString *)<em>upImageName</em> target:(id)<em>target</em> selector:(SEL)<em>selector</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>upImageName</em></dt>
+			<dd><p>The default image name.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>target</em></dt>
+			<dd><p>The click target.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>selector</em></dt>
+			<dd><p>The click selector.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A <a href="../Classes/FButton.html">FButton</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Factory method for an image-based UIButton.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FUIViews.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/createUIImageView:" title="createUIImageView:"></a>
+	<h3 class="subsubtitle method-title">createUIImageView:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Factory method for a UIImageView.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (FImageView *)createUIImageView:(NSString *)<em>imageName</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>imageName</em></dt>
+			<dd><p>The image name.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A <a href="../Classes/FImageView.html">FImageView</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Factory method for a UIImageView.</p>
+
+<p>see <a href="../Classes/FImageView.html">FImageView</a>, <a href="../Classes/FCustomImageView.html">FCustomImageView</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FUIViews.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/createUILabel:font:color:" title="createUILabel:font:color:"></a>
+	<h3 class="subsubtitle method-title">createUILabel:font:color:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Factory method for a UILabel.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (FLabel *)createUILabel:(NSString *)<em>text</em> font:(UIFont *)<em>font</em> color:(UIColor *)<em>color</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>text</em></dt>
+			<dd><p>The text.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>font</em></dt>
+			<dd><p>The font.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>color</em></dt>
+			<dd><p>The text color.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A <a href="../Classes/FLabel.html">FLabel</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Factory method for a UILabel.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FUIViews.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/createUILabel:fontName:fontSize:color:" title="createUILabel:fontName:fontSize:color:"></a>
+	<h3 class="subsubtitle method-title">createUILabel:fontName:fontSize:color:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Factory method for a UILabel.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (FLabel *)createUILabel:(NSString *)<em>text</em> fontName:(NSString *)<em>fontName</em> fontSize:(CGFloat)<em>fontSize</em> color:(UIColor *)<em>color</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>text</em></dt>
+			<dd><p>The text.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fontName</em></dt>
+			<dd><p>The font name.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fontSize</em></dt>
+			<dd><p>The point size.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>color</em></dt>
+			<dd><p>The text color.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A <a href="../Classes/FLabel.html">FLabel</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Factory method for a UILabel.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FUIViews.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/createUILabel:fontSize:color:" title="createUILabel:fontSize:color:"></a>
+	<h3 class="subsubtitle method-title">createUILabel:fontSize:color:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Factory method for a UILabel.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (FLabel *)createUILabel:(NSString *)<em>text</em> fontSize:(CGFloat)<em>fontSize</em> color:(UIColor *)<em>color</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>text</em></dt>
+			<dd><p>The text.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fontSize</em></dt>
+			<dd><p>The point size.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>color</em></dt>
+			<dd><p>The text color.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A <a href="../Classes/FLabel.html">FLabel</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Factory method for a UILabel.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FUIViews.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dumpUIResponderChain:" title="dumpUIResponderChain:"></a>
+	<h3 class="subsubtitle method-title">dumpUIResponderChain:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Prints to the console the responder chain for a given UIResponder (usually a UIView).</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (void)dumpUIResponderChain:(UIResponder *)<em>responder</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>responder</em></dt>
+			<dd><p>the UIResponder.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Prints to the console the responder chain for a given UIResponder (usually a UIView).</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FUIViews.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/findUIFont:fontSize:" title="findUIFont:fontSize:"></a>
+	<h3 class="subsubtitle method-title">findUIFont:fontSize:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Find a UIFont by &ldquo;name&rdquo;.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (UIFont *)findUIFont:(NSString *)<em>fontName</em> fontSize:(CGFloat)<em>fontSize</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fontName</em></dt>
+			<dd><p>The &ldquo;name&rdquo; of the font.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fontSize</em></dt>
+			<dd><p>The point size.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The UIFont or nil if it cannot be found.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Find a UIFont by &ldquo;name&rdquo;.</p>
+
+<p>Fonts have many names: the &ldquo;display&rdquo; name, the &ldquo;postscript&rdquo; name, the file name, etc.
+Also, different versions of iOS handling font names slightly differently.
+This method papers over these subtleties.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FUIViews.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/loadImage:" title="loadImage:"></a>
+	<h3 class="subsubtitle method-title">loadImage:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Loads an image by name, file extension optional.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (UIImage *)loadImage:(NSString *)<em>imageName</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>imageName</em></dt>
+			<dd><p>The image name.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A UIImage.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Loads an image by name, file extension optional.</p><div class="warning"><p>Assumes that file extensions are lowercase.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FUIViews.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/traverseResponderChainForLastUIViewController:" title="traverseResponderChainForLastUIViewController:"></a>
+	<h3 class="subsubtitle method-title">traverseResponderChainForLastUIViewController:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Given a UIResponder (usually a UIView), it returns the farthest UIViewController
+in the responder chain.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (UIViewController *)traverseResponderChainForLastUIViewController:(UIResponder *)<em>responder</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>responder</em></dt>
+			<dd><p>the UIResponder.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The farthest UIViewController in the responder chain.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Given a UIResponder (usually a UIView), it returns the farthest UIViewController
+in the responder chain.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FUIViews.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/traverseResponderChainForUIViewController:" title="traverseResponderChainForUIViewController:"></a>
+	<h3 class="subsubtitle method-title">traverseResponderChainForUIViewController:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Given a UIResponder (usually a UIView), it returns the nearest UIViewController
+in the responder chain.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>+ (UIViewController *)traverseResponderChainForUIViewController:(UIResponder *)<em>responder</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>responder</em></dt>
+			<dd><p>the UIResponder.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The nearest UIViewController in the responder chain.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Given a UIResponder (usually a UIView), it returns the nearest UIViewController
+in the responder chain.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">FUIViews.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2012 charlesmchen. All rights reserved. (Last updated: 2012-02-17)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 752)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+		</script>
+	</body>
+</html>
