@@ -251,4 +251,32 @@ typedef enum {
  */
 - (void) layoutContents;
 
+/**
+ * If the scroll view's size is changed, its contents are re-layed out.
+ *
+ * @param value The UIView's new bounds.
+ */
+- (void) setBounds :(CGRect) value;
+
+/**
+ * Changes the scroll view's bounds without layout of its contents.
+ *
+ * @param value The UIView's new bounds.
+ */
+- (void) setBoundsWithoutLayout:(CGRect) value;
+
+/**
+ * If the scroll view's size is changed, its contents are re-layed out.
+ *
+ * @param value The UIView's new frame.
+ */
+- (void) setFrame :(CGRect) value;
+
+/**
+ * Changes the scroll view's frame without layout of its contents.
+ *
+ * @param value The UIView's new frame.
+ */
+- (void) setFrameWithoutLayout:(CGRect) value;
+
 @end

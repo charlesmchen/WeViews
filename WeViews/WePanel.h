@@ -381,6 +381,39 @@
 - (WePanel*) disableInteraction;
 
 /**
+ * If the panel's size is changed, its contents are re-layed out.
+ *
+ * @param value The UIView's new bounds.
+ */
+- (void) setBounds :(CGRect) value;
+
+/**
+ * Changes the panel's bounds without layout of its contents.
+ *
+ * @param value The UIView's new bounds.
+ */
+- (void) setBoundsWithoutLayout:(CGRect) value;
+
+/**
+ * If the panel's size is changed, its contents are re-layed out.
+ *
+ * @param value The UIView's new frame.
+ */
+- (void) setFrame :(CGRect) value;
+
+/**
+ * Changes the panel's frame without layout of its contents.
+ *
+ * @param value The UIView's new frame.
+ */
+- (void) setFrameWithoutLayout:(CGRect) value;
+
+
+#pragma mark -
+#pragma mark Methods to add subviews in a new layer.
+
+
+/**
  * Adds the UIView in a loose fill layer.
  *
  * @param value the UIView.
@@ -617,6 +650,11 @@
  * @return The WePanelLayer.
  */
 - (WePanelLayer*) addVFill:(NSArray*) items;
+
+
+#pragma mark -
+#pragma mark Configuration methods
+
 
 /**
  * Sets the horizontal and vertical margin of all layers in this panel.

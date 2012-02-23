@@ -290,8 +290,8 @@
 - (void) animateRelayout:(UIView*) view {
 //- (void) animateRelayout:(WePanelLayer*) layer {
 //    NSArray* views = layer.views;
-//    NSArray* views = [windowModel getAllCanvasViews];
-    NSArray* views = [view subviews];
+    NSArray* views = [windowModel getAllCanvasViews];
+//    NSArray* views = [view subviews];
     int count = [views count];
     CGRect srcFrames[count];
     CGRect dstFrames[count];
@@ -308,12 +308,21 @@
         dstFrames[i] = view.frame;
         
         // Restore old frame.
-        if ([views isKindOfClass:[WePanel class]]) {
-            setUIViewOrigin(view, srcFrames[i].origin);
+        CGRect restoreFrame = view.frame;
+        restoreFrame.origin = srcFrames[i].origin;
+        if ([views respondsToSelector:@selector(setFrameWithoutLayout:)]) {
+            WePanel* frame = (WePanel*) view;
+            [frame setFrameWithoutLayout:restoreFrame];
         } else {
-            view.frame = srcFrames[i];
+            view.frame = restoreFrame;
         }
-        [view setNeedsDisplay];
+        
+//        if ([views isKindOfClass:[WePanel class]]) {
+//            setUIViewOrigin(view, srcFrames[i].origin);
+//        } else {
+//            view.frame = srcFrames[i];
+//        }
+//        [view setNeedsDisplay];
     }
     
 #define LAYER_ANIMATION_DURATION_SECONDS 0.35f

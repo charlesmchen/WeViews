@@ -236,11 +236,13 @@
     return image.size;
 }
 
+// TODO: is this necessary?
 - (void) setBounds :(CGRect) value {
     [super setBounds:value];
     [self setNeedsDisplay];
 }
 
+// TODO: is this necessary?
 - (void) setFrame :(CGRect) value {
     [super setFrame:value];
     [self setNeedsDisplay];

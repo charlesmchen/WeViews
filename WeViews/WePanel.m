@@ -297,12 +297,20 @@
     }
 }
 
+- (void) setBoundsWithoutLayout:(CGRect) value {
+    [super setBounds:value];
+}
+
 - (void) setFrame :(CGRect) value {
     BOOL changed = !CGSizeEqualToSize(self.frame.size, value.size);
     [super setFrame:value];
     if (changed) {
         [self layoutContents];
     }
+}
+
+- (void) setFrameWithoutLayout:(CGRect) value {
+    [super setFrame:value];
 }
 
 - (WePanelLayer*) addFillLoose1 :(UIView*) value {

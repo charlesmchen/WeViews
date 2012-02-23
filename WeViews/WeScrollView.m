@@ -309,13 +309,27 @@
 }
 
 - (void) setBounds :(CGRect) value {
+    BOOL changed = !CGSizeEqualToSize(self.bounds.size, value.size);
     [super setBounds:value];
-    [self layoutContents];
+    if (changed) {
+        [self layoutContents];
+    }
+}
+
+- (void) setBoundsWithoutLayout:(CGRect) value {
+    [super setBounds:value];
 }
 
 - (void) setFrame :(CGRect) value {
+    BOOL changed = !CGSizeEqualToSize(self.frame.size, value.size);
     [super setFrame:value];
-    [self layoutContents];
+    if (changed) {
+        [self layoutContents];
+    }
+}
+
+- (void) setFrameWithoutLayout:(CGRect) value {
+    [super setFrame:value];
 }
 
 @end
