@@ -268,7 +268,7 @@
     label.userInteractionEnabled = NO;
     
 #define INDENT_PIXELS 10
-    [[[[self addHTight:[NSArray arrayWithObjects:
+    [[[[self addHorizontal:[NSArray arrayWithObjects:
                         expandButton,
                         label,
                         nil]]
@@ -364,7 +364,7 @@
     self.table = [[[UITableView alloc] init] autorelease];
     table.backgroundColor = [UIColor blackColor];
     table.opaque = YES;
-    [[self addVFill1:table]
+    [[self addVerticalFill1:table]
      withVAlign:V_ALIGN_TOP];
     
     table.delegate = self;

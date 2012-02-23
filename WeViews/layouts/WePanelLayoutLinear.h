@@ -176,7 +176,7 @@
 
 
 /**
- * Layout that implements the "horizontal tight", "horizontal fill", "vertical tight" 
+ * Layout that implements the "horizontal", "horizontal fill", "vertical" 
  * and "vertical fill" layout strategies.
  */
 @interface WePanelLayoutLinear : WePanelLayout

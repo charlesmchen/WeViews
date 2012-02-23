@@ -35,8 +35,8 @@ WeViews can be used interchangeably with other UIKit UIViews (ie. subclasses of 
 * Subviews added to WePanel using its add... methods will be automatically layed out whenever the WePanel is moved, resized or when [WePanel layoutContents] is invoked.
 * A UIView added using [WePanel addAsFill1:] will automatically be resized to fill the WePanel's frame.   
 * A UIView added using [WePanel addAsCenter1:] will automatically be centered on the WePanel's frame at its natural size (see [UIView sizeThatFits:].
-* A group of UIViews added using [WePanel addHTight:] will be layed out horizontally at their natural size.  [WePanel addVTight:] is vertical.
-* A group of UIViews added using [WePanel addHFill:] will be layed out horizontally so that they fill their parent's frame.  [WePanel addVFill:] is vertical.
+* A group of UIViews added using [WePanel addHorizontal:] will be layed out horizontally at their natural size.  [WePanel addVertical:] is vertical.
+* A group of UIViews added using [WePanel addHorizontalFill:] will be layed out horizontally so that they fill their parent's frame.  [WePanel addVerticalFill:] is vertical.
 * There are also methods for adding UIViews in grids.
 
 Layers

@@ -1,6 +1,6 @@
 // 
 // WeViews
-// WePanelLayoutTightGrid.m
+// WePanelLayoutNaturalGrid.h
 // 
 // https://github.com/charlesmchen/WeViews
 // 
@@ -172,113 +172,52 @@
 // END OF TERMS AND CONDITIONS
 
 
-#import "WePanelLayoutTightGrid.h"
-#import "WePanelLayer.h"
-#import "WePanelLayoutMacros.h"
-#import "WeMacros.h"
+#import "WePanelLayoutGridBase.h"
 
 
-@implementation WePanelLayoutTightGrid
+/**
+ * The "natural grid" layout strategy.
+ *
+ * If uniformGrid is true, all columns have width of widest column and all rows 
+ * have height of tallest row.
+ *
+ * Has either columnCount or rowCount.  The other is calculated
+ * based on the number of items.
+ *
+ * Any extra space from rounding errors is distributed evenly among the margins.
+ *
+ * "Natural" size of the contents is based on the views in
+ * the layer.
+ * 
+ * See WePanelLayoutFillGrid, WePanelLayoutSpacingGrid.
+ *
+ * @warning Doesn't perform well at scale.
+ */
+@interface WePanelLayoutNaturalGrid : WePanelLayoutGridBase
 
-+ (WePanelLayoutTightGrid*) createWithColumnCount:(int) columnCount
-                                    uniformGrid:(BOOL) uniformGrid {
-    WePanelLayoutTightGrid* result = [[[WePanelLayoutTightGrid alloc] init] autorelease];
-    result.columnCount = columnCount;
-    result.uniformGrid = uniformGrid;
-    return result;
-}
+/**
+ * Factory method.
+ *
+ * All instances should be created with this method.
+ *
+ * @param columnCount The column count.
+ * @param uniformGrid The uniform grid value.
+ * @return A WePanelLayoutNaturalGrid.
+ */
++ (WePanelLayoutNaturalGrid*) createWithColumnCount:(int) columnCount
+                                        uniformGrid:(BOOL) uniformGrid;
 
-+ (WePanelLayoutTightGrid*) createWithRowCount:(int) rowCount
-                                 uniformGrid:(BOOL) uniformGrid {
-    WePanelLayoutTightGrid* result = [[[WePanelLayoutTightGrid alloc] init] autorelease];
-    result.rowCount = rowCount;
-    result.uniformGrid = uniformGrid;
-    return result;
-}
-
-- (LayoutMode) mode {
-    return LAYOUT_MODE_TIGHT_GRID;
-}
-
-- (void) layoutContents:(CGSize) size
-                  layer:(WePanelLayer*) layer {
-    
-    LayerGridInfo gridInfo = [self getLayerGridInfo:layer];
-//    int rowCount = gridInfo.rowCount;
-    int columnCount = gridInfo.columnCount;
-    
-    int extraWidth = max(0,
-                         size.width - gridInfo.totalSize.width);
-    int extraHeight = max(0,
-                          size.height - gridInfo.totalSize.height);
-    
-    if (layer.debugLayout) {
-        NSLog(@"extraWidth: %d",
-              extraWidth);
-        NSLog(@"extraHeight: %d",
-              extraHeight);
-    }
-    
-    if (gridInfo.columnCount < 1 || gridInfo.rowCount < 1) {
-        return;
-    }
-    
-    // Unlike the similarly-named properties of gridInfo, these 
-    // are the final, balanced values.
-    int columnLefts[gridInfo.columnCount];
-    int rowTops[gridInfo.rowCount];
-    int columnWidths[gridInfo.columnCount];
-    int rowHeights[gridInfo.rowCount];
-    
-    int left;
-    switch (layer.hAlign) {
-        case H_ALIGN_LEFT:
-            left = layer.leftMargin;
-            break;
-        case H_ALIGN_CENTER: 
-            left = (layer.leftMargin + size.width - (gridInfo.totalSize.width - layer.leftMargin)) / 2;
-            break;
-        case H_ALIGN_RIGHT:
-            left = size.width - (gridInfo.totalSize.width - layer.leftMargin);
-            break;
-        default:
-            __FAIL(@"Unknown layer.hAlign: %d", layer.hAlign);
-    }
-    for (int i=0; i < gridInfo.columnCount; i++) {
-        columnLefts[i] = left;
-        columnWidths[i] = gridInfo.columnWidths[i];
-        left += layer.spacing + columnWidths[i];
-    }
-    
-    int top;
-    switch (layer.vAlign) {
-        case V_ALIGN_TOP:
-            top = layer.topMargin;
-            break;
-        case V_ALIGN_CENTER:
-            top = (layer.topMargin + size.height - (gridInfo.totalSize.height - layer.topMargin)) / 2;
-            break;
-        case V_ALIGN_BOTTOM:
-            top = size.height - (gridInfo.totalSize.height - layer.topMargin);
-            break;
-        default:
-            __FAIL(@"Unknown layer.vAlign: %d", layer.vAlign);
-    }
-    for (int i=0; i < gridInfo.rowCount; i++) {
-        rowTops[i] = top;
-        rowHeights[i] = gridInfo.rowHeights[i];
-        top += layer.spacing + rowHeights[i];
-    }
-        
-    [self applyGridLayout:layer    
-              columnCount:columnCount
-              columnLefts:&columnLefts[0]
-                  rowTops:&rowTops[0]
-             columnWidths:&columnWidths[0]
-               rowHeights:&rowHeights[0]];
-    
-    deallocPtr(gridInfo.columnWidths);
-    deallocPtr(gridInfo.rowHeights);
-}
+/**
+ * Factory method.
+ *
+ * All instances should be created with this method.
+ *
+ * @param rowCount The row count.
+ * @param uniformGrid The uniform grid value.
+ * @return A WePanelLayoutNaturalGrid.
+ */
++ (WePanelLayoutNaturalGrid*) createWithRowCount:(int) rowCount 
+                                     uniformGrid:(BOOL) uniformGrid;
 
 @end
+

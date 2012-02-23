@@ -179,8 +179,8 @@
 #import "WeSpacer.h"
 #import "WePanelLayoutSimple.h"
 #import "WePanelLayoutLinear.h"
-#import "WePanelLayoutTightGrid.h"
-#import "WePanelLayoutLooseGrid.h"
+#import "WePanelLayoutNaturalGrid.h"
+#import "WePanelLayoutSpacingGrid.h"
 #import "WePanelLayoutFillGrid.h"
 #import "WePanelLayoutEvenFillGrid.h"
 #import "WePanelLayoutTextWrap.h"
@@ -204,28 +204,28 @@
 
 + (WePanelLayout*) layoutForMode:(LayoutMode) value {
     switch (value) {
-        case LAYOUT_MODE_FILL_LOOSE:
-        case LAYOUT_MODE_FILL_TIGHT:
+        case LAYOUT_MODE_FILL:
+        case LAYOUT_MODE_FILL_NATURAL:
         case LAYOUT_MODE_CENTER:
             return [WePanelLayoutSimple create:value];
-        case LAYOUT_MODE_V_FILL:
-        case LAYOUT_MODE_H_FILL:
-        case LAYOUT_MODE_V_TIGHT:
-        case LAYOUT_MODE_H_TIGHT:
+        case LAYOUT_MODE_VERTICAL_FILL:
+        case LAYOUT_MODE_HORIZONTAL_FILL:
+        case LAYOUT_MODE_VERTICAL:
+        case LAYOUT_MODE_HORIZONTAL:
             return [WePanelLayoutLinear create:value];
         case LAYOUT_MODE_TEXT_WRAP:
             return [WePanelLayoutTextWrap create];
         case LAYOUT_MODE_EVEN_FILL_GRID:
             return [WePanelLayoutEvenFillGrid createWithColumnCount:1
                                                       cellSizeHint:CGSizeZero];
-        case LAYOUT_MODE_TIGHT_GRID:
-            return [WePanelLayoutTightGrid createWithColumnCount:1
+        case LAYOUT_MODE_NATURAL_GRID:
+            return [WePanelLayoutNaturalGrid createWithColumnCount:1
                                                     uniformGrid:NO];
         case LAYOUT_MODE_FILL_GRID:
             return [WePanelLayoutFillGrid createWithColumnCount:1
                                                     uniformGrid:NO];
-        case LAYOUT_MODE_LOOSE_GRID:
-            return [WePanelLayoutLooseGrid createWithColumnCount:1
+        case LAYOUT_MODE_SPACING_GRID:
+            return [WePanelLayoutSpacingGrid createWithColumnCount:1
                                                     uniformGrid:NO];
         case LAYOUT_MODE_MANUAL:
             return [WePanelLayoutManual create];
@@ -261,26 +261,26 @@
 
 + (NSString*) layoutModeName:(LayoutMode) value {
     switch (value) {
-        case LAYOUT_MODE_FILL_LOOSE:
-            return @"Loose";
-        case LAYOUT_MODE_FILL_TIGHT:
-            return @"Tight";
+        case LAYOUT_MODE_FILL:
+            return @"Fill";
+        case LAYOUT_MODE_FILL_NATURAL:
+            return @"Natural Fill";
         case LAYOUT_MODE_CENTER:
             return @"Center";
-        case LAYOUT_MODE_V_FILL:
+        case LAYOUT_MODE_VERTICAL_FILL:
             return @"Vertical Fill";
-        case LAYOUT_MODE_H_FILL:
+        case LAYOUT_MODE_HORIZONTAL_FILL:
             return @"Horizontal Fill";
-        case LAYOUT_MODE_V_TIGHT:
-            return @"Vertical Tight";
-        case LAYOUT_MODE_H_TIGHT:
-            return @"Horizontal Tight";
-        case LAYOUT_MODE_TIGHT_GRID:
-            return @"Tight Grid";
+        case LAYOUT_MODE_VERTICAL:
+            return @"Vertical";
+        case LAYOUT_MODE_HORIZONTAL:
+            return @"Horizontal";
+        case LAYOUT_MODE_NATURAL_GRID:
+            return @"Natural Grid";
         case LAYOUT_MODE_FILL_GRID:
             return @"Fill Grid";
-        case LAYOUT_MODE_LOOSE_GRID:
-            return @"Loose Grid";
+        case LAYOUT_MODE_SPACING_GRID:
+            return @"Spacing Grid";
         case LAYOUT_MODE_EVEN_FILL_GRID:
             return @"Even Fill Grid";
         case LAYOUT_MODE_TEXT_WRAP:

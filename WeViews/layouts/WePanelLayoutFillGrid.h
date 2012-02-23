@@ -189,7 +189,7 @@
  * "Natural" size of the contents is based on the views in
  * the layer.
  * 
- * See WePanelLayoutTightGrid, WePanelLayoutLooseGrid.
+ * See WePanelLayoutNaturalGrid, WePanelLayoutSpacingGrid.
  *
  * @warning Doesn't perform well at scale.
  */

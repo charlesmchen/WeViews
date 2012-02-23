@@ -174,8 +174,8 @@
 
 #import "WePanel.h"
 #import "WeMacros.h"
-#import "WePanelLayoutTightGrid.h"
-#import "WePanelLayoutLooseGrid.h"
+#import "WePanelLayoutNaturalGrid.h"
+#import "WePanelLayoutSpacingGrid.h"
 #import "WePanelLayoutFillGrid.h"
 #import "WePanelLayoutEvenFillGrid.h"
 
@@ -313,28 +313,24 @@
     [super setFrame:value];
 }
 
-- (WePanelLayer*) addFillLoose1 :(UIView*) value {
-    return [self addLayer:[WePanelLayer create:[NSArray arrayWithObject:value]
-                                       layout:[WePanelLayout layoutForMode:LAYOUT_MODE_FILL_LOOSE]]];
-}
-
-- (WePanelLayer*) addFillLoose:(NSArray*) items {
-    return [self addLayer:[WePanelLayer create:items
-                                       layout:[WePanelLayout layoutForMode:LAYOUT_MODE_FILL_LOOSE]]];
-}
-
-- (WePanelLayer*) addFillTight1 :(UIView*) value {
-    return [self addLayer:[WePanelLayer create:[NSArray arrayWithObject:value]
-                                       layout:[WePanelLayout layoutForMode:LAYOUT_MODE_FILL_TIGHT]]];
-}
-
-- (WePanelLayer*) addFillTight:(NSArray*) items {
-    return [self addLayer:[WePanelLayer create:items
-                                       layout:[WePanelLayout layoutForMode:LAYOUT_MODE_FILL_TIGHT]]];
-}
-
 - (WePanelLayer*) addFill1 :(UIView*) value {
-    return [self addFillLoose1:value];
+    return [self addLayer:[WePanelLayer create:[NSArray arrayWithObject:value]
+                                       layout:[WePanelLayout layoutForMode:LAYOUT_MODE_FILL]]];
+}
+
+- (WePanelLayer*) addFill:(NSArray*) items {
+    return [self addLayer:[WePanelLayer create:items
+                                       layout:[WePanelLayout layoutForMode:LAYOUT_MODE_FILL]]];
+}
+
+- (WePanelLayer*) addFillNatural1 :(UIView*) value {
+    return [self addLayer:[WePanelLayer create:[NSArray arrayWithObject:value]
+                                       layout:[WePanelLayout layoutForMode:LAYOUT_MODE_FILL_NATURAL]]];
+}
+
+- (WePanelLayer*) addFillNatural:(NSArray*) items {
+    return [self addLayer:[WePanelLayer create:items
+                                       layout:[WePanelLayout layoutForMode:LAYOUT_MODE_FILL_NATURAL]]];
 }
 
 - (WePanelLayer*) addCenter1 :(UIView*) value {
@@ -347,35 +343,35 @@
                                        layout:[WePanelLayout layoutForMode:LAYOUT_MODE_CENTER]]];
 }
 
-- (WePanelLayer*) addLooseGrid:(NSArray*) items
+- (WePanelLayer*) addSpacingGrid:(NSArray*) items
                   columnCount:(int) columnCount
                   uniformGrid:(BOOL) uniformGrid {
     return [self addLayer:[WePanelLayer create:items
-                                       layout:[WePanelLayoutLooseGrid createWithColumnCount:columnCount
+                                       layout:[WePanelLayoutSpacingGrid createWithColumnCount:columnCount
                                                                                uniformGrid:uniformGrid]]];
 }
 
-- (WePanelLayer*) addLooseGrid:(NSArray*) items
+- (WePanelLayer*) addSpacingGrid:(NSArray*) items
                      rowCount:(int) rowCount
                   uniformGrid:(BOOL) uniformGrid {
     return [self addLayer:[WePanelLayer create:items
-                                       layout:[WePanelLayoutLooseGrid createWithRowCount:rowCount
+                                       layout:[WePanelLayoutSpacingGrid createWithRowCount:rowCount
                                                                             uniformGrid:uniformGrid]]];
 }
 
-- (WePanelLayer*) addTightGrid:(NSArray*) items
+- (WePanelLayer*) addNaturalGrid:(NSArray*) items
                   columnCount:(int) columnCount
                   uniformGrid:(BOOL) uniformGrid {
     return [self addLayer:[WePanelLayer create:items
-                                       layout:[WePanelLayoutTightGrid createWithColumnCount:columnCount
+                                       layout:[WePanelLayoutNaturalGrid createWithColumnCount:columnCount
                                                                                uniformGrid:uniformGrid]]];
 }
 
-- (WePanelLayer*) addTightGrid:(NSArray*) items
+- (WePanelLayer*) addNaturalGrid:(NSArray*) items
                      rowCount:(int) rowCount
                   uniformGrid:(BOOL) uniformGrid {
     return [self addLayer:[WePanelLayer create:items
-                                       layout:[WePanelLayoutTightGrid createWithRowCount:rowCount
+                                       layout:[WePanelLayoutNaturalGrid createWithRowCount:rowCount
                                                                             uniformGrid:uniformGrid]]];
 }
 
@@ -490,10 +486,10 @@ vMargin:vMargin \
 spacing:spacing]; \
 }
 
-ADD_METHOD_TEMPLATE(addVFill, addVFill1, LAYOUT_MODE_V_FILL)
-ADD_METHOD_TEMPLATE(addHFill, addHFill1, LAYOUT_MODE_H_FILL)
-ADD_METHOD_TEMPLATE(addVTight, addVTight1, LAYOUT_MODE_V_TIGHT)
-ADD_METHOD_TEMPLATE(addHTight, addHTight1, LAYOUT_MODE_H_TIGHT)
+ADD_METHOD_TEMPLATE(addVerticalFill, addVerticalFill1, LAYOUT_MODE_VERTICAL_FILL)
+ADD_METHOD_TEMPLATE(addHorizontalFill, addHorizontalFill1, LAYOUT_MODE_HORIZONTAL_FILL)
+ADD_METHOD_TEMPLATE(addVertical, addVertical1, LAYOUT_MODE_VERTICAL)
+ADD_METHOD_TEMPLATE(addHorizontal, addHorizontal1, LAYOUT_MODE_HORIZONTAL)
 
 - (void) clearWithPurge {
     [layers removeAllObjects];
@@ -523,35 +519,27 @@ ADD_METHOD_TEMPLATE(addHTight, addHTight1, LAYOUT_MODE_H_TIGHT)
     return result;
 }
 
-+ (WePanel*) createFillLoose1 :(UIView*) view {
-    WePanel* result = [WePanel create];
-    [result addFillLoose1:view];
-    return result;
-}
-
-+ (WePanel*) createFillTight1 :(UIView*) view {
-    WePanel* result = [WePanel create];
-    [result addFillTight1:view];
-    return result;
-}
-
 + (WePanel*) createFill1 :(UIView*) view {
-    return [self createFillLoose1:view];
-}
-
-+ (WePanel*) createTight1 :(UIView*) view {
-    return [self createHTight1:view];
-}
-
-+ (WePanel*) createHTight1 :(UIView*) view {
     WePanel* result = [WePanel create];
-    [result addHTight1:view];
+    [result addFill1:view];
     return result;
 }
 
-+ (WePanel*) createVTight1 :(UIView*) view {
++ (WePanel*) createFillNatural1 :(UIView*) view {
     WePanel* result = [WePanel create];
-    [result addVTight1:view];
+    [result addFillNatural1:view];
+    return result;
+}
+
++ (WePanel*) createHorizontal1 :(UIView*) view {
+    WePanel* result = [WePanel create];
+    [result addHorizontal1:view];
+    return result;
+}
+
++ (WePanel*) createVertical1 :(UIView*) view {
+    WePanel* result = [WePanel create];
+    [result addVertical1:view];
     return result;
 }
 
@@ -622,27 +610,27 @@ ADD_METHOD_TEMPLATE(addHTight, addHTight1, LAYOUT_MODE_H_TIGHT)
     return self;
 }
 
-+ (WePanel*) createHFill :(NSArray*) values {
++ (WePanel*) createHorizontalFill :(NSArray*) values {
     WePanel* result = [WePanel create];
-    [result addHFill:values];
+    [result addHorizontalFill:values];
     return result;
 }
 
-+ (WePanel*) createVFill :(NSArray*) values {
++ (WePanel*) createVerticalFill :(NSArray*) values {
     WePanel* result = [WePanel create];
-    [result addVFill:values];
+    [result addVerticalFill:values];
     return result;
 }
 
-+ (WePanel*) createHTight :(NSArray*) values {
++ (WePanel*) createHorizontal :(NSArray*) values {
     WePanel* result = [WePanel create];
-    [result addHTight:values];
+    [result addHorizontal:values];
     return result;
 }
 
-+ (WePanel*) createVTight :(NSArray*) values {
++ (WePanel*) createVertical :(NSArray*) values {
     WePanel* result = [WePanel create];
-    [result addVTight:values];
+    [result addVertical:values];
     return result;
 }
 

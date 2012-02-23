@@ -180,7 +180,7 @@
 #import "WeViewsDemoUtils.h"
 #import "WeCustomImageView.h"
 #import "MockIPhone.h"
-#import "WePanelLayoutTightGrid.h"
+#import "WePanelLayoutNaturalGrid.h"
 #import "WePanelLayoutGridBase.h"
 #import "MockCodeGenerator.h"
 #import "MockCodePopup.h"
@@ -251,7 +251,7 @@
     WePanel* row = [WePanel create];
     row.backgroundColor = [UIColor clearColor];
     row.opaque = NO;
-    [[[row addHTight:[NSArray arrayWithObjects:
+    [[[row addHorizontal:[NSArray arrayWithObjects:
                       [WeViews createUILabel:[NSString stringWithFormat:@"%@:", key]
                                          font:[UIFont boldSystemFontOfSize:14]
                                         color:[UIColor colorWithWhite:0.75f alpha:1.0f]],
@@ -477,7 +477,7 @@
 
 - (void) setFlexGridLayerUniformGrid:(NSNumber*) value {
     WePanelLayer* layer = (WePanelLayer*) windowModel.selection;
-    WePanelLayoutTightGrid* layout = (WePanelLayoutTightGrid*) layer.layout;
+    WePanelLayoutNaturalGrid* layout = (WePanelLayoutNaturalGrid*) layer.layout;
     layout.uniformGrid = [value boolValue];
     [self animateRelayout:layer.panel];
     [self updateContents];
@@ -614,14 +614,14 @@
     
     WePanel* labelPanel = [[WePanel create]
                           withClearBackground];
-    [[labelPanel addHTight1:[WeViews createUILabel:[NSString stringWithFormat:@"%@:", title]
+    [[labelPanel addHorizontal1:[WeViews createUILabel:[NSString stringWithFormat:@"%@:", title]
                                                font:[UIFont boldSystemFontOfSize:14]
                                               color:[UIColor colorWithWhite:0.75f alpha:1.0f]]]
      withVAlign:V_ALIGN_TOP];
     
     WePanel* row = [[WePanel create]
                    withClearBackground];
-    [[row addHFill:[NSArray arrayWithObjects:
+    [[row addHorizontalFill:[NSArray arrayWithObjects:
                     labelPanel,
                     optionsPanel,
                     nil]]
@@ -696,7 +696,7 @@
         
         WePanel* row = [[WePanel create]
                        withClearBackground];
-        [[[row addHTight:[NSArray arrayWithObjects:
+        [[[row addHorizontal:[NSArray arrayWithObjects:
                           [WeViews createUILabel:[NSString stringWithFormat:@"%@:", title]
                                              font:[UIFont boldSystemFontOfSize:14]
                                             color:[UIColor colorWithWhite:0.75f alpha:1.0f]],
@@ -793,7 +793,7 @@
     if ([windowModel.selection isKindOfClass:[MockIPhone class]]) {
         WePanel* row = [[WePanel create]
                         withClearBackground];
-        [[row addHTight1:[WeViewsDemoUtils makeLink:@"Rotate Mock IPhone"
+        [[row addHorizontal1:[WeViewsDemoUtils makeLink:@"Rotate Mock IPhone"
                   target:self
                 selector:@selector(rotateMockIPhone)]]
           withHAlign:H_ALIGN_LEFT];
@@ -809,9 +809,9 @@
         }
         
         
-        if (layer.mode == LAYOUT_MODE_TIGHT_GRID ||
+        if (layer.mode == LAYOUT_MODE_NATURAL_GRID ||
             layer.mode == LAYOUT_MODE_FILL_GRID ||
-            layer.mode == LAYOUT_MODE_LOOSE_GRID ||
+            layer.mode == LAYOUT_MODE_SPACING_GRID ||
             layer.mode == LAYOUT_MODE_EVEN_FILL_GRID) {
             WePanelLayoutGridBase* layout = (WePanelLayoutGridBase*) layer.layout;
             
@@ -829,10 +829,10 @@
                                              formatSelector:@selector(formatNumber:)
                                              setterSelector:@selector(setGridLayerRowCount:)]];
         } 
-        if (layer.mode == LAYOUT_MODE_TIGHT_GRID ||
+        if (layer.mode == LAYOUT_MODE_NATURAL_GRID ||
             layer.mode == LAYOUT_MODE_FILL_GRID ||
-            layer.mode == LAYOUT_MODE_LOOSE_GRID) {
-            WePanelLayoutTightGrid* layout = (WePanelLayoutTightGrid*) layer.layout;
+            layer.mode == LAYOUT_MODE_SPACING_GRID) {
+            WePanelLayoutNaturalGrid* layout = (WePanelLayoutNaturalGrid*) layer.layout;
             
             [contents addObject:[self makePropertyOptionRow:@"Uniform Grid"
                                                     options:[NSArray arrayWithObjects:
@@ -1070,7 +1070,7 @@
     
     NSArray* contents = [self buildContents];
     [rootPanel clearWithPurge];
-    [[[[rootPanel addVFill:contents]
+    [[[[rootPanel addVerticalFill:contents]
        withMargin:10]
       withSpacing:5]
      withHAlign:H_ALIGN_LEFT];

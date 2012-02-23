@@ -190,9 +190,9 @@
 - (CGSize) sizeThatFits:(CGSize) size
                   layer:(WePanelLayer*) layer {
     switch (mode) {
-        case LAYOUT_MODE_FILL_LOOSE:
+        case LAYOUT_MODE_FILL:
             return [layer marginSize];
-        case LAYOUT_MODE_FILL_TIGHT:
+        case LAYOUT_MODE_FILL_NATURAL:
         case LAYOUT_MODE_CENTER: {
             CGSize result = CGSizeZero;
             CGSize marginSize = [layer marginSize];
@@ -215,8 +215,8 @@
     CGSize marginSize = [layer marginSize];
     
     switch (mode) {
-        case LAYOUT_MODE_FILL_LOOSE:
-        case LAYOUT_MODE_FILL_TIGHT: {
+        case LAYOUT_MODE_FILL:
+        case LAYOUT_MODE_FILL_NATURAL: {
             CGSize itemSize = CGSizeMax(CGSizeSubtract(size, marginSize), CGSizeZero);
             CGRect itemFrame = CGRectMake(layer.leftMargin, 
                                           layer.topMargin,

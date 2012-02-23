@@ -192,11 +192,11 @@
 
 - (BOOL) isHorizontal {
     switch (mode) {
-        case LAYOUT_MODE_H_TIGHT:
-        case LAYOUT_MODE_H_FILL:
+        case LAYOUT_MODE_HORIZONTAL:
+        case LAYOUT_MODE_HORIZONTAL_FILL:
             return YES;
-        case LAYOUT_MODE_V_TIGHT:
-        case LAYOUT_MODE_V_FILL:
+        case LAYOUT_MODE_VERTICAL:
+        case LAYOUT_MODE_VERTICAL_FILL:
             return NO;
         default:
             __FAIL(@"Unknown LayerMode: %d", mode);
@@ -205,11 +205,11 @@
 
 - (BOOL) isStretch {
     switch (mode) {
-        case LAYOUT_MODE_H_FILL:
-        case LAYOUT_MODE_V_FILL:
+        case LAYOUT_MODE_HORIZONTAL_FILL:
+        case LAYOUT_MODE_VERTICAL_FILL:
             return YES;
-        case LAYOUT_MODE_H_TIGHT:
-        case LAYOUT_MODE_V_TIGHT:
+        case LAYOUT_MODE_HORIZONTAL:
+        case LAYOUT_MODE_VERTICAL:
             return NO;
         default:
             __FAIL(@"Unknown LayerMode: %d", mode);

@@ -1,6 +1,6 @@
 // 
 // WeViews
-// WePanelLayoutTightGrid.h
+// WePanelLayoutSpacingGrid.m
 // 
 // https://github.com/charlesmchen/WeViews
 // 
@@ -172,52 +172,124 @@
 // END OF TERMS AND CONDITIONS
 
 
-#import "WePanelLayoutGridBase.h"
+#import "WePanelLayoutSpacingGrid.h"
+#import "WePanelLayer.h"
+#import "WePanelLayoutMacros.h"
+#import "WeMacros.h"
 
 
-/**
- * The "tight grid" layout strategy.
- *
- * If uniformGrid is true, all columns have width of widest column and all rows 
- * have height of tallest row.
- *
- * Has either columnCount or rowCount.  The other is calculated
- * based on the number of items.
- *
- * Any extra space from rounding errors is distributed evenly among the margins.
- *
- * "Natural" size of the contents is based on the views in
- * the layer.
- * 
- * See WePanelLayoutFillGrid, WePanelLayoutLooseGrid.
- *
- * @warning Doesn't perform well at scale.
- */
-@interface WePanelLayoutTightGrid : WePanelLayoutGridBase
+@implementation WePanelLayoutSpacingGrid
 
-/**
- * Factory method.
- *
- * All instances should be created with this method.
- *
- * @param columnCount The column count.
- * @param uniformGrid The uniform grid value.
- * @return A WePanelLayoutTightGrid.
- */
-+ (WePanelLayoutTightGrid*) createWithColumnCount:(int) columnCount
-                                    uniformGrid:(BOOL) uniformGrid;
++ (WePanelLayoutSpacingGrid*) createWithColumnCount:(int) columnCount
+                                        uniformGrid:(BOOL) uniformGrid {
+    WePanelLayoutSpacingGrid* result = [[[WePanelLayoutSpacingGrid alloc] init] autorelease];
+    result.columnCount = columnCount;
+    result.uniformGrid = uniformGrid;
+    return result;
+}
 
-/**
- * Factory method.
- *
- * All instances should be created with this method.
- *
- * @param rowCount The row count.
- * @param uniformGrid The uniform grid value.
- * @return A WePanelLayoutTightGrid.
- */
-+ (WePanelLayoutTightGrid*) createWithRowCount:(int) rowCount 
-                                 uniformGrid:(BOOL) uniformGrid;
++ (WePanelLayoutSpacingGrid*) createWithRowCount:(int) rowCount
+                                     uniformGrid:(BOOL) uniformGrid {
+    WePanelLayoutSpacingGrid* result = [[[WePanelLayoutSpacingGrid alloc] init] autorelease];
+    result.rowCount = rowCount;
+    result.uniformGrid = uniformGrid;
+    return result;
+}
+
+- (LayoutMode) mode {
+    return LAYOUT_MODE_SPACING_GRID;
+}
+
+- (void) applyGridLayout:(CGSize) size
+                   layer:(WePanelLayer*) layer    
+                rowCount:(int) rowCount 
+             columnCount:(int) columnCount
+             columnLefts:(int*) columnLefts
+                 rowTops:(int*) rowTops
+            columnWidths:(int*) columnWidths
+              rowHeights:(int*) rowHeights {
+    
+    int index = 0;
+    for (UIView* item in layer.views) {
+        int row = index / columnCount;
+        int column = index % columnCount;
+        index++;
+        
+        // TODO: should we center views within cell space?
+        // Add option for this.
+        item.frame = CGRectMake(columnLefts[column],
+                                rowTops[row],
+                                columnWidths[column],
+                                rowHeights[row]);
+        
+        if (layer.debugLayout) {
+            DebugRect(@"item.frame", item.frame);
+        }
+        
+        [self updateItemScrolling:item];
+    }
+}
+
+- (void) layoutContents:(CGSize) size
+                  layer:(WePanelLayer*) layer {
+    
+    LayerGridInfo gridInfo = [self getLayerGridInfo:layer];
+    //    int rowCount = gridInfo.rowCount;
+    int columnCount = gridInfo.columnCount;
+    
+    int extraWidth = max(0,
+                         size.width - gridInfo.totalSize.width);
+    int extraHeight = max(0,
+                          size.height - gridInfo.totalSize.height);
+    
+    if (layer.debugLayout) {
+        NSLog(@"extraWidth: %d",
+              extraWidth);
+        NSLog(@"extraHeight: %d",
+              extraHeight);
+    }
+    
+    if (gridInfo.columnCount < 1 || gridInfo.rowCount < 1) {
+        return;
+    }
+    
+    // Unlike the similarly-named properties of gridInfo, these 
+    // are the final, balanced values.
+    int columnLefts[gridInfo.columnCount];
+    int rowTops[gridInfo.rowCount];
+    int columnWidths[gridInfo.columnCount];
+    int rowHeights[gridInfo.rowCount];    
+    
+    int columnTotal = 0;
+    for (int i=0; i < gridInfo.columnCount; i++) {
+        int spacing = i * layer.spacing;
+        if (gridInfo.columnCount > 1) {
+            spacing += extraWidth * i / (gridInfo.columnCount - 1);
+        }
+        columnLefts[i] = layer.leftMargin + spacing + columnTotal;
+        columnWidths[i] = gridInfo.columnWidths[i];
+        columnTotal += columnWidths[i];
+    }
+    int rowTotal = 0;
+    for (int i=0; i < gridInfo.rowCount; i++) {
+        int spacing = i * layer.spacing;
+        if (gridInfo.rowCount > 1) {
+            spacing += extraHeight * i / (gridInfo.rowCount - 1);
+        }
+        rowTops[i] = layer.topMargin + spacing + rowTotal;
+        rowHeights[i] = gridInfo.rowHeights[i];
+        rowTotal += rowHeights[i];
+    }
+    
+    [self applyGridLayout:layer    
+              columnCount:columnCount
+              columnLefts:&columnLefts[0]
+                  rowTops:&rowTops[0]
+             columnWidths:&columnWidths[0]
+               rowHeights:&rowHeights[0]];
+    
+    deallocPtr(gridInfo.columnWidths);
+    deallocPtr(gridInfo.rowHeights);
+}
 
 @end
-

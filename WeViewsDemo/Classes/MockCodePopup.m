@@ -288,7 +288,7 @@
     
     WePanel* textPanel = [[WePanel createWithStretch]
                           withClearBackground];
-    [textPanel addFillLoose1:textView];
+    [textPanel addFill1:textView];
     
     UILabel* title = [WeViews createUILabel:@"Pseudo Code"
                                        font:[UIFont boldSystemFontOfSize:24.0f]
@@ -306,16 +306,16 @@
     self.popup = [[WePanel create]
                   withClearBackground];
     popup.userInteractionEnabled = YES;
-    [popup addFillLoose1:popupBorder];
-    [[[popup addHTight1:title]
+    [popup addFill1:popupBorder];
+    [[[popup addHorizontal1:title]
       withVAlign:V_ALIGN_TOP]
      withMargin:32];    
-    [[[popup addHTight1:backButton]
+    [[[popup addHorizontal1:backButton]
       withHAlign:H_ALIGN_LEFT
       vAlign:V_ALIGN_TOP]
      withHMargin:32
      vMargin:32];   
-    [[[[popup addHTight:[NSArray arrayWithObjects:
+    [[[[popup addHorizontal:[NSArray arrayWithObjects:
                          [[WeButton createWithImage:@"font_size_14px"]
                           addClickSelector:@selector(setFontSize_14)
                           target:self],
@@ -328,7 +328,7 @@
       withHMargin:32
       vMargin:32]
      withSpacing:5];    
-    [[[popup addVFill:[NSArray arrayWithObjects:
+    [[[popup addVerticalFill:[NSArray arrayWithObjects:
                        textPanel,
                        consoleMessage,                                                             
                        nil]]

@@ -272,7 +272,7 @@
 
 - (void) addFLayer {    
     WePanel* panel = (WePanel*) windowModel.selection;
-    WePanelLayer* layer = [[[panel addVTight:[NSArray array]]
+    WePanelLayer* layer = [[[panel addVertical:[NSArray array]]
                           withSpacing:5]
                           withMargin:5];    
     [windowModel setNewItem:layer
@@ -652,7 +652,7 @@
     
     WePanel* titlePanel = [[WePanel create]
                           withClearBackground];
-    [[[titlePanel addHTight1:[WeViews createUILabel:title
+    [[[titlePanel addHorizontal1:[WeViews createUILabel:title
                                                font:[UIFont boldSystemFontOfSize:14]
                                               color:[UIColor colorWithWhite:0.75f alpha:1.0f]]]
      withVAlign:V_ALIGN_TOP]
@@ -663,7 +663,7 @@
     
     WePanel* result = [[WePanel create]
                         withClearBackground];
-    [[[result addHFill:[NSArray arrayWithObjects:
+    [[[result addHorizontalFill:[NSArray arrayWithObjects:
                         titlePanel,
                           itemsPanel,
                           nil]]
@@ -858,7 +858,7 @@
     
     [rootPanel clearWithPurge];
     NSArray* contents = [self buildContents];
-    [[[[rootPanel addVFill:contents]
+    [[[[rootPanel addVerticalFill:contents]
        withMargin:0]
       withSpacing:5]
      withHAlign:H_ALIGN_LEFT];

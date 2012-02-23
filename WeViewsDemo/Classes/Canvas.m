@@ -522,7 +522,7 @@ TouchMode touchMode;
     [self withOpaqueBackground:[UIColor whiteColor]];
     self.userInteractionEnabled = YES;
     self.clipsToBounds = YES;
-    [self addFillLoose1:windowModel.pseudoRoot];
+    [self addFill1:windowModel.pseudoRoot];
     windowModel.pseudoRoot.backgroundColor = UIColorRGB(0x303034);
 
     CanvasGestureRecognizer* pan = [[[CanvasGestureRecognizer alloc] initWithTarget:self action:@selector(ignoreGesture:)] autorelease];

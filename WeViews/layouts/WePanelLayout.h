@@ -183,10 +183,10 @@ typedef enum {
     
     // All items have size of parent.
     // Items' sizes don't influence panel size.
-    LAYOUT_MODE_FILL_LOOSE,
+    LAYOUT_MODE_FILL,
     // All items have size of parent.
     // Panel size reflects max item size.
-    LAYOUT_MODE_FILL_TIGHT,
+    LAYOUT_MODE_FILL_NATURAL,
     // All items are centered on parent.
     // Panel size reflects max item size.
     LAYOUT_MODE_CENTER,
@@ -196,16 +196,16 @@ typedef enum {
     
     // Items layed out in a horizontal line, at natural size, aligned 
     // within the container. 
-    LAYOUT_MODE_H_TIGHT,
+    LAYOUT_MODE_HORIZONTAL,
     // Items layed out in a horizontal line, filling the container. 
     // Items with stretch get extra space, if any.
-    LAYOUT_MODE_H_FILL,
+    LAYOUT_MODE_HORIZONTAL_FILL,
     // Items layed out in a vertical line, at natural size, aligned 
     // within the container. 
-    LAYOUT_MODE_V_TIGHT,
+    LAYOUT_MODE_VERTICAL,
     // Items layed out in a vertical line, filling the container. 
     // Items with stretch get extra space, if any.
-    LAYOUT_MODE_V_FILL,
+    LAYOUT_MODE_VERTICAL_FILL,
     
     
     // See WePanelLayoutEvenFillGrid
@@ -214,11 +214,11 @@ typedef enum {
     // See WePanelLayoutFillGrid
     LAYOUT_MODE_FILL_GRID,
     
-    // See WePanelLayoutTightGrid
-    LAYOUT_MODE_TIGHT_GRID,
+    // See WePanelLayoutNaturalGrid
+    LAYOUT_MODE_NATURAL_GRID,
     
-    // See WePanelLayoutLooseGrid
-    LAYOUT_MODE_LOOSE_GRID,
+    // See WePanelLayoutSpacingGrid
+    LAYOUT_MODE_SPACING_GRID,
     
     // See WePanelLayoutTextWrap
     LAYOUT_MODE_TEXT_WRAP,

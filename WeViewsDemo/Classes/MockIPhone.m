@@ -200,14 +200,14 @@
     [self clearWithoutPurge];
     [self.screen removeFromSuperview];
     
-    [self addVFill1:[WeViews createUIImageView:horizontal ? @"iphone_horizontal" : @"iphone_vertical"]];
+    [self addVerticalFill1:[WeViews createUIImageView:horizontal ? @"iphone_horizontal" : @"iphone_vertical"]];
     
     WePanel* screenWrapper = [WePanel create];
     //    result.screen = [WePanel create];
     screenWrapper.clipsToBounds = YES;
     CGSize screenSize = horizontal ? CGSizeMake(480, 320) : CGSizeMake(320, 480);
     [screenWrapper setFixedSize:screenSize];
-    [[[[self addHTight1:screenWrapper]
+    [[[[self addHorizontal1:screenWrapper]
        withTopMargin:horizontal ? 28 : 133
        rightMargin:0 
        bottomMargin:0
@@ -217,7 +217,7 @@
     
     [screenWrapper addFill1:[[WePanel create]
                              withOpaqueBackground:UIColorRGB(0x3f3f3f)]];
-    [[[screenWrapper addHTight1:[WeViews createUILabel:@"Screen"
+    [[[screenWrapper addHorizontal1:[WeViews createUILabel:@"Screen"
                                                   font:[UIFont boldSystemFontOfSize:24]
                                                  color:[[UIColor whiteColor] colorWithAlphaComponent:0.5f]]]
       withHAlign:H_ALIGN_LEFT

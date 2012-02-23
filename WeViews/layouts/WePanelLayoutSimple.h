@@ -176,7 +176,7 @@
 
 
 /**
- * Layout that implements the "fill", "tight" and "center" layout strategies.
+ * Layout that implements the "fill", "natural fill" and "center" layout strategies.
  *
  * Normally, layers with these strategies only contain a single view..
  *

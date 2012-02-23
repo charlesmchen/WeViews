@@ -207,7 +207,7 @@
     UILabel* label = [WeViews createUILabel:title
                                         font:[UIFont boldSystemFontOfSize:16]
                                        color:[UIColor whiteColor]];
-    [[result addHTight1:label]
+    [[result addHorizontal1:label]
      withMargin:10];
     
     return result;    
@@ -229,11 +229,11 @@
     WePanel* parent = (WePanel*) canvas.superview;
     [parent clearWithoutPurge];
     if (paletteHidden) {
-        [parent addHFill:[NSArray arrayWithObjects:
+        [parent addHorizontalFill:[NSArray arrayWithObjects:
                              canvas,
                              nil]];
     } else {
-        [parent addHFill:[NSArray arrayWithObjects:
+        [parent addHorizontalFill:[NSArray arrayWithObjects:
                              palette,
                              canvas,
                              nil]];
@@ -275,7 +275,7 @@
     
     WePanel* statusBar = [[WePanel create]
                          withOpaqueBackground:[UIColor blackColor]];
-    [statusBar addHFill:[NSArray arrayWithObjects:
+    [statusBar addHorizontalFill:[NSArray arrayWithObjects:
                          [WeViews createUIImageView:@"ios_status_bar_left"],
                          [WeSpacer create],
                          [WeViews createUILabel:@"Tap status bar to toggle palette"
@@ -289,7 +289,7 @@
                          target:self];
     
     WePanel* footer = [WePanel createWithToolbarBackground];
-    [[[footer addHTight:[NSArray arrayWithObjects:
+    [[[footer addHorizontal:[NSArray arrayWithObjects:
                          [[WeViews createImageButton:@"footer_save_button"]
                           addClickSelector:@selector(handleSave)
                           target:self],
@@ -318,7 +318,7 @@
     
     self.palette = [[WePanel create]
                     withOpaqueBackground:[UIColor blackColor]];
-    [palette addVFill:[NSArray arrayWithObjects:
+    [palette addVerticalFill:[NSArray arrayWithObjects:
                          [self makeHeader:@"View Hierarchy"],
                          viewHierarchyTree,
                          [self makeHeader:@"Selection"],
@@ -335,14 +335,14 @@
 
     WePanel* bodyPanel = [[WePanel createWithStretch]
                          withOpaqueBackground:[UIColor blackColor]];
-    [bodyPanel addHFill:[NSArray arrayWithObjects:
+    [bodyPanel addHorizontalFill:[NSArray arrayWithObjects:
                     palette,
                     canvas,
                     nil]];
     
     WePanel* root = [[WePanel create]
                          withOpaqueBackground:[UIColor blackColor]];
-    [root addVFill:[NSArray arrayWithObjects:
+    [root addVerticalFill:[NSArray arrayWithObjects:
                     statusBar,
                     bodyPanel,
                     nil]];
@@ -359,7 +359,7 @@
     return;
     WePanel* panel = [[WePanel create]
                      withOpaqueBackground:[UIColor blueColor]];
-    [[[panel addVFill:[NSArray arrayWithObjects:
+    [[[panel addVerticalFill:[NSArray arrayWithObjects:
                        [DemoTable create:15],
                        [WeSpacer create],
                        [WeViews createUILabel:@"hah"

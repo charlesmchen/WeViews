@@ -250,20 +250,20 @@
 + (WePanel*) createSpacer :(CGSize) minSize;
 
 /**
- * Create a new WePanel and adds the UIView in a loose fill layer.
+ * Create a new WePanel and adds the UIView in a fill layer.
  *
  * @param view the UIView.
  * @return The WePanel.
  */
-+ (WePanel*) createFillLoose1 :(UIView*) view;
++ (WePanel*) createFill1 :(UIView*) view;
 
 /**
- * Create a new WePanel and adds the UIView in a tight fill layer.
+ * Create a new WePanel and adds the UIView in a natural fill layer.
  *
  * @param view the UIView.
  * @return The WePanel.
  */
-+ (WePanel*) createFillTight1 :(UIView*) view;
++ (WePanel*) createFillNatural1 :(UIView*) view;
 
 /**
  * Create a new WePanel and adds the UIView in a center layer.
@@ -274,20 +274,20 @@
 + (WePanel*) createCenter1 :(UIView*) view;
 
 /**
- * Create a new WePanel and adds the UIView in a horizontal tight layer.
+ * Create a new WePanel and adds the UIView in a horizontal layer.
  *
  * @param view the UIView.
  * @return The WePanel.
  */
-+ (WePanel*) createHTight1 :(UIView*) view;
++ (WePanel*) createHorizontal1 :(UIView*) view;
 
 /**
- * Create a new WePanel and adds the UIView in a vertical tight layer.
+ * Create a new WePanel and adds the UIView in a vertical layer.
  *
  * @param view the UIView.
  * @return The WePanel.
  */
-+ (WePanel*) createVTight1 :(UIView*) view;
++ (WePanel*) createVertical1 :(UIView*) view;
 
 /**
  * Create a new WePanel and adds UIViews in a horizontal fill layer.
@@ -295,7 +295,7 @@
  * @param items the UIViews.
  * @return The WePanel.
  */
-+ (WePanel*) createHFill :(NSArray*) items;
++ (WePanel*) createHorizontalFill :(NSArray*) items;
 
 /**
  * Create a new WePanel and adds UIViews in a vertical fill layer.
@@ -303,23 +303,23 @@
  * @param items the UIViews.
  * @return The WePanel.
  */
-+ (WePanel*) createVFill :(NSArray*) items;
++ (WePanel*) createVerticalFill :(NSArray*) items;
 
 /**
- * Create a new WePanel and adds UIViews in a horizontal tight layer.
+ * Create a new WePanel and adds UIViews in a horizontal layer.
  *
  * @param items the UIViews.
  * @return The WePanel.
  */
-+ (WePanel*) createHTight :(NSArray*) items;
++ (WePanel*) createHorizontal :(NSArray*) items;
 
 /**
- * Create a new WePanel and adds UIViews in a vertical tight layer.
+ * Create a new WePanel and adds UIViews in a vertical layer.
  *
  * @param items the UIViews.
  * @return The WePanel.
  */
-+ (WePanel*) createVTight :(NSArray*) items;
++ (WePanel*) createVertical :(NSArray*) items;
 
 /**
  * Lays out its contents.
@@ -414,7 +414,7 @@
 
 
 /**
- * Adds the UIView in a loose fill layer.
+ * Adds the UIView in a fill layer.
  *
  * @param value the UIView.
  * @return The WePanelLayer.
@@ -422,40 +422,32 @@
 - (WePanelLayer*) addFill1 :(UIView*) value;
 
 /**
- * Adds the UIView in a loose fill layer.
+ * Adds UIViews in a fill layer.
+ *
+ * @param items the UIViews.
+ * @return The WePanelLayer.
+ * @warning Fill layers usually only have one 
+ * item. See [WePanel addFill1:].
+ */
+- (WePanelLayer*) addFill :(NSArray*) items;
+
+/**
+ * Adds the UIView in a natural fill layer.
  *
  * @param value the UIView.
  * @return The WePanelLayer.
  */
-- (WePanelLayer*) addFillLoose1 :(UIView*) value;
+- (WePanelLayer*) addFillNatural1 :(UIView*) value;
 
 /**
- * Adds UIViews in a loose fill layer.
+ * Adds UIViews in a natural fill layer.
  *
  * @param items the UIViews.
  * @return The WePanelLayer.
- * @warning Loose Fill layers usually only have one 
- * item. See [WePanel addFillLoose1:].
+ * @warning Natural fill layers usually only have one 
+ * item. See [WePanel addFillNatural1:].
  */
-- (WePanelLayer*) addFillLoose :(NSArray*) items;
-
-/**
- * Adds the UIView in a tight fill layer.
- *
- * @param value the UIView.
- * @return The WePanelLayer.
- */
-- (WePanelLayer*) addFillTight1 :(UIView*) value;
-
-/**
- * Adds UIViews in a tight fill layer.
- *
- * @param items the UIViews.
- * @return The WePanelLayer.
- * @warning Tight Fill layers usually only have one 
- * item. See [WePanel addFillTight1:].
- */
-- (WePanelLayer*) addFillTight :(NSArray*) items;
+- (WePanelLayer*) addFillNatural :(NSArray*) items;
 
 /**
  * Adds the UIView in a center layer.
@@ -476,50 +468,50 @@
 - (WePanelLayer*) addCenter :(NSArray*) items;
 
 /**
- * Adds UIViews in a loose grid layer.
+ * Adds UIViews in a spacing grid layer.
  *
  * @param items the UIViews.
  * @param columnCount the column count.
  * @param uniformGrid the uniform grid value.
  * @return The WePanelLayer.
  */
-- (WePanelLayer*) addLooseGrid:(NSArray*) items
+- (WePanelLayer*) addSpacingGrid:(NSArray*) items
                   columnCount:(int) columnCount
                   uniformGrid:(BOOL) uniformGrid;
 
 /**
- * Adds UIViews in a loose grid layer.
+ * Adds UIViews in a spacing grid layer.
  *
  * @param items the UIViews.
  * @param rowCount the row count.
  * @param uniformGrid the uniform grid value.
  * @return The WePanelLayer.
  */
-- (WePanelLayer*) addLooseGrid:(NSArray*) items
+- (WePanelLayer*) addSpacingGrid:(NSArray*) items
                      rowCount:(int) rowCount
                   uniformGrid:(BOOL) uniformGrid;
 
 /**
- * Adds UIViews in a tight grid layer.
+ * Adds UIViews in a natural grid layer.
  *
  * @param items the UIViews.
  * @param columnCount the column count.
  * @param uniformGrid the uniform grid value.
  * @return The WePanelLayer.
  */
-- (WePanelLayer*) addTightGrid:(NSArray*) items
+- (WePanelLayer*) addNaturalGrid:(NSArray*) items
                   columnCount:(int) columnCount
                   uniformGrid:(BOOL) uniformGrid;
 
 /**
- * Adds UIViews in a tight grid layer.
+ * Adds UIViews in a natural grid layer.
  *
  * @param items the UIViews.
  * @param rowCount the row count.
  * @param uniformGrid the uniform grid value.
  * @return The WePanelLayer.
  */
-- (WePanelLayer*) addTightGrid:(NSArray*) items
+- (WePanelLayer*) addNaturalGrid:(NSArray*) items
                      rowCount:(int) rowCount
                   uniformGrid:(BOOL) uniformGrid;
 
@@ -588,20 +580,20 @@
 - (WePanelLayer*) addManual:(NSArray*) items;
 
 /**
- * Adds the UIView in a horizontal tight layer.
+ * Adds the UIView in a horizontal layer.
  *
  * @param value the UIView.
  * @return The WePanelLayer.
  */
-- (WePanelLayer*) addHTight1 :(UIView*) value;
+- (WePanelLayer*) addHorizontal1 :(UIView*) value;
 
 /**
- * Adds UIViews in a horizontal tight layer.
+ * Adds UIViews in a horizontal layer.
  *
  * @param items the UIViews.
  * @return The WePanelLayer.
  */
-- (WePanelLayer*) addHTight:(NSArray*) items;
+- (WePanelLayer*) addHorizontal:(NSArray*) items;
 
 /**
  * Adds the UIView in a horizontal fill layer.
@@ -609,7 +601,7 @@
  * @param value the UIView.
  * @return The WePanelLayer.
  */
-- (WePanelLayer*) addHFill1 :(UIView*) value;
+- (WePanelLayer*) addHorizontalFill1 :(UIView*) value;
 
 /**
  * Adds UIViews in a horizontal fill layer.
@@ -617,23 +609,23 @@
  * @param items the UIViews.
  * @return The WePanelLayer.
  */
-- (WePanelLayer*) addHFill:(NSArray*) items;
+- (WePanelLayer*) addHorizontalFill:(NSArray*) items;
 
 /**
- * Adds the UIView in a vertical tight layer.
+ * Adds the UIView in a vertical layer.
  *
  * @param value the UIView.
  * @return The WePanelLayer.
  */
-- (WePanelLayer*) addVTight1 :(UIView*) value;
+- (WePanelLayer*) addVertical1 :(UIView*) value;
 
 /**
- * Adds UIViews in a vertical tight layer.
+ * Adds UIViews in a vertical layer.
  *
  * @param items the UIViews.
  * @return The WePanelLayer.
  */
-- (WePanelLayer*) addVTight:(NSArray*) items;
+- (WePanelLayer*) addVertical:(NSArray*) items;
 
 /**
  * Adds the UIView in a vertical fill layer.
@@ -641,7 +633,7 @@
  * @param value the UIView.
  * @return The WePanelLayer.
  */
-- (WePanelLayer*) addVFill1 :(UIView*) value;
+- (WePanelLayer*) addVerticalFill1 :(UIView*) value;
 
 /**
  * Adds UIViews in a vertical fill layer.
@@ -649,7 +641,7 @@
  * @param items the UIViews.
  * @return The WePanelLayer.
  */
-- (WePanelLayer*) addVFill:(NSArray*) items;
+- (WePanelLayer*) addVerticalFill:(NSArray*) items;
 
 
 #pragma mark -

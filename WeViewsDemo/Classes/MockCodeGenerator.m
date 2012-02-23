@@ -373,21 +373,21 @@
                       [gridLayout hasRowCount] ? [gridLayout rowCount] : [gridLayout columnCount],
                       FormatCGSize(gridLayout.cellSizeHint)];
         
-    } else if (layer.mode == LAYOUT_MODE_TIGHT_GRID ||
+    } else if (layer.mode == LAYOUT_MODE_NATURAL_GRID ||
                layer.mode == LAYOUT_MODE_FILL_GRID ||
-               layer.mode == LAYOUT_MODE_LOOSE_GRID) {
+               layer.mode == LAYOUT_MODE_SPACING_GRID) {
         
         WePanelLayoutGridBase* gridLayout = (WePanelLayoutGridBase*) layer.layout;
         NSString* layerMethodName;
         switch (layer.mode) {
-            case LAYOUT_MODE_TIGHT_GRID:
-                layerMethodName = @"addTightGrid";
+            case LAYOUT_MODE_NATURAL_GRID:
+                layerMethodName = @"addNaturalGrid";
                 break;
             case LAYOUT_MODE_FILL_GRID:
                 layerMethodName = @"addFillGrid";
                 break;
-            case LAYOUT_MODE_LOOSE_GRID:
-                layerMethodName = @"addLooseGrid";
+            case LAYOUT_MODE_SPACING_GRID:
+                layerMethodName = @"addSpacingGrid";
                 break;
             default:
                 __FAIL(@"Unknown layer mode: %d", layer.mode);
@@ -407,26 +407,26 @@
     } else {
         NSString* layerMethodName;
         switch (layer.mode) {
-            case LAYOUT_MODE_FILL_LOOSE:
-                layerMethodName = @"addFillLoose";
+            case LAYOUT_MODE_FILL:
+                layerMethodName = @"addFill";
                 break;
-            case LAYOUT_MODE_FILL_TIGHT:
-                layerMethodName = @"addFillTight";
+            case LAYOUT_MODE_FILL_NATURAL:
+                layerMethodName = @"addFillNatural";
                 break;
             case LAYOUT_MODE_CENTER:
                 layerMethodName = @"addCenter";
                 break;
-            case LAYOUT_MODE_V_FILL:
-                layerMethodName = @"addVFill";
+            case LAYOUT_MODE_VERTICAL_FILL:
+                layerMethodName = @"addVerticalFill";
                 break;
-            case LAYOUT_MODE_H_FILL:
-                layerMethodName = @"addHFill";
+            case LAYOUT_MODE_HORIZONTAL_FILL:
+                layerMethodName = @"addHorizontalFill";
                 break;
-            case LAYOUT_MODE_V_TIGHT:
-                layerMethodName = @"addVTight";
+            case LAYOUT_MODE_VERTICAL:
+                layerMethodName = @"addVertical";
                 break;
-            case LAYOUT_MODE_H_TIGHT:
-                layerMethodName = @"addHTight";
+            case LAYOUT_MODE_HORIZONTAL:
+                layerMethodName = @"addHorizontal";
                 break;
             case LAYOUT_MODE_TEXT_WRAP:
                 layerMethodName = @"addTextWrap";

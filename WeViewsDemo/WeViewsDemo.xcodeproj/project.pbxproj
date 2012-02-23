@@ -62,11 +62,9 @@
 		F55E1D5314F5C28200301001 /* WePanelLayoutFillGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = F55E1D1B14F5C28200301001 /* WePanelLayoutFillGrid.m */; };
 		F55E1D5414F5C28200301001 /* WePanelLayoutGridBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F55E1D1D14F5C28200301001 /* WePanelLayoutGridBase.m */; };
 		F55E1D5514F5C28200301001 /* WePanelLayoutLinear.m in Sources */ = {isa = PBXBuildFile; fileRef = F55E1D1F14F5C28200301001 /* WePanelLayoutLinear.m */; };
-		F55E1D5614F5C28200301001 /* WePanelLayoutLooseGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = F55E1D2114F5C28200301001 /* WePanelLayoutLooseGrid.m */; };
 		F55E1D5714F5C28200301001 /* WePanelLayoutManual.m in Sources */ = {isa = PBXBuildFile; fileRef = F55E1D2414F5C28200301001 /* WePanelLayoutManual.m */; };
 		F55E1D5814F5C28200301001 /* WePanelLayoutSimple.m in Sources */ = {isa = PBXBuildFile; fileRef = F55E1D2614F5C28200301001 /* WePanelLayoutSimple.m */; };
 		F55E1D5914F5C28200301001 /* WePanelLayoutTextWrap.m in Sources */ = {isa = PBXBuildFile; fileRef = F55E1D2814F5C28200301001 /* WePanelLayoutTextWrap.m */; };
-		F55E1D5A14F5C28200301001 /* WePanelLayoutTightGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = F55E1D2A14F5C28200301001 /* WePanelLayoutTightGrid.m */; };
 		F55E1D5E14F5C28200301001 /* WeActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = F55E1D3214F5C28200301001 /* WeActionSheet.m */; };
 		F55E1D5F14F5C28200301001 /* WeBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F55E1D3414F5C28200301001 /* WeBaseObject.m */; };
 		F55E1D6014F5C28200301001 /* WeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F55E1D3614F5C28200301001 /* WeButton.m */; };
@@ -88,6 +86,8 @@
 		F55E1D7A14F5C56900301001 /* URLHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F55E1D7614F5C56900301001 /* URLHandler.m */; };
 		F55E1D7D14F5D6F200301001 /* font_size_14px.png in Resources */ = {isa = PBXBuildFile; fileRef = F55E1D7B14F5D6F200301001 /* font_size_14px.png */; };
 		F55E1D7E14F5D6F200301001 /* font_size_24px.png in Resources */ = {isa = PBXBuildFile; fileRef = F55E1D7C14F5D6F200301001 /* font_size_24px.png */; };
+		F55E1D8414F5E0CE00301001 /* WePanelLayoutNaturalGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = F55E1D8314F5E0CC00301001 /* WePanelLayoutNaturalGrid.m */; };
+		F55E1D8714F5E0F300301001 /* WePanelLayoutSpacingGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = F55E1D8614F5E0F100301001 /* WePanelLayoutSpacingGrid.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -170,8 +170,6 @@
 		F55E1D1D14F5C28200301001 /* WePanelLayoutGridBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayoutGridBase.m; sourceTree = "<group>"; };
 		F55E1D1E14F5C28200301001 /* WePanelLayoutLinear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayoutLinear.h; sourceTree = "<group>"; };
 		F55E1D1F14F5C28200301001 /* WePanelLayoutLinear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayoutLinear.m; sourceTree = "<group>"; };
-		F55E1D2014F5C28200301001 /* WePanelLayoutLooseGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayoutLooseGrid.h; sourceTree = "<group>"; };
-		F55E1D2114F5C28200301001 /* WePanelLayoutLooseGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayoutLooseGrid.m; sourceTree = "<group>"; };
 		F55E1D2214F5C28200301001 /* WePanelLayoutMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayoutMacros.h; sourceTree = "<group>"; };
 		F55E1D2314F5C28200301001 /* WePanelLayoutManual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayoutManual.h; sourceTree = "<group>"; };
 		F55E1D2414F5C28200301001 /* WePanelLayoutManual.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayoutManual.m; sourceTree = "<group>"; };
@@ -179,8 +177,6 @@
 		F55E1D2614F5C28200301001 /* WePanelLayoutSimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayoutSimple.m; sourceTree = "<group>"; };
 		F55E1D2714F5C28200301001 /* WePanelLayoutTextWrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayoutTextWrap.h; sourceTree = "<group>"; };
 		F55E1D2814F5C28200301001 /* WePanelLayoutTextWrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayoutTextWrap.m; sourceTree = "<group>"; };
-		F55E1D2914F5C28200301001 /* WePanelLayoutTightGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayoutTightGrid.h; sourceTree = "<group>"; };
-		F55E1D2A14F5C28200301001 /* WePanelLayoutTightGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayoutTightGrid.m; sourceTree = "<group>"; };
 		F55E1D3114F5C28200301001 /* WeActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeActionSheet.h; sourceTree = "<group>"; };
 		F55E1D3214F5C28200301001 /* WeActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeActionSheet.m; sourceTree = "<group>"; };
 		F55E1D3314F5C28200301001 /* WeBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeBaseObject.h; sourceTree = "<group>"; };
@@ -223,6 +219,10 @@
 		F55E1D7614F5C56900301001 /* URLHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLHandler.m; sourceTree = "<group>"; };
 		F55E1D7B14F5D6F200301001 /* font_size_14px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = font_size_14px.png; sourceTree = "<group>"; };
 		F55E1D7C14F5D6F200301001 /* font_size_24px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = font_size_24px.png; sourceTree = "<group>"; };
+		F55E1D8214F5E0CB00301001 /* WePanelLayoutNaturalGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayoutNaturalGrid.h; sourceTree = "<group>"; };
+		F55E1D8314F5E0CC00301001 /* WePanelLayoutNaturalGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayoutNaturalGrid.m; sourceTree = "<group>"; };
+		F55E1D8514F5E0F000301001 /* WePanelLayoutSpacingGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayoutSpacingGrid.h; sourceTree = "<group>"; };
+		F55E1D8614F5E0F100301001 /* WePanelLayoutSpacingGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayoutSpacingGrid.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,17 +419,17 @@
 				F55E1D1D14F5C28200301001 /* WePanelLayoutGridBase.m */,
 				F55E1D1E14F5C28200301001 /* WePanelLayoutLinear.h */,
 				F55E1D1F14F5C28200301001 /* WePanelLayoutLinear.m */,
-				F55E1D2014F5C28200301001 /* WePanelLayoutLooseGrid.h */,
-				F55E1D2114F5C28200301001 /* WePanelLayoutLooseGrid.m */,
 				F55E1D2214F5C28200301001 /* WePanelLayoutMacros.h */,
 				F55E1D2314F5C28200301001 /* WePanelLayoutManual.h */,
 				F55E1D2414F5C28200301001 /* WePanelLayoutManual.m */,
+				F55E1D8214F5E0CB00301001 /* WePanelLayoutNaturalGrid.h */,
+				F55E1D8314F5E0CC00301001 /* WePanelLayoutNaturalGrid.m */,
 				F55E1D2514F5C28200301001 /* WePanelLayoutSimple.h */,
 				F55E1D2614F5C28200301001 /* WePanelLayoutSimple.m */,
+				F55E1D8514F5E0F000301001 /* WePanelLayoutSpacingGrid.h */,
+				F55E1D8614F5E0F100301001 /* WePanelLayoutSpacingGrid.m */,
 				F55E1D2714F5C28200301001 /* WePanelLayoutTextWrap.h */,
 				F55E1D2814F5C28200301001 /* WePanelLayoutTextWrap.m */,
-				F55E1D2914F5C28200301001 /* WePanelLayoutTightGrid.h */,
-				F55E1D2A14F5C28200301001 /* WePanelLayoutTightGrid.m */,
 			);
 			path = layouts;
 			sourceTree = "<group>";
@@ -564,11 +564,9 @@
 				F55E1D5314F5C28200301001 /* WePanelLayoutFillGrid.m in Sources */,
 				F55E1D5414F5C28200301001 /* WePanelLayoutGridBase.m in Sources */,
 				F55E1D5514F5C28200301001 /* WePanelLayoutLinear.m in Sources */,
-				F55E1D5614F5C28200301001 /* WePanelLayoutLooseGrid.m in Sources */,
 				F55E1D5714F5C28200301001 /* WePanelLayoutManual.m in Sources */,
 				F55E1D5814F5C28200301001 /* WePanelLayoutSimple.m in Sources */,
 				F55E1D5914F5C28200301001 /* WePanelLayoutTextWrap.m in Sources */,
-				F55E1D5A14F5C28200301001 /* WePanelLayoutTightGrid.m in Sources */,
 				F55E1D5E14F5C28200301001 /* WeActionSheet.m in Sources */,
 				F55E1D5F14F5C28200301001 /* WeBaseObject.m in Sources */,
 				F55E1D6014F5C28200301001 /* WeButton.m in Sources */,
@@ -588,6 +586,8 @@
 				F55E1D7814F5C56900301001 /* SelectorHandler.m in Sources */,
 				F55E1D7914F5C56900301001 /* SimpleNotifications.m in Sources */,
 				F55E1D7A14F5C56900301001 /* URLHandler.m in Sources */,
+				F55E1D8414F5E0CE00301001 /* WePanelLayoutNaturalGrid.m in Sources */,
+				F55E1D8714F5E0F300301001 /* WePanelLayoutSpacingGrid.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
