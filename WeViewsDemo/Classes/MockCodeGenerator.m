@@ -655,11 +655,6 @@
             [result appendLine:[NSString stringWithFormat:@"%@.debugLayout = YES",
                                 instanceName]];
         }
-        if (view.stretchWeight > 0) {
-            [result appendLine:[NSString stringWithFormat:@"%@.stretchWeight = %0.2ff",
-                                instanceName,
-                                view.stretchWeight]];
-        }
         if (!CGSizeEqualToSize(view.minSize, CGSizeZero)) {
             [result appendLine:[NSString stringWithFormat:@"%@.minSize = CGSizeMake(%d, %d)",
                                 instanceName,
@@ -714,13 +709,16 @@
                                                  namespace:namespace
                                                ignoreFrame:YES];
 //                [result appendEmptyLine];
+                if ([layerItemCode length] > 0) {
+                    [layerItemCode appendString:@"\n"];
+                }
                 if ([itemCode isAnonymous]) {
-                    [layerItemCode appendString:[NSString stringWithFormat:@"\t%@,\n",
+                    [layerItemCode appendString:[NSString stringWithFormat:@"\t%@,",
                                                  [itemCode getAnonymous]]];
                 } else {
                     layerHasPrep = YES;
                     [result appendBlock:[itemCode getPrepCode]];
-                    [layerItemCode appendString:[NSString stringWithFormat:@"\t%@,\n",
+                    [layerItemCode appendString:[NSString stringWithFormat:@"\t%@,",
                                                  [itemCode getReference]]];
                 }
             }
@@ -763,7 +761,7 @@
     
     MockItemCode* itemCode = [self getItemCode:view 
                                      namespace:namespace
-                                   ignoreFrame:NO];
+                                   ignoreFrame:YES];
     
     if ([itemCode isAnonymous]) {
         [result appendString:[itemCode getAnonymous]];
