@@ -86,6 +86,8 @@
 		F55E1D7814F5C56900301001 /* SelectorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F55E1D7214F5C56900301001 /* SelectorHandler.m */; };
 		F55E1D7914F5C56900301001 /* SimpleNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = F55E1D7414F5C56900301001 /* SimpleNotifications.m */; };
 		F55E1D7A14F5C56900301001 /* URLHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F55E1D7614F5C56900301001 /* URLHandler.m */; };
+		F55E1D7D14F5D6F200301001 /* font_size_14px.png in Resources */ = {isa = PBXBuildFile; fileRef = F55E1D7B14F5D6F200301001 /* font_size_14px.png */; };
+		F55E1D7E14F5D6F200301001 /* font_size_24px.png in Resources */ = {isa = PBXBuildFile; fileRef = F55E1D7C14F5D6F200301001 /* font_size_24px.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -219,6 +221,8 @@
 		F55E1D7414F5C56900301001 /* SimpleNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleNotifications.m; sourceTree = "<group>"; };
 		F55E1D7514F5C56900301001 /* URLHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLHandler.h; sourceTree = "<group>"; };
 		F55E1D7614F5C56900301001 /* URLHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLHandler.m; sourceTree = "<group>"; };
+		F55E1D7B14F5D6F200301001 /* font_size_14px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = font_size_14px.png; sourceTree = "<group>"; };
+		F55E1D7C14F5D6F200301001 /* font_size_24px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = font_size_24px.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,6 +325,8 @@
 		F55E1C6014F5BED800301001 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				F55E1D7B14F5D6F200301001 /* font_size_14px.png */,
+				F55E1D7C14F5D6F200301001 /* font_size_24px.png */,
 				F55E1C6114F5BED800301001 /* 749px-Knowledge_of_German_EU_map.png */,
 				F55E1C6214F5BED800301001 /* 916px-Greatbasinmap.jpg */,
 				F55E1C6314F5BED800301001 /* activate_button_down.png */,
@@ -527,6 +533,8 @@
 				F55E1CAA14F5BED800301001 /* The_shortening_winter's_day_is_near_a_close_Farquharson.jpg in Resources */,
 				F55E1CAB14F5BED800301001 /* waffles_button_down.png in Resources */,
 				F55E1CAC14F5BED800301001 /* waffles_button_up.png in Resources */,
+				F55E1D7D14F5D6F200301001 /* font_size_14px.png in Resources */,
+				F55E1D7E14F5D6F200301001 /* font_size_24px.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,6 +656,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WeViewsDemo/WeViewsDemo-Prefix.pch";
 				INFOPLIST_FILE = "WeViewsDemo/WeViewsDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -659,6 +668,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WeViewsDemo/WeViewsDemo-Prefix.pch";
 				INFOPLIST_FILE = "WeViewsDemo/WeViewsDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

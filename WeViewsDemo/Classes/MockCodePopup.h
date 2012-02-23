@@ -181,6 +181,7 @@
 
 @property (nonatomic, retain) WePanel* background;
 @property (nonatomic, retain) WePanel* popup;
+@property (nonatomic, retain) UITextView* textView;
 
 + (void) showPopup:(UIView*) parentView
               code:(NSString*) code;

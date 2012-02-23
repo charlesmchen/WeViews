@@ -774,7 +774,7 @@
     if ([rootControls count] > 0) {
         WePanel* row = [[WePanel create]
                        withClearBackground];
-        [[[row addHTight:rootControls]
+        [[[row addTextWrap:rootControls]
           withHAlign:H_ALIGN_LEFT]
          withSpacing:5];
         [contents addObject:row];            

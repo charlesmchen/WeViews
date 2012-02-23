@@ -181,10 +181,12 @@
 
 @synthesize background;
 @synthesize popup;
+@synthesize textView;
 
 - (void) dealloc {
     deallocProperty(background);
     deallocProperty(popup);
+    deallocProperty(textView);
     
     [super dealloc];
 }
@@ -247,6 +249,15 @@
     [self retain];
 }
 
+- (void) setFontSize_14 {
+    self.textView.font = [UIFont fontWithName:@"Courier New"
+                                         size:14];
+}
+
+- (void) setFontSize_24 {
+    self.textView.font = [UIFont fontWithName:@"Courier New"
+                                         size:24];
+}
 
 - (void) showInParentView:(UIView*) parentView
                      code:(NSString*) code {
@@ -266,7 +277,7 @@
                                                              topCapHeight:97];
     WeImageView* popupBorder = [WeImageView createWithImage:popupBorderImage];
     
-    UITextView* textView = [[[UITextView alloc] init] autorelease];
+    self.textView = [[[UITextView alloc] init] autorelease];
     textView.text = code;
     textView.font = [UIFont fontWithName:@"Courier New"
                                     size:14];
@@ -276,20 +287,20 @@
     textView.editable = YES;
     
     WePanel* textPanel = [[WePanel createWithStretch]
-                         withClearBackground];
+                          withClearBackground];
     [textPanel addFillLoose1:textView];
     
     UILabel* title = [WeViews createUILabel:@"Pseudo Code"
-                                        font:[UIFont boldSystemFontOfSize:24.0f]
-                                       color:[UIColor whiteColor]];
+                                       font:[UIFont boldSystemFontOfSize:24.0f]
+                                      color:[UIColor whiteColor]];
     
     WeButton* backButton = [[WeButton createWithImage:@"popup_back_button"]
-                           addClickSelector:@selector(dismiss)
-                           target:self];
+                            addClickSelector:@selector(dismiss)
+                            target:self];
     
     UILabel* consoleMessage = [WeViews createUILabel:@"Code is also dumped to the console"
-                                                 font:[UIFont boldSystemFontOfSize:12.0f] 
-                                                color:[UIColor whiteColor]];
+                                                font:[UIFont boldSystemFontOfSize:12.0f] 
+                                               color:[UIColor whiteColor]];
     consoleMessage.textAlignment = UITextAlignmentRight;
     
     self.popup = [[WePanel create]
@@ -303,7 +314,20 @@
       withHAlign:H_ALIGN_LEFT
       vAlign:V_ALIGN_TOP]
      withHMargin:32
-     vMargin:32];    
+     vMargin:32];   
+    [[[[popup addHTight:[NSArray arrayWithObjects:
+                         [[WeButton createWithImage:@"font_size_14px"]
+                          addClickSelector:@selector(setFontSize_14)
+                          target:self],
+                         [[WeButton createWithImage:@"font_size_24px"]
+                          addClickSelector:@selector(setFontSize_24)
+                          target:self],
+                         nil]]
+       withHAlign:H_ALIGN_RIGHT
+       vAlign:V_ALIGN_TOP]
+      withHMargin:32
+      vMargin:32]
+     withSpacing:5];    
     [[[popup addVFill:[NSArray arrayWithObjects:
                        textPanel,
                        consoleMessage,                                                             
