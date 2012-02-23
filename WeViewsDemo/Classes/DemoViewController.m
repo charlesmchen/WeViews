@@ -278,7 +278,7 @@
     [statusBar addHFill:[NSArray arrayWithObjects:
                          [WeViews createUIImageView:@"ios_status_bar_left"],
                          [WeSpacer create],
-                         [WeViews createUILabel:@"Touch status bar to toggle palette"
+                         [WeViews createUILabel:@"Tap status bar to toggle palette"
                                             font:[UIFont boldSystemFontOfSize:12]
                                            color:UIColorRGB(0xbfbfbf)],
                          //                          [WeViews createUIImageView:@"ios_status_bar_center"],

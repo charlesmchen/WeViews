@@ -686,22 +686,6 @@
 - (WePanel*) withStretch;
 
 /**
- * Sets the maximum and minimum width hint.
- * 
- * @param value The width value.
- * @return Itself, for chaining.
- */
-- (WePanel*) setFixedWidth:(int) value;
-
-/**
- * Sets the maximum and minimum height hint.
- * 
- * @param value The height value.
- * @return Itself, for chaining.
- */
-- (WePanel*) setFixedHeight:(int) value;
-
-/**
  * Sets the minimum width hint.
  * 
  * @param value The minimum width value.
@@ -732,6 +716,30 @@
  * @return Itself, for chaining.
  */
 - (WePanel*) setMaxHeight:(int) value;
+
+/**
+ * Sets the maximum and minimum width hints.
+ * 
+ * @param value The width value.
+ * @return Itself, for chaining.
+ */
+- (WePanel*) setFixedWidth:(int) value;
+
+/**
+ * Sets the maximum and minimum height hints.
+ * 
+ * @param value The height value.
+ * @return Itself, for chaining.
+ */
+- (WePanel*) setFixedHeight:(int) value;
+
+/**
+ * Sets the maximum and minimum size hints.
+ * 
+ * @param value The size value.
+ * @return Itself, for chaining.
+ */
+- (WePanel*) setFixedSize:(CGSize) value;
 
 /**
  * @return All subviews which are not associated with a layer.

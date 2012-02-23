@@ -177,7 +177,8 @@
 
 
 /**
- * Subclass of WeLabel.
+ * A UILabel that can be used like a button.
+ * Its contents are underlined text, like a Web link.
  *
  * See WeLabel.
  */

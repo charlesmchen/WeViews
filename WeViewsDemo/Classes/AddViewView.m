@@ -315,7 +315,7 @@
 - (void) addWePanelLabel {
     NSString* text = @"WePanel";
     UILabel* view = [WeViews createUILabel:text
-                                       font:[UIFont boldSystemFontOfSize:14]
+                                       font:[UIFont boldSystemFontOfSize:24]
                                       color:[[UIColor whiteColor] colorWithAlphaComponent:0.5f]];
     [self addToSelection:view
                andSelect:NO];

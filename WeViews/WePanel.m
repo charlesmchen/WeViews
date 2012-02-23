@@ -711,6 +711,12 @@ ADD_METHOD_TEMPLATE(addHTight, addHTight1, LAYOUT_MODE_H_TIGHT)
     return self;
 }
 
+- (WePanel*) setFixedSize:(CGSize) value {
+    [self setFixedWidth:roundf(value.width)];
+    [self setFixedHeight:roundf(value.height)];
+    return self;
+}
+
 - (void) setDebugLayout:(BOOL) value {
     debugLayout = value;
     [self setNeedsDisplay];

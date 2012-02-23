@@ -201,13 +201,12 @@
     
     [result addVFill1:[WeViews createUIImageView:horizontal ? @"iphone_horizontal" : @"iphone_vertical"]];
     
-    result.screen = [[[MockIPhoneScreen alloc] init] autorelease];
-//    result.screen = [WePanel create];
-    result.screen.clipsToBounds = YES;
+    WePanel* screenWrapper = [WePanel create];
+    //    result.screen = [WePanel create];
+    screenWrapper.clipsToBounds = YES;
     CGSize screenSize = horizontal ? CGSizeMake(480, 320) : CGSizeMake(320, 480);
-    result.screen.minSize = screenSize;
-    result.screen.maxSize = screenSize;
-    [[[[result addHTight1:result.screen]
+    [screenWrapper setFixedSize:screenSize];
+    [[[[result addHTight1:screenWrapper]
        withTopMargin:horizontal ? 28 : 133
        rightMargin:0 
        bottomMargin:0
@@ -215,9 +214,22 @@
       withHAlign:H_ALIGN_LEFT]
      withVAlign:V_ALIGN_TOP];
     
-//    result.screen.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.25];
-    result.screen.backgroundColor = UIColorRGB(0xE6E6E6);
-    result.screen.opaque = NO;
+    result.screen = [[[MockIPhoneScreen alloc] init] autorelease];
+    [result.screen withClearBackground];
+    
+    [screenWrapper addFill1:[[WePanel create]
+                             withOpaqueBackground:UIColorRGB(0x3f3f3f)]];
+    [[[screenWrapper addHTight1:[WeViews createUILabel:@"Screen"
+                                                  font:[UIFont boldSystemFontOfSize:24]
+                                                 color:[[UIColor whiteColor] colorWithAlphaComponent:0.5f]]]
+      withHAlign:H_ALIGN_LEFT
+      vAlign:V_ALIGN_TOP]
+     withMargin:16];
+    [screenWrapper addFill1:result.screen];
+    
+    //    result.screen.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.25];
+//    result.screen.backgroundColor = UIColorRGB(0xE6E6E6);
+//    result.screen.opaque = NO;
     
     [result sizeToFit];
     
