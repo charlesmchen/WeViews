@@ -250,7 +250,7 @@
 + (WePanel*) createSpacer :(CGSize) minSize;
 
 /**
- * Create a new WePanel and adds the UIView in a fill layer.
+ * Create a new WePanel and adds a single UIView in a fill layer.
  *
  * @param view the UIView.
  * @return The WePanel.
@@ -258,7 +258,7 @@
 + (WePanel*) createFill1 :(UIView*) view;
 
 /**
- * Create a new WePanel and adds the UIView in a natural fill layer.
+ * Create a new WePanel and adds a single UIView in a natural fill layer.
  *
  * @param view the UIView.
  * @return The WePanel.
@@ -266,7 +266,7 @@
 + (WePanel*) createFillNatural1 :(UIView*) view;
 
 /**
- * Create a new WePanel and adds the UIView in a center layer.
+ * Create a new WePanel and adds a single UIView in a center layer.
  *
  * @param view the UIView.
  * @return The WePanel.
@@ -274,7 +274,7 @@
 + (WePanel*) createCenter1 :(UIView*) view;
 
 /**
- * Create a new WePanel and adds the UIView in a horizontal layer.
+ * Create a new WePanel and adds a single UIView in a horizontal layer.
  *
  * @param view the UIView.
  * @return The WePanel.
@@ -282,7 +282,7 @@
 + (WePanel*) createHorizontal1 :(UIView*) view;
 
 /**
- * Create a new WePanel and adds the UIView in a vertical layer.
+ * Create a new WePanel and adds a single UIView in a vertical layer.
  *
  * @param view the UIView.
  * @return The WePanel.
@@ -323,6 +323,9 @@
 
 /**
  * Lays out its contents.
+ *
+ * This method is called automatically when the size of the panel is changed
+ * with the [WePanel setFrame:] or [WePanel setBounds:] methods.
  */
 - (void) layoutContents;
 
@@ -414,7 +417,7 @@
 
 
 /**
- * Adds the UIView in a fill layer.
+ * Adds a single UIView in a fill layer.
  *
  * @param value the UIView.
  * @return The WePanelLayer.
@@ -432,7 +435,7 @@
 - (WePanelLayer*) addFill :(NSArray*) items;
 
 /**
- * Adds the UIView in a natural fill layer.
+ * Adds a single UIView in a natural fill layer.
  *
  * @param value the UIView.
  * @return The WePanelLayer.
@@ -450,7 +453,7 @@
 - (WePanelLayer*) addFillNatural :(NSArray*) items;
 
 /**
- * Adds the UIView in a center layer.
+ * Adds a single UIView in a center layer.
  *
  * @param value the UIView.
  * @return The WePanelLayer.
@@ -580,7 +583,7 @@
 - (WePanelLayer*) addManual:(NSArray*) items;
 
 /**
- * Adds the UIView in a horizontal layer.
+ * Adds a single UIView in a horizontal layer.
  *
  * @param value the UIView.
  * @return The WePanelLayer.
@@ -596,7 +599,7 @@
 - (WePanelLayer*) addHorizontal:(NSArray*) items;
 
 /**
- * Adds the UIView in a horizontal fill layer.
+ * Adds a single UIView in a horizontal fill layer.
  *
  * @param value the UIView.
  * @return The WePanelLayer.
@@ -612,7 +615,7 @@
 - (WePanelLayer*) addHorizontalFill:(NSArray*) items;
 
 /**
- * Adds the UIView in a vertical layer.
+ * Adds a single UIView in a vertical layer.
  *
  * @param value the UIView.
  * @return The WePanelLayer.
@@ -628,7 +631,7 @@
 - (WePanelLayer*) addVertical:(NSArray*) items;
 
 /**
- * Adds the UIView in a vertical fill layer.
+ * Adds a single UIView in a vertical fill layer.
  *
  * @param value the UIView.
  * @return The WePanelLayer.

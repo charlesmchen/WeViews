@@ -181,6 +181,13 @@
 @protocol IWeView <NSObject>
 
 /**
+ * See [UIView sizeThatFits:] and the discussion at [WePanelLayout sizeThatFits:layer:].
+ * 
+ * @return The "natural" size of the UIView.
+ */
+- (CGSize) sizeThatFits :(CGSize) value;
+
+/**
  * The stretch weight of the view.  
  * Extra space in stretching layouts is allocated proportionally
  * based on stretch weight.
@@ -191,6 +198,8 @@
  */
 - (CGFloat) stretchWeight;
 
+@optional
+
 /**
  * Sets the stretch weight.  
  *
@@ -199,12 +208,5 @@
  * @param value The stretch weight.
  */
 - (void) setStretchWeight :(CGFloat) value;
-
-/**
- * See [UIView sizeThatFits:] and the discussion at [WePanelLayout sizeThatFits:layer:].
- * 
- * @return The "natural" size of the UIView.
- */
-- (CGSize) sizeThatFits :(CGSize) value;
 
 @end

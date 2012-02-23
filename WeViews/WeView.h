@@ -179,6 +179,10 @@
 /**
  * A base class for many WeViews.
  *
+ * Custom views do not need to subclass this class.
+ * If you implement the non-optional methods in IWeView (namely, 
+ * [IWeView stretchWeight]), WePanel will honor its value.
+ *
  * Not that useful on its own.
  */
 @interface WeView : UIControl <IWeView> {
