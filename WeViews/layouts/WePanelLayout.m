@@ -328,4 +328,8 @@
     }
 }
 
+- (void) copyProperties:(WePanelLayout*) layout {
+    // Do nothing.
+}
+
 @end

@@ -182,5 +182,7 @@
 - (void) setNewItem:(id) value
           andSelect:(BOOL) andSelect;
 - (NSArray*) getAllCanvasViews;
+- (void) addToSelection:(UIView*) view 
+              andSelect:(BOOL) andSelect;
 
 @end

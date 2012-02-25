@@ -184,6 +184,7 @@
 #import "WePanelLayoutGridBase.h"
 #import "MockCodeGenerator.h"
 #import "MockCodePopup.h"
+#import "WeSpacingProxy.h"
 
 
 @interface SelectionView ()
@@ -597,6 +598,87 @@
                         code:code];
 }
 
+- (UIView*) makeProxyClone:(UIView*) value
+                colorCounter:(int*) colorCounter { 
+    UIView* result;
+    // TODO: add support for WeScrollView.
+    if ([value isKindOfClass:[WePanel class]]) {
+        WePanel* oldPanel = (WePanel*) value;
+        WePanel* newPanel = [WePanel create];
+        newPanel.frame = oldPanel.frame;
+        newPanel.minSize = oldPanel.minSize;
+        newPanel.maxSize = oldPanel.maxSize;
+        for (UIView* subview in [oldPanel getNonLayerSubviews]) {
+            [newPanel addSubview:[self makeProxyClone:subview
+                                           colorCounter:colorCounter]];
+        }
+        for (WePanelLayer* layer in oldPanel.layers) {
+            NSMutableArray* layerSubviews = [NSMutableArray array];
+            for (UIView* subview in layer.views) {
+                [layerSubviews addObject:[self makeProxyClone:subview
+                                                   colorCounter:colorCounter]];
+            }
+            WePanelLayer* newLayer = [WePanelLayer create:layerSubviews
+                                                   layout:[WePanelLayout layoutForMode:LAYOUT_MODE_CENTER]];
+            [newLayer copyProperties:layer];
+            [newPanel addLayer:newLayer];
+        }
+        result = newPanel;
+    } else {
+        result = [WeSpacingProxy create:value];
+    }
+    
+    NSArray* proxyColors = [NSArray arrayWithObjects:
+                [UIColor redColor],
+                [UIColor greenColor],
+                [UIColor blueColor],
+                //            [UIColor colorWithWhite:0.25f alpha:1.0f],
+                [UIColor orangeColor],
+                [UIColor purpleColor],
+                [UIColor brownColor],
+                [UIColor yellowColor],
+                [UIColor cyanColor],
+                [UIColor magentaColor],                
+                [UIColor whiteColor],
+//                [UIColor colorWithWhite:0.75f alpha:1.0f],
+//                [UIColor colorWithWhite:0.5f alpha:1.0f],
+//                [UIColor colorWithWhite:0.25f alpha:1.0f],
+//                [UIColor blackColor],
+                nil];
+    *colorCounter = *colorCounter + 1;
+    int colorIndex = *colorCounter;
+    UIColor* color = [proxyColors objectAtIndex:colorIndex % [proxyColors count]];
+    result.backgroundColor = [color colorWithAlphaComponent:0.5f];
+    result.opaque = NO;
+    
+    return result;
+}
+
+- (void) proxyClone { 
+    int colorCounter = 0;
+    NSLog(@"proxyClone");
+    UIView* selection = (UIView*) windowModel.selection;
+    UIView* proxyClone = [self makeProxyClone:selection
+                                   colorCounter:&colorCounter];
+    UIView* parentView = selection.superview;
+    [parentView addSubview:proxyClone];
+    
+    // Randomize location within parent view
+    CGRect parentFrame = parentView.frame;
+    CGRect viewFrame = proxyClone.frame;
+    int rangeX = max(1, parentFrame.size.width - viewFrame.size.width);
+    int rangeY = max(1, parentFrame.size.height - viewFrame.size.height);
+    CGPoint randomOrigin = CGPointMake(RANDOM_INT() % rangeX,
+                                       RANDOM_INT() % rangeY);
+    setUIViewOrigin(proxyClone, randomOrigin);
+    
+    // re-layout
+    [WeViewsDemoUtils reLayoutParentsOfView:parentView
+                                   withRoot:windowModel.pseudoRoot.superview];
+    [windowModel setNewItem:proxyClone
+                  andSelect:YES];
+}
+
 - (void) rotateMockIPhone { 
     NSLog(@"rotateMockIPhone");
     MockIPhone* selection = (MockIPhone*) windowModel.selection;
@@ -807,8 +889,13 @@
     }
     if ([windowModel.selection isKindOfClass:[UIView class]]) {
         [rootControls addObject:[WeViewsDemoUtils makeLink:@"Generate Code"
-                                                     target:self
-                                                   selector:@selector(generateCode)]];
+                                                    target:self
+                                                  selector:@selector(generateCode)]];
+    }
+    if ([windowModel.selection isKindOfClass:[UIView class]]) {
+        [rootControls addObject:[WeViewsDemoUtils makeLink:@"Proxy Clone"
+                                                    target:self
+                                                  selector:@selector(proxyClone)]];
     }
     
     if ([rootControls count] > 0) {

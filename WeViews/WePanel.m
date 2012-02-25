@@ -206,7 +206,7 @@
     
     self.autoresizesSubviews = NO;
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.opaque = YES;
+//    self.opaque = YES;
     
     self.layers = [NSMutableArray array];
     debugLayout = NO;
@@ -253,6 +253,7 @@
     UIToolbar* background = [[[UIToolbar alloc] init] autorelease];
     background.barStyle = UIBarStyleBlack;
     [self addFill1:background];
+    self.opaque = YES;
     return self;
 }
 

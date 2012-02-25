@@ -201,7 +201,9 @@
     
     handlers = nil;
     self.stretchWeight = 0;
-    self.opaque = YES;
+//    self.opaque = YES;
+    self.opaque = NO;
+    self.backgroundColor = [UIColor clearColor];
     
     return self;
 }

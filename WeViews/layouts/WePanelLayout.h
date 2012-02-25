@@ -333,4 +333,12 @@ typedef enum {
 - (void) setCellFrame:(CGRect) cellFrame
               forView:(UIView*) viewValue 
                 layer:(WePanelLayer*) layer;
+
+/** 
+ * Copy all properties of another layout.
+ *
+ * @param layout The other layout.
+ */
+- (void) copyProperties:(WePanelLayout*) layout;
+
 @end

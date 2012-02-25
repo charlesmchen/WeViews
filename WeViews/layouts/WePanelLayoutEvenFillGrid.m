@@ -278,4 +278,10 @@
     }
 }
 
+- (void) copyProperties:(WePanelLayout*) layout {
+    [super copyProperties:layout];
+    WePanelLayoutEvenFillGrid* other = (WePanelLayoutEvenFillGrid*) layout;
+    self.cellSizeHint = other.cellSizeHint;
+}
+
 @end

@@ -982,5 +982,11 @@
     }
 }
 
+- (void) copyProperties:(WePanelLayout*) layout {
+    [super copyProperties:layout];
+    WePanelLayoutLinear* other = (WePanelLayoutLinear*) layout;
+    self.mode = other.mode;
+}
+
 @end
 

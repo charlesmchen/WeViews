@@ -178,6 +178,7 @@
 #import "WePanel.h"
 #import "MockIPhone.h"
 #import "WeViewsDemoUtils.h"
+#import "WeScrollView.h"
 
 
 @implementation WindowModel
@@ -263,6 +264,41 @@
 
 - (NSArray*) getAllCanvasViews {
     return [self getAllCanvasViews:pseudoRoot];
+}
+
+- (void) addToSelection:(UIView*) view 
+              andSelect:(BOOL) andSelect {
+    UIView* parentView;
+    if ([selection isKindOfClass:[WePanel class]]) {
+        WePanel* panel = (WePanel*) selection;
+        [panel addSubview:view];
+        parentView = panel;
+    } else if ([selection isKindOfClass:[WeScrollView class]]) {
+        WeScrollView* scrollView = (WeScrollView*) selection;
+        scrollView.content = view;
+        parentView = scrollView;
+    } else if ([selection isKindOfClass:[WePanelLayer class]]) {
+        WePanelLayer* layer = (WePanelLayer*) selection;
+        [layer addView:view];
+        parentView = layer.panel;
+    } 
+    
+    // Randomize location within parent view
+    CGRect parentFrame = parentView.frame;
+    CGRect viewFrame = view.frame;
+    int rangeX = max(1, parentFrame.size.width - viewFrame.size.width);
+    int rangeY = max(1, parentFrame.size.height - viewFrame.size.height);
+    CGPoint randomOrigin = CGPointMake(RANDOM_INT() % rangeX,
+                                       RANDOM_INT() % rangeY);
+    setUIViewOrigin(view, randomOrigin);
+    
+    // re-layout
+    [WeViewsDemoUtils reLayoutParentsOfView:parentView
+                                   withRoot:pseudoRoot.superview];
+    
+    //    windowModel.selection = view;
+    [self setNewItem:view
+                  andSelect:andSelect];
 }
 
 @end

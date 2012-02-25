@@ -197,6 +197,7 @@
 + (WeSpacingProxy*) create:(UIView*) view {
     WeSpacingProxy* result = [[[WeSpacingProxy alloc] init] autorelease];
     result.view = view;
+    result.frame = view.frame;
     return result;
 }
 

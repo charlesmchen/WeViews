@@ -361,4 +361,15 @@
     return hasRowCount;
 }
 
+- (void) copyProperties:(WePanelLayout*) layout {
+    [super copyProperties:layout];
+    WePanelLayoutGridBase* other = (WePanelLayoutGridBase*) layout;
+    if ([other hasRowCount]) {
+        [self setRowCount:[other rowCount]];
+    } else {
+        [self setColumnCount:[other columnCount]];
+    }
+    self.uniformGrid = other.uniformGrid;
+}
+
 @end

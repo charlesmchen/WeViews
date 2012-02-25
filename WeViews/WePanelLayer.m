@@ -354,5 +354,19 @@
     return layout.mode;
 }
 
+- (void) copyProperties:(WePanelLayer*) layer {
+    self.hAlign = layer.hAlign;
+    self.vAlign = layer.vAlign;
+    self.topMargin = layer.topMargin;
+    self.bottomMargin = layer.bottomMargin;
+    self.leftMargin = layer.leftMargin;
+    self.rightMargin = layer.rightMargin;
+    self.spacing = layer.spacing;
+    self.touchMode = layer.touchMode;
+    self.layout = [WePanelLayout layoutForMode:layer.layout.mode];
+    
+    [self.layout copyProperties:layer.layout];
+}
+
 @end
 

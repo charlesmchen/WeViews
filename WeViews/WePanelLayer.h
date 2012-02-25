@@ -423,5 +423,12 @@ typedef enum {
  */
 - (LayoutMode) mode;
 
+/** 
+ * Copy all properties of another layer (except the views list).
+ *
+ * @param layer The other layer.
+ */
+- (void) copyProperties:(WePanelLayer*) layer;
+    
 @end
 
