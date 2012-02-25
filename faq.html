@@ -16,7 +16,7 @@
 .faq_a {
 	padding-bottom: 20px;
 }
-.faq_a > div {
+.faq_p {
 	padding-bottom: 10px;
 	padding-left: 25px;
 	text-indent: -25px;
@@ -26,6 +26,12 @@
 .faq_a li {
 	padding-bottom: 5px;
 }
+
+.illustration {
+	text-indent: 0;
+	padding: 0 0 10px 0;
+}
+
 </style>
 </head>
 
@@ -47,13 +53,13 @@
 				When do I need to manually trigger layout?
 			</div>
 			<div class="faq_a">
-				<div>
+				<div class="faq_p">
 				Whenever you change the size of a WePanel using [WePanel setFrame:] or [WePanel setBounds:], 
 				the WePanel triggers layout by invoking its [WePanel layoutContents] method.
 				Calls to [WePanel setFrame:] or [WePanel setBounds:] that do not change the WePanel's size
 				do not trigger layout.
 				</div>
-				<div>
+				<div class="faq_p">
 				[WePanel layoutContents] can be invoked whenever layout is necessary, 
 				such as:
 				</div>
@@ -68,13 +74,11 @@
 			After changing a layout properties, such as margins, spacing, alignment, etc.
 		</li>
 	</ul>
-				<div>
+				<div class="faq_p">
 					If an WePanel contains subviews which are themselves WePanels,
 					resizing it will automatically cause these subpanels to themselves layout
 					if their size is changed.  
 					Therefore, it is only necessary to manually layout the root WePanel.
-				</div>
-				<div>
 				</div>
 			</div>
 		</li>
@@ -93,20 +97,37 @@ Likewise, WeView classes can be safely used like any other UIView.
 What are layers?  				
 			</div>
 			<div class="faq_a">
-				<div>
+				<div class="faq_p">
 WePanels group their subviews in layers. 
 Most WePanels will only have a single layer.
 				</div>
-				<div>
-However, an WePanel might use one layer to fill its frame with a background image 
-and use a second layer to layout a few buttons.
-				</div>
-				<div>
+				<div class="faq_p">
 Each layer has its own layout strategy, alignment, margins, spacing, etc.
 				</div>
-				<div>
+
+				<div class="illustration">
+				<img src="images/layers_demo.png" />
+				</div>
+				
+				<div class="faq_p">
+In this example, a WePanel has a background image in one layer and a group of buttons is a second layer.
+The background layer uses a fill layout with small (5 point) margins.
+The buttons layer uses a horizontal layout with a large (20 point) bottom margin and bottom alignment.
+				</div>
+				<div class="faq_p">
      You shouldn't need to deal much with the WePanelLayer class.
      Layers are easily created and configured anonymously.
+				</div>
+				<div class="illustration">
+				<img src="images/layers_demo_src.png" />
+				</div>
+				<div class="faq_p">
+				Here's the code for the previous example.
+				The [WePanel addFill:] and [WePanel addHorizontal:] methods create and return a 
+				new WePanelLayer instance which is configured by chained methods such as 
+				[WePanelLayer withSpacing:], [WePanelLayer withMargin:],
+				[WePanelLayer withHAlign:] and [WePanelLayer withVAlign:].
+				The code doesn't need to explicitly refer to the WePanelLayer class, retain it or assign it to a variable.
 				</div>
 			</div>
 		</li>
@@ -115,18 +136,18 @@ Each layer has its own layout strategy, alignment, margins, spacing, etc.
 				What's the difference between "fill" and "stretch"?
 			</div>
 			<div class="faq_a">
-				<div>
+				<div class="faq_p">
 					Some WePanel layouts try to lay out views at their "natural" size.
 					This is the size returned by [UIView sizeThatFits:].
 					Other WePanel layouts try to stretch subviews to fill the panel's frame.  
 					We call these "Fill" layouts.
 				</div>
-				<div>
+				<div class="faq_p">
 					UIViews and most WeViews do not "stretch" by default.
 					WeViews have a stretchWeight property that determines whether or not they stretch.
 					A stretchWeight of zero indicates that the view does not stretch.
 				</div>
-				<div>
+				<div class="faq_p">
 					Fill views try to divide their extra space proportionally based on stretchWeight.
 					Subviews with larger stretchWeight receive more space.
 				</div>
@@ -134,29 +155,131 @@ Each layer has its own layout strategy, alignment, margins, spacing, etc.
 		</li>
 		<li class="faq_item">
 			<div class="faq_q">
-				My views are laying out right.
+				My views aren't laying out right.
 			</div>
 			<div class="faq_q">
 				How do I debug the layout process?
 			</div>
 			<div class="faq_a">
-				<div>
-					If you set the debugLayout property of a WePanel
+				<div class="faq_p">
+					If you set the debugLayout property of a WePanel to YES, it will dump debugging info to the console.  
+					It also draws a checked box over its bounds.
 				</div>
-				<div>
+				<div class="faq_p">
+					You can also recreate your problem in the Demo app. 
+					The Demo app let's you modify and inspect view hierarchies interactively.
 				</div>
-				<div>
-				</div>
-				<div>
-				</div>
-				
 			</div>
-			x. debugging
-     x. debugLayout = YES
-          x. draws crossed borders, dumps layout activity to console
-     x. demo app
+		</li>
+		<li class="faq_item">
+			<div class="faq_q">
+				Why isn't my view showing up?
+			</div>
+			<div class="faq_a">
+				Many UIViews (such as a UIScrollView or an empty WePanel) have a natural size of zero. 
+				If it is an empty WePanel, try adding a layer with some subviews. 
+				Or, if the view itself is layer out in a fill layout, try giving it a non-zero stretch weight.
+			</div>
+		</li>
+		<li class="faq_item">
+			<div class="faq_q">
+				What's the difference between the various grid layouts?
+			</div>
+			<div class="faq_a">
+				<div class="illustration">
+				<img src="images/weviews_grid_demo_0000.png" width=320 height=260/>
+				<img src="images/weviews_grid_demo_0001.png" width=320 height=260/>
+				</div>
+				<div class="faq_p">
+					The "Natural Grid" layout lays out its views at their natural size.
+					Each column has the width of its widest element; 
+					each row has the height of its tallest element. 
+				</div>
+				<div class="faq_p">
+					The example on the right is left- and top-aligned.  
+					Note how the alignment effects the rows and columns AND the views within their grid cells.
+				</div>
+				<div class="illustration">
+				<img src="images/weviews_grid_demo_0002.png" width=320 height=260/>
+				</div>
+				<div class="faq_p">
+					The "Spacing Grid" layout lays out its views at their natural size.
+					Extra space is divided evenly between the spacing between rows and columns.
+				</div>
+				<div class="illustration">
+				<img src="images/weviews_grid_demo_0003.png" width=320 height=260/>
+				<img src="images/weviews_grid_demo_0004.png" width=320 height=260/>
+				</div>
+				<div class="faq_p">
+					The "Fill Grid" layout lays out its views at their natural size.
+					Extra space is divided evenly between the rows and columns.
+				</div>
+				<div class="faq_p">
+					Stretching views are stretched to fill their cell.
+					Non-stretching views are aligned within their cell.
+					The example on the right is left- and top-aligned.  
+				</div>
+				<div class="illustration">
+				<img src="images/weviews_grid_demo_0005.png" width=320 height=260/>
+				<img src="images/weviews_grid_demo_0006.png" width=320 height=260/>
+				</div>
+				<div class="faq_p">
+					The "Even Fill Grid" layout ignores the natural size of its views.
+					All rows have equal height and all columns have equal width.
+				</div>
+				<div class="faq_p">
+					Use the "cellSizeHint" property to control the natural size of the grid.
+				</div>
+				<div class="faq_p">
+					As with the "Fill Grid", 
+					Stretching views are stretched to fill their cell.
+					Non-stretching views are aligned within their cell.
+					The example on the right is left- and top-aligned.  
+				</div>
+			</div>
+		</li>
+		<li class="faq_item">
+			<div class="faq_q">
+				Does WePanel support sub-point layouts? 				
+			</div>
+			<div class="faq_a">
+				No. WePanels only support laying out subviews with integer locations and sizes.				
+			</div>
+		</li>
+		<li class="faq_item">
+			<div class="faq_q">
+				Can a view have negative stretch weight?
+			</div>
+			<div class="faq_a">
+				<div class="faq_p">
+					Yes, but this isn't common. 
+				</div>
+				<div class="faq_p">
+  Stretch weight of zero indicates that the view does not stretch.
+  This is the default value.
+				</div>
+				<div class="faq_p">
+  Positive stretch weight means the view stretches.  
+  Additionally, the natural size
+  of the view will be ignored when determining the natural size of
+  its superview.
+				</div>
+				<div class="faq_p">
+  Negative stretch weight means the view stretches, but its natural
+  size should be included in the natural size of its superview. Otherwise,
+  sign of stretch weight is ignored (ie. a stretch weight of -1.0f otherwise
+  functions like a stretch weight of 1.0f).
+				</div>
+				<div class="faq_p">
+This isn't the cleanest or most intuitive aspect of the library.
+				</div>
+				<div class="faq_p">
+				</div>
+			</div>
+		</li>
+		<!--
 
-		</li>
+ 
 		<li class="faq_item">
 			<div class="faq_q">
 				
@@ -165,35 +288,15 @@ Each layer has its own layout strategy, alignment, margins, spacing, etc.
 				
 			</div>
 		</li>
-		<li class="faq_item">
-			<div class="faq_q">
-				
-			</div>
-			<div class="faq_a">
-				
-			</div>
-		</li>
+		-->
 	</ul>
 	
-	
+	<!--
 	
 FAQ
 
-
-
-x. Why isn't my view showing up?  It might have zero size.  Many UIViews (such as a UIScrollView or an empty WePanel) have a natural size of zero.  If it is an empty WePanel, try adding a layer with some subviews.  Or, if the view itself is layer out in a fill layout, try giving it a non-zero stretch weight.
-x. Does WePanel support sub-point layouts? No. WePanels only support laying out subviews with integer locations and sizes.
-
-
-
-
-
-
 x. What the diff between
 - Fill and Natural Fill
-
-x. What the diff between
-various grid layouts
 
 
 x. What the diff between
@@ -206,17 +309,7 @@ x. what's the difference between fill and stretch layouts?
 x. in linear layouts, stretching items don't contribute to the natural size of their container.
 
 
-
-
-
-
-
-
-
-
-
-
-
+-->
 
 <h2><a href="index.html">Back</a></h2>
 
