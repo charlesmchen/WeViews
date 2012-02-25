@@ -206,7 +206,7 @@
     //    result.screen = [WePanel create];
     screenWrapper.clipsToBounds = YES;
     CGSize screenSize = horizontal ? CGSizeMake(480, 320) : CGSizeMake(320, 480);
-    [screenWrapper setFixedSize:screenSize];
+    [screenWrapper withFixedSize:screenSize];
     [[[[self addHorizontal1:screenWrapper]
        withTopMargin:horizontal ? 28 : 133
        rightMargin:0 

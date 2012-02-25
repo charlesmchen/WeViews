@@ -310,6 +310,8 @@
         // Restore old frame.
         if ([view.subviews count] < 1) {
             view.frame = srcFrames[i];
+        } else if ([WeViewsDemoUtils ignoreChildrenOfView:view]) {
+            view.frame = srcFrames[i];
         } else {        
             CGRect restoreFrame = view.frame;
             restoreFrame.origin = srcFrames[i].origin;
@@ -551,7 +553,19 @@
 
 - (void) resizeSelection {
     UIView* selection = (UIView*) windowModel.selection;
-    [selection sizeToFit];
+    CGRect newFrame = selection.frame;
+    CGRect parentFrame = selection.superview.frame;
+    newFrame.size = [selection sizeThatFits:parentFrame.size];
+    if (newFrame.origin.x + newFrame.size.width > parentFrame.size.width) {
+        newFrame.origin.x = parentFrame.size.width - newFrame.size.width;
+    }
+    if (newFrame.origin.y + newFrame.size.height > parentFrame.size.height) {
+        newFrame.origin.y = parentFrame.size.height - newFrame.size.height;
+    }
+    newFrame.origin = CGPointMax(newFrame.origin, CGPointZero);
+    selection.frame = newFrame;
+    
+//    [selection sizeToFit];
     [self animateRelayout:selection];
     [self updateContents];
 }
@@ -578,7 +592,9 @@
     MockIPhone* selection = (MockIPhone*) windowModel.selection;
     CGRect oldFrame = selection.frame;
     [selection toggleHorizontal];
-    selection.frame = CGRectCenterOnRect(selection.frame, oldFrame);
+    CGRect newFrame = CGRectCenterOnRect(selection.frame, oldFrame);
+    newFrame.origin = CGPointMax(CGPointZero, newFrame.origin);
+    selection.frame = newFrame;
     [self animateRelayout:selection];
     [self updateContents];
 }
@@ -1060,6 +1076,8 @@
                                                              [NSNumber numberWithInt:4],
                                                              [NSNumber numberWithInt:5],
                                                              [NSNumber numberWithInt:10],
+                                                             [NSNumber numberWithInt:-1],
+                                                             [NSNumber numberWithInt:-2],
                                                              nil]
                                               currentOption:[NSNumber numberWithInt:[view stretchWeight]] 
                                              formatSelector:@selector(formatNumber:)

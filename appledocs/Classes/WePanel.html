@@ -156,8 +156,6 @@
 	
 	<option value="//api/name/setFixedHeight:">&nbsp;&nbsp;&nbsp;&nbsp;- setFixedHeight:</option>
 	
-	<option value="//api/name/setFixedSize:">&nbsp;&nbsp;&nbsp;&nbsp;- setFixedSize:</option>
-	
 	<option value="//api/name/setFixedWidth:">&nbsp;&nbsp;&nbsp;&nbsp;- setFixedWidth:</option>
 	
 	<option value="//api/name/setFrame:">&nbsp;&nbsp;&nbsp;&nbsp;- setFrame:</option>
@@ -177,6 +175,14 @@
 	<option value="//api/name/updateHAlign:vAlign:">&nbsp;&nbsp;&nbsp;&nbsp;- updateHAlign:vAlign:</option>
 	
 	<option value="//api/name/updateHMargin:vMargin:">&nbsp;&nbsp;&nbsp;&nbsp;- updateHMargin:vMargin:</option>
+	
+	<option value="//api/name/withEmptyNaturalSize">&nbsp;&nbsp;&nbsp;&nbsp;- withEmptyNaturalSize</option>
+	
+	<option value="//api/name/withFixedSize:">&nbsp;&nbsp;&nbsp;&nbsp;- withFixedSize:</option>
+	
+	<option value="//api/name/withMaxSize:">&nbsp;&nbsp;&nbsp;&nbsp;- withMaxSize:</option>
+	
+	<option value="//api/name/withMinSize:">&nbsp;&nbsp;&nbsp;&nbsp;- withMinSize:</option>
 	
 	<option value="//api/name/withStretch">&nbsp;&nbsp;&nbsp;&nbsp;- withStretch</option>
 	
@@ -322,8 +328,6 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setFixedHeight:">setFixedHeight:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setFixedSize:">setFixedSize:</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setFixedWidth:">setFixedWidth:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setFrame:">setFrame:</a></span></li>
@@ -343,6 +347,14 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateHAlign:vAlign:">updateHAlign:vAlign:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateHMargin:vMargin:">updateHMargin:vMargin:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/withEmptyNaturalSize">withEmptyNaturalSize</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/withFixedSize:">withFixedSize:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/withMaxSize:">withMaxSize:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/withMinSize:">withMinSize:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/withStretch">withStretch</a></span></li>
 	
@@ -801,6 +813,34 @@ of a given size.</p></span>
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/withMinSize:">&ndash;&nbsp;withMinSize:</a></code>
+		<span class="tooltip"><p>Sets the minimum natural size of this view.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/withMaxSize:">&ndash;&nbsp;withMaxSize:</a></code>
+		<span class="tooltip"><p>Sets the maximum natural size of this view.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/withFixedSize:">&ndash;&nbsp;withFixedSize:</a></code>
+		<span class="tooltip"><p>Sets a fixed natural size of this view.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/withEmptyNaturalSize">&ndash;&nbsp;withEmptyNaturalSize</a></code>
+		<span class="tooltip"><p>If invoked, the &ldquo;natural&rdquo; size returned by [UIView sizeThatFits:] is zero.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/setMinWidth:">&ndash;&nbsp;setMinWidth:</a></code>
 		<span class="tooltip"><p>Sets the minimum width hint.</p></span>
 	</span>
@@ -838,13 +878,6 @@ of a given size.</p></span>
 	<span class="tooltip">
 		<code><a href="#//api/name/setFixedHeight:">&ndash;&nbsp;setFixedHeight:</a></code>
 		<span class="tooltip"><p>Sets the maximum and minimum height hints.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/setFixedSize:">&ndash;&nbsp;setFixedSize:</a></code>
-		<span class="tooltip"><p>Sets the maximum and minimum size hints.</p></span>
 	</span>
 	
 	
@@ -3664,60 +3697,6 @@ with the <a href="#//api/name/setFrame:">[WePanel setFrame:]</a> or <a href="#//
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/setFixedSize:" title="setFixedSize:"></a>
-	<h3 class="subsubtitle method-title">setFixedSize:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Sets the maximum and minimum size hints.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>- (WePanel *)setFixedSize:(CGSize)<em>value</em></code></div>
-	
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>value</em></dt>
-			<dd><p>The size value.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>Itself, for chaining.</p>
-	</div>
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Sets the maximum and minimum size hints.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">WePanel.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
 	<a name="//api/name/setFixedWidth:" title="setFixedWidth:"></a>
 	<h3 class="subsubtitle method-title">setFixedWidth:</h3>
 	
@@ -4262,6 +4241,212 @@ of a given size.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/withEmptyNaturalSize" title="withEmptyNaturalSize"></a>
+	<h3 class="subsubtitle method-title">withEmptyNaturalSize</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>If invoked, the &ldquo;natural&rdquo; size returned by [UIView sizeThatFits:] is zero.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (id)withEmptyNaturalSize</code></div>
+	
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Itself, for chaining.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>If invoked, the &ldquo;natural&rdquo; size returned by [UIView sizeThatFits:] is zero.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">WePanel.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/withFixedSize:" title="withFixedSize:"></a>
+	<h3 class="subsubtitle method-title">withFixedSize:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets a fixed natural size of this view.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (WePanel *)withFixedSize:(CGSize)<em>value</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>value</em></dt>
+			<dd><p>The size value.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Itself, for chaining.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sets a fixed natural size of this view.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">WePanel.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/withMaxSize:" title="withMaxSize:"></a>
+	<h3 class="subsubtitle method-title">withMaxSize:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets the maximum natural size of this view.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (WePanel *)withMaxSize:(CGSize)<em>value</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>value</em></dt>
+			<dd><p>The size value.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Itself, for chaining.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sets the maximum natural size of this view.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">WePanel.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/withMinSize:" title="withMinSize:"></a>
+	<h3 class="subsubtitle method-title">withMinSize:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets the minimum natural size of this view.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (WePanel *)withMinSize:(CGSize)<em>value</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>value</em></dt>
+			<dd><p>The size value.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Itself, for chaining.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sets the minimum natural size of this view.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">WePanel.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/withStretch" title="withStretch"></a>
 	<h3 class="subsubtitle method-title">withStretch</h3>
 	
@@ -4318,7 +4503,7 @@ of a given size.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2012 charlesmchen. All rights reserved. (Last updated: 2012-02-23)</span><br />
+						<p><span class="copyright">&copy; 2012 charlesmchen. All rights reserved. (Last updated: 2012-02-25)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 752)</a>.</span></p>
 						

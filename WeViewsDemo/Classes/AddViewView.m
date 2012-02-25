@@ -300,12 +300,23 @@
     return text;
 }
 
-- (void) addSmallLabel {
+- (void) addTinyLabel {
     static int counter = 1;
     NSString* text = [NSString stringWithFormat:@"Label %d", counter++];
     UILabel* view = [WeViews createUILabel:text
-                                       font:[UIFont systemFontOfSize:14]
-                                      color:[WeViewsDemoUtils lastForegroundColor]];
+                                      font:[UIFont systemFontOfSize:14]
+                                     color:[WeViewsDemoUtils lastForegroundColor]];
+    view.backgroundColor = [WeViewsDemoUtils lastBackgroundColor];
+    view.opaque = NO;
+    [self addToSelection:view
+               andSelect:NO];
+}
+
+- (void) addSmallLabel {
+    NSString* text = @"Lorem ipsum dolor sit amet";
+    UILabel* view = [WeViews createUILabel:text
+                                      font:[UIFont systemFontOfSize:14]
+                                     color:[WeViewsDemoUtils lastForegroundColor]];
     view.backgroundColor = [WeViewsDemoUtils lastBackgroundColor];
     view.opaque = NO;
     [self addToSelection:view
@@ -415,7 +426,8 @@
 }
 
 - (void) addSmallImage {
-    [self addImageView:@"finder_64"];
+    [self addImageView:@"Icon-72"];
+//    [self addImageView:@"finder_64"];
 }
 
 - (void) addMediumImage {
@@ -711,9 +723,12 @@
                                               nil]]];
         [contents addObject:[self makeAddRow:@"Text"
                                        items:[NSArray arrayWithObjects:
+                                              [WeViewsDemoUtils makeLink:@"Tiny Label"
+                                                                  target:self
+                                                                selector:@selector(addTinyLabel)],
                                               [WeViewsDemoUtils makeLink:@"Small Label"
-                                                                   target:self
-                                                                 selector:@selector(addSmallLabel)],
+                                                                  target:self
+                                                                selector:@selector(addSmallLabel)],
                                               [WeViewsDemoUtils makeLink:@"Medium Label"
                                                                    target:self
                                                                  selector:@selector(addMediumLabel)],
