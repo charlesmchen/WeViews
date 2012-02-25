@@ -9,8 +9,8 @@ Supports iPhoneOS 3.0+, iOS 4.0+
 Released under the [Apache License 2.0](WeViews/blob/master/License.txt)
 
 
-Introduction
-------------
+Getting Started
+---------------
 
 Intro video and documentation at [the project pages](http://charlesmchen.github.com/WeViews).
 
