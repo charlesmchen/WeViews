@@ -257,7 +257,6 @@
 }
 
 - (CGSize) sizeThatFits:(CGSize) value {
-    
     //    if ([self debugLayout]) {
     //        NSLog(@"[%@ %@]: %@",
     //              [self class], 
@@ -669,6 +668,23 @@ ADD_METHOD_TEMPLATE(addHorizontal, addHorizontal1, LAYOUT_MODE_HORIZONTAL)
     //    CG_EXTERN void CGContextSetStrokeColorWithColor(CGContextRef c,
     //                                                    CGColorRef color) CG_AVAILABLE_STARTING(__MAC_10_3, __IPHONE_2_0);
 	CGContextBeginPath(currentContext);
+    // Draw border.
+	CGContextMoveToPoint(currentContext,
+						 borderRect.origin.x,
+						 borderRect.origin.y);
+	CGContextAddLineToPoint(currentContext,
+							borderRect.origin.x + borderRect.size.width,
+							borderRect.origin.y);
+	CGContextAddLineToPoint(currentContext,
+							borderRect.origin.x + borderRect.size.width,
+							borderRect.origin.y + borderRect.size.height);
+	CGContextAddLineToPoint(currentContext,
+							borderRect.origin.x,
+							borderRect.origin.y + borderRect.size.height);
+	CGContextAddLineToPoint(currentContext,
+							borderRect.origin.x,
+							borderRect.origin.y);
+    
 	CGContextMoveToPoint(currentContext,
 						 borderRect.origin.x,
 						 borderRect.origin.y);
@@ -687,6 +703,26 @@ ADD_METHOD_TEMPLATE(addHorizontal, addHorizontal1, LAYOUT_MODE_HORIZONTAL)
 	CGContextRestoreGState(currentContext);
 }
 
+- (WePanel*) withMinSize:(CGSize) value {
+    self.minSize = value;
+    return self;
+}
+
+- (WePanel*) withMaxSize:(CGSize) value {
+    self.maxSize = value;
+    return self;
+}
+
+- (WePanel*) withFixedSize:(CGSize) value {
+    self.minSize = value;
+    self.maxSize = value;
+    return self;
+}
+
+- (id) withEmptyNaturalSize {
+    return [self withFixedSize:CGSizeZero];
+}
+
 - (WePanel*) setFixedWidth:(int) value {
     self.minSize = CGSizeMake(value, minSize.height);
     self.maxSize = CGSizeMake(value, maxSize.height);
@@ -696,12 +732,6 @@ ADD_METHOD_TEMPLATE(addHorizontal, addHorizontal1, LAYOUT_MODE_HORIZONTAL)
 - (WePanel*) setFixedHeight:(int) value {
     self.minSize = CGSizeMake(minSize.width, value);
     self.maxSize = CGSizeMake(maxSize.width, value);
-    return self;
-}
-
-- (WePanel*) setFixedSize:(CGSize) value {
-    [self setFixedWidth:roundf(value.width)];
-    [self setFixedHeight:roundf(value.height)];
     return self;
 }
 

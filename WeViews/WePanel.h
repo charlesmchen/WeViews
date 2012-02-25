@@ -681,6 +681,37 @@
 - (WePanel*) withStretch;
 
 /**
+ * Sets the minimum natural size of this view.
+ *
+ * @param value The size value.
+ * @return Itself, for chaining.
+ */
+- (WePanel*) withMinSize:(CGSize) value;
+
+/**
+ * Sets the maximum natural size of this view.
+ *
+ * @param value The size value.
+ * @return Itself, for chaining.
+ */
+- (WePanel*) withMaxSize:(CGSize) value;
+
+/**
+ * Sets a fixed natural size of this view.
+ *
+ * @param value The size value.
+ * @return Itself, for chaining.
+ */
+- (WePanel*) withFixedSize:(CGSize) value;
+
+/**
+ * If invoked, the "natural" size returned by [UIView sizeThatFits:] is zero.
+ *
+ * @return Itself, for chaining.
+ */
+- (id) withEmptyNaturalSize;
+
+/**
  * Sets the minimum width hint.
  * 
  * @param value The minimum width value.
@@ -727,14 +758,6 @@
  * @return Itself, for chaining.
  */
 - (WePanel*) setFixedHeight:(int) value;
-
-/**
- * Sets the maximum and minimum size hints.
- * 
- * @param value The size value.
- * @return Itself, for chaining.
- */
-- (WePanel*) setFixedSize:(CGSize) value;
 
 /**
  * @return All subviews which are not associated with a layer.
