@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	
+	<title>charlesmchen/WeViews @ GitHub</title>
+	
+	
+	<link href="css/weviews.css" rel="stylesheet" type="text/css" />
+	
+	<style type="text/css">
+.faq_q {
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+.faq_a {
+	padding-bottom: 20px;
+}
+.faq_a > div {
+	padding-bottom: 10px;
+	padding-left: 25px;
+	text-indent: -25px;
+	padding-left: 0;
+	text-indent: 25px;
+}
+.faq_a li {
+	padding-bottom: 5px;
+}
+</style>
+</head>
+
+<body>
+  <a href="https://github.com/charlesmchen/WeViews"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+  <div id="container">
+
+    <h1><a href="index.html">WeViews</a></h1>
+    
+    <h2>FAQ</h2>
+
+	<ul>
+		<li class="faq_item">
+			<div class="faq_q">
+				When does WePanel layout its contents?
+			</div>
+			<div class="faq_q">
+				When do I need to manually trigger layout?
+			</div>
+			<div class="faq_a">
+				<div>
+				Whenever you change the size of a WePanel using [WePanel setFrame:] or [WePanel setBounds:], 
+				the WePanel triggers layout by invoking its [WePanel layoutContents] method.
+				Calls to [WePanel setFrame:] or [WePanel setBounds:] that do not change the WePanel's size
+				do not trigger layout.
+				</div>
+				<div>
+				[WePanel layoutContents] can be invoked whenever layout is necessary, 
+				such as:
+				</div>
+	<ul>
+		<li>
+			After adding or removing a view or layer.
+		</li>
+		<li>
+			After changing a layer's layout strategy.
+		</li>
+		<li>
+			After changing a layout properties, such as margins, spacing, alignment, etc.
+		</li>
+	</ul>
+				<div>
+					If an WePanel contains subviews which are themselves WePanels,
+					resizing it will automatically cause these subpanels to themselves layout
+					if their size is changed.  
+					Therefore, it is only necessary to manually layout the root WePanel.
+				</div>
+				<div>
+				</div>
+			</div>
+		</li>
+		<li class="faq_item">
+			<div class="faq_q">
+Can I mix and match WeViews with other UIViews?
+			</div>
+			<div class="faq_a">
+Yes.  
+WePanel, for example, can layout any properly implemented UIView (ie. that has implemented [UIView sizeThatFits:]).
+Likewise, WeView classes can be safely used like any other UIView.
+			</div>
+		</li>
+		<li class="faq_item">
+			<div class="faq_q">
+What are layers?  				
+			</div>
+			<div class="faq_a">
+				<div>
+WePanels group their subviews in layers. 
+Most WePanels will only have a single layer.
+				</div>
+				<div>
+However, an WePanel might use one layer to fill its frame with a background image 
+and use a second layer to layout a few buttons.
+				</div>
+				<div>
+Each layer has its own layout strategy, alignment, margins, spacing, etc.
+				</div>
+				<div>
+     You shouldn't need to deal much with the WePanelLayer class.
+     Layers are easily created and configured anonymously.
+				</div>
+			</div>
+		</li>
+		<li class="faq_item">
+			<div class="faq_q">
+				What's the difference between "fill" and "stretch"?
+			</div>
+			<div class="faq_a">
+				<div>
+					Some WePanel layouts try to lay out views at their "natural" size.
+					This is the size returned by [UIView sizeThatFits:].
+					Other WePanel layouts try to stretch subviews to fill the panel's frame.  
+					We call these "Fill" layouts.
+				</div>
+				<div>
+					UIViews and most WeViews do not "stretch" by default.
+					WeViews have a stretchWeight property that determines whether or not they stretch.
+					A stretchWeight of zero indicates that the view does not stretch.
+				</div>
+				<div>
+					Fill views try to divide their extra space proportionally based on stretchWeight.
+					Subviews with larger stretchWeight receive more space.
+				</div>
+			</div>
+		</li>
+		<li class="faq_item">
+			<div class="faq_q">
+				My views are laying out right.
+			</div>
+			<div class="faq_q">
+				How do I debug the layout process?
+			</div>
+			<div class="faq_a">
+				<div>
+					If you set the debugLayout property of a WePanel
+				</div>
+				<div>
+				</div>
+				<div>
+				</div>
+				<div>
+				</div>
+				
+			</div>
+			x. debugging
+     x. debugLayout = YES
+          x. draws crossed borders, dumps layout activity to console
+     x. demo app
+
+		</li>
+		<li class="faq_item">
+			<div class="faq_q">
+				
+			</div>
+			<div class="faq_a">
+				
+			</div>
+		</li>
+		<li class="faq_item">
+			<div class="faq_q">
+				
+			</div>
+			<div class="faq_a">
+				
+			</div>
+		</li>
+	</ul>
+	
+	
+	
+FAQ
+
+
+
+x. Why isn't my view showing up?  It might have zero size.  Many UIViews (such as a UIScrollView or an empty WePanel) have a natural size of zero.  If it is an empty WePanel, try adding a layer with some subviews.  Or, if the view itself is layer out in a fill layout, try giving it a non-zero stretch weight.
+x. Does WePanel support sub-point layouts? No. WePanels only support laying out subviews with integer locations and sizes.
+
+
+
+
+
+
+x. What the diff between
+- Fill and Natural Fill
+
+x. What the diff between
+various grid layouts
+
+
+x. What the diff between
+horizontal and horizontal fill?
+x. what's the difference between fill and stretch layouts?
+
+
+
+
+x. in linear layouts, stretching items don't contribute to the natural size of their container.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2><a href="index.html">Back</a></h2>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+body {
+  margin-top: 1.0em;
+  background-color: #b5196a;
+  background-color: #fff;
+  font-family: Helvetica, Arial, FreeSans, san-serif;
+  color: #ffffff;
+  color: #000;
+}
+#container {
+  margin: 0 auto;
+  width: 700px;
+}
+h1 { font-size: 3.8em; color: #4183C4; margin-bottom: 3px; }
+h1 .small { font-size: 0.4em; }
+h1 a { text-decoration: none }
+h2 { font-size: 2.0em; color: #4183C4; }
+h3 { text-align: center; color: #4183C4; }
+a { color: #4183C4; }
+.description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+.download { float: right; }
+pre { background: #000; color: #fff; padding: 15px;}
+hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+.footer { text-align:center; padding-top:30px; font-style: italic; }
+
+.theme-default #slider {
+margin:100px auto 0 auto;
+width:800px; /* Make sure your images are the same size */
+height:600px; /* Make sure your images are the same size */
+}
+
+body {
+	margin-bottom: 100px;
+}
