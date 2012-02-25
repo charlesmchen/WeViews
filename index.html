@@ -9,24 +9,37 @@
     body {
       margin-top: 1.0em;
       background-color: #b5196a;
+      background-color: #fff;
       font-family: Helvetica, Arial, FreeSans, san-serif;
       color: #ffffff;
+      color: #000;
     }
     #container {
       margin: 0 auto;
       width: 700px;
     }
-    h1 { font-size: 3.8em; color: #4ae695; margin-bottom: 3px; }
+    h1 { font-size: 3.8em; color: #4183C4; margin-bottom: 3px; }
     h1 .small { font-size: 0.4em; }
     h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #4ae695; }
-    h3 { text-align: center; color: #4ae695; }
-    a { color: #4ae695; }
+    h2 { font-size: 1.5em; color: #4183C4; }
+    h3 { text-align: center; color: #4183C4; }
+    a { color: #4183C4; }
     .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
     .download { float: right; }
     pre { background: #000; color: #fff; padding: 15px;}
     hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
     .footer { text-align:center; padding-top:30px; font-style: italic; }
+    
+    .theme-default #slider {
+    margin:100px auto 0 auto;
+    width:800px; /* Make sure your images are the same size */
+    height:600px; /* Make sure your images are the same size */
+    }
+    
+    body {
+    	margin-bottom: 100px;
+    }
+
   </style>
 </head>
 
@@ -34,6 +47,7 @@
   <a href="https://github.com/charlesmchen/WeViews"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
   <div id="container">
+
 
     <div class="download">
       <a href="https://github.com/charlesmchen/WeViews/zipball/master">
@@ -45,27 +59,49 @@
     <h1><a href="https://github.com/charlesmchen/WeViews">WeViews</a>
       <span class="small">by <a href="https://github.com/charlesmchen">charlesmchen</a></span></h1>
 
-    <div class="description">
-      A set of iOS classes for laying out UIViews.
-    </div>
+
+<p>WeViews is an Objective-C library for programmatically laying out UIKit UIViews.</p>
+
+<p>Supports iPhoneOS 3.0+, iOS 4.0+ </p>
+
+<p>Released under the Apache License 2.0 <a href="WeViews/blob/master/License.txt">License.txt</a></p>
+
+<p><a href="https://github.com/charlesmchen/WeViews">https://github.com/charlesmchen/WeViews</a></p>
+
+<p><a href="http://charlesmchen.github.com/WeViews">http://charlesmchen.github.com/WeViews</a></p>
+
+<h2>Introduction</h2>
+
+
+<div>
+<!--
+<video width="1136" 
+		height="880" >
+-->
+<video width="568" 
+	height="440" 
+	controls="controls"
+	poster="videos/WeViews_demo_0_poster.png"
+	preload="auto"
+	autobuffer style="border: 1px solid #ddd;">
+<!--
+-->
+<source src="videos/WeViews_demo_0.mp4" type="video/mp4" />
+<source src="videos/WeViews_demo_0.mkv" type="video/mkv" />
+	Your browser does not support the video tag.
+</video>
+</div>
 
     
+    
+<h2>Getting Started</h2>
 
-    
+<p>Download the source and run the Demo App to try the WeViews.</p>
 
-    
+<p>The Demo requires iOS 3.2+ and is best run in the iPad Simulator.</p>
 
-    
 
-    
-      <h2>Authors</h2>
-      <p>Charles Matthew Chen (charlesmchen@gmail.com)<br/>      </p>
-    
 
-    
-      <h2>Contact</h2>
-      <p> (charlesmchen@gmail.com)<br/>      </p>
-    
 
     <h2>Download</h2>
     <p>
@@ -78,11 +114,81 @@
       <pre>$ git clone git://github.com/charlesmchen/WeViews</pre>
     </p>
 
-    <div class="footer">
-      get the source code on GitHub : <a href="https://github.com/charlesmchen/WeViews">charlesmchen/WeViews</a>
-    </div>
+
+
+<h2>Install</h2>
+
+<p>Download the source and add the WeViews directory to your X Code project.
+The demo directory (WeViewsDemo) is not necessary and should not be included in production projects.</p>
+
+<!--
+
+<h2>Introduction</h2>
+
+<p>WeViews can be used interchangeably with other UIKit UIViews (ie. subclasses of UIView).</p>
+
+<ul>
+<li>The core class is WePanel, a container for other UIViews.</li>
+<li>Subviews added to WePanel using its add... methods will be automatically layed out whenever the WePanel is moved, resized or when [WePanel layoutContents] is invoked.</li>
+<li>A UIView added using [WePanel addAsFill1:] will automatically be resized to fill the WePanel's frame.<br>
+</li>
+<li>A UIView added using [WePanel addAsCenter1:] will automatically be centered on the WePanel's frame at its natural size (see [UIView sizeThatFits:].</li>
+<li>A group of UIViews added using [WePanel addHorizontal:] will be layed out horizontally at their natural size.  [WePanel addVertical:] is vertical.</li>
+<li>A group of UIViews added using [WePanel addHorizontalFill:] will be layed out horizontally so that they fill their parent's frame.  [WePanel addVerticalFill:] is vertical.</li>
+<li>There are also methods for adding UIViews in grids.</li>
+</ul><p>Layers</p>
+
+<ul>
+<li>Each [WePanel add...:] method creates and returns a layer which groups together the UIViews passed to the method.<br>
+</li>
+<li>A WePanel can have multiple layers.</li>
+<li>Layers added after other layers appear on top of them.</li>
+<li>Layers have spacing, margin and alignment properties that work like the HTML/CS attributes.</li>
+
+
+</ul>
+
+
+-->
+
+
+<h2>Documentation</h2>
+
+<p><a href="appledocs/index.html">Appledocs for this project</a> generated with <a href="https://github.com/tomaz/appledoc">appledoc</a>.</p>
+
+
+<!--
+<h2>References</h2>
+
+<p>There are many other useful iOS libraries mentioned in <a href="http://stackoverflow.com/questions/640805/open-source-ios-components-reusable-views-controllers-buttons-table-cells-e">this Stackoverflow question</a></p>
+-->
+
+<h2>Contact</h2>
+
+<p>Send bug reports, feature requests to <a href="mailto:charlesmchen@gmail.com">charlesmchen@gmail.com</a></p>
+
+
+
+    
+    
 
   </div>
+
+    <script type="text/javascript" src="nivo-slider/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="nivo-slider/jquery.nivo.slider.pack.js"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+//        $('#slider').nivoSlider();
+		$('#slider').nivoSlider({
+			effect:'fade', //Specify sets like: 'fold,fade,sliceDown'
+			animSpeed:500,
+			pauseTime:3000,
+			pauseOnHover:true, //Stop animation while hovering
+			directionNav:false, //Next & Prev
+			controlNav:false, //1,2,3...
+		});
+    });
+    </script>
 
 </body>
 </html>
