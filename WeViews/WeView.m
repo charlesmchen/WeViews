@@ -268,4 +268,14 @@
     self.stretchWeight = value ? 1.0f : 0.0f;
 }
 
+- (id) withStretch {
+    self.stretchWeight = 1.0f;
+    return self;
+}
+
+- (id) withNaturalStretch {
+    self.stretchWeight = -1.0f;
+    return self;
+}
+
 @end

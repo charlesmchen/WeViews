@@ -315,7 +315,7 @@
         } else {        
             CGRect restoreFrame = view.frame;
             restoreFrame.origin = srcFrames[i].origin;
-            if ([views respondsToSelector:@selector(setFrameWithoutLayout:)]) {
+            if ([view respondsToSelector:@selector(setFrameWithoutLayout:)]) {
                 WePanel* frame = (WePanel*) view;
                 [frame setFrameWithoutLayout:restoreFrame];
             } else {
@@ -341,11 +341,21 @@
     [UIView setAnimationDuration:LAYER_ANIMATION_DURATION_SECONDS];
     for (int i=0; i < count; i++) {
         UIView* view = [views objectAtIndex:i];
-        if ([views isKindOfClass:[WePanel class]]) {
-            setUIViewOrigin(view, dstFrames[i].origin);
+        
+        if ([view respondsToSelector:@selector(setFrameWithoutLayout:)]) {
+            WePanel* frame = (WePanel*) view;
+            [frame setFrameWithoutLayout:dstFrames[i]];
         } else {
             view.frame = dstFrames[i];
         }
+        
+//        if ([view isKindOfClass:[WePanel class]]) {
+//            WePanel* panel = (WePanel*) view;
+//            [panel setFrameWithoutLayout:dstFrames[i]];
+////            setUIViewOrigin(view, dstFrames[i].origin);
+//        } else {
+//            view.frame = dstFrames[i];
+//        }
         [view setNeedsDisplay];
     }
     [UIView commitAnimations];
@@ -826,8 +836,12 @@
         NSMutableArray* layerModes = [NSMutableArray array];
         for (int i=0; i < WEPANEL_LAYOUT_MODE_COUNT; i++) {
             [layerModes addObject:[NSNumber numberWithInt:i]];
-        }
-        
+        }        
+        [contents addObject:[self makePropertyOptionRow:@"Layer Mode"
+                                                options:layerModes
+                                          currentOption:[NSNumber numberWithInt:layer.mode] 
+                                         formatSelector:@selector(formatLayerMode:)
+                                         setterSelector:@selector(setSelectionLayerMode:)]];
         
         if (layer.mode == LAYOUT_MODE_NATURAL_GRID ||
             layer.mode == LAYOUT_MODE_FILL_GRID ||
@@ -868,12 +882,6 @@
             //                @property (nonatomic, assign) CGSize cellSize; // optional.  if not set, cell sizes is calculated by dividing layer size equally.
         }
         
-        [contents addObject:[self makePropertyOptionRow:@"Layer Mode"
-                                                options:layerModes
-                                          currentOption:[NSNumber numberWithInt:layer.mode] 
-                                         formatSelector:@selector(formatLayerMode:)
-                                         setterSelector:@selector(setSelectionLayerMode:)]];
-        
         [contents addObject:[self makePropertyOptionRow:@"HAlign"
                                                 options:[NSArray arrayWithObjects:
                                                          [NSNumber numberWithInt:H_ALIGN_LEFT],
@@ -908,6 +916,12 @@
                                          formatSelector:@selector(formatNumber:)
                                          setterSelector:@selector(setSelectionSpacing:)]];
         
+        [contents addObject:[self makePropertyOptionRow:@"Set All Margins"
+                                                options:[self spacingOptions]
+                                          currentOption:[NSNumber numberWithInt:layer.leftMargin] 
+                                         formatSelector:@selector(formatNumber:)
+                                         setterSelector:@selector(setSelectionAllMargins:)]];
+        
         [contents addObject:[self makePropertyOptionRow:@"Top Margin"
                                                 options:[self spacingOptions]
                                           currentOption:[NSNumber numberWithInt:layer.topMargin] 
@@ -932,12 +946,6 @@
                                          formatSelector:@selector(formatNumber:)
                                          setterSelector:@selector(setSelectionLeftMargin:)]];
         
-        [contents addObject:[self makePropertyOptionRow:@"Set All Margins"
-                                                options:[self spacingOptions]
-                                          currentOption:[NSNumber numberWithInt:layer.leftMargin] 
-                                         formatSelector:@selector(formatNumber:)
-                                         setterSelector:@selector(setSelectionAllMargins:)]];
-        
     } else if ([windowModel.selection isKindOfClass:[UIView class]]) {
         UIView* selectedView = (UIView*) windowModel.selection;
         [contents addObject:[self makeLabelWithKey:@"Frame"
@@ -953,9 +961,6 @@
                                           currentOption:[NSNumber numberWithInt:selectedView.hidden] 
                                          formatSelector:@selector(formatBoolean:)
                                          setterSelector:@selector(setViewHidden:)]];
-        
-        [contents addObject:[self makeLabelWithKey:@"Natural Size"
-                                             value:NSStringFromCGSize([selectedView sizeThatFits:CGSizeZero])]];
         
         if ([windowModel.selection isKindOfClass:[MockIPhone class]]) {
             return contents;
@@ -1000,6 +1005,8 @@
                                                              [NSNumber numberWithInt:24],
                                                              [NSNumber numberWithInt:36],
                                                              [NSNumber numberWithInt:48],
+//                                                             [NSNumber numberWithInt:60],
+                                                             [NSNumber numberWithInt:72],
                                                              nil]
                                               currentOption:[NSNumber numberWithInt:label.font.pointSize] 
                                              formatSelector:@selector(formatNumber:)

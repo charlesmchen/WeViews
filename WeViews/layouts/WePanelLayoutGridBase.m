@@ -175,6 +175,7 @@
 #import "WePanelLayoutGridBase.h"
 #import "WePanelLayer.h"
 #import "WeMacros.h"
+#import "WePanelLayoutMacros.h"
 
 
 @implementation WePanelLayoutGridBase
@@ -350,8 +351,9 @@
                                       rowTops[row],
                                       columnWidths[column],
                                       rowHeights[row]);
-        [self setFrame:itemFrame
-               forView:item];
+        [self setCellFrame:itemFrame
+                   forView:item
+                     layer:layer];
     }
 }
 

@@ -333,6 +333,12 @@ CGPointMax(const CGPoint p1, const CGPoint p2) {
                        max(p1.y, p2.y));
 }
 
+CG_INLINE CGPoint
+CGPointRound(const CGPoint p1) {
+	return CGPointMake(roundf(p1.x),
+                       roundf(p1.y));
+}
+
 CG_INLINE CGFloat
 CGPointDistance(CGPoint p0, CGPoint p1) {
     CGFloat result = sqrtf(sqr(p0.x - p1.x) + sqr(p0.y - p1.y));

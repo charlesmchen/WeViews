@@ -337,10 +337,22 @@
     unichar letter = 'A' + (counter++ % 26);
     NSString* text = [NSString stringWithFormat:@"%C", letter];
     UILabel* view = [WeViews createUILabel:text
-                                       font:[UIFont systemFontOfSize:36]
-                                      color:[WeViewsDemoUtils lastForegroundColor]];
+                                      font:[UIFont systemFontOfSize:36]
+                                     color:[WeViewsDemoUtils lastForegroundColor]];
     view.backgroundColor = [WeViewsDemoUtils lastBackgroundColor];
     view.opaque = NO;
+    view.textAlignment = UITextAlignmentCenter;
+    [self addToSelection:view
+               andSelect:NO];
+}
+
+- (void) addWWLabel {
+    UILabel* view = [WeViews createUILabel:@"WW"
+                                      font:[UIFont systemFontOfSize:36]
+                                     color:[WeViewsDemoUtils lastForegroundColor]];
+    view.backgroundColor = [WeViewsDemoUtils lastBackgroundColor];
+    view.opaque = NO;
+    view.textAlignment = UITextAlignmentCenter;
     [self addToSelection:view
                andSelect:NO];
 }
@@ -737,10 +749,13 @@
                                                                  selector:@selector(addLongLabel)],
                                               [WeViewsDemoUtils makeLink:@"Link"
                                                                    target:self
-                                                                 selector:@selector(addLink)],
+                                                                selector:@selector(addLink)],
                                               [WeViewsDemoUtils makeLink:@"Capital Letter"
-                                                                   target:self
-                                                                 selector:@selector(addCapitalLetter)],
+                                                                  target:self
+                                                                selector:@selector(addCapitalLetter)],
+                                              [WeViewsDemoUtils makeLink:@"WW"
+                                                                  target:self
+                                                                selector:@selector(addWWLabel)],
                                               [WeViewsDemoUtils makeLink:@"\"WePanel\""
                                                                    target:self
                                                                  selector:@selector(addWePanelLabel)],

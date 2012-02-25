@@ -672,13 +672,6 @@
  */
 - (WePanel*) updateHAlign:(HAlign) hAlignValue
                   vAlign:(VAlign) vAlignValue;
-    
-/**
- * Sets the stretchWeight to 1.0f, the default value for stretching views. 
- *
- * @return Itself, for chaining.
- */
-- (WePanel*) withStretch;
 
 /**
  * Sets the minimum natural size of this view.

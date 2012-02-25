@@ -189,10 +189,21 @@
 
 /**
  * The stretch weight of the view.  
+ *
  * Extra space in stretching layouts is allocated proportionally
  * based on stretch weight.
- * Non-stretching views should have a stretch weight of zero.
- * The default value is zero.
+ *
+ * Stretch weight of zero indicates that the view does not stretch.
+ * This is the default value.
+ *
+ * Positive stretch weight means the view stretches.  The natural size
+ * of this view will be ignored when determining the natural size of
+ * its superview.
+ *
+ * Negative stretch weight means the view stretches, but its natural
+ * size should be included in the natural size of its superview. Otherwise,
+ * sign of stretch weight is ignored (ie. a stretch weight of -1.0f otherwise
+ * functions like a stretch weight of 1.0f).
  *
  * Zero for non-stretching items (this is the default behavior).
  */

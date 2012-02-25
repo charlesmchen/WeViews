@@ -323,9 +323,12 @@
         } else if (stretchWeights[i] == 0) {
             // If item does not stretch, include it.
             useNaturalSize = YES;
-        } else if (rawStretchWeight < 0) {
-            // Special case: if item has negative stretch weight,
-            // include it.
+        } else if (rawStretchWeight > 0) {
+            // Special case: if item has positive stretch weight,
+            // do not include it.
+            useNaturalSize = NO;
+        } else {
+            // If item has negative stretch weight, include it.
             useNaturalSize = YES;
         }
         

@@ -604,11 +604,6 @@ ADD_METHOD_TEMPLATE(addHorizontal, addHorizontal1, LAYOUT_MODE_HORIZONTAL)
     }
 }
 
-- (WePanel*) withStretch {
-    self.stretchWeight = 1.0f;
-    return self;
-}
-
 + (WePanel*) createHorizontalFill :(NSArray*) values {
     WePanel* result = [WePanel create];
     [result addHorizontalFill:values];

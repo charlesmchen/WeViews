@@ -272,8 +272,9 @@
                                       y,
                                       cellWidth,
                                       cellHeight);
-        [self setFrame:itemFrame
-               forView:item];
+        [self setCellFrame:itemFrame
+                   forView:item
+                     layer:layer];
     }
 }
 

@@ -181,15 +181,15 @@ typedef enum {
     
     // WePanelLayoutSimple modes
     
+    // All items are centered on parent.
+    // Panel size reflects max item size.
+    LAYOUT_MODE_CENTER,
     // All items have size of parent.
     // Items' sizes don't influence panel size.
     LAYOUT_MODE_FILL,
     // All items have size of parent.
     // Panel size reflects max item size.
     LAYOUT_MODE_FILL_NATURAL,
-    // All items are centered on parent.
-    // Panel size reflects max item size.
-    LAYOUT_MODE_CENTER,
     
     
     // WePanelLayoutLinear modes
@@ -208,18 +208,18 @@ typedef enum {
     LAYOUT_MODE_VERTICAL_FILL,
     
     
-    // See WePanelLayoutEvenFillGrid
-    LAYOUT_MODE_EVEN_FILL_GRID,
-    
+    // See WePanelLayoutNaturalGrid
+    LAYOUT_MODE_NATURAL_GRID,
+
     // See WePanelLayoutFillGrid
     LAYOUT_MODE_FILL_GRID,
     
-    // See WePanelLayoutNaturalGrid
-    LAYOUT_MODE_NATURAL_GRID,
-    
     // See WePanelLayoutSpacingGrid
     LAYOUT_MODE_SPACING_GRID,
-    
+
+    // See WePanelLayoutEvenFillGrid
+    LAYOUT_MODE_EVEN_FILL_GRID,
+
     // See WePanelLayoutTextWrap
     LAYOUT_MODE_TEXT_WRAP,
     
@@ -320,4 +320,17 @@ typedef enum {
 - (void) setFrame:(CGRect) frameValue
           forView:(UIView*) viewValue;
 
+/** 
+ * Update the frame of one of this layer's views.
+ *
+ * If the view stretches, stretch it to fill the cell frame.
+ * Otherwise, align it at its natural size within the cell frame.
+ *
+ * @param frameValue The frame.
+ * @param viewValue The UIView.
+ * @param layer The layer.
+ */
+- (void) setCellFrame:(CGRect) cellFrame
+              forView:(UIView*) viewValue 
+                layer:(WePanelLayer*) layer;
 @end

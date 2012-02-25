@@ -292,4 +292,25 @@
  */
 - (void) setCanStretch:(BOOL) value;
 
+/**
+ * Sets the stretchWeight to 1.0f, the default value for stretching views. 
+ *
+ * See [IWeView stretchWeight].
+ *
+ * @return Itself, for chaining.
+ */
+- (id) withStretch;
+
+/**
+ * Sets the stretchWeight to -1.0f. 
+ *
+ * A negative stretch weight indicates that the natural size of a view
+ * should be included when determining the natural size of its superview.
+ *
+ * See [IWeView stretchWeight].
+ *
+ * @return Itself, for chaining.
+ */
+- (id) withNaturalStretch;
+
 @end

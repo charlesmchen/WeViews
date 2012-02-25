@@ -299,12 +299,33 @@
 - (void) setFrame:(CGRect) frameValue
           forView:(UIView*) viewValue {
     // Make sure the subview doesn't have a negative width or height.
-    frameValue.size = CGSizeMax(CGSizeZero, frameValue.size);
-    
+    frameValue.size = CGSizeMax(CGSizeZero, frameValue.size);    
     viewValue.frame = frameValue;
     [self updateItemScrolling:viewValue];
 }
 
+- (void) setCellFrame:(CGRect) cellFrame
+              forView:(UIView*) viewValue 
+                layer:(WePanelLayer*) layer {
+    
+    if (itemCanStretch(viewValue)) {
+        // Use the full frame.
+        [self setFrame:cellFrame
+                forView:viewValue];
+    } else {
+        // Find the natural size of the view within the cell frame.
+        CGSize size = [viewValue sizeThatFits:cellFrame.size];
+        // Make sure natural size isn't larger than the cell frame.
+        size = CGSizeMin(size, cellFrame.size);
+        // Make sure natural size isn't negative.
+        size = CGSizeMax(size, CGSizeZero);
+        // Center item within cell frame.
+        //        itemRect = CGRectCenterOnRect(itemRect, frameValue);
+        CGRect itemRect = alignSizeWithinRect(size, cellFrame, layer.hAlign, layer.vAlign);
+        
+        [self setFrame:itemRect
+                forView:viewValue];
+    }
+}
+
 @end
-
-

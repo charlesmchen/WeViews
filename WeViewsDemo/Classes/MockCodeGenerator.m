@@ -588,7 +588,7 @@
         result.createCode = @"[WePanel create]";
         useBackgroundColorSetter = YES;
     } else if ([item isKindOfClass:[WeCustomImageView class]]) {
-        result.createCode = @"[WeCustomImageView createWithImage:upImageName]";
+        result.createCode = @"[WeCustomImageView create:upImageName]";
         addBackgroundColorIfClear = NO;
         useBackgroundColorSetter = YES;
     } else if ([item isKindOfClass:[UIImageView class]]) {
