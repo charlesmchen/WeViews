@@ -346,16 +346,12 @@
         
         // TODO: should we center views within cell space?
         // Add option for this.
-        item.frame = CGRectMake(columnLefts[column],
-                                rowTops[row],
-                                columnWidths[column],
-                                rowHeights[row]);
-        
-        if (layer.debugLayout) {
-            DebugRect(@"item.frame", item.frame);
-        }
-        
-        [self updateItemScrolling:item];
+        CGRect itemFrame = CGRectMake(columnLefts[column],
+                                      rowTops[row],
+                                      columnWidths[column],
+                                      rowHeights[row]);
+        [self setFrame:itemFrame
+               forView:item];
     }
 }
 

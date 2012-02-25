@@ -185,8 +185,7 @@
  *
  * Not that useful on its own.
  */
-@interface WeView : UIControl <IWeView> {
-}
+@interface WeView : UIControl <IWeView>
 
 /**
  * The stretch weight.  

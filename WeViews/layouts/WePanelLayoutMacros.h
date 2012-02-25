@@ -216,5 +216,5 @@ itemStretchWeight(UIView* item) {
 
 CG_INLINE BOOL
 itemCanStretch(UIView* item) {
-    return itemStretchWeight(item) > 0;
+    return itemStretchWeight(item) != 0;
 }

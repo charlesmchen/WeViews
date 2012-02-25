@@ -305,24 +305,35 @@
     // On the first pass, we want to calculate the size of all non-stretching items.
     for (int i=0; i < itemCount; i++) {
         UIView* item = [layer.views objectAtIndex:i];
-        stretchWeights[i] = itemStretchWeight(item);
+        CGFloat rawStretchWeight = max(0, itemStretchWeight(item));
+        stretchWeights[i] = fabsf(rawStretchWeight);
         if (stretchWeights[i] > 0) {
             totalStretchWeight += stretchWeights[i];
             stretchCount++;
-        }
+        }        
+        
         itemSizes[i] = CGSizeZero;
-        if ((!stretch) || (!(stretchWeights[i] > 0))) {
+        
+        // Should we include the natural size of this item when
+        // calculating the natural size of this layer?
+        BOOL useNaturalSize = NO;
+        if (!stretch) {
+            // If not a stretching layout, include all items.
+            useNaturalSize = YES;
+        } else if (stretchWeights[i] == 0) {
+            // If item does not stretch, include it.
+            useNaturalSize = YES;
+        } else if (rawStretchWeight < 0) {
+            // Special case: if item has negative stretch weight,
+            // include it.
+            useNaturalSize = YES;
+        }
+        
+        if (useNaturalSize) {
             itemSizes[i] = [self itemSize:item 
                                     layer:layer 
                                horizontal:horizontal
                                   maxSize:maxContentSize];
-            //            if (horizontal) {
-            //                totalWidth += itemSizes[i].width;
-            //                totalHeight = max(totalHeight, itemSizes[i].height);
-            //            } else {
-            //                totalWidth = max(totalWidth, itemSizes[i].width);
-            //                totalHeight += itemSizes[i].height;
-            //            }
             
             if (layer.debugLayout) {
                 NSLog(@"non-stretch %@[%d]: %@",
@@ -647,7 +658,8 @@
         UIView* item = [layer.views objectAtIndex:i];
         isSpacer[i] = [item isKindOfClass:[WeSpacer class]];
         // Stretch weight must be zero or positive.
-        stretchWeights[i] = max(0, itemStretchWeight(item));
+        CGFloat rawStretchWeight = max(0, itemStretchWeight(item));
+        stretchWeights[i] = fabsf(rawStretchWeight);
         
         BOOL itemStretches = NO;
         if (isSpacer[i]) {
@@ -943,24 +955,25 @@
             }
         }
         
+        CGRect itemFrame;
         if (horizontal) {
-            item.frame = CGRectMake(axisIndex,
+            itemFrame = CGRectMake(axisIndex,
                                     crossIndex,
                                     itemAxisSize,
                                     itemCrossSize);
         } else {
-            item.frame = CGRectMake(crossIndex,
+            itemFrame = CGRectMake(crossIndex,
                                     axisIndex,
                                     itemCrossSize,
                                     itemAxisSize);
         }
+        [self setFrame:itemFrame
+               forView:item];
         
-        [self updateItemScrolling:item];
-        
-        if (layer.debugLayout) {
-            NSLog(@"item(%@): %@, raw itemSize: %@",
-                  [item class], FormatRect(item.frame), FormatCGSize(itemSize));
-        }
+//        if (layer.debugLayout) {
+//            NSLog(@"item(%@): %@, raw itemSize: %@",
+//                  [item class], FormatRect(item.frame), FormatCGSize(itemSize));
+//        }
         
         axisIndex += itemAxisSize + layer.spacing;
     }

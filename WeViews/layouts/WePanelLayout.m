@@ -296,6 +296,15 @@
     return [WePanelLayout layoutModeName:[self mode]];
 }
 
+- (void) setFrame:(CGRect) frameValue
+          forView:(UIView*) viewValue {
+    // Make sure the subview doesn't have a negative width or height.
+    frameValue.size = CGSizeMax(CGSizeZero, frameValue.size);
+    
+    viewValue.frame = frameValue;
+    [self updateItemScrolling:viewValue];
+}
+
 @end
 
 

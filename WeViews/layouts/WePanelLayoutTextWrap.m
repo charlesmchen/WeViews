@@ -300,15 +300,10 @@
             default:
                 __FAIL(@"Unknown layer.vAlign: %d", layer.vAlign);
         }
-        item.frame = itemFrames[i];
-        x += itemFrames[i].size.width + layer.spacing;
         
-        if (layer.debugLayout) {
-            NSLog(@"final frame[%d](%@): %@",
-                  i,
-                  [item class], 
-                  FormatRect(item.frame));
-        }
+        [self setFrame:itemFrames[i]
+               forView:item];        
+        x += itemFrames[i].size.width + layer.spacing;
     }
 }        
 

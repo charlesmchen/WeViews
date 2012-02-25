@@ -223,14 +223,8 @@
                                           itemSize.width,
                                           itemSize.height);
             for (UIView* item in layer.views) {
-                item.frame = itemFrame;
-                [self updateItemScrolling:item];
-                if (layer.debugLayout) {
-                    NSLog(@"%@ %@: %@",
-                          [self layoutModeName],
-                          [item class], 
-                          FormatRect(item.frame));
-                }
+                [self setFrame:itemFrame
+                       forView:item];
             }
             return;
         }
@@ -238,17 +232,12 @@
             CGSize maxSize = CGSizeMax(CGSizeSubtract(size, marginSize), CGSizeZero);      
             for (UIView* item in layer.views) {
                 CGSize itemSize = CGSizeMax(CGSizeZero, CGSizeMin(maxSize, [item sizeThatFits:maxSize]));
-                item.frame = CGRectMake(roundf((size.width - itemSize.width) / 2),
-                                        roundf((size.height - itemSize.height) / 2),
-                                        itemSize.width,
-                                        itemSize.height);
-                [self updateItemScrolling:item];
-                if (layer.debugLayout) {
-                    NSLog(@"%@ %@: %@",
-                          [self layoutModeName],
-                          [item class], 
-                          FormatRect(item.frame));
-                }
+                CGRect itemFrame = CGRectMake(roundf((size.width - itemSize.width) / 2),
+                                              roundf((size.height - itemSize.height) / 2),
+                                              itemSize.width,
+                                              itemSize.height);
+                [self setFrame:itemFrame
+                       forView:item];
             }
             return;
         }

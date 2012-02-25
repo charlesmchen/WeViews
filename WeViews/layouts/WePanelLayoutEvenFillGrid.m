@@ -268,16 +268,12 @@
         
         // TODO: should we center views within cell space?
         // Add option for this.
-        item.frame = CGRectMake(x,
-                                y,
-                                cellWidth,
-                                cellHeight);
-        
-        if (layer.debugLayout) {
-            DebugRect(@"layoutFixedGrid item.frame", item.frame);
-        }
-        
-        [self updateItemScrolling:item];
+        CGRect itemFrame = CGRectMake(x,
+                                      y,
+                                      cellWidth,
+                                      cellHeight);
+        [self setFrame:itemFrame
+               forView:item];
     }
 }
 

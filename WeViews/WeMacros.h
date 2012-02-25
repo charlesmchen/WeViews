@@ -327,6 +327,12 @@ CGPointSubtract(const CGPoint p0, const CGPoint p1) {
                        p0.y - p1.y);
 }
 
+CG_INLINE CGPoint
+CGPointMax(const CGPoint p1, const CGPoint p2) {
+	return CGPointMake(max(p1.x, p2.x),
+                       max(p1.y, p2.y));
+}
+
 CG_INLINE CGFloat
 CGPointDistance(CGPoint p0, CGPoint p1) {
     CGFloat result = sqrtf(sqr(p0.x - p1.x) + sqr(p0.y - p1.y));

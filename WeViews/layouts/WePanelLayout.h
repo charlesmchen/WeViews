@@ -254,7 +254,6 @@ typedef enum {
  */
 - (LayoutMode) mode;
 
-
 /**
  * Return the "natural" size of the contents of a layer within the context 
  * of a given size.
@@ -311,5 +310,14 @@ typedef enum {
  * @param item The UIView.
  */
 - (void) updateItemScrolling:(UIView*) item;
+
+/** 
+ * Update the frame of one of this layer's views.
+ *
+ * @param frameValue The frame.
+ * @param viewValue The UIView.
+ */
+- (void) setFrame:(CGRect) frameValue
+          forView:(UIView*) viewValue;
 
 @end

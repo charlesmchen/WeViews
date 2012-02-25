@@ -178,23 +178,6 @@
 #import "WePanelLayout.h"
 
 
-CG_INLINE CGFloat
-itemStretchWeight(UIView* item) {
-    if (![item respondsToSelector:@selector(stretchWeight)] ) {
-        return 0;
-    }
-    return [((WeView*) item) stretchWeight];
-}
-
-CG_INLINE BOOL
-itemCanStretch(UIView* item) {
-    return itemStretchWeight(item) > 0;
-}
-
-
-#pragma mark
-
-
 @implementation WePanelLayer
 
 @synthesize panel;
@@ -325,6 +308,18 @@ itemCanStretch(UIView* item) {
     
     [layout layoutContents:size
                      layer:self];
+    
+    if (self.debugLayout) {
+        int viewIndex = 0;
+        for (UIView* view in self.views) {
+            NSLog(@"[%@ (%@) %@] new frame[%d]: %@",
+                  [layout class], 
+                  [self.panel class], 
+                  NSStringFromSelector(_cmd),
+                  viewIndex++,
+                  FormatRect(view.frame));
+        }
+    }    
 }
 
 - (WePanelLayer*) addView:(UIView*) value {
