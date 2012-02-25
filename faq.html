@@ -252,26 +252,20 @@ The buttons layer uses a horizontal layout with a large (20 point) bottom margin
 			</div>
 			<div class="faq_a">
 				<div class="faq_p">
-					Yes, but this isn't common. 
+					Yes, but you shouldn't need to do this. 
 				</div>
 				<div class="faq_p">
-  Stretch weight of zero indicates that the view does not stretch.
-  This is the default value.
+				If a view has positive stretch weight, its natural size is not counted towards
+				the natural size of its superview.  This is the default behavior.
 				</div>
 				<div class="faq_p">
-  Positive stretch weight means the view stretches.  
-  Additionally, the natural size
-  of the view will be ignored when determining the natural size of
-  its superview.
-				</div>
-				<div class="faq_p">
-  Negative stretch weight means the view stretches, but its natural
-  size should be included in the natural size of its superview. Otherwise,
-  sign of stretch weight is ignored (ie. a stretch weight of -1.0f otherwise
+				If a view has negative stretch weight, it is counted.
+Otherwise,
+  the sign of the stretch weight is ignored (ie. a stretch weight of -1.0f otherwise
   functions like a stretch weight of 1.0f).
 				</div>
 				<div class="faq_p">
-This isn't the cleanest or most intuitive aspect of the library.
+This isn't the cleanest or most intuitive aspect of the library, and its probably temporary.
 				</div>
 				<div class="faq_p">
 				</div>
