@@ -2,7 +2,7 @@
 WeViews
 =======
 
-WeViews is an Objective-C library for programmatically laying out UIKit UIViews.
+WeViews is an Objective-C library for programmatically laying out UIViews.
 
 Supports iPhoneOS 3.0+, iOS 4.0+ 
 
