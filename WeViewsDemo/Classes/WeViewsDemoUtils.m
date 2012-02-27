@@ -368,4 +368,17 @@ static UIColor* lastForegroundColor = nil;
             [view isKindOfClass:[UIWebView class]]);
 }
 
++ (void) randomizeViewLocation:(UIView*) view { 
+    UIView* parent = view.superview;
+    
+    // Randomize location within parent view
+    CGRect parentFrame = parent.frame;
+    CGRect viewFrame = view.frame;
+    int rangeX = max(1, parentFrame.size.width - viewFrame.size.width);
+    int rangeY = max(1, parentFrame.size.height - viewFrame.size.height);
+    CGPoint randomOrigin = CGPointMake(RANDOM_INT() % rangeX,
+                                       RANDOM_INT() % rangeY);
+    setUIViewOrigin(view, randomOrigin);
+}
+
 @end

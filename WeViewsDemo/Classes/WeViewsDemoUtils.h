@@ -197,5 +197,6 @@
 + (void) reLayoutParentsOfView:(UIView*) view 
                       withRoot:(UIView*) rootView;
 + (BOOL) ignoreChildrenOfView:(UIView*) view;
++ (void) randomizeViewLocation:(UIView*) view;
 
 @end

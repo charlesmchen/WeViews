@@ -187,6 +187,144 @@
 #import "WeSpacingProxy.h"
 
 
+@interface DemoProxyClone : WeSpacingProxy
+
+@property (retain, nonatomic) UIColor* color;
+@property (assign, nonatomic) int indent;
+
+@end
+
+
+#pragma mark
+
+
+@implementation DemoProxyClone
+
+@synthesize color;
+@synthesize indent;
+
+- (void) dealloc {
+    self.color = nil;
+    
+	[super dealloc];
+}
+
++ (DemoProxyClone*) create:(UIView*) view 
+                     color:(UIColor*) color 
+                    indent:(int) indent {
+    DemoProxyClone* result = [[[DemoProxyClone alloc] init] autorelease];
+    result.view = view;
+    result.frame = view.frame;
+    result.color = color;
+    result.indent = indent;
+    
+    result.backgroundColor = [UIColor clearColor];
+    result.opaque = NO;
+    
+    return result;
+}
+
+- (void) drawRect :(CGRect) rect {
+	[super drawRect:rect];    
+	CGRect borderRect = self.bounds;
+	borderRect = CGRectInset(borderRect, indent * 2, indent * 2);
+//	borderRect = CGRectInset(borderRect, 0.5, 0.5);    
+	CGContextRef currentContext = UIGraphicsGetCurrentContext();
+	CGContextSaveGState(currentContext);
+    CGContextSetFillColorWithColor(currentContext, color.CGColor);
+	CGContextFillRect(currentContext, borderRect);
+	CGContextRestoreGState(currentContext);
+}
+
+- (void) sizeToFit {
+    self.frame = self.view.frame;    
+}
+
+- (void) setBounds :(CGRect) value {
+    [super setBounds:value];
+    [self setNeedsDisplay];
+}
+
+- (void) setFrame :(CGRect) value {
+    [super setFrame:value];
+    [self setNeedsDisplay];
+}
+
+@end
+
+
+#pragma mark
+
+
+@interface DemoProxyPanel : WePanel
+
+@property (nonatomic, retain) WePanel* panel;
+@property (retain, nonatomic) UIColor* color;
+@property (assign, nonatomic) int indent;
+
+@end
+
+
+#pragma mark
+
+
+@implementation DemoProxyPanel
+
+@synthesize panel;
+@synthesize color;
+@synthesize indent;
+
+- (void) dealloc {
+    self.panel = nil;
+    self.color = nil;
+    
+	[super dealloc];
+}
+
++ (DemoProxyPanel*) create:(WePanel*) panel
+                     color:(UIColor*) color 
+                    indent:(int) indent {
+    DemoProxyPanel* result = [[[DemoProxyPanel alloc] init] autorelease];
+    result.panel = panel;
+    result.color = color;
+    result.indent = indent;
+    
+    result.backgroundColor = [UIColor clearColor];
+    result.opaque = NO;
+    
+    return result;
+}
+
+- (void) drawRect :(CGRect) rect {
+	[super drawRect:rect];    
+	CGRect borderRect = self.bounds;
+	borderRect = CGRectInset(borderRect, indent * 2, indent * 2);
+    //	borderRect = CGRectInset(borderRect, 0.5, 0.5);    
+	CGContextRef currentContext = UIGraphicsGetCurrentContext();
+	CGContextSaveGState(currentContext);
+    CGContextSetFillColorWithColor(currentContext, color.CGColor);
+	CGContextFillRect(currentContext, borderRect);
+	CGContextRestoreGState(currentContext);
+}
+
+- (void) sizeToFit {
+    self.frame = self.panel.frame;    
+}
+
+- (CGSize) sizeThatFits :(CGSize) value {
+    return [panel sizeThatFits:value];
+}
+
+- (CGFloat) stretchWeight {
+    return [panel stretchWeight];
+}
+
+@end
+
+
+#pragma mark
+
+
 @interface SelectionView ()
 
 - (void) updateContents;
@@ -599,23 +737,53 @@
 }
 
 - (UIView*) makeProxyClone:(UIView*) value
+                    indent:(int) indent 
                 colorCounter:(int*) colorCounter { 
+    
+    NSArray* proxyColors = [NSArray arrayWithObjects:
+                            [UIColor redColor],
+                            [UIColor greenColor],
+                            [UIColor blueColor],
+                            //            [UIColor colorWithWhite:0.25f alpha:1.0f],
+                            [UIColor orangeColor],
+                            [UIColor purpleColor],
+                            [UIColor brownColor],
+                            [UIColor yellowColor],
+                            [UIColor cyanColor],
+                            [UIColor magentaColor],                
+                            [UIColor whiteColor],
+                            //                [UIColor colorWithWhite:0.75f alpha:1.0f],
+                            //                [UIColor colorWithWhite:0.5f alpha:1.0f],
+                            //                [UIColor colorWithWhite:0.25f alpha:1.0f],
+                            //                [UIColor blackColor],
+                            nil];
+    int colorIndex = *colorCounter;
+    *colorCounter = *colorCounter + 1;
+    UIColor* proxyColor = [proxyColors objectAtIndex:colorIndex % [proxyColors count]];
+    proxyColor = [proxyColor colorWithAlphaComponent:0.35f];
+    proxyColor = [UIColor whiteColor];
+    proxyColor = [proxyColor colorWithAlphaComponent:0.25f];
+
     UIView* result;
     // TODO: add support for WeScrollView.
     if ([value isKindOfClass:[WePanel class]]) {
         WePanel* oldPanel = (WePanel*) value;
-        WePanel* newPanel = [WePanel create];
+        WePanel* newPanel = [DemoProxyPanel create:oldPanel
+                                             color:proxyColor
+                                            indent:indent];
         newPanel.frame = oldPanel.frame;
         newPanel.minSize = oldPanel.minSize;
         newPanel.maxSize = oldPanel.maxSize;
         for (UIView* subview in [oldPanel getNonLayerSubviews]) {
             [newPanel addSubview:[self makeProxyClone:subview
+                                               indent:indent + 1
                                            colorCounter:colorCounter]];
         }
         for (WePanelLayer* layer in oldPanel.layers) {
             NSMutableArray* layerSubviews = [NSMutableArray array];
             for (UIView* subview in layer.views) {
                 [layerSubviews addObject:[self makeProxyClone:subview
+                                                       indent:indent + 1
                                                    colorCounter:colorCounter]];
             }
             WePanelLayer* newLayer = [WePanelLayer create:layerSubviews
@@ -625,31 +793,13 @@
         }
         result = newPanel;
     } else {
-        result = [WeSpacingProxy create:value];
+        result = [DemoProxyClone create:value
+                                  color:proxyColor
+                                 indent:indent];
     }
-    
-    NSArray* proxyColors = [NSArray arrayWithObjects:
-                [UIColor redColor],
-                [UIColor greenColor],
-                [UIColor blueColor],
-                //            [UIColor colorWithWhite:0.25f alpha:1.0f],
-                [UIColor orangeColor],
-                [UIColor purpleColor],
-                [UIColor brownColor],
-                [UIColor yellowColor],
-                [UIColor cyanColor],
-                [UIColor magentaColor],                
-                [UIColor whiteColor],
-//                [UIColor colorWithWhite:0.75f alpha:1.0f],
-//                [UIColor colorWithWhite:0.5f alpha:1.0f],
-//                [UIColor colorWithWhite:0.25f alpha:1.0f],
-//                [UIColor blackColor],
-                nil];
-    *colorCounter = *colorCounter + 1;
-    int colorIndex = *colorCounter;
-    UIColor* color = [proxyColors objectAtIndex:colorIndex % [proxyColors count]];
-    result.backgroundColor = [color colorWithAlphaComponent:0.5f];
-    result.opaque = NO;
+
+//    result.backgroundColor = [color colorWithAlphaComponent:0.5f];
+//    result.opaque = NO;
     
     return result;
 }
@@ -659,24 +809,41 @@
     NSLog(@"proxyClone");
     UIView* selection = (UIView*) windowModel.selection;
     UIView* proxyClone = [self makeProxyClone:selection
-                                   colorCounter:&colorCounter];
+                                       indent:0
+                                 colorCounter:&colorCounter];
     UIView* parentView = selection.superview;
+    if ([selection isKindOfClass:[MockIPhoneScreen class]]) {
+        while (![parentView isKindOfClass:[MockIPhone class]]) {
+            parentView = parentView.superview;
+        }
+        parentView = parentView.superview;
+    }
     [parentView addSubview:proxyClone];
     
-    // Randomize location within parent view
-    CGRect parentFrame = parentView.frame;
-    CGRect viewFrame = proxyClone.frame;
-    int rangeX = max(1, parentFrame.size.width - viewFrame.size.width);
-    int rangeY = max(1, parentFrame.size.height - viewFrame.size.height);
-    CGPoint randomOrigin = CGPointMake(RANDOM_INT() % rangeX,
-                                       RANDOM_INT() % rangeY);
-    setUIViewOrigin(proxyClone, randomOrigin);
+    [WeViewsDemoUtils randomizeViewLocation:proxyClone];
     
     // re-layout
     [WeViewsDemoUtils reLayoutParentsOfView:parentView
                                    withRoot:windowModel.pseudoRoot.superview];
     [windowModel setNewItem:proxyClone
                   andSelect:YES];
+}
+
+- (void) pullUp { 
+    UIView* selection = (UIView*) windowModel.selection;
+    UIView* parent = selection.superview;
+    parent = parent.superview;
+    if ([parent isKindOfClass:[MockIPhone class]]) {
+        parent = parent.superview;
+    }
+    
+    [selection removeFromSuperview];
+    [parent addSubview:selection];
+    
+    [WeViewsDemoUtils randomizeViewLocation:selection];
+    
+    [self animateRelayout:selection];
+    [self updateContents];
 }
 
 - (void) rotateMockIPhone { 
@@ -892,11 +1059,21 @@
                                                     target:self
                                                   selector:@selector(generateCode)]];
     }
+    
+//#define DEMO_VIDEO
+    
+#ifdef DEMO_VIDEO
     if ([windowModel.selection isKindOfClass:[UIView class]]) {
         [rootControls addObject:[WeViewsDemoUtils makeLink:@"Proxy Clone"
                                                     target:self
                                                   selector:@selector(proxyClone)]];
     }
+    if ([windowModel.selection isKindOfClass:[UIView class]]) {
+        [rootControls addObject:[WeViewsDemoUtils makeLink:@"Pull Up"
+                                                    target:self
+                                                  selector:@selector(pullUp)]];
+    }
+#endif
     
     if ([rootControls count] > 0) {
         WePanel* row = [[WePanel create]

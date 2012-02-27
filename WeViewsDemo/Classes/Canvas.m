@@ -300,8 +300,10 @@ TouchMode touchMode;
  * Unlike [UIView hitTest], ignores userInteractionEnabled property.
  */
 - (UIView*) findTouchView:(UIView*) view {
-    
-    if ([WeViewsDemoUtils ignoreChildrenOfView:view]) {
+    if (view.hidden) {
+        // ignore hidden views.
+        return nil;
+    } else if ([WeViewsDemoUtils ignoreChildrenOfView:view]) {
         // Ignore children of certain UIView subclasses.
     } else if ([view respondsToSelector:@selector(mockSubviews)]) {
         NSArray* mockSubviews = [view performSelector:@selector(mockSubviews)];
