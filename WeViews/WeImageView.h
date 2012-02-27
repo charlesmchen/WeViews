@@ -236,4 +236,23 @@
  */
 - (id) withClearBackground;
 
+/**
+ * Sets the stretchWeight. 
+ *
+ * See [IWeView stretchWeight].
+ *
+ * @param value The stretch weight value.
+ * @return Itself, for chaining.
+ */
+- (id) withStretchWeight:(CGFloat) value;
+
+/**
+ * Sets the stretchWeight to 1.0f, the default value for stretching views. 
+ *
+ * See [IWeView stretchWeight].
+ *
+ * @return Itself, for chaining.
+ */
+- (id) withStretch;
+
 @end

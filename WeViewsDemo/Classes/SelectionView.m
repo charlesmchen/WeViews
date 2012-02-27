@@ -1058,7 +1058,7 @@
         [rootControls addObject:[WeViewsDemoUtils makeLink:@"Generate Code"
                                                     target:self
                                                   selector:@selector(generateCode)]];
-    }
+    }    
     
 //#define DEMO_VIDEO
     
@@ -1381,6 +1381,10 @@
     } else {    
         [self updateContents];
     }
+}
+
+- (void) ignore {
+
 }
 
 @end

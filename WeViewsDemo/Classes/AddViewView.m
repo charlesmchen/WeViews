@@ -419,7 +419,11 @@
 
 - (void) addLargeImage {
     [self addImageView:@"916px-Greatbasinmap"];
-//    [self addImageView:@"749px-Knowledge_of_German_EU_map"];
+    //    [self addImageView:@"749px-Knowledge_of_German_EU_map"];
+}
+
+- (void) addLargeIcon {
+    [self addImageView:@"Icon-512"];
 }
 
 - (void) addButton:(NSString*) imageName {
@@ -750,10 +754,13 @@
                                                                  selector:@selector(addSmallImage)],
                                               [WeViewsDemoUtils makeLink:@"Medium"
                                                                    target:self
-                                                                 selector:@selector(addMediumImage)],
+                                                                selector:@selector(addMediumImage)],
                                               [WeViewsDemoUtils makeLink:@"Large"
-                                                                   target:self
-                                                                 selector:@selector(addLargeImage)],
+                                                                  target:self
+                                                                selector:@selector(addLargeImage)],
+                                              [WeViewsDemoUtils makeLink:@"512 Icon"
+                                                                  target:self
+                                                                selector:@selector(addLargeIcon)],
                                               nil]]];
         [contents addObject:[self makeAddRow:@"Pillbox"
                                        items:[NSArray arrayWithObjects:

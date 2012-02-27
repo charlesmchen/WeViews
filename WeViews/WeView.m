@@ -270,6 +270,11 @@
     self.stretchWeight = value ? 1.0f : 0.0f;
 }
 
+- (id) withStretchWeight:(CGFloat) value {
+    self.stretchWeight = value;
+    return self;
+}
+
 - (id) withStretch {
     self.stretchWeight = 1.0f;
     return self;
