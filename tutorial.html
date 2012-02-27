@@ -32,6 +32,26 @@
 	padding: 0 0 10px 0;
 }
 
+.item {
+	padding-bottom: 10px;
+}
+
+.item_p {
+	padding-bottom: 10px;
+	padding-left: 25px;
+	text-indent: -25px;
+	padding-left: 0;
+	text-indent: 25px;
+	text-indent: 0;
+	padding-left: 15px;
+	text-indent: -15px;
+}
+
+emphasis {
+	font-weight: bold;	
+	text-decoration: underline;
+}
+
 </style>
 </head>
 
@@ -44,10 +64,155 @@
     
     <h2>Tutorial</h2>
 
+    <h3>Install</h3>
+
 	<ul>
+		<li class="item">
+			Download the distribution from <a href="https://github.com/charlesmchen/WeViews/downloads">here</a>
+			(<a href="https://github.com/charlesmchen/WeViews/zipball/master">zip</a>,
+			<a href="https://github.com/charlesmchen/WeViews/tarball/master">tarball</a>).
+		</li>
+		<li class="item">
+			<div class="item_p">
+			Add <emphasis>only</emphasis> the "WeViews" subdirectory to your project.
+			</div>
+			<div class="item_p">
+			<emphasis>Do not</emphasis> add the "WeViewsDemo" subdirectory to your project.
+			</div>
+		</li>
+	</ul>
+	
+    <h3>Core Concepts</h3>
+	
+	<ul>
+		<li class="item">
+			<div class="item_p">
+				All UIViews have a "natural" size.  This is the size returned by [UIView sizeThatFits:].  
+			</div>
+			<div class="item_p">
+				For an UIImageView, its the size of its image.  
+				For a (non-wrapping) UILabel, its the size of its text in its font.
+			</div>
+		</li>
+		<li class="item">
+				FPanels re-layout their contents whenever a) their size is changed with [setFrame:] or [setBounds:] 
+				or b) [FPanel layoutContents] is invoked.
+		</li>
+	</ul>
+	
+
+    <h3>Demo App</h3>
+	
+	<ul>
+		<li class="item">
+The Demo app allows you to build and tinker with user interfaces interactively.
+Playing with it is a good way to get a feel for how the library works.
+		</li>
+		<li class="item">
+To run the demo, open the WeViewsDemo Xcode project.		
+		</li>
+		<li class="item">
+The Demo requires iOS 3.2+ and is best run in the iPad Simulator.
+		</li>
+		<li class="item">
+			Add views to the canvas using the "Add Views" sidebar.
+			New views are added to the currently selected view or layer.
+		</li>
+		<li class="item">
+			Select views by clicking on them in the canvas or by selecting them in the 
+			"View Hierarchy" sidebar.
+		</li>
+		<li class="item">
+			You can inspect and modify view &amp; layer properties using the "Selection" sidebar.
+		</li>
+		<li class="item">
+One useful feature of the Demo app is that it can generate example code for any UI you have built.
+Select any view and use the "Generate Code" link in the "Selection" sidebar.
+		</li>
+	</ul>
+	
+    <h3>Getting Started</h3>
+
+	<ul>
+		<li class="item">
+			<div class="item_p">
+				Here's a simple WePanel with three buttons in a horizontal layout:
+			</div>
+			<div class="item_p">
+				<img src="images/tutorial_fpanel_1.png" />
+			</div>
+			<div class="item_p">
+				And here's the source:
+			</div>
+			<div class="item_p">
+				<img src="images/tutorial_fpanel_1_src.png" style="border: 1px solid #ddd;"/>
+<!--
+<script src="https://gist.github.com/1921458.js?file=gistfile1.m"></script>
+-->
+			</div>
+			<div class="item_p">
+				We create and configure the WePanel with the first statement.
+				The second statement creates and configures a new layer which contains three WeButtons.
+			</div>
+			<div class="item_p">
+				WeViews offers subclasses of many popular UIViews.
+				In this case, WeButton is a subview of UIButton.
+			</div>
+			<div class="item_p">
+				Like many WeViews, WePanel and WeButton offer a variety of factory methods.
+				WeViews factory methods are named "create" and return a new, autoreleased instance.
+			</div>
+			<div class="item_p">
+				WeViews configuration methods often return a reference to the instance so that 
+					invocations can be chained.  
+				This makes for more readable code.  
+			</div>
+			<div class="item_p">
+				The first statement can be read "Create a new WePanel with X background color."
+				The second statement can be read "Add a new horizontal layer to WePanel 
+					with buttons A, B and C that has right and bottom alignment and 10 point margins."
+			</div>
+		</li>
+		<li class="item">
+			<div class="item_p">
+				Here's a slightly more complicated example.  
+				The pillbox panel from the previous example is now embedded in 
+				another WePanel with a WeImageView.
+			</div>
+			<div class="item_p">
+				<img src="images/tutorial_fpanel_2.png" />
+			</div>
+			<div class="item_p">
+				And here's the source:
+			</div>
+			<div class="item_p">
+				<img src="images/tutorial_fpanel_2_src.png" style="border: 1px solid #ddd;"/>
+<!--
+<script src="https://gist.github.com/1921458.js?file=gistfile1.m"></script>
+-->
+			</div>
+			<div class="item_p">
+				The outer WePanel uses a "Vertical Fill" layout.  
+			</div>
+			<div class="item_p">
+				The footer panel with the buttons is not set to stretch, 
+				so it is laid out at its natural size which is just large enough to hold its contents.
+			</div>
+			<div class="item_p">
+				The image view is set to stretch so that it receives any remaining space in its container.
+			</div>
+
+		</li>
+<!--
+		<li class="item">
+			<div class="item_p">
+			</div>
+
+		</li>
 		<li class="item">
 
 		</li>
+-->
 	</ul>
 	
 

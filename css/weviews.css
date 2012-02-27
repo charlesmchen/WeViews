@@ -14,7 +14,7 @@ h1 { font-size: 3.8em; color: #4183C4; margin-bottom: 3px; }
 h1 .small { font-size: 0.4em; }
 h1 a { text-decoration: none }
 h2 { font-size: 2.0em; color: #4183C4; }
-h3 { text-align: center; color: #4183C4; }
+h3 { font-size: 1.75em; color: #888; }
 a { color: #4183C4; }
 .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
 .download { float: right; }
