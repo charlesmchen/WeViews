@@ -1,6 +1,6 @@
 // 
 // WeViews
-// WeLink.m
+// BaseMacros.h
 // 
 // https://github.com/charlesmchen/WeViews
 // 
@@ -172,176 +172,76 @@
 // END OF TERMS AND CONDITIONS
 
 
-#import "WeLink.h"
-#import "WeMacros.h"
-#import "WeViews.h"
-#import "SelectorHandler.h"
+// TODO: This will cause the result to be evaluated twice.
+// Likely compiler optimization, but not a good practice.
+// How to store intermediate result without generics?
+#ifndef sqr
+#define sqr(a) (a * a)
+#endif
+#ifndef min
+#define min(a, b) (((a) < (b)) ? (a) : (b))
+#endif
+#ifndef max
+#define max(a, b) (((a) > (b)) ? (a) : (b))
+#endif
+#ifndef clamp01
+#define clamp01(value) max(0.0f, min(1.0f, value))
+#endif
 
 
-@implementation WeLink
+#ifndef __TRIGGER_DEBUGGER
+#define __TRIGGER_DEBUGGER() { }
+#endif
 
-@synthesize upColor;
-@synthesize downColor;
-@synthesize handlerGroup;
 
-- (void) dealloc {
-    deallocProperty(upColor);
-    deallocProperty(downColor);
-    deallocProperty(handlerGroup);
-    
-	[super dealloc];
+#ifndef WhereLog
+#define WhereLog(value) NSLog(@"function: %s, file: %s, line: %d, msg: %@", __PRETTY_FUNCTION__, __FILE__, __LINE__, value)
+#endif
+
+
+#ifndef __FAIL
+#define __FAIL(msg, args...) { \
+NSLog(msg, ## args); \
+WhereLog(@"failed."); \
+__TRIGGER_DEBUGGER(); \
+exit(-1); \
 }
+#endif
 
-- (id) init {
-    if (!(self = [super init])) {
-        __FAIL(@"super init failed.");
-    }
-    
-    isDown = NO;
-    self.userInteractionEnabled = YES;
-    handlerGroup = nil;
-    
-    return self;
+
+#ifndef __NOT_IMPLEMENTED
+#define __NOT_IMPLEMENTED() [self doesNotRecognizeSelector:_cmd]; 
+#endif
+
+
+#ifndef deallocProperty
+// Use temp local to isolate dealloc loops.
+#define deallocProperty(value) { \
+if (value != nil) { \
+id temp = value; \
+value = nil; \
+[temp release]; \
+} \
 }
+#endif
 
-+ (WeLink*) create:(NSString*) text
-             font:(UIFont*) font
-          upColor:(UIColor*) upColor
-        downColor:(UIColor*) downColor {
-    
-    WeLink* result = [[[WeLink alloc] init] autorelease];
-    result.text = text;
-    result.font = font;
-    result.upColor = upColor;
-    result.downColor = downColor;
-    
-    result.textColor = upColor;
-    
-    [result sizeToFit];
-    
-    return result;
+
+#ifndef deallocPtr
+#define deallocPtr(ptr) { \
+if (ptr != NULL) { \
+void* _temp = ptr; \
+ptr = NULL; \
+free(_temp); \
+} \
 }
+#endif
 
-+ (WeLink*) create:(NSString*) text
-         fontName:(NSString*) fontName
-         fontSize:(CGFloat) fontSize
-          upColor:(UIColor*) upColor
-        downColor:(UIColor*) downColor {
-    UIFont* font = [WeViews findUIFont:fontName fontSize:fontSize];
-    
-    return [self create:text
-                   font:font
-                upColor:upColor
-              downColor:downColor];
-}
 
-#define H_INSET 1
+#ifndef safeMalloc
+#define safeMalloc(ptr, size) { ptr = malloc(size); if (ptr == NULL) { __FAIL(@"%@ could not be allocated", @"ptr"); } }
+#endif
 
-- (void) drawRect :(CGRect) rect {
-    int underlineLength = min([self.text sizeWithFont:self.font].width,
-                              self.bounds.size.width);
-    int left;
-    switch (self.textAlignment) {
-        case UITextAlignmentLeft:
-            left = 0;
-            break;
-        case UITextAlignmentCenter:
-            left = (self.frame.size.width - underlineLength) / 2;
-            break;
-        case UITextAlignmentRight:
-            left = self.frame.size.width - underlineLength;
-            break;
-        default:
-            __FAIL(@"Unknown text alignment: %d", self.textAlignment);
-    }
-    int right = left + underlineLength;
-    
-    // We inset one pixel because... it looks right.
-    left += H_INSET;
-    right -= H_INSET;
-    
-    int y = (self.bounds.size.height + self.font.lineHeight) / 2;
-    
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    // Underline should be semi-transparent.
-    CGContextSetStrokeColorWithColor(ctx, [[self.textColor colorWithAlphaComponent:0.5f] CGColor]);
-    CGContextSetLineWidth(ctx, 1.0f);
-    CGContextMoveToPoint(ctx, left, 0.5f + y - 1);
-    CGContextAddLineToPoint(ctx, right, 0.5f + y - 1);
-    CGContextStrokePath(ctx);
-    
-    [super drawRect:rect];
-}
 
-- (WeLink*) addClickHandler:(id<IHandler>) handler {
-    if (handlerGroup == nil) {
-        self.handlerGroup = [HandlerGroup create];
-    }
-    [handlerGroup addHandler:handler];
-    return self;
-}
-
-- (WeLink*) addClickSelector:(SEL) selector 
-                       target:(id) target {
-    return [self addClickHandler:[SelectorHandler create:target 
-                                                selector:selector]];
-}
-
-- (WeLink*) addClickSelector:(SEL) selector 
-                       target:(id) target
-                     argument:(id) argument {
-    return [self addClickHandler:[SelectorHandler create:target 
-                                                selector:selector
-                                                argument:argument]];
-}
-
-- (void) fireHandlers {
-    [handlerGroup fireEvent];
-}
-
-- (void) setUpColor:(UIColor*) value {
-    [upColor release];
-    upColor = [value retain];
-    self.textColor = upColor;
-}
-
-- (void) setDown:(BOOL) value {
-    isDown = value;
-    self.textColor = isDown ? downColor : upColor;
-    [self setNeedsDisplay];
-}
-
-- (void) updateMovementToTouch:(UIEvent*) event {
-    NSSet* allTouches = [event allTouches];
-    if ([allTouches count] != 1) {
-        [self setDown:NO];
-        return;        
-    }
-    
-    UITouch* touch = [[allTouches allObjects] lastObject];
-    CGPoint touchPoint = [touch locationInView:self];
-    [self setDown:[self pointInside:touchPoint
-                          withEvent:event]];
-}
-
-- (void) touchesBegan :(NSSet*) touches withEvent:(UIEvent*) event {
-	[self updateMovementToTouch:event];
-}
-
-- (void) touchesMoved :(NSSet*) touches withEvent:(UIEvent*) event {
-	[self updateMovementToTouch:event];
-}
-
-- (void) touchesEnded :(NSSet*) touches withEvent:(UIEvent*) event {
-	[self updateMovementToTouch:event];
-    if (isDown) {
-        [self fireHandlers];
-    }
-    [self setDown:NO];
-}
-
-- (void) touchesCancelled :(NSSet*) touches withEvent:(UIEvent*) event {
-    [self setDown:NO];
-}
-
-@end
+#ifndef safeCalloc
+#define safeCalloc(ptr, size1, size2) { ptr = calloc(size1, size2); if (ptr == NULL) { __FAIL(@"%@ could not be allocated", @"ptr"); } }
+#endif

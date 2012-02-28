@@ -225,6 +225,9 @@ typedef enum {
     
     // See WePanelLayoutManual
     LAYOUT_MODE_MANUAL,
+    
+    // Use this mode for any user-defined layouts.
+    LAYOUT_MODE_CUSTOM,
 } LayoutMode;
 
 #define WEPANEL_LAYOUT_MODE_COUNT 13

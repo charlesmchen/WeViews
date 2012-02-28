@@ -184,7 +184,8 @@ void sendSimpleNotification(NSString* name) {
 void sendSingleParamNotification(NSString* name, id value) {
 //	NSLog(@"sendSingleParamNotification %@", name);
 	NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
-	[userInfo setObject :value forKey:name];
+	[userInfo setObject:value 
+                  forKey:name];
 	[[NSNotificationCenter defaultCenter] postNotificationName
 	 :name
 	 object:nil

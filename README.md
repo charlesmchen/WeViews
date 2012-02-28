@@ -12,7 +12,7 @@ Released under the [Apache License 2.0](WeViews/blob/master/License.txt)
 Getting Started
 ---------------
 
-Intro video and documentation at [the project pages](http://charlesmchen.github.com/WeViews).
+Intro video, tutorial and documentation at [the project pages](http://charlesmchen.github.com/WeViews).
 
 
 Install

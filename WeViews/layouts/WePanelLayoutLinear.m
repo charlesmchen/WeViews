@@ -619,10 +619,23 @@
 //    }
 //}
 
-// Hack to prevent appledoc from thinking the commented-out code above
-// is a comment on layoutContents:
-- (void) ignore {
-    
+- (void) dumpItemSizes:(NSString*) label
+                 layer:(WePanelLayer*) layer 
+             itemSizes:(CGSize*) itemSizes
+              isSpacer:(BOOL*) isSpacer
+        stretchWeights:(CGFloat*) stretchWeights
+             itemCount:(int) itemCount {
+    for (int i=0; i < itemCount; i++) {
+        UIView* item = [layer.views objectAtIndex:i];
+
+        NSLog(@"\t%@[%d] %@ size: %@, isSpacer: %@, stretchWeight: %f",
+              label,
+              i,
+              [item class], 
+              FormatSize(itemSizes[i]),
+              isSpacer[i] ? @"YES" : @"NO",
+              stretchWeights[i]);
+    }
 }
 
 - (void) layoutContents:(CGSize) size
@@ -703,6 +716,15 @@
         //        }     
     }
     
+    if (layer.debugLayout) {
+        [self dumpItemSizes:@"raw"
+                      layer:layer 
+                  itemSizes:&itemSizes[0]
+                  isSpacer:&isSpacer[0]
+                  stretchWeights:&stretchWeights[0]
+                  itemCount:itemCount];
+    }
+
     IntSize contentSize = [self calculateContentSize:&itemSizes[0]
                                            itemCount:itemCount
                                           horizontal:horizontal];
@@ -771,6 +793,15 @@
             contentSize = [self calculateContentSize:&itemSizes[0]
                                            itemCount:itemCount
                                           horizontal:horizontal];
+            
+            if (layer.debugLayout) {
+                [self dumpItemSizes:@"after crop"
+                              layer:layer 
+                          itemSizes:&itemSizes[0]
+                           isSpacer:&isSpacer[0]
+                     stretchWeights:&stretchWeights[0]
+                          itemCount:itemCount];
+            }
         }
     }
     
@@ -796,43 +827,73 @@
                   totalStretchWeight);
         }
         
-        // This is actually a series of passes.
-        // With each "stretch" pass, we evenly divide the remainder of the available
-        // space between the remaining stretch items based on their stretch weight.
-        //
-        // More than one pass is necessary, since items may have a maximum stretch
-        // size.
-        while (stretchRemainder > 0 && stretchCountRemainder) {
-            for (int i=0; i < itemCount; i++) {
-                // ignore non-stretching items.
-                if (!(stretchWeights[i] > 0)) {
-                    continue;
+        if (stretchRemainder > 0 && stretchCountRemainder > 0) {
+            
+            // This is actually a series of passes.
+            // With each "stretch" pass, we evenly divide the remainder of the available
+            // space between the remaining stretch items based on their stretch weight.
+            //
+            // More than one pass is necessary, since items may have a maximum stretch
+            // size.
+            while (stretchRemainder > 0 && stretchCountRemainder > 0) {
+                for (int i=0; i < itemCount; i++) {
+                    // ignore non-stretching items.
+                    if (!(stretchWeights[i] > 0)) {
+                        continue;
+                    }
+                    if (isSpacer[i]) {
+                        // Ignore spacers for now.
+                        continue;
+                    }
+                    
+                    // Divide the remaining stretch space evenly between the stretching
+                    // items in this layer.
+                    int itemStretch;
+                    if (stretchCountRemainder == 1) {
+                        itemStretch = stretchRemainder;
+                    } else {
+                        itemStretch = floorf(stretchTotal * stretchWeights[i] / totalStretchWeight);
+                    }
+                    stretchCountRemainder--;
+                    stretchRemainder -= itemStretch; 
+                    
+                    CGSize itemSize;
+                    if (horizontal) {
+                        itemSize.width = itemStretch;
+                        itemSize.height = maxContentSize.height;
+                    } else {
+                        itemSize.width = maxContentSize.width;
+                        itemSize.height = itemStretch;
+                    }
+                    itemSizes[i] = itemSize;
                 }
-                
-                // Divide the remaining stretch space evenly between the stretching
-                // items in this layer.
-                int itemStretch;
-                if (stretchCountRemainder == 1) {
-                    itemStretch = stretchRemainder;
-                } else {
-                    itemStretch = floorf(stretchTotal * stretchWeights[i] / totalStretchWeight);
-                }
-                stretchCountRemainder--;
-                stretchRemainder -= itemStretch; 
-                
-                CGSize itemSize;
-                if (horizontal) {
-                    itemSize.width = itemStretch;
-                    itemSize.height = maxContentSize.height;
-                } else {
-                    itemSize.width = maxContentSize.width;
-                    itemSize.height = itemStretch;
-                }
-                itemSizes[i] = itemSize;
+            }
+            
+            // Update content size
+            contentSize = [self calculateContentSize:&itemSizes[0]
+                                           itemCount:itemCount
+                                          horizontal:horizontal];
+            
+            if (layer.debugLayout) {
+                [self dumpItemSizes:@"after stretching"
+                              layer:layer 
+                          itemSizes:&itemSizes[0]
+                           isSpacer:&isSpacer[0]
+                     stretchWeights:&stretchWeights[0]
+                          itemCount:itemCount];
             }
         }
         
-        if (layerStretches && spacerCount > 0) {
+        int spacerCountRemainder = spacerCount;
+        int spacerSizeTotal;
+        if (horizontal) {
+            spacerSizeTotal = maxContentSize.width - contentSize.width;
+        } else {
+            spacerSizeTotal = maxContentSize.height - contentSize.height;
+        }
+        int spacerSizeRemainder = spacerSizeTotal;
+
+        if (spacerSizeRemainder > 0 && spacerCountRemainder > 0) {
             int spacerCountRemainder = spacerCount;
             int spacerSizeTotal;
             if (horizontal) {
@@ -859,11 +920,21 @@
                 spacerSizeRemainder -= spacerSize;
                 spacerCountRemainder--;
             }
+            
+            // Update content size
+            contentSize = [self calculateContentSize:&itemSizes[0]
+                                           itemCount:itemCount
+                                          horizontal:horizontal];
+            
+            if (layer.debugLayout) {
+                [self dumpItemSizes:@"after spacers"
+                              layer:layer 
+                          itemSizes:&itemSizes[0]
+                           isSpacer:&isSpacer[0]
+                     stretchWeights:&stretchWeights[0]
+                          itemCount:itemCount];
+            }
         }
-        // Update content size
-        contentSize = [self calculateContentSize:&itemSizes[0]
-                                       itemCount:itemCount
-                                      horizontal:horizontal];
     }
     
     int crossSize = horizontal ? innerSize.height : innerSize.width;

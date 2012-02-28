@@ -98,6 +98,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F511D65E14FC0EC100AF9E6A /* CGMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMacros.h; sourceTree = "<group>"; };
+		F511D66214FC0F3F00AF9E6A /* BaseMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMacros.h; sourceTree = "<group>"; };
 		F55E1C1414F5BE5C00301001 /* WeViewsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeViewsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55E1C1814F5BE5C00301001 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F55E1C1A14F5BE5C00301001 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -388,6 +390,8 @@
 			isa = PBXGroup;
 			children = (
 				F55E1D1014F5C28200301001 /* AlignmentConstants.h */,
+				F511D66214FC0F3F00AF9E6A /* BaseMacros.h */,
+				F511D65E14FC0EC100AF9E6A /* CGMacros.h */,
 				F55E1D6D14F5C56800301001 /* handlers */,
 				F55E1D1414F5C28200301001 /* IWeView.h */,
 				F55E1D1514F5C28200301001 /* layouts */,

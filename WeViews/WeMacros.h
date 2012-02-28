@@ -172,113 +172,10 @@
 // END OF TERMS AND CONDITIONS
 
 
-#pragma mark CommonUtils.h
-
-CG_INLINE CGFloat
-sqr(CGFloat value) {
-    return value * value;
-}
-
-// TODO: This will cause the result to be evaluated twice.
-// Likely compiler optimization, but not a good practice.
-// How to store intermediate result without generics?
-#ifndef min
-#define min(a, b) (((a) < (b)) ? (a) : (b))
-#endif
-#ifndef max
-#define max(a, b) (((a) > (b)) ? (a) : (b))
-#endif
-#ifndef clamp01
-#define clamp01(value) max(0.0f, min(1.0f, value))
-#endif
+#import "BaseMacros.h"
+#import "CGMacros.h"
 
 
-#ifndef __TRIGGER_DEBUGGER
-#define __TRIGGER_DEBUGGER() { }
-#endif
-
-
-#ifndef WhereLog
-#define WhereLog(value) NSLog(@"function: %s, file: %s, line: %d, msg: %@", __PRETTY_FUNCTION__, __FILE__, __LINE__, value)
-#endif
-
-
-#ifndef __FAIL
-#define __FAIL(msg, args...) { \
-NSLog(msg, ## args); \
-WhereLog(@"failed."); \
-__TRIGGER_DEBUGGER(); \
-exit(-1); \
-}
-#endif
-
-
-#ifndef __NOT_IMPLEMENTED
-#define __NOT_IMPLEMENTED() [self doesNotRecognizeSelector:_cmd]; 
-#endif
-
-
-#ifndef deallocProperty
-// Use temp local to isolate dealloc loops.
-#define deallocProperty(value) { \
-if (value != nil) { \
-id temp = value; \
-value = nil; \
-[temp release]; \
-} \
-}
-#endif
-
-
-#ifndef deallocPtr
-#define deallocPtr(ptr) { \
-if (ptr != NULL) { \
-void* _temp = ptr; \
-ptr = NULL; \
-free(_temp); \
-} \
-}
-#endif
-
-
-#ifndef safeMalloc
-#define safeMalloc(ptr, size) { ptr = malloc(size); if (ptr == NULL) { __FAIL(@"%@ could not be allocated", @"ptr"); } }
-#endif
-
-
-#ifndef safeCalloc
-#define safeCalloc(ptr, size1, size2) { ptr = calloc(size1, size2); if (ptr == NULL) { __FAIL(@"%@ could not be allocated", @"ptr"); } }
-#endif
-
-
-#ifndef DebugSize
-#define DebugSize(__name, __value) NSLog(@"%@: %@", __name, NSStringFromCGSize(__value))
-#endif
-#ifndef DebugPoint
-#define DebugPoint(__name, __value) NSLog(@"%@: %@", __name, NSStringFromCGPoint(__value))
-#endif
-#ifndef DebugRect
-#define DebugRect(__name, __value) NSLog(@"%@: %@", __name, NSStringFromCGRect(__value))
-#endif
-
-#ifndef FormatCGSize
-#define FormatCGSize(__value) NSStringFromCGSize(__value)
-#endif
-#ifndef FormatCGPoint
-#define FormatCGPoint(__value) NSStringFromCGPoint(__value)
-#endif
-#ifndef FormatCGRect
-#define FormatCGRect(__value) NSStringFromCGRect(__value)
-#endif
-#ifndef FormatSize
-#define FormatSize(__value) FormatCGSize(__value)
-#endif
-#ifndef FormatPoint
-#define FormatPoint(__value) FormatCGPoint(__value)
-#endif
-#ifndef FormatRect
-#define FormatRect(__value) FormatCGRect(__value)
-#endif
 
 CG_INLINE void
 setUIViewWidth(UIView* view, int value) {
@@ -316,85 +213,10 @@ setUIViewWidthHeight(UIView* view, int width, int height) {
     view.frame = frame;
 }
 
-CG_INLINE CGPoint
-CGPointAdd(const CGPoint p1, const CGPoint p2) {
-	return CGPointMake(p1.x + p2.x, p1.y + p2.y);
-}
-
-CG_INLINE CGPoint
-CGPointSubtract(const CGPoint p0, const CGPoint p1) {
-    return CGPointMake(p0.x - p1.x,
-                       p0.y - p1.y);
-}
-
-CG_INLINE CGPoint
-CGPointMax(const CGPoint p1, const CGPoint p2) {
-	return CGPointMake(max(p1.x, p2.x),
-                       max(p1.y, p2.y));
-}
-
-CG_INLINE CGPoint
-CGPointRound(const CGPoint p1) {
-	return CGPointMake(roundf(p1.x),
-                       roundf(p1.y));
-}
-
-CG_INLINE CGFloat
-CGPointDistance(CGPoint p0, CGPoint p1) {
-    CGFloat result = sqrtf(sqr(p0.x - p1.x) + sqr(p0.y - p1.y));
-    return result;
-}
-
-CG_INLINE CGSize
-CGSizeAdd(const CGSize p1, const CGSize p2) {
-	return CGSizeMake(p1.width + p2.width,
-                      p1.height + p2.height);
-}
-
-CG_INLINE CGSize
-CGSizeSubtract(const CGSize p1, const CGSize p2) {
-	return CGSizeMake(p1.width - p2.width,
-                      p1.height - p2.height);
-}
-
-CG_INLINE CGSize
-CGSizeMax(const CGSize p1, const CGSize p2) {
-	return CGSizeMake(max(p1.width, p2.width),
-                      max(p1.height, p2.height));
-}
-
-CG_INLINE CGSize
-CGSizeMin(const CGSize p1, const CGSize p2) {
-	return CGSizeMake(min(p1.width, p2.width),
-                      min(p1.height, p2.height));
-}
-
-CG_INLINE CGRect
-CGRectCenterOnRect(CGRect r0, CGRect r1) {
-    CGRect result;
-    result.origin.x = roundf(r1.origin.x + (r1.size.width - r0.size.width) * 0.5f);
-    result.origin.y = roundf(r1.origin.y + (r1.size.height - r0.size.height) * 0.5f);
-    result.size = r0.size;
-    return result;
-}
-
-CG_INLINE CGSize
-CGSizeFitInSize(CGSize r0, CGSize r1) {
-    if (r0.width <= r1.width && r0.height <= r1.height) {
-        return r0;
-    }
-    CGFloat widthFactor = r1.width / r0.width;
-    CGFloat heightFactor = r1.height / r0.height;
-    CGFloat factor = min(widthFactor, heightFactor);
-    CGSize result;
-    result.width = roundf(r0.width * factor);
-    result.height = roundf(r0.height * factor);
-    return result;
-}
-
 #ifndef RANDOM_INT
 #define RANDOM_INT() (arc4random())
 #endif
+
 
 CG_INLINE UIColor*
 UIColorRGB(unsigned int argb) {
@@ -405,4 +227,27 @@ UIColorRGB(unsigned int argb) {
                            green:green/255.0f
                             blue:blue/255.0f
                            alpha:1.0f];
+}
+
+CG_INLINE UIColor*
+UIColorRGBA(unsigned int argb) {
+	int alpha = (argb >> 24) & 0xff;
+	int red = (argb >> 16) & 0xff;
+	int green = (argb >> 8) & 0xff;
+	int blue = (argb >> 0) & 0xff;
+	return [UIColor colorWithRed:red/255.0f
+                           green:green/255.0f
+                            blue:blue/255.0f
+                           alpha:alpha/255.0f];
+}
+
+CG_INLINE UIColor*
+UIColorRGBWithAlpha(unsigned int argb, CGFloat alpha) {
+	int red = (argb >> 16) & 0xff;
+	int green = (argb >> 8) & 0xff;
+	int blue = (argb >> 0) & 0xff;
+	return [UIColor colorWithRed:red/255.0f
+                           green:green/255.0f
+                            blue:blue/255.0f
+                           alpha:alpha];
 }
