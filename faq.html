@@ -248,6 +248,17 @@ The buttons layer uses a horizontal layout with a large (20 point) bottom margin
 		</li>
 		<li class="faq_item">
 			<div class="faq_q">
+				Can I define a custom layout strategy? 				
+			</div>
+			<div class="faq_a">
+				Yes.  Subclass WePanelLayout. [WePanelLayout mode] should return LAYOUT_MODE_CUSTOM.
+				[WePanelLayout sizeThatFits:layer:] should return the minimum "natural" size of the layer's contents.
+				[WePanelLayout layoutContents:layer:] should lay out the layer's contents.
+			</div>
+		</li>
+<!--
+		<li class="faq_item">
+			<div class="faq_q">
 				Can a view have negative stretch weight?
 			</div>
 			<div class="faq_a">
@@ -271,6 +282,7 @@ This isn't the cleanest or most intuitive aspect of the library, and its probabl
 				</div>
 			</div>
 		</li>
+		-->
 		<!--
 
  
