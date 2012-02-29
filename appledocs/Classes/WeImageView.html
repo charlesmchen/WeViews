@@ -56,11 +56,17 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
+	<option value="//api/name/disableInteraction">&nbsp;&nbsp;&nbsp;&nbsp;- disableInteraction</option>
+	
 	<option value="//api/name/withClearBackground">&nbsp;&nbsp;&nbsp;&nbsp;- withClearBackground</option>
 	
 	<option value="//api/name/withOpaque:">&nbsp;&nbsp;&nbsp;&nbsp;- withOpaque:</option>
 	
 	<option value="//api/name/withOpaqueBackground:">&nbsp;&nbsp;&nbsp;&nbsp;- withOpaqueBackground:</option>
+	
+	<option value="//api/name/withStretch">&nbsp;&nbsp;&nbsp;&nbsp;- withStretch</option>
+	
+	<option value="//api/name/withStretchWeight:">&nbsp;&nbsp;&nbsp;&nbsp;- withStretchWeight:</option>
 	
 	<option value="//api/name/withTransparentBackground:">&nbsp;&nbsp;&nbsp;&nbsp;- withTransparentBackground:</option>
 	
@@ -106,11 +112,17 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/disableInteraction">disableInteraction</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/withClearBackground">withClearBackground</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/withOpaque:">withOpaque:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/withOpaqueBackground:">withOpaqueBackground:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/withStretch">withStretch</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/withStretchWeight:">withStretchWeight:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/withTransparentBackground:">withTransparentBackground:</a></span></li>
 	
@@ -218,6 +230,27 @@
 	<span class="tooltip">
 		<code><a href="#//api/name/withClearBackground">&ndash;&nbsp;withClearBackground</a></code>
 		<span class="tooltip"><p>Sets the background color to clear and sets opaque property to NO.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/withStretchWeight:">&ndash;&nbsp;withStretchWeight:</a></code>
+		<span class="tooltip"><p>Sets the <a href="#//api/name/stretchWeight">stretchWeight</a>.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/withStretch">&ndash;&nbsp;withStretch</a></code>
+		<span class="tooltip"><p>Sets the <a href="#//api/name/stretchWeight">stretchWeight</a> to 1.0f, the default value for stretching views.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/disableInteraction">&ndash;&nbsp;disableInteraction</a></code>
+		<span class="tooltip"><p>Sets the userInteractionEnabled property to NO.</p></span>
 	</span>
 	
 	
@@ -400,6 +433,50 @@
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
+	<a name="//api/name/disableInteraction" title="disableInteraction"></a>
+	<h3 class="subsubtitle method-title">disableInteraction</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets the userInteractionEnabled property to NO.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (id)disableInteraction</code></div>
+	
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Itself, for chaining.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sets the userInteractionEnabled property to NO.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">WeImageView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/withClearBackground" title="withClearBackground"></a>
 	<h3 class="subsubtitle method-title">withClearBackground</h3>
 	
@@ -552,6 +629,108 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/withStretch" title="withStretch"></a>
+	<h3 class="subsubtitle method-title">withStretch</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets the <a href="#//api/name/stretchWeight">stretchWeight</a> to 1.0f, the default value for stretching views.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (id)withStretch</code></div>
+	
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Itself, for chaining.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sets the stretchWeight to 1.0f, the default value for stretching views.</p>
+
+<p>See <a href="../Protocols/IWeView.html#//api/name/stretchWeight">[IWeView stretchWeight]</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">WeImageView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/withStretchWeight:" title="withStretchWeight:"></a>
+	<h3 class="subsubtitle method-title">withStretchWeight:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets the <a href="#//api/name/stretchWeight">stretchWeight</a>.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (id)withStretchWeight:(CGFloat)<em>value</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>value</em></dt>
+			<dd><p>The stretch weight value.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Itself, for chaining.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sets the stretchWeight.</p>
+
+<p>See <a href="../Protocols/IWeView.html#//api/name/stretchWeight">[IWeView stretchWeight]</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">WeImageView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/withTransparentBackground:" title="withTransparentBackground:"></a>
 	<h3 class="subsubtitle method-title">withTransparentBackground:</h3>
 	
@@ -618,7 +797,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2012 charlesmchen. All rights reserved. (Last updated: 2012-02-25)</span><br />
+						<p><span class="copyright">&copy; 2012 charlesmchen. All rights reserved. (Last updated: 2012-02-29)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 752)</a>.</span></p>
 						
