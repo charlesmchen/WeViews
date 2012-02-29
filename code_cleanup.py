@@ -84,6 +84,9 @@ def cleanupFile(filepath, license):
     
     text = addHeader(text, license, filepath)
 
+	# Remove trailing whitespace.
+    text = '\n'.join([line.rstrip() for line in text.split('\n')])
+
     with open(filepath, 'wt') as f:
         f.write(text)
 

@@ -1,28 +1,28 @@
-// 
+//
 // WeViews
 // AddViewView.m
-// 
+//
 // https://github.com/charlesmchen/WeViews
-// 
+//
 // Copyright (c) 2012 Charles Matthew Chen
 // charlesmchen@gmail.com
-// 
+//
 // Apache License
-// 
+//
 // Version 2.0, January 2004
-// 
+//
 // http://www.apache.org/licenses/
-// 
+//
 // TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
-// 
+//
 // 1. Definitions.
-// 
+//
 // "License" shall mean the terms and conditions for use, reproduction, and
 // distribution as defined by Sections 1 through 9 of this document.
-// 
+//
 // "Licensor" shall mean the copyright owner or entity authorized by the
 // copyright owner that is granting the License.
-// 
+//
 // "Legal Entity" shall mean the union of the acting entity and all other
 // entities that control, are controlled by, or are under common control with
 // that entity. For the purposes of this definition, "control" means (i) the
@@ -30,23 +30,23 @@
 // entity, whether by contract or otherwise, or (ii) ownership of fifty percent
 // (50%) or more of the outstanding shares, or (iii) beneficial ownership of
 // such entity.
-// 
+//
 // "You" (or "Your") shall mean an individual or Legal Entity exercising
 // permissions granted by this License.
-// 
+//
 // "Source" form shall mean the preferred form for making modifications,
 // including but not limited to software source code, documentation source, and
 // configuration files.
-// 
+//
 // "Object" form shall mean any form resulting from mechanical transformation or
 // translation of a Source form, including but not limited to compiled object
 // code, generated documentation, and conversions to other media types.
-// 
+//
 // "Work" shall mean the work of authorship, whether in Source or Object form,
 // made available under the License, as indicated by a copyright notice that is
 // included in or attached to the work (an example is provided in the Appendix
 // below).
-// 
+//
 // "Derivative Works" shall mean any work, whether in Source or Object form,
 // that is based on (or derived from) the Work and for which the editorial
 // revisions, annotations, elaborations, or other modifications represent, as a
@@ -54,7 +54,7 @@
 // Derivative Works shall not include works that remain separable from, or
 // merely link (or bind by name) to the interfaces of, the Work and Derivative
 // Works thereof.
-// 
+//
 // "Contribution" shall mean any work of authorship, including the original
 // version of the Work and any modifications or additions to that Work or
 // Derivative Works thereof, that is intentionally submitted to Licensor for
@@ -67,18 +67,18 @@
 // or on behalf of, the Licensor for the purpose of discussing and improving the
 // Work, but excluding communication that is conspicuously marked or otherwise
 // designated in writing by the copyright owner as "Not a Contribution."
-// 
+//
 // "Contributor" shall mean Licensor and any individual or Legal Entity on
 // behalf of whom a Contribution has been received by Licensor and subsequently
 // incorporated within the Work.
-// 
+//
 // 2. Grant of Copyright License. Subject to the terms and conditions of this
 // License, each Contributor hereby grants to You a perpetual, worldwide,
 // non-exclusive, no-charge, royalty-free, irrevocable copyright license to
 // reproduce, prepare Derivative Works of, publicly display, publicly perform,
 // sublicense, and distribute the Work and such Derivative Works in Source or
 // Object form.
-// 
+//
 // 3. Grant of Patent License. Subject to the terms and conditions of this
 // License, each Contributor hereby grants to You a perpetual, worldwide,
 // non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this
@@ -92,22 +92,22 @@
 // the Work constitutes direct or contributory patent infringement, then any
 // patent licenses granted to You under this License for that Work shall
 // terminate as of the date such litigation is filed.
-// 
+//
 // 4. Redistribution. You may reproduce and distribute copies of the Work or
 // Derivative Works thereof in any medium, with or without modifications, and in
 // Source or Object form, provided that You meet the following conditions:
-// 
+//
 // You must give any other recipients of the Work or Derivative Works a copy of
 // this License; and
-// 
+//
 // You must cause any modified files to carry prominent notices stating that You
 // changed the files; and
-// 
+//
 // You must retain, in the Source form of any Derivative Works that You
 // distribute, all copyright, patent, trademark, and attribution notices from
 // the Source form of the Work, excluding those notices that do not pertain to
 // any part of the Derivative Works; and
-// 
+//
 // If the Work includes a "NOTICE" text file as part of its distribution, then
 // any Derivative Works that You distribute must include a readable copy of the
 // attribution notices contained within such NOTICE file, excluding those
@@ -126,19 +126,19 @@
 // modifications, or for any such Derivative Works as a whole, provided Your
 // use, reproduction, and distribution of the Work otherwise complies with the
 // conditions stated in this License.
-// 
+//
 // 5. Submission of Contributions. Unless You explicitly state otherwise, any
 // Contribution intentionally submitted for inclusion in the Work by You to the
 // Licensor shall be under the terms and conditions of this License, without any
 // additional terms or conditions. Notwithstanding the above, nothing herein
 // shall supersede or modify the terms of any separate license agreement you may
 // have executed with Licensor regarding such Contributions.
-// 
+//
 // 6. Trademarks. This License does not grant permission to use the trade names,
 // trademarks, service marks, or product names of the Licensor, except as
 // required for reasonable and customary use in describing the origin of the
 // Work and reproducing the content of the NOTICE file.
-// 
+//
 // 7. Disclaimer of Warranty. Unless required by applicable law or agreed to in
 // writing, Licensor provides the Work (and each Contributor provides its
 // Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -147,7 +147,7 @@
 // FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining
 // the appropriateness of using or redistributing the Work and assume any risks
 // associated with Your exercise of permissions under this License.
-// 
+//
 // 8. Limitation of Liability. In no event and under no legal theory, whether in
 // tort (including negligence), contract, or otherwise, unless required by
 // applicable law (such as deliberate and grossly negligent acts) or agreed to
@@ -158,7 +158,7 @@
 // work stoppage, computer failure or malfunction, or any and all other
 // commercial damages or losses), even if such Contributor has been advised of
 // the possibility of such damages.
-// 
+//
 // 9. Accepting Warranty or Additional Liability. While redistributing the Work
 // or Derivative Works thereof, You may choose to offer, and charge a fee for,
 // acceptance of support, warranty, indemnity, or other liability obligations
@@ -168,7 +168,7 @@
 // to indemnify, defend, and hold each Contributor harmless for any liability
 // incurred by, or claims asserted against, such Contributor by reason of your
 // accepting any such warranty or additional liability.
-// 
+//
 // END OF TERMS AND CONDITIONS
 
 
@@ -201,27 +201,27 @@
 
 - (void) dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
+
     self.rootPanel = nil;
     self.windowModel = nil;
-    
+
     [super dealloc];
 }
 
 - (void) setup {
     self.backgroundColor = [UIColor colorWithWhite:0.15f alpha:1.0f];
     self.opaque = YES;
-    
-    self.rootPanel = [[WePanel create] 
+
+    self.rootPanel = [[WePanel create]
                       withClearBackground];
     self.content = rootPanel;
     self.mode = SCROLL_MODE_VERTICAL;
-     
+
     //    result.horizontalScrolling = YES;
     //    result.verticalScrolling = NO;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self 
-                                             selector:@selector(handleSelectionChanged) 
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleSelectionChanged)
                                                  name:NOTIFICATION_SELECTION_CHANGED
                                                object:nil];
 }
@@ -229,23 +229,23 @@
 + (AddViewView*) create:(WindowModel*) windowModel {
     AddViewView* result = [[[AddViewView alloc] init] autorelease];
     result.windowModel = windowModel;
-    
+
     [result setup];
-    
+
     return result;
 }
 
-- (void) addToSelection:(UIView*) view 
+- (void) addToSelection:(UIView*) view
               andSelect:(BOOL) andSelect {
     [windowModel addToSelection:view
                       andSelect:andSelect];
 }
 
-- (void) addFLayer {    
+- (void) addFLayer {
     WePanel* panel = (WePanel*) windowModel.selection;
     WePanelLayer* layer = [[[panel addVertical:[NSArray array]]
                           withSpacing:5]
-                          withMargin:5];    
+                          withMargin:5];
     [windowModel setNewItem:layer
                   andSelect:YES];
 }
@@ -330,7 +330,7 @@
 
 - (void) addMediumLabel {
     NSString* text = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod...";
-    
+
     UILabel* view = [WeViews createUILabel:text
                                        font:[UIFont systemFontOfSize:14]
                                       color:[WeViewsDemoUtils lastForegroundColor]];
@@ -344,7 +344,7 @@
 
 - (void) addLongLabel {
     NSString* text = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.";
-    
+
     UILabel* view = [WeViews createUILabel:text
                                        font:[UIFont systemFontOfSize:14]
                                       color:[WeViewsDemoUtils lastForegroundColor]];
@@ -482,7 +482,7 @@
 }
 
 - (void) addUITextField {
-    UITextField* view = [[[UITextField alloc] init] autorelease]; 
+    UITextField* view = [[[UITextField alloc] init] autorelease];
     view.text = @"Enter text here...";
     view.borderStyle = UITextBorderStyleRoundedRect;
     view.backgroundColor = [UIColor whiteColor];
@@ -492,7 +492,7 @@
 }
 
 - (void) addUIActivityIndicatorView {
-    UIActivityIndicatorView* view = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease]; 
+    UIActivityIndicatorView* view = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
     [view startAnimating];
     [view sizeToFit];
     [self addToSelection:view
@@ -500,7 +500,7 @@
 }
 
 - (void) addUISlider {
-    UISlider* view = [[[UISlider alloc] init] autorelease]; 
+    UISlider* view = [[[UISlider alloc] init] autorelease];
     view.minimumValue = 0;
     view.maximumValue = 0;
     view.value = 23;
@@ -510,7 +510,7 @@
 }
 
 - (void) addUIDatePicker {
-    UIDatePicker* view = [[[UIDatePicker alloc] init] autorelease]; 
+    UIDatePicker* view = [[[UIDatePicker alloc] init] autorelease];
     view.datePickerMode = UIDatePickerModeDateAndTime;
     view.date = [NSDate date];
     [view sizeToFit];
@@ -519,7 +519,7 @@
 }
 
 - (void) addUIProgressView {
-    UIProgressView* view = [[[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault] autorelease]; 
+    UIProgressView* view = [[[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault] autorelease];
     view.progress = 0.23f;
     [view sizeToFit];
     [self addToSelection:view
@@ -527,7 +527,7 @@
 }
 
 - (void) addUISearchBar {
-    UISearchBar* view = [[[UISearchBar alloc] init] autorelease]; 
+    UISearchBar* view = [[[UISearchBar alloc] init] autorelease];
     view.text = @"Search...";
     [view sizeToFit];
     [self addToSelection:view
@@ -535,7 +535,7 @@
 }
 
 - (void) addUIWebView {
-    UIWebView* view = [[[UIWebView alloc] init] autorelease]; 
+    UIWebView* view = [[[UIWebView alloc] init] autorelease];
     [view loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://google.com"]]];
     [view sizeToFit];
     [self addToSelection:view
@@ -572,11 +572,11 @@
     NSMutableArray* items = [NSMutableArray arrayWithArray:toolbar.items];
     [items addObject:item];
     toolbar.items = items;
-    
+
     // re-layout
     [WeViewsDemoUtils reLayoutParentsOfView:toolbar
                                     withRoot:windowModel.pseudoRoot.superview];
-    
+
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_SELECTION_CHANGED
                                                         object:nil];
 //    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_SELECTION_ALTERED
@@ -641,14 +641,14 @@
 
 - (UIView*) makeAddRow:(NSString*) title
                  items:(NSArray*) items {
-    
+
     WePanel* itemsPanel = [[WePanel createWithStretch]
                           withClearBackground];
     [[[itemsPanel addTextWrap:items]
      withSpacing:5]
     withHAlign:H_ALIGN_LEFT];
 //    itemsPanel.debugLayout = YES;
-    
+
     WePanel* titlePanel = [[WePanel create]
                           withClearBackground];
     [[[titlePanel addHorizontal1:[WeViews createUILabel:title
@@ -656,10 +656,10 @@
                                               color:[UIColor colorWithWhite:0.75f alpha:1.0f]]]
      withVAlign:V_ALIGN_TOP]
       withSpacing:5];
-    
-    
+
+
 //    [itemsPanel withOpaqueBackground:[UIColor redColor]];
-    
+
     WePanel* result = [[WePanel create]
                         withClearBackground];
     [[[result addHorizontalFill:[NSArray arrayWithObjects:
@@ -668,24 +668,24 @@
                           nil]]
       withSpacing:5]
      withMargin:5];
-    
+
     return result;
 }
 
 - (NSArray*) buildContents {
     //    NSLog(@"updateContents");
-    
+
     NSMutableArray* contents = [NSMutableArray array];
-    
+
     if (windowModel.selection == nil) {
         return contents;
-    }        
-    
+    }
+
     if ([windowModel.selection isKindOfClass:[MockIPhone class]]) {
         return contents;
-    }     
-    
-    
+    }
+
+
     if ([windowModel.selection isKindOfClass:[WePanel class]]) {
         [contents addObject:[self makeAddRow:@"Layers"
                                        items:[NSArray arrayWithObjects:
@@ -694,14 +694,14 @@
                                                                 selector:@selector(addFLayer)],
                                               nil]]];
     }
-    
+
     if (windowModel.selection == windowModel.pseudoRoot ||
-        [windowModel.selection isKindOfClass:[WePanelLayer class]] || 
+        [windowModel.selection isKindOfClass:[WePanelLayer class]] ||
         [windowModel.selection isKindOfClass:[WeScrollView class]]) {
-//    if ([windowModel.selection isKindOfClass:[WePanel class]] || 
-//        [windowModel.selection isKindOfClass:[WePanelLayer class]] || 
+//    if ([windowModel.selection isKindOfClass:[WePanel class]] ||
+//        [windowModel.selection isKindOfClass:[WePanelLayer class]] ||
 //        [windowModel.selection isKindOfClass:[WeScrollView class]]) {
-        
+
         [contents addObject:[self makeAddRow:@"Containers"
                                        items:[NSArray arrayWithObjects:
                                               [WeViewsDemoUtils makeLink:@"WePanel"
@@ -808,7 +808,7 @@
                                                                  selector:@selector(addUITextField)],
                                               [WeViewsDemoUtils makeLink:@"UIActivityIndicatorView"
                                                                    target:self
-                                                                 selector:@selector(addUIActivityIndicatorView)], 
+                                                                 selector:@selector(addUIActivityIndicatorView)],
                                               [WeViewsDemoUtils makeLink:@"UISlider"
                                                                    target:self
                                                                  selector:@selector(addUISlider)],
@@ -824,7 +824,7 @@
                                               [WeViewsDemoUtils makeLink:@"UIWebView"
                                                                    target:self
                                                                  selector:@selector(addUIWebView)],
-                                              nil]]];        
+                                              nil]]];
         [contents addObject:[self makeAddRow:@"Toolbar"
                                        items:[NSArray arrayWithObjects:
                                               [WeViewsDemoUtils makeLink:@"UIToolbar"
@@ -867,16 +867,16 @@
 }
 
 - (void) updateContents {
-    
+
     [rootPanel clearWithPurge];
     NSArray* contents = [self buildContents];
     [[[[rootPanel addVerticalFill:contents]
        withMargin:0]
       withSpacing:5]
      withHAlign:H_ALIGN_LEFT];
-    
+
     //    rootPanel.debugLayout = YES;
-    
+
 //    [rootPanel sizeToFit];
     [self layoutContents];
     [rootPanel layoutContents];
@@ -886,7 +886,7 @@
 - (void) handleSelectionChanged {
     if (![[NSThread currentThread] isMainThread]) {
         [self performSelectorOnMainThread:_cmd withObject:nil waitUntilDone:NO];
-    } else {    
+    } else {
         [self updateContents];
     }
 }

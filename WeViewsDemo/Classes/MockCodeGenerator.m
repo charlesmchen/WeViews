@@ -1,28 +1,28 @@
-// 
+//
 // WeViews
 // MockCodeGenerator.m
-// 
+//
 // https://github.com/charlesmchen/WeViews
-// 
+//
 // Copyright (c) 2012 Charles Matthew Chen
 // charlesmchen@gmail.com
-// 
+//
 // Apache License
-// 
+//
 // Version 2.0, January 2004
-// 
+//
 // http://www.apache.org/licenses/
-// 
+//
 // TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
-// 
+//
 // 1. Definitions.
-// 
+//
 // "License" shall mean the terms and conditions for use, reproduction, and
 // distribution as defined by Sections 1 through 9 of this document.
-// 
+//
 // "Licensor" shall mean the copyright owner or entity authorized by the
 // copyright owner that is granting the License.
-// 
+//
 // "Legal Entity" shall mean the union of the acting entity and all other
 // entities that control, are controlled by, or are under common control with
 // that entity. For the purposes of this definition, "control" means (i) the
@@ -30,23 +30,23 @@
 // entity, whether by contract or otherwise, or (ii) ownership of fifty percent
 // (50%) or more of the outstanding shares, or (iii) beneficial ownership of
 // such entity.
-// 
+//
 // "You" (or "Your") shall mean an individual or Legal Entity exercising
 // permissions granted by this License.
-// 
+//
 // "Source" form shall mean the preferred form for making modifications,
 // including but not limited to software source code, documentation source, and
 // configuration files.
-// 
+//
 // "Object" form shall mean any form resulting from mechanical transformation or
 // translation of a Source form, including but not limited to compiled object
 // code, generated documentation, and conversions to other media types.
-// 
+//
 // "Work" shall mean the work of authorship, whether in Source or Object form,
 // made available under the License, as indicated by a copyright notice that is
 // included in or attached to the work (an example is provided in the Appendix
 // below).
-// 
+//
 // "Derivative Works" shall mean any work, whether in Source or Object form,
 // that is based on (or derived from) the Work and for which the editorial
 // revisions, annotations, elaborations, or other modifications represent, as a
@@ -54,7 +54,7 @@
 // Derivative Works shall not include works that remain separable from, or
 // merely link (or bind by name) to the interfaces of, the Work and Derivative
 // Works thereof.
-// 
+//
 // "Contribution" shall mean any work of authorship, including the original
 // version of the Work and any modifications or additions to that Work or
 // Derivative Works thereof, that is intentionally submitted to Licensor for
@@ -67,18 +67,18 @@
 // or on behalf of, the Licensor for the purpose of discussing and improving the
 // Work, but excluding communication that is conspicuously marked or otherwise
 // designated in writing by the copyright owner as "Not a Contribution."
-// 
+//
 // "Contributor" shall mean Licensor and any individual or Legal Entity on
 // behalf of whom a Contribution has been received by Licensor and subsequently
 // incorporated within the Work.
-// 
+//
 // 2. Grant of Copyright License. Subject to the terms and conditions of this
 // License, each Contributor hereby grants to You a perpetual, worldwide,
 // non-exclusive, no-charge, royalty-free, irrevocable copyright license to
 // reproduce, prepare Derivative Works of, publicly display, publicly perform,
 // sublicense, and distribute the Work and such Derivative Works in Source or
 // Object form.
-// 
+//
 // 3. Grant of Patent License. Subject to the terms and conditions of this
 // License, each Contributor hereby grants to You a perpetual, worldwide,
 // non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this
@@ -92,22 +92,22 @@
 // the Work constitutes direct or contributory patent infringement, then any
 // patent licenses granted to You under this License for that Work shall
 // terminate as of the date such litigation is filed.
-// 
+//
 // 4. Redistribution. You may reproduce and distribute copies of the Work or
 // Derivative Works thereof in any medium, with or without modifications, and in
 // Source or Object form, provided that You meet the following conditions:
-// 
+//
 // You must give any other recipients of the Work or Derivative Works a copy of
 // this License; and
-// 
+//
 // You must cause any modified files to carry prominent notices stating that You
 // changed the files; and
-// 
+//
 // You must retain, in the Source form of any Derivative Works that You
 // distribute, all copyright, patent, trademark, and attribution notices from
 // the Source form of the Work, excluding those notices that do not pertain to
 // any part of the Derivative Works; and
-// 
+//
 // If the Work includes a "NOTICE" text file as part of its distribution, then
 // any Derivative Works that You distribute must include a readable copy of the
 // attribution notices contained within such NOTICE file, excluding those
@@ -126,19 +126,19 @@
 // modifications, or for any such Derivative Works as a whole, provided Your
 // use, reproduction, and distribution of the Work otherwise complies with the
 // conditions stated in this License.
-// 
+//
 // 5. Submission of Contributions. Unless You explicitly state otherwise, any
 // Contribution intentionally submitted for inclusion in the Work by You to the
 // Licensor shall be under the terms and conditions of this License, without any
 // additional terms or conditions. Notwithstanding the above, nothing herein
 // shall supersede or modify the terms of any separate license agreement you may
 // have executed with Licensor regarding such Contributions.
-// 
+//
 // 6. Trademarks. This License does not grant permission to use the trade names,
 // trademarks, service marks, or product names of the Licensor, except as
 // required for reasonable and customary use in describing the origin of the
 // Work and reproducing the content of the NOTICE file.
-// 
+//
 // 7. Disclaimer of Warranty. Unless required by applicable law or agreed to in
 // writing, Licensor provides the Work (and each Contributor provides its
 // Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -147,7 +147,7 @@
 // FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining
 // the appropriateness of using or redistributing the Work and assume any risks
 // associated with Your exercise of permissions under this License.
-// 
+//
 // 8. Limitation of Liability. In no event and under no legal theory, whether in
 // tort (including negligence), contract, or otherwise, unless required by
 // applicable law (such as deliberate and grossly negligent acts) or agreed to
@@ -158,7 +158,7 @@
 // work stoppage, computer failure or malfunction, or any and all other
 // commercial damages or losses), even if such Contributor has been advised of
 // the possibility of such damages.
-// 
+//
 // 9. Accepting Warranty or Additional Liability. While redistributing the Work
 // or Derivative Works thereof, You may choose to offer, and charge a fee for,
 // acceptance of support, warranty, indemnity, or other liability obligations
@@ -168,7 +168,7 @@
 // to indemnify, defend, and hold each Contributor harmless for any liability
 // incurred by, or claims asserted against, such Contributor by reason of your
 // accepting any such warranty or additional liability.
-// 
+//
 // END OF TERMS AND CONDITIONS
 
 
@@ -211,18 +211,18 @@
     self.typeName = nil;
     self.createCode = nil;
     self.code = nil;
-    
+
     [super dealloc];
 }
 
 + (MockItemCode*) create:(NSString*) instanceName
-                typeName:(NSString*) typeName 
+                typeName:(NSString*) typeName
               createCode:(NSString*) createCode {
     MockItemCode* result = [[[MockItemCode alloc] init] autorelease];
     result.instanceName = instanceName;
     result.typeName = typeName;
     result.createCode = createCode;
-    result.code = [NSMutableString string];    
+    result.code = [NSMutableString string];
     return result;
 }
 
@@ -273,18 +273,18 @@
 
 @implementation MockCodeGenerator
 
-+ (NSString*) uniqueInstanceName:(id) item 
++ (NSString*) uniqueInstanceName:(id) item
                        namespace:(NSMutableSet*) namespace {
     NSString* className = [[item class] description];
-    
+
     NSRange fPrefixRange = [className rangeOfString:@"F"];
     NSRange nsPrefixRange = [className rangeOfString:@"NS"];
     if (nsPrefixRange.location == 0) {
         className = [className substringFromIndex:2];
     } else if (fPrefixRange.location == 0) {
         className = [className substringFromIndex:1];
-    } 
-    
+    }
+
     int firstLowercaseIndex = -1;
     for (int i=0; i < [className length]; i++) {
         NSString* letter = [className substringWithRange:NSMakeRange(i, 1)];
@@ -298,9 +298,9 @@
         NSString* right = [className substringFromIndex:firstLowercaseIndex];
         className = [[left lowercaseString] stringByAppendingString:right];
     }
-    
+
     for (int i=0; YES; i++) {
-        NSString* name = [NSString stringWithFormat:@"%@%d", 
+        NSString* name = [NSString stringWithFormat:@"%@%d",
                           className,
                           i + 1];
         if (![namespace containsObject:name]) {
@@ -343,7 +343,7 @@
     } else {
         __FAIL(@"Unknown color component count: %d", count);
     }
-    
+
     NSString* result = [NSString stringWithFormat:@"UIColorRGB(0x%02X%02X%02X)", red, green, blue];
     if (alpha < 1.0f) {
         result = [NSString stringWithFormat:@"[%@ colorWithAlphaComponent:%0.2ff]",
@@ -356,11 +356,11 @@
 + (NSString*) getWePanelLayerCode:(WePanelLayer*) layer
                    layerItemCode:(NSString*) layerItemCode
                        panelName:(NSString*) panelName {
-    
+
     NSString* result;
-    
+
     if (layer.mode == LAYOUT_MODE_EVEN_FILL_GRID) {
-        
+
         WePanelLayoutEvenFillGrid* gridLayout = (WePanelLayoutEvenFillGrid*) layer.layout;
         result = [NSString stringWithFormat:@"[%@ addEvenFillGrid:[NSArray arrayWithObjects:\n" \
                       @"\t%@\n" \
@@ -372,11 +372,11 @@
                       [gridLayout hasRowCount] ? @"rowCount" : @"columnCount",
                       [gridLayout hasRowCount] ? [gridLayout rowCount] : [gridLayout columnCount],
                       FormatCGSize(gridLayout.cellSizeHint)];
-        
+
     } else if (layer.mode == LAYOUT_MODE_NATURAL_GRID ||
                layer.mode == LAYOUT_MODE_FILL_GRID ||
                layer.mode == LAYOUT_MODE_SPACING_GRID) {
-        
+
         WePanelLayoutGridBase* gridLayout = (WePanelLayoutGridBase*) layer.layout;
         NSString* layerMethodName;
         switch (layer.mode) {
@@ -392,7 +392,7 @@
             default:
                 __FAIL(@"Unknown layer mode: %d", layer.mode);
         }
-        
+
         result = [NSString stringWithFormat:@"[%@ %@:[NSArray arrayWithObjects:\n" \
                       @"\t%@\n" \
                       @"\tnil]" \
@@ -444,7 +444,7 @@
                   layerMethodName,
                   layerItemCode];
     }
-    
+
     if (layer.hAlign != H_ALIGN_CENTER || layer.vAlign != V_ALIGN_CENTER) {
         NSString* hAlignValue;
         NSString* vAlignValue;
@@ -474,7 +474,7 @@
             default:
                 __FAIL(@"Unknown vAlign value: %d", layer.vAlign);
         }
-        
+
         result = [NSString stringWithFormat:@"[%@\n" \
                   @"\twithHAlign:%@\n" \
                   @"\tvAlign:%@]",
@@ -482,19 +482,19 @@
                   hAlignValue,
                   vAlignValue];
     }
-    
+
     if (layer.spacing != 0) {
         result = [NSString stringWithFormat:@"[%@\n" \
                   @"\twithSpacing:%d]",
                   result,
                   layer.spacing];
     }
-    
-    if (layer.leftMargin != 0 || 
-        layer.rightMargin != 0 || 
-        layer.topMargin != 0 || 
+
+    if (layer.leftMargin != 0 ||
+        layer.rightMargin != 0 ||
+        layer.topMargin != 0 ||
         layer.bottomMargin != 0) {
-        
+
         if (layer.leftMargin == layer.rightMargin &&
             layer.leftMargin == layer.topMargin &&
             layer.leftMargin == layer.bottomMargin) {
@@ -523,14 +523,14 @@
                       layer.leftMargin];
         }
     }
-    
+
     return result;
 }
 
-+ (MockItemCode*) getItemCode:(id) item 
++ (MockItemCode*) getItemCode:(id) item
                     namespace:(NSMutableSet*) namespace
                   ignoreFrame:(BOOL) ignoreFrame {
-    
+
     NSString* instanceName = [self uniqueInstanceName:item
                                             namespace:namespace];
     NSString* typeName = [[item class] description];
@@ -543,7 +543,7 @@
 
     BOOL addBackgroundColorIfClear = YES;
     BOOL useBackgroundColorSetter = NO;
-    
+
     if ([item isKindOfClass:[WeLink class]]) {
         WeLink* view = (WeLink*) item;
         result.createCode = [NSString stringWithFormat:@"[[WeLink create:@\"%@\"\n" \
@@ -613,7 +613,7 @@
         [result appendLine:[NSString stringWithFormat:@"// %@ configuration...",
                             typeName]];
     }
-    
+
     if ([item isKindOfClass:[UIView class]]) {
         UIView* view = (UIView*) item;
         UIColor* background = view.backgroundColor;
@@ -648,7 +648,7 @@
             }
         }
     }
-    
+
     if ([item isKindOfClass:[WePanel class]]) {
         WePanel* view = (WePanel*) item;
         if (view.debugLayout) {
@@ -668,7 +668,7 @@
                                 (int) view.maxSize.height]];
         }
     }
-        
+
     if ([item isKindOfClass:[UIView class]]) {
         UIView* view = (UIView*) item;
         if ([view respondsToSelector:@selector(stretchWeight)]) {
@@ -679,7 +679,7 @@
                                       stretchWeight]];
             }
         }
-        
+
         if (!ignoreFrame) {
             [result appendLine:[NSString stringWithFormat:@"%@.frame = CGRectMake(%d, %d, %d, %d)",
                                 instanceName,
@@ -693,19 +693,19 @@
                                   instanceName]];
         }
     }
-    
+
     if ([WeViewsDemoUtils ignoreChildrenOfView:item]) {
         // Ignore children of certain UIView subclasses.
     } else if ([item isKindOfClass:[WePanel class]]) {
         WePanel* view = (WePanel*) item;
 
         NSMutableString* layerItemCode = [NSMutableString string];
-        for (WePanelLayer* layer in view.layers) {      
-            
+        for (WePanelLayer* layer in view.layers) {
+
             [result appendEmptyLine];
             BOOL layerHasPrep = NO;
             for (UIView* subview in layer.views) {
-                MockItemCode* itemCode = [self getItemCode:subview 
+                MockItemCode* itemCode = [self getItemCode:subview
                                                  namespace:namespace
                                                ignoreFrame:YES];
 //                [result appendEmptyLine];
@@ -731,7 +731,7 @@
         }
 
         for (UIView* subview in [view getNonLayerSubviews]) {
-            MockItemCode* itemCode = [self getItemCode:subview 
+            MockItemCode* itemCode = [self getItemCode:subview
                                              namespace:namespace
                                            ignoreFrame:NO];
             [result appendEmptyLine];
@@ -747,28 +747,28 @@
             }
         }
     }
-    
+
     return result;
 }
 
-+ (NSString*) generateCodeForContents:(UIView*) view 
++ (NSString*) generateCodeForContents:(UIView*) view
                             namespace:(NSMutableSet*) namespace {
     NSMutableString* result = [NSMutableString string];
     [result appendString:@"\n"];
     [result appendString:@"#import \"WeMacros.h\"\n"];
     [result appendString:@"#import \"WeViews.h\"\n"];
     [result appendString:@"\n"];
-    
-    MockItemCode* itemCode = [self getItemCode:view 
+
+    MockItemCode* itemCode = [self getItemCode:view
                                      namespace:namespace
                                    ignoreFrame:YES];
-    
+
     if ([itemCode isAnonymous]) {
         [result appendString:[itemCode getAnonymous]];
     } else {
         [result appendString:[itemCode getPrepCode]];
     }
-    
+
     //    [result appendString:itemCode.prepCode];
     //    if (!itemCode.simpleRef) {
     //        [result appendString:itemCode.refCode];
@@ -780,8 +780,8 @@
 
 + (NSString*) generateCodeForContents:(UIView*) view {
     NSMutableSet* namespace = [NSMutableSet set];
-    return [self generateCodeForContents:view 
-                               namespace:namespace];    
+    return [self generateCodeForContents:view
+                               namespace:namespace];
 }
 
 @end
