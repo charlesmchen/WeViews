@@ -190,6 +190,17 @@
 @property (nonatomic, assign) CGFloat stretchWeight;
 
 /**
+ * Limit the number of visible lines.
+ * Only to be used when numberOfLines == 0.
+ */
+@property (nonatomic, assign) int maxNumberOfLines;
+
+/**
+ * A debugging flag.
+ */
+@property (nonatomic, assign) BOOL debugLayout;
+
+/**
  * Factory method.
  *
  * @param text The text.
@@ -198,8 +209,8 @@
  * @return A WeLabel.
  */
 + (WeLabel*) create:(NSString*) text
-              font:(UIFont*) font
-             color:(UIColor*) color;
+               font:(UIFont*) font
+              color:(UIColor*) color;
 
 /**
  * Factory method.
@@ -211,9 +222,9 @@
  * @return A WeLabel.
  */
 + (WeLabel*) create:(NSString*) text
-          fontName:(NSString*) fontName
-          fontSize:(CGFloat) fontSize
-             color:(UIColor*) color;
+           fontName:(NSString*) fontName
+           fontSize:(CGFloat) fontSize
+              color:(UIColor*) color;
 
 /**
  * Sets the stretchWeight property.

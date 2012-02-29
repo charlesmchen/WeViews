@@ -377,13 +377,6 @@
 - (void) clearWithoutPurge;
 
 /**
- * Sets the userInteractionEnabled property to NO.
- *
- * @return Itself, for chaining.
- */
-- (WePanel*) disableInteraction;
-
-/**
  * If the panel's size is changed, its contents are re-layed out.
  *
  * @param value The UIView's new bounds.

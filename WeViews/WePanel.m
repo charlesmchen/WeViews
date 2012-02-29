@@ -508,11 +508,6 @@ ADD_METHOD_TEMPLATE(addHorizontal, addHorizontal1, LAYOUT_MODE_HORIZONTAL)
     }
 }
 
-- (WePanel*) disableInteraction {
-    self.userInteractionEnabled = NO;
-    return self;
-}
-
 + (WePanel*) createCenter1 :(UIView*) view {
     WePanel* result = [WePanel create];
     [result addCenter1:view];

@@ -172,7 +172,8 @@
 // END OF TERMS AND CONDITIONS
 
 
-#import "IWeView.h"
+#import "WeView.h"
+#import "AlignmentConstants.h"
 
 
 typedef enum {
@@ -202,21 +203,50 @@ typedef enum {
  *
  * See WeImageView.
  */
-@interface WeCustomImageView : UIView <IWeView>
+@interface WeCustomImageView : WeView
 
 @property (nonatomic, retain) UIImage* image;
-
-/**
- * The stretch weight.  
- *
- * See [IWeView stretchWeight].
- */
-@property (nonatomic, assign) CGFloat stretchWeight;
 
 /**
  * The layout mode.  
  */
 @property (nonatomic, assign) ImageLayoutMode mode;
+
+/**
+ * Horizontal alignment.  
+ * The default value is center (H_ALIGN_CENTER).
+ */
+@property (nonatomic, assign) HAlign hAlign;
+
+/**
+ * Vertical alignment.
+ * The default value is center (V_ALIGN_CENTER).
+ */
+@property (nonatomic, assign) VAlign vAlign;
+
+/**
+ * Factory method.
+ *
+ * @param image The image.
+ * @return A WeCustomImageView.
+ */
++ (WeCustomImageView*) createStretchWithImage:(UIImage*) image;
+
+/**
+ * Factory method.
+ *
+ * @param image The image.
+ * @return A WeCustomImageView.
+ */
++ (WeCustomImageView*) createFillWithImage:(UIImage*) image;
+
+/**
+ * Factory method.
+ *
+ * @param image The image.
+ * @return A WeCustomImageView.
+ */
++ (WeCustomImageView*) createFitWithImage:(UIImage*) image;
 
 /**
  * Factory method.
@@ -259,45 +289,13 @@ typedef enum {
 - (WeCustomImageView*) withOpaque :(BOOL) value;
 
 /**
- * Sets the background color and sets opaque property to YES.
- *
- * @param value The color.
+ * Sets horizontal and vertical alignment.
+ * 
+ * @param hAlignValue The horizontal alignment value.
+ * @param vAlignValue The vertical alignment value.
  * @return Itself, for chaining.
  */
-- (id) withOpaqueBackground:(UIColor*) value;
-
-/**
- * Sets the background color and sets opaque property to NO.
- *
- * @param value The color.
- * @return Itself, for chaining.
- */
-- (id) withTransparentBackground:(UIColor*) value;
-
-/**
- * Sets the background color to clear and sets opaque property to NO.
- *
- * @return Itself, for chaining.
- */
-- (id) withClearBackground;
-
-/**
- * Sets the stretchWeight. 
- *
- * See [IWeView stretchWeight].
- *
- * @param value The stretch weight value.
- * @return Itself, for chaining.
- */
-- (id) withStretchWeight:(CGFloat) value;
-
-/**
- * Sets the stretchWeight to 1.0f, the default value for stretching views. 
- *
- * See [IWeView stretchWeight].
- *
- * @return Itself, for chaining.
- */
-- (id) withStretch;
+- (WeCustomImageView*) withHAlign:(HAlign) hAlignValue
+           vAlign:(VAlign) vAlignValue;
 
 @end

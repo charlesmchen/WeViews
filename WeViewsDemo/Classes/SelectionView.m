@@ -1214,8 +1214,16 @@
         UIView* selectedView = (UIView*) windowModel.selection;
         [contents addObject:[self makeLabelWithKey:@"Frame"
                                              value:NSStringFromCGRect(selectedView.frame)]];
+        
+        CGSize naturalSize = [selectedView sizeThatFits:CGSizeZero];
         [contents addObject:[self makeLabelWithKey:@"Natural Size"
-                                             value:NSStringFromCGSize([selectedView sizeThatFits:CGSizeZero])]];
+                                             value:NSStringFromCGSize(naturalSize)]];
+        
+        CGSize naturalSizeInParent = [selectedView sizeThatFits:selectedView.superview.frame.size];
+        if (!CGSizeEqualToSize(naturalSize, naturalSizeInParent)) {
+            [contents addObject:[self makeLabelWithKey:@"Natural Size In Parent"
+                                                 value:NSStringFromCGSize(naturalSizeInParent)]];
+        }
         
         [contents addObject:[self makePropertyOptionRow:@"Hidden"
                                                 options:[NSArray arrayWithObjects:

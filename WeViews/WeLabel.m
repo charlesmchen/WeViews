@@ -175,11 +175,14 @@
 #import "WeLabel.h"
 #import "WeMacros.h"
 #import "WeViews.h"
+#import <UIKit/UIStringDrawing.h>
 
 
 @implementation WeLabel
 
 @synthesize stretchWeight;
+@synthesize maxNumberOfLines;
+@synthesize debugLayout;
 
 - (void) dealloc {
 	[super dealloc];
@@ -191,42 +194,65 @@
     }
     
     stretchWeight = 0;
+    maxNumberOfLines = 0;
     self.backgroundColor = [UIColor clearColor];
     self.opaque = NO;
-
+    self.userInteractionEnabled = NO;
+    debugLayout = NO;
+    
     return self;
 }
 
 + (WeLabel*) create:(NSString*) text
-              font:(UIFont*) font
-             color:(UIColor*) color {
-
+               font:(UIFont*) font
+              color:(UIColor*) color {
+    
     WeLabel* result = [[[WeLabel alloc] init] autorelease];
     result.text = text;
     result.font = font;
     result.textColor = color;
-
+    
     [result sizeToFit];
-
+    
     return result;
 }
 
 
 + (WeLabel*) create:(NSString*) text
-          fontName:(NSString*) fontName
-          fontSize:(CGFloat) fontSize
-             color:(UIColor*) color {
+           fontName:(NSString*) fontName
+           fontSize:(CGFloat) fontSize
+              color:(UIColor*) color {
     UIFont* font = [WeViews findUIFont:fontName fontSize:fontSize];
-//    __FAIL(@"font: %@", font);
-
+    //    __FAIL(@"font: %@", font);
+    
     return [self create:text
                    font:font
                   color:color];
 }
 
-// TODO: Move this to a category.
+// TODO: Move this to a category?
 - (CGSize) sizeThatFits :(CGSize) value {
+    // For the purposes of text wrap, constrain to a box of infinite height.
+    value.width = max(0, value.width);
+    value.height = MAXFLOAT;
+    
     CGSize result = [super sizeThatFits:value];
+    if (self.numberOfLines == 0 && maxNumberOfLines > 0) {
+        CGSize rawResult = result;
+        result.height = min(result.height, 
+                            self.font.lineHeight * self.maxNumberOfLines);
+        
+        if (debugLayout) {
+            NSLog(@"[%@ %@(%@)] result: %@ raw: %@ (%@))",
+                  [self class],
+                  NSStringFromSelector(_cmd),
+                  FormatSize(value),
+                  FormatSize(result),
+                  FormatSize(rawResult),
+                  ([self.text length] > 10) ? [self.text substringToIndex:10] : self.text);
+        }
+    }
+    
     if (self.font != nil) {
         if ([self.font.fontName isEqualToString:@"Silkscreen"]) {
             result.height *= 2;

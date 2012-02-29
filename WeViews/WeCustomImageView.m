@@ -182,6 +182,8 @@
 @synthesize image;
 @synthesize stretchWeight;
 @synthesize mode;
+@synthesize hAlign;
+@synthesize vAlign;
 
 - (void) dealloc {
     deallocProperty(image);
@@ -199,33 +201,46 @@
     stretchWeight = 0;
     mode = IMAGE_LAYOUT_MODE_STRETCH;
     self.userInteractionEnabled = NO;
+    hAlign = H_ALIGN_CENTER;
+    vAlign = V_ALIGN_CENTER;
     
     return self;
 }
 
-+ (WeCustomImageView*) create :(NSString*) imageName
-                   mode:(ImageLayoutMode) mode {
++ (WeCustomImageView*) create:(UIImage*) image
+                         mode:(ImageLayoutMode) mode {
     WeCustomImageView* result = [[[WeCustomImageView alloc] init] autorelease];
     result.mode = mode;
-    UIImage* image = [WeViews loadImage:imageName];
     [result setImage:image];
     [result sizeToFit];
     return result;
 }
 
-+ (WeCustomImageView*) createStretch:(NSString*) imageName {
-    return [self create:imageName
++ (WeCustomImageView*) createStretchWithImage:(UIImage*) image {
+    return [self create:image
                    mode:IMAGE_LAYOUT_MODE_STRETCH];
 }
 
-+ (WeCustomImageView*) createFill:(NSString*) imageName {
-    return [self create:imageName
++ (WeCustomImageView*) createFillWithImage:(UIImage*) image {
+    return [self create:image
                    mode:IMAGE_LAYOUT_MODE_FILL];
 }
 
-+ (WeCustomImageView*) createFit:(NSString*) imageName {
-    return [self create:imageName
++ (WeCustomImageView*) createFitWithImage:(UIImage*) image {
+    return [self create:image
                    mode:IMAGE_LAYOUT_MODE_FIT];
+}
+
++ (WeCustomImageView*) createStretch:(NSString*) imageName {
+    return [self createStretchWithImage:[WeViews loadImage:imageName]];
+}
+
++ (WeCustomImageView*) createFill:(NSString*) imageName {
+    return [self createFillWithImage:[WeViews loadImage:imageName]];
+}
+
++ (WeCustomImageView*) createFit:(NSString*) imageName {
+    return [self createFitWithImage:[WeViews loadImage:imageName]];
 }
 
 + (WeCustomImageView*) create:(NSString*) imageName {
@@ -280,7 +295,8 @@
                 imageRect.size.width = imageSize.width / vFactor;
                 imageRect.size.height = self.frame.size.height;
             }
-            imageRect = CGRectCenterOnRect(imageRect, viewFrame);
+            
+            imageRect = alignSizeWithinRect(imageRect.size, viewFrame, hAlign, vAlign);
             break;
         }
         case IMAGE_LAYOUT_MODE_FILL: {
@@ -303,31 +319,10 @@
     [image drawInRect:imageRect];
 }
 
-- (id) withOpaqueBackground:(UIColor*) value {
-    self.backgroundColor = value;
-    self.opaque = YES;
-    return self;
-}
-
-- (id) withTransparentBackground:(UIColor*) value {
-    self.backgroundColor = value;
-    self.opaque = NO;
-    return self;
-}
-
-- (id) withClearBackground {
-    self.backgroundColor = [UIColor clearColor];
-    self.opaque = NO;
-    return self;
-}
-
-- (id) withStretchWeight:(CGFloat) value {
-    self.stretchWeight = value;
-    return self;
-}
-
-- (id) withStretch {
-    self.stretchWeight = 1.0f;
+- (WeCustomImageView*) withHAlign:(HAlign) hAlignValue
+           vAlign:(VAlign) vAlignValue {
+    self.hAlign = hAlignValue;
+    self.vAlign = vAlignValue;
     return self;
 }
 

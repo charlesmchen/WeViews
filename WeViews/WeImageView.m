@@ -238,4 +238,9 @@
     return self;
 }
 
+- (id) disableInteraction {
+    self.userInteractionEnabled = NO;
+    return self;
+}
+
 @end

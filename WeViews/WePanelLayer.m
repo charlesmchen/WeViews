@@ -312,7 +312,7 @@
     if (self.debugLayout) {
         int viewIndex = 0;
         for (UIView* view in self.views) {
-            NSLog(@"[%@ (%@) %@] %@ new frame[%d]: %@",
+            NSLog(@"[%@ (%@) %@] %@[%d].frame: %@",
                   [layout class], 
                   [self.panel class], 
                   NSStringFromSelector(_cmd),

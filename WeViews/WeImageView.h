@@ -255,4 +255,11 @@
  */
 - (id) withStretch;
 
+/**
+ * Sets the userInteractionEnabled property to NO.
+ *
+ * @return Itself, for chaining.
+ */
+- (id) disableInteraction;
+
 @end
