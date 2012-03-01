@@ -1,6 +1,6 @@
 //
 // WeViews
-// WeCustomImageView.h
+// WeCustomLabel.h
 //
 // https://github.com/charlesmchen/WeViews
 //
@@ -173,132 +173,142 @@
 
 
 #import "WeView.h"
-#import "AlignmentConstants.h"
-
-
-typedef enum {
-    // The image is stretched to fit the view's assigned frame.
-    //
-    // This is the default behavior.
-    IMAGE_LAYOUT_MODE_STRETCH,
-    // The image is stretched to "fit" the frame, preserving the
-    // image aspect ratio.  This means that not all of the frame
-    // will be filled.
-    IMAGE_LAYOUT_MODE_FIT,
-    // The image is stretched to "fill" the frame, preserving the
-    // image aspect ratio.  This means some of the image may end
-    // up cropped.
-    IMAGE_LAYOUT_MODE_FILL,
-} ImageLayoutMode;
-
-
-#pragma mark
 
 
 /**
- * Alternative to UIImageView that includes "fit" and "fill" modes.
+ * Alternative to UILabel that includes support for custom line spacing.
+ * Imitates UILabel/WeCustomLabel as closely as possible.
  *
- * UIImageView is optimized and performs better than WeCustomImageView.
- * Only use WeCustomImageView if you need it's extra functionality.
+ * Text wrap is always enabled.
  *
- * See WeImageView.
+ * Only use WeCustomLabel if you need it's extra functionality.
+ * Otherwise use UILabel or WeCustomLabel.
+ *
+ * See WeCustomLabel.
  */
-@interface WeCustomImageView : WeView
+@interface WeCustomLabel : WeView
 
 /**
- * The image.
+ * The text.
  */
-@property (nonatomic, retain) UIImage* image;
+@property (nonatomic, retain) NSString* text;
 
 /**
- * The layout mode.
+ * The font.
  */
-@property (nonatomic, assign) ImageLayoutMode mode;
+@property (nonatomic, retain) UIFont* font;
 
 /**
- * Horizontal alignment.
- * The default value is center (H_ALIGN_CENTER).
+ * The text color.
  */
-@property (nonatomic, assign) HAlign hAlign;
+@property (nonatomic, retain) UIColor* textColor;
 
 /**
- * Vertical alignment.
- * The default value is center (V_ALIGN_CENTER).
+ * The text alignment.
  */
-@property (nonatomic, assign) VAlign vAlign;
+@property (nonatomic, assign) UITextAlignment textAlignment;
+
+/**
+ * Limit the number of visible lines.
+ * Only to be used when numberOfLines == 0.
+ */
+@property (nonatomic, assign) int maxNumberOfLines;
+
+/**
+ * The top margin for this layer.
+ * The default value is zero.
+ */
+@property (nonatomic, assign) int topMargin;
+
+/**
+ * The bottom margin for this layer.
+ * The default value is zero.
+ */
+@property (nonatomic, assign) int bottomMargin;
+
+/**
+ * The left margin for this layer.
+ * The default value is zero.
+ */
+@property (nonatomic, assign) int leftMargin;
+
+/**
+ * The right margin for this layer.
+ * The default value is zero.
+ */
+@property (nonatomic, assign) int rightMargin;
+
+/**
+ * The line height factor.
+ *
+ * For single-spacing, use 1.0f.  For double-spacing, use 2.0f.
+ * Value should be positive.
+ *
+ * The default value is 1.0f.
+ */
+@property (nonatomic, assign) CGFloat lineHeightFactor;
+
+/**
+ * A debugging flag.
+ */
+@property (nonatomic, assign) BOOL debugLayout;
 
 /**
  * Factory method.
  *
- * @param image The image.
- * @return A WeCustomImageView.
+ * @param text The text.
+ * @param font The font.
+ * @param color The text color.
+ * @return A WeCustomLabel.
  */
-+ (WeCustomImageView*) createStretchWithImage:(UIImage*) image;
++ (WeCustomLabel*) create:(NSString*) text
+                     font:(UIFont*) font
+                    color:(UIColor*) color;
 
 /**
  * Factory method.
  *
- * @param image The image.
- * @return A WeCustomImageView.
+ * @param text The text.
+ * @param fontName The font name.
+ * @param fontSize The font size.
+ * @param color The text color.
+ * @return A WeCustomLabel.
  */
-+ (WeCustomImageView*) createFillWithImage:(UIImage*) image;
++ (WeCustomLabel*) create:(NSString*) text
+                 fontName:(NSString*) fontName
+                 fontSize:(CGFloat) fontSize
+                    color:(UIColor*) color;
 
 /**
- * Factory method.
+ * Sets all margins to a single value.
  *
- * @param image The image.
- * @return A WeCustomImageView.
- */
-+ (WeCustomImageView*) createFitWithImage:(UIImage*) image;
-
-/**
- * Factory method.
- *
- * @param imageName The image name.
- * @return A WeCustomImageView.
- */
-+ (WeCustomImageView*) create:(NSString*) imageName;
-
-/**
- * Factory method.
- *
- * @param imageName The image name.
- * @return A WeCustomImageView.
- */
-+ (WeCustomImageView*) createStretch:(NSString*) imageName;
-
-/**
- * Factory method.
- *
- * @param imageName The image name.
- * @return A WeCustomImageView.
- */
-+ (WeCustomImageView*) createFill:(NSString*) imageName;
-
-/**
- * Factory method.
- *
- * @param imageName The image name.
- * @return A WeCustomImageView.
- */
-+ (WeCustomImageView*) createFit:(NSString*) imageName;
-
-/**
- * Sets the opaque property.
- *
- * @param value The opaque value.
+ * @param value The margin value.
  * @return Itself, for chaining.
  */
-- (WeCustomImageView*) withOpaque :(BOOL) value;
+- (WeCustomLabel*) withMargin :(int) value;
 
 /**
- * Sets horizontal and vertical alignment.
+ * Sets the horizontal and vertical margins.
  *
- * @param hAlignValue The horizontal alignment value.
- * @param vAlignValue The vertical alignment value.
+ * @param hMarginValue The horizontal margin value.
+ * @param vMarginValue The vertical margin value.
  * @return Itself, for chaining.
  */
-- (WeCustomImageView*) withHAlign:(HAlign) hAlignValue
-           vAlign:(VAlign) vAlignValue;
+- (WeCustomLabel*) withHMargin:(int) hMarginValue
+                       vMargin:(int) vMarginValue;
+
+/**
+ * Sets spacing property.
+ *
+ * @param topMarginValue The top margin value.
+ * @param rightMarginValue The right margin value.
+ * @param bottomMarginValue The bottom margin value.
+ * @param leftMarginValue The left margin value.
+ * @return Itself, for chaining.
+ */
+- (WeCustomLabel*) withTopMargin:(int) topMarginValue
+                     rightMargin:(int) rightMarginValue
+                    bottomMargin:(int) bottomMarginValue
+                      leftMargin:(int) leftMarginValue;
 
 @end

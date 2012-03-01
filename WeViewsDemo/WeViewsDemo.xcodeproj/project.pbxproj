@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F548A7F115000FC1009FB660 /* WeCustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F548A7F015000FC1009FB660 /* WeCustomLabel.m */; };
+		F548A7F415001023009FB660 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F548A7F315001023009FB660 /* CoreText.framework */; };
 		F55E1C1914F5BE5C00301001 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55E1C1814F5BE5C00301001 /* UIKit.framework */; };
 		F55E1C1B14F5BE5C00301001 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55E1C1A14F5BE5C00301001 /* Foundation.framework */; };
 		F55E1C1D14F5BE5C00301001 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55E1C1C14F5BE5C00301001 /* CoreGraphics.framework */; };
@@ -100,6 +102,9 @@
 /* Begin PBXFileReference section */
 		F511D65E14FC0EC100AF9E6A /* CGMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMacros.h; sourceTree = "<group>"; };
 		F511D66214FC0F3F00AF9E6A /* BaseMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMacros.h; sourceTree = "<group>"; };
+		F548A7EF15000FC1009FB660 /* WeCustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeCustomLabel.h; sourceTree = "<group>"; };
+		F548A7F015000FC1009FB660 /* WeCustomLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeCustomLabel.m; sourceTree = "<group>"; };
+		F548A7F315001023009FB660 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		F55E1C1414F5BE5C00301001 /* WeViewsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeViewsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55E1C1814F5BE5C00301001 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F55E1C1A14F5BE5C00301001 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -246,6 +251,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F548A7F415001023009FB660 /* CoreText.framework in Frameworks */,
 				F55E1C1914F5BE5C00301001 /* UIKit.framework in Frameworks */,
 				F55E1C1B14F5BE5C00301001 /* Foundation.framework in Frameworks */,
 				F55E1C1D14F5BE5C00301001 /* CoreGraphics.framework in Frameworks */,
@@ -258,6 +264,7 @@
 		F55E1C0914F5BE5C00301001 = {
 			isa = PBXGroup;
 			children = (
+				F548A7F315001023009FB660 /* CoreText.framework */,
 				F55E1D0F14F5C28200301001 /* WeViews */,
 				F55E1C4614F5BED800301001 /* Classes */,
 				F55E1C6014F5BED800301001 /* data */,
@@ -403,6 +410,8 @@
 				F55E1D3614F5C28200301001 /* WeButton.m */,
 				F55E1D3714F5C28200301001 /* WeCustomImageView.h */,
 				F55E1D3814F5C28200301001 /* WeCustomImageView.m */,
+				F548A7EF15000FC1009FB660 /* WeCustomLabel.h */,
+				F548A7F015000FC1009FB660 /* WeCustomLabel.m */,
 				F55E1D3914F5C28200301001 /* WeImageView.h */,
 				F55E1D3A14F5C28200301001 /* WeImageView.m */,
 				F55E1D3B14F5C28200301001 /* WeLabel.h */,
@@ -620,6 +629,7 @@
 				F55E1D7A14F5C56900301001 /* URLHandler.m in Sources */,
 				F55E1D8414F5E0CE00301001 /* WePanelLayoutNaturalGrid.m in Sources */,
 				F55E1D8714F5E0F300301001 /* WePanelLayoutSpacingGrid.m in Sources */,
+				F548A7F115000FC1009FB660 /* WeCustomLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
