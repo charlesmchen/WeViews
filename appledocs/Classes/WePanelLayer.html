@@ -78,13 +78,17 @@
 	
 	<option value="//api/name/containsView:">&nbsp;&nbsp;&nbsp;&nbsp;- containsView:</option>
 	
+	<option value="//api/name/contentBoundsForPanelSize">&nbsp;&nbsp;&nbsp;&nbsp;- contentBoundsForPanelSize</option>
+	
 	<option value="//api/name/copyProperties:">&nbsp;&nbsp;&nbsp;&nbsp;- copyProperties:</option>
 	
 	<option value="//api/name/debugLayout">&nbsp;&nbsp;&nbsp;&nbsp;- debugLayout</option>
 	
-	<option value="//api/name/layoutContents:">&nbsp;&nbsp;&nbsp;&nbsp;- layoutContents:</option>
+	<option value="//api/name/insetOrigin">&nbsp;&nbsp;&nbsp;&nbsp;- insetOrigin</option>
 	
-	<option value="//api/name/marginSize">&nbsp;&nbsp;&nbsp;&nbsp;- marginSize</option>
+	<option value="//api/name/insetSize">&nbsp;&nbsp;&nbsp;&nbsp;- insetSize</option>
+	
+	<option value="//api/name/layoutContents:">&nbsp;&nbsp;&nbsp;&nbsp;- layoutContents:</option>
 	
 	<option value="//api/name/mode">&nbsp;&nbsp;&nbsp;&nbsp;- mode</option>
 	
@@ -174,13 +178,17 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/containsView:">containsView:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/contentBoundsForPanelSize">contentBoundsForPanelSize</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/copyProperties:">copyProperties:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/debugLayout">debugLayout</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/layoutContents:">layoutContents:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/insetOrigin">insetOrigin</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/marginSize">marginSize</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/insetSize">insetSize</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/layoutContents:">layoutContents:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mode">mode</a></span></li>
 	
@@ -455,8 +463,23 @@ of a given size.</p></span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/marginSize">&ndash;&nbsp;marginSize</a></code>
-		<span class="tooltip"><p>the sum of all margins.</p></span>
+		<code><a href="#//api/name/insetOrigin">&ndash;&nbsp;insetOrigin</a></code>
+		<span class="tooltip"><p>Calculates the inset origin by adding the margins and the border size.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/insetSize">&ndash;&nbsp;insetSize</a></code>
+		<span class="tooltip"><p>Calculates the inset size adding the margins and the border size.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/contentBoundsForPanelSize">&ndash;&nbsp;contentBoundsForPanelSize</a></code>
+		<span class="tooltip"><p>Calculates the content bounds by subtracting the margins and the border size
+from the current <a href="#//api/name/panel">panel</a> size.</p></span>
 	</span>
 	
 	
@@ -1133,6 +1156,52 @@ The default value is center (V_ALIGN_CENTER).</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/contentBoundsForPanelSize" title="contentBoundsForPanelSize"></a>
+	<h3 class="subsubtitle method-title">contentBoundsForPanelSize</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Calculates the content bounds by subtracting the margins and the border size
+from the current <a href="#//api/name/panel">panel</a> size.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (CGRect)contentBoundsForPanelSize</code></div>
+	
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>the content bounds.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Calculates the content bounds by subtracting the margins and the border size
+from the current <a href="#//api/name/panel">panel</a> size.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">WePanelLayer.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/copyProperties:" title="copyProperties:"></a>
 	<h3 class="subsubtitle method-title">copyProperties:</h3>
 	
@@ -1221,6 +1290,94 @@ The default value is center (V_ALIGN_CENTER).</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/insetOrigin" title="insetOrigin"></a>
+	<h3 class="subsubtitle method-title">insetOrigin</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Calculates the inset origin by adding the margins and the border size.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (CGPoint)insetOrigin</code></div>
+	
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>the inset origin.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Calculates the inset origin by adding the margins and the border size.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">WePanelLayer.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/insetSize" title="insetSize"></a>
+	<h3 class="subsubtitle method-title">insetSize</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Calculates the inset size adding the margins and the border size.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (CGSize)insetSize</code></div>
+	
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>the inset size.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Calculates the inset size adding the margins and the border size.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">WePanelLayer.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/layoutContents:" title="layoutContents:"></a>
 	<h3 class="subsubtitle method-title">layoutContents:</h3>
 	
@@ -1256,45 +1413,6 @@ The default value is center (V_ALIGN_CENTER).</p>
 
 <p>Handled by the layer&rsquo;s <a href="#//api/name/layout">layout</a>.</p>
 	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">WePanelLayer.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/marginSize" title="marginSize"></a>
-	<h3 class="subsubtitle method-title">marginSize</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>the sum of all margins.</p>
-	</div>		
-	
-	
-	<div class="method-subsection method-declaration"><code>- (CGSize)marginSize</code></div>
-	
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>the sum of all margins.</p>
-	</div>
-	
-	
-	
-	
 	
 	
 	
@@ -1976,7 +2094,7 @@ of a given size.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2012 charlesmchen. All rights reserved. (Last updated: 2012-02-29)</span><br />
+						<p><span class="copyright">&copy; 2012 charlesmchen. All rights reserved. (Last updated: 2012-03-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 752)</a>.</span></p>
 						

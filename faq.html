@@ -75,7 +75,7 @@
 		</li>
 	</ul>
 				<div class="faq_p">
-					If an WePanel contains subviews which are themselves WePanels,
+					If a WePanel contains subviews which are themselves WePanels,
 					resizing it will automatically cause these subpanels to themselves layout
 					if their size is changed.  
 					Therefore, it is only necessary to manually layout the root WePanel.
@@ -87,9 +87,11 @@
 Can I mix and match WeViews with other UIViews?
 			</div>
 			<div class="faq_a">
+			<div class="item_p">
 Yes.  
 WePanel, for example, can layout any properly implemented UIView (ie. that has implemented [UIView sizeThatFits:]).
 Likewise, WeView classes can be safely used like any other UIView.
+			</div>
 			</div>
 		</li>
 		
@@ -138,9 +140,11 @@ Likewise, WeView classes can be safely used like any other UIView.
 				Why isn't my view showing up?
 			</div>
 			<div class="faq_a">
+			<div class="item_p">
 				Many UIViews (such as a UIScrollView or an empty WePanel) have a natural size of zero. 
 				If it is an empty WePanel, try adding a layer with some subviews. 
 				Or, if the view itself is layer out in a fill layout, try giving it a non-zero stretch weight.
+			</div>
 			</div>
 		</li>
 		
@@ -149,7 +153,9 @@ Likewise, WeView classes can be safely used like any other UIView.
 				Does WePanel support sub-point layouts? 				
 			</div>
 			<div class="faq_a">
+			<div class="item_p">
 				No. WePanels only support laying out subviews with integer locations and sizes.				
+			</div>
 			</div>
 		</li>
 		<li class="faq_item">
@@ -157,9 +163,11 @@ Likewise, WeView classes can be safely used like any other UIView.
 				Can I define a custom layout strategy? 				
 			</div>
 			<div class="faq_a">
+			<div class="item_p">
 				Yes.  Subclass WePanelLayout. [WePanelLayout mode] should return LAYOUT_MODE_CUSTOM.
 				[WePanelLayout sizeThatFits:layer:] should return the minimum "natural" size of the layer's contents.
 				[WePanelLayout layoutContents:layer:] should lay out the layer's contents.
+			</div>
 			</div>
 		</li>
 <!--
