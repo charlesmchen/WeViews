@@ -325,7 +325,8 @@
     CGFloat descent = font.descender;
     CGFloat leading = font.leading;
     CGFloat lineHeight = ceilf(font.leading * lineHeightFactor);
-
+    int numberOfLines = 0;
+    
     while (index < [text length]) {
         CFIndex rawLineCount = CTTypesetterSuggestLineBreak(typeSetter,
                                                      index,
@@ -348,6 +349,10 @@
         result.height += lineHeight;
 
         index += rawLineCount;
+        numberOfLines++;
+        if ((maxNumberOfLines > 0) && (numberOfLines >= maxNumberOfLines)) {
+            break;
+        }
     }
 
     CFRelease(typeSetter);

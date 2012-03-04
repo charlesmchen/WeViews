@@ -405,6 +405,7 @@
 		NSString* name = [[fontName stringByReplacingOccurrencesOfString:@" " withString:@""] lowercaseString];
 		font = [UIFont fontWithName:name size:fontSize];
 	}
+
 	if (font == nil) {
         NSLog(@"Available Font Families: %@", [UIFont familyNames]);
 		__FAIL(@"Unknown font %@", fontName);

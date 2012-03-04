@@ -264,6 +264,14 @@
 
         CGSize itemSize = [item sizeThatFits:item.frame.size];
 
+        if (layer.debugLayout) {
+            NSLog(@"%@[%d][%d] natural size: %@",
+                  [item class],
+                  column,
+                  row,
+                  FormatSize(itemSize));
+        }
+        
         result.columnWidths[column] = max(result.columnWidths[column],
                                           itemSize.width);
         result.maxColumnWidth = max(result.maxColumnWidth,

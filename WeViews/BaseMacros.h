@@ -179,10 +179,12 @@
 #define sqr(a) ((a) * (a))
 #endif
 #ifndef min
-#define min(a, b) (((a) < (b)) ? (a) : (b))
+//#define min(a, b) (((a) < (b)) ? (a) : (b))
+#define min(a, b) MIN(a, b)
 #endif
 #ifndef max
-#define max(a, b) (((a) > (b)) ? (a) : (b))
+#define max(a, b) MAX(a, b)
+//#define max(a, b) (((a) > (b)) ? (a) : (b))
 #endif
 #ifndef clamp01
 #define clamp01(value) max(0.0f, min(1.0f, value))
@@ -197,15 +199,29 @@
 #ifndef WhereLog
 #define WhereLog(value) NSLog(@"function: %s, file: %s, line: %d, msg: %@", __PRETTY_FUNCTION__, __FILE__, __LINE__, value)
 #endif
+#ifndef WhereLog0
+#define WhereLog0() NSLog(@"[%@ %@]", [self class], NSStringFromSelector(_cmd))
+#endif
+#ifndef WhereLog1
+#define WhereLog1(value) NSLog(@"[%@ %@] %@", [self class], NSStringFromSelector(_cmd), value)
+#endif
+#ifndef WhereLog2
+#define WhereLog2(key, value) NSLog(@"[%@ %@] %@: %@", [self class], NSStringFromSelector(_cmd), key, value)
+#endif
 
 
 #ifndef __FAIL
+
+// We use usleep() to make sure NSLog buffers are flushed.
+// Is there a better way to do this?
 #define __FAIL(msg, args...) { \
 NSLog(msg, ## args); \
 WhereLog(@"failed."); \
 __TRIGGER_DEBUGGER(); \
+usleep(1000 * 1000); \
 exit(-1); \
 }
+
 #endif
 
 

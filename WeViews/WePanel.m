@@ -253,7 +253,7 @@
     UIToolbar* background = [[[UIToolbar alloc] init] autorelease];
     background.barStyle = UIBarStyleBlack;
     [self addFill1:background];
-    self.opaque = YES;
+    self.opaque = NO;
     return self;
 }
 

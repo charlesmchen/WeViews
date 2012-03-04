@@ -619,9 +619,6 @@
 //    }
 //}
 
-/**
- *
- */
 - (void) dumpItemSizes:(NSString*) label
                  layer:(WePanelLayer*) layer
              itemSizes:(CGSize*) itemSizes
