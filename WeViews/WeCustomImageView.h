@@ -189,6 +189,12 @@ typedef enum {
     // image aspect ratio.  This means some of the image may end
     // up cropped.
     IMAGE_LAYOUT_MODE_FILL,
+    // The image is stretched to "fit" the frame, preserving the
+    // image aspect ratio.  This means that not all of the frame
+    // will be filled.
+    // The image will never be stretched larger than its natural
+    // size.
+    IMAGE_LAYOUT_MODE_FIT_NATURAL,
 } ImageLayoutMode;
 
 
@@ -254,6 +260,14 @@ typedef enum {
 /**
  * Factory method.
  *
+ * @param image The image.
+ * @return A WeCustomImageView.
+ */
++ (WeCustomImageView*) createFitNaturalWithImage:(UIImage*) image;
+
+/**
+ * Factory method.
+ *
  * @param imageName The image name.
  * @return A WeCustomImageView.
  */
@@ -284,6 +298,14 @@ typedef enum {
 + (WeCustomImageView*) createFit:(NSString*) imageName;
 
 /**
+ * Factory method.
+ *
+ * @param imageName The image name.
+ * @return A WeCustomImageView.
+ */
++ (WeCustomImageView*) createFitNatural:(NSString*) imageName;
+
+/**
  * Sets the opaque property.
  *
  * @param value The opaque value.
@@ -299,6 +321,6 @@ typedef enum {
  * @return Itself, for chaining.
  */
 - (WeCustomImageView*) withHAlign:(HAlign) hAlignValue
-           vAlign:(VAlign) vAlignValue;
+                           vAlign:(VAlign) vAlignValue;
 
 @end

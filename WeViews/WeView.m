@@ -295,15 +295,11 @@
     return self;
 }
 
-- (void) drawRect :(CGRect) rect {
-	[super drawRect:rect];
+- (void) drawBorderInRect:(CGRect) borderRect {
 
     if ((borderColor == nil) || (borderWidth <= 0)) {
         return;
     }
-
-	CGRect borderRect = self.frame;
-    borderRect.origin = CGPointZero;
 
     if ((borderRect.size.width <= 0) ||
         (borderRect.size.height <= 0)) {
@@ -314,7 +310,7 @@
     CGContextSaveGState(context);
 
     if ((borderRect.size.width <= 2 * borderWidth) ||
-               (borderRect.size.height <= 2 * borderWidth)) {
+        (borderRect.size.height <= 2 * borderWidth)) {
 
         // View isn't large enough stroke border; we fill the frame instead
         // to avoid painting outside view.
@@ -334,6 +330,14 @@
     }
 
 	CGContextRestoreGState(context);
+}
+
+- (void) drawRect :(CGRect) rect {
+	[super drawRect:rect];
+
+	CGRect borderRect = self.frame;
+    borderRect.origin = CGPointZero;
+    [self drawBorderInRect:borderRect];
 }
 
 - (void) setBorderColor:(UIColor *) value {

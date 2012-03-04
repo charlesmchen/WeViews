@@ -231,6 +231,11 @@
                    mode:IMAGE_LAYOUT_MODE_FIT];
 }
 
++ (WeCustomImageView*) createFitNaturalWithImage:(UIImage*) image {
+    return [self create:image
+                   mode:IMAGE_LAYOUT_MODE_FIT_NATURAL];
+}
+
 + (WeCustomImageView*) createStretch:(NSString*) imageName {
     return [self createStretchWithImage:[WeViews loadImage:imageName]];
 }
@@ -241,6 +246,10 @@
 
 + (WeCustomImageView*) createFit:(NSString*) imageName {
     return [self createFitWithImage:[WeViews loadImage:imageName]];
+}
+
++ (WeCustomImageView*) createFitNatural:(NSString*) imageName {
+    return [self createFitNaturalWithImage:[WeViews loadImage:imageName]];
 }
 
 + (WeCustomImageView*) create:(NSString*) imageName {
@@ -277,17 +286,29 @@
 }
 
 - (void) drawRect :(CGRect) rect {
-	[super drawRect:rect];
+//	[super drawRect:rect];
 
     CGRect viewFrame = self.frame;
     viewFrame.origin = CGPointZero;
-    viewFrame = CGRectInset(viewFrame, self.borderWidth, self.borderWidth);
+//    viewFrame = CGRectInset(viewFrame, self.borderWidth, self.borderWidth);
 
+    CGRect borderRect;
     CGRect imageRect;
     switch (mode) {
         case IMAGE_LAYOUT_MODE_STRETCH:
             imageRect = viewFrame;
             break;
+        case IMAGE_LAYOUT_MODE_FIT_NATURAL: {
+            CGSize imageSize = image.size;
+            if ((imageSize.width <= viewFrame.size.width) &&
+                (imageSize.height <= viewFrame.size.height)) {
+                // If image is smaller than view frame, don't stretch it larger than
+                // its natural size.
+                imageRect = alignSizeWithinRect(imageSize, viewFrame, hAlign, vAlign);
+                break;
+            }
+            // Otherwise, fall through to "FIT" mode.
+        }
         case IMAGE_LAYOUT_MODE_FIT: {
             CGSize imageSize = image.size;
             CGFloat hFactor = imageSize.width / viewFrame.size.width;
@@ -301,6 +322,8 @@
             }
 
             imageRect = alignSizeWithinRect(imageRect.size, viewFrame, hAlign, vAlign);
+            borderRect = imageRect;
+            imageRect = CGRectInset(imageRect, self.borderWidth, self.borderWidth);
             break;
         }
         case IMAGE_LAYOUT_MODE_FILL: {
@@ -315,12 +338,15 @@
                 imageRect.size.height = viewFrame.size.height;
             }
             imageRect = CGRectCenterOnRect(imageRect, viewFrame);
+            borderRect = imageRect;
+            imageRect = CGRectInset(imageRect, self.borderWidth, self.borderWidth);
             break;
 
         }
     }
 
     [image drawInRect:imageRect];
+    [self drawBorderInRect:borderRect];
 }
 
 - (WeCustomImageView*) withHAlign:(HAlign) hAlignValue

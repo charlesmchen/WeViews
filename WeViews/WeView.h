@@ -355,4 +355,11 @@
  */
 - (void) clearBorder;
 
+/**
+ * Draws a border with the current border color and width.
+ *
+ * @param borderRect The border rect.
+ */
+- (void) drawBorderInRect:(CGRect) borderRect;
+
 @end

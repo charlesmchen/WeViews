@@ -188,6 +188,8 @@
 - (void) purge {
     NSLog(@"WeActionSheet purge");
 
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
 	deallocProperty(sheet);
 	deallocProperty(title);
 	deallocProperty(cancelButtonTitle);
@@ -234,6 +236,15 @@
     }
 
     sheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(deviceOrientationDidChange)
+                                                 name:UIDeviceOrientationDidChangeNotification object:nil];
+}
+
+- (void) deviceOrientationDidChange {
+    WhereLog0();
+    [self dismissImmediately];
 }
 
 - (void) showFromBarButtonItem:(UIBarButtonItem*) item
