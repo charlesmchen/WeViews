@@ -181,9 +181,12 @@
 
 @synthesize stretchWeight;
 @synthesize handlers;
+@synthesize borderColor;
+@synthesize borderWidth;
 
 - (void) purge {
     deallocProperty(handlers);
+    deallocProperty(borderColor);
 }
 
 - (void) dealloc {
@@ -204,6 +207,8 @@
 //    self.opaque = YES;
     self.opaque = NO;
     self.backgroundColor = [UIColor clearColor];
+    borderColor = nil;
+    borderWidth = 0;
 
     return self;
 }
@@ -288,6 +293,70 @@
 - (id) disableInteraction {
     self.userInteractionEnabled = NO;
     return self;
+}
+
+- (void) drawRect :(CGRect) rect {
+	[super drawRect:rect];
+
+    if ((borderColor == nil) || (borderWidth <= 0)) {
+        return;
+    }
+
+	CGRect borderRect = self.frame;
+    borderRect.origin = CGPointZero;
+
+    if ((borderRect.size.width <= 0) ||
+        (borderRect.size.height <= 0)) {
+        return;
+    }
+
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(context);
+
+    if ((borderRect.size.width <= 2 * borderWidth) ||
+               (borderRect.size.height <= 2 * borderWidth)) {
+
+        // View isn't large enough stroke border; we fill the frame instead
+        // to avoid painting outside view.
+        CGContextSetFillColorWithColor(context, borderColor.CGColor);
+        CGContextFillRect(context, borderRect);
+    } else {
+        // Draw border as usual.
+        borderRect = CGRectInset(borderRect,
+                                 borderWidth * 0.5,
+                                 borderWidth * 0.5);
+
+        CGContextSetLineWidth(context, borderWidth);
+        CGContextSetStrokeColorWithColor(context, borderColor.CGColor);
+        CGContextBeginPath(context);
+        CGContextAddRect(context, borderRect);
+        CGContextStrokePath(context);
+    }
+
+	CGContextRestoreGState(context);
+}
+
+- (void) setBorderColor:(UIColor *) value {
+    [borderColor release];
+    borderColor = [value retain];
+    [self setNeedsDisplay];
+}
+
+- (void) setBorderWidth:(int) value {
+    borderWidth = max(0, value);
+    [self setNeedsDisplay];
+}
+
+- (id) withBorder:(int) width
+            color:(UIColor*) color {
+    self.borderWidth = width;
+    self.borderColor = color;
+    return self;
+}
+
+- (void) clearBorder {
+    self.borderWidth = 0;
+    self.borderColor = nil;
 }
 
 @end

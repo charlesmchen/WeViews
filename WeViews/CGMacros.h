@@ -336,12 +336,18 @@ CGSizeFitInSize(CGSize r0, CGSize r1) {
 
 
 CG_INLINE CGRect
-CGRectCenterOnRect(CGRect r0, CGRect r1) {
+CGSizeCenterOnRect(CGSize r0, CGRect r1) {
     CGRect result;
-    result.origin.x = roundf(r1.origin.x + (r1.size.width - r0.size.width) * 0.5f);
-    result.origin.y = roundf(r1.origin.y + (r1.size.height - r0.size.height) * 0.5f);
-    result.size = r0.size;
+    result.origin.x = roundf(r1.origin.x + (r1.size.width - r0.width) * 0.5f);
+    result.origin.y = roundf(r1.origin.y + (r1.size.height - r0.height) * 0.5f);
+    result.size = r0;
     return result;
+}
+
+
+CG_INLINE CGRect
+CGRectCenterOnRect(CGRect r0, CGRect r1) {
+    return CGSizeCenterOnRect(r0.size, r1);
 }
 
 

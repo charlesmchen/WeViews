@@ -181,6 +181,22 @@
 #import "WeScrollView.h"
 
 
+@interface CanvasPanel : WePanel
+
+@end
+
+
+#pragma mark
+
+
+@implementation CanvasPanel
+
+@end
+
+
+#pragma mark
+
+
 @implementation WindowModel
 
 @synthesize selection;
@@ -205,8 +221,10 @@
 + (WindowModel*) create {
     WindowModel* result = [[[WindowModel alloc] init] autorelease];
 //    result.pseudoRoot = pseudoRoot;
-    result.pseudoRoot = [[WePanel create]
+    result.pseudoRoot = [[[[CanvasPanel alloc] init] autorelease]
                          withOpaqueBackground:[UIColor whiteColor]];
+//    result.pseudoRoot = [[WePanel create]
+//                         withOpaqueBackground:[UIColor whiteColor]];
 
     return result;
 }

@@ -329,7 +329,7 @@ typedef enum {
  * If the view stretches, stretch it to fill the cell frame.
  * Otherwise, align it at its natural size within the cell frame.
  *
- * @param frameValue The frame.
+ * @param cellFrame The cell frame.
  * @param viewValue The UIView.
  * @param layer The layer.
  */

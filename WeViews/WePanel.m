@@ -206,7 +206,7 @@
 
     self.autoresizesSubviews = NO;
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-//    self.opaque = YES;
+    //    self.opaque = YES;
 
     self.layers = [NSMutableArray array];
     debugLayout = NO;
@@ -315,121 +315,121 @@
 
 - (WePanelLayer*) addFill1 :(UIView*) value {
     return [self addLayer:[WePanelLayer create:[NSArray arrayWithObject:value]
-                                       layout:[WePanelLayout layoutForMode:LAYOUT_MODE_FILL]]];
+                                        layout:[WePanelLayout layoutForMode:LAYOUT_MODE_FILL]]];
 }
 
 - (WePanelLayer*) addFill:(NSArray*) items {
     return [self addLayer:[WePanelLayer create:items
-                                       layout:[WePanelLayout layoutForMode:LAYOUT_MODE_FILL]]];
+                                        layout:[WePanelLayout layoutForMode:LAYOUT_MODE_FILL]]];
 }
 
 - (WePanelLayer*) addFillNatural1 :(UIView*) value {
     return [self addLayer:[WePanelLayer create:[NSArray arrayWithObject:value]
-                                       layout:[WePanelLayout layoutForMode:LAYOUT_MODE_FILL_NATURAL]]];
+                                        layout:[WePanelLayout layoutForMode:LAYOUT_MODE_FILL_NATURAL]]];
 }
 
 - (WePanelLayer*) addFillNatural:(NSArray*) items {
     return [self addLayer:[WePanelLayer create:items
-                                       layout:[WePanelLayout layoutForMode:LAYOUT_MODE_FILL_NATURAL]]];
+                                        layout:[WePanelLayout layoutForMode:LAYOUT_MODE_FILL_NATURAL]]];
 }
 
 - (WePanelLayer*) addCenter1 :(UIView*) value {
     return [self addLayer:[WePanelLayer create:[NSArray arrayWithObject:value]
-                                       layout:[WePanelLayout layoutForMode:LAYOUT_MODE_CENTER]]];
+                                        layout:[WePanelLayout layoutForMode:LAYOUT_MODE_CENTER]]];
 }
 
 - (WePanelLayer*) addCenter:(NSArray*) items {
     return [self addLayer:[WePanelLayer create:items
-                                       layout:[WePanelLayout layoutForMode:LAYOUT_MODE_CENTER]]];
+                                        layout:[WePanelLayout layoutForMode:LAYOUT_MODE_CENTER]]];
 }
 
 - (WePanelLayer*) addSpacingGrid:(NSArray*) items
-                  columnCount:(int) columnCount
-                  uniformGrid:(BOOL) uniformGrid {
-    return [self addLayer:[WePanelLayer create:items
-                                       layout:[WePanelLayoutSpacingGrid createWithColumnCount:columnCount
-                                                                               uniformGrid:uniformGrid]]];
-}
-
-- (WePanelLayer*) addSpacingGrid:(NSArray*) items
-                     rowCount:(int) rowCount
-                  uniformGrid:(BOOL) uniformGrid {
-    return [self addLayer:[WePanelLayer create:items
-                                       layout:[WePanelLayoutSpacingGrid createWithRowCount:rowCount
-                                                                            uniformGrid:uniformGrid]]];
-}
-
-- (WePanelLayer*) addNaturalGrid:(NSArray*) items
-                  columnCount:(int) columnCount
-                  uniformGrid:(BOOL) uniformGrid {
-    return [self addLayer:[WePanelLayer create:items
-                                       layout:[WePanelLayoutNaturalGrid createWithColumnCount:columnCount
-                                                                               uniformGrid:uniformGrid]]];
-}
-
-- (WePanelLayer*) addNaturalGrid:(NSArray*) items
-                     rowCount:(int) rowCount
-                  uniformGrid:(BOOL) uniformGrid {
-    return [self addLayer:[WePanelLayer create:items
-                                       layout:[WePanelLayoutNaturalGrid createWithRowCount:rowCount
-                                                                            uniformGrid:uniformGrid]]];
-}
-
-- (WePanelLayer*) addFillGrid:(NSArray*) items
-                 columnCount:(int) columnCount
-                 uniformGrid:(BOOL) uniformGrid {
-    return [self addLayer:[WePanelLayer create:items
-                                       layout:[WePanelLayoutFillGrid createWithColumnCount:columnCount
-                                                                              uniformGrid:uniformGrid]]];
-}
-
-- (WePanelLayer*) addFillGrid:(NSArray*) items
-                    rowCount:(int) rowCount
-                 uniformGrid:(BOOL) uniformGrid {
-    return [self addLayer:[WePanelLayer create:items
-                                       layout:[WePanelLayoutFillGrid createWithRowCount:rowCount
-                                                                           uniformGrid:uniformGrid]]];
-}
-
-- (WePanelLayer*) addEvenFillGrid:(NSArray*) items
                      columnCount:(int) columnCount
-                    cellSizeHint:(CGSize) cellSizeHint {
+                     uniformGrid:(BOOL) uniformGrid {
     return [self addLayer:[WePanelLayer create:items
-                                       layout:[WePanelLayoutEvenFillGrid createWithColumnCount:columnCount
-                                                                                 cellSizeHint:cellSizeHint]]];
+                                        layout:[WePanelLayoutSpacingGrid createWithColumnCount:columnCount
+                                                                                   uniformGrid:uniformGrid]]];
+}
+
+- (WePanelLayer*) addSpacingGrid:(NSArray*) items
+                        rowCount:(int) rowCount
+                     uniformGrid:(BOOL) uniformGrid {
+    return [self addLayer:[WePanelLayer create:items
+                                        layout:[WePanelLayoutSpacingGrid createWithRowCount:rowCount
+                                                                                uniformGrid:uniformGrid]]];
+}
+
+- (WePanelLayer*) addNaturalGrid:(NSArray*) items
+                     columnCount:(int) columnCount
+                     uniformGrid:(BOOL) uniformGrid {
+    return [self addLayer:[WePanelLayer create:items
+                                        layout:[WePanelLayoutNaturalGrid createWithColumnCount:columnCount
+                                                                                   uniformGrid:uniformGrid]]];
+}
+
+- (WePanelLayer*) addNaturalGrid:(NSArray*) items
+                        rowCount:(int) rowCount
+                     uniformGrid:(BOOL) uniformGrid {
+    return [self addLayer:[WePanelLayer create:items
+                                        layout:[WePanelLayoutNaturalGrid createWithRowCount:rowCount
+                                                                                uniformGrid:uniformGrid]]];
+}
+
+- (WePanelLayer*) addFillGrid:(NSArray*) items
+                  columnCount:(int) columnCount
+                  uniformGrid:(BOOL) uniformGrid {
+    return [self addLayer:[WePanelLayer create:items
+                                        layout:[WePanelLayoutFillGrid createWithColumnCount:columnCount
+                                                                                uniformGrid:uniformGrid]]];
+}
+
+- (WePanelLayer*) addFillGrid:(NSArray*) items
+                     rowCount:(int) rowCount
+                  uniformGrid:(BOOL) uniformGrid {
+    return [self addLayer:[WePanelLayer create:items
+                                        layout:[WePanelLayoutFillGrid createWithRowCount:rowCount
+                                                                             uniformGrid:uniformGrid]]];
 }
 
 - (WePanelLayer*) addEvenFillGrid:(NSArray*) items
-                        rowCount:(int) rowCount
-                    cellSizeHint:(CGSize) cellSizeHint {
+                      columnCount:(int) columnCount
+                     cellSizeHint:(CGSize) cellSizeHint {
     return [self addLayer:[WePanelLayer create:items
-                                       layout:[WePanelLayoutEvenFillGrid createWithRowCount:rowCount
-                                                                              cellSizeHint:cellSizeHint]]];
+                                        layout:[WePanelLayoutEvenFillGrid createWithColumnCount:columnCount
+                                                                                   cellSizeHint:cellSizeHint]]];
+}
+
+- (WePanelLayer*) addEvenFillGrid:(NSArray*) items
+                         rowCount:(int) rowCount
+                     cellSizeHint:(CGSize) cellSizeHint {
+    return [self addLayer:[WePanelLayer create:items
+                                        layout:[WePanelLayoutEvenFillGrid createWithRowCount:rowCount
+                                                                                cellSizeHint:cellSizeHint]]];
 }
 
 - (WePanelLayer*) addTextWrap:(NSArray*) items {
     return [self addLayer:[WePanelLayer create:items
-                                       layout:[WePanelLayout layoutForMode:LAYOUT_MODE_TEXT_WRAP]]];
+                                        layout:[WePanelLayout layoutForMode:LAYOUT_MODE_TEXT_WRAP]]];
 }
 
 - (WePanelLayer*) addManual:(NSArray*) items {
     return [self addLayer:[WePanelLayer create:items
-                                       layout:[WePanelLayout layoutForMode:LAYOUT_MODE_MANUAL]]];
+                                        layout:[WePanelLayout layoutForMode:LAYOUT_MODE_MANUAL]]];
 }
 
 - (WePanelLayer*) addLinearLayer:(NSArray*) contents
-                           mode:(LayoutMode) mode
-                         hAlign:(HAlign) hAlign
-                         vAlign:(VAlign) vAlign
-                        hMargin:(int) hMargin
-                        vMargin:(int) vMargin
-                        spacing:(int) spacing {
+                            mode:(LayoutMode) mode
+                          hAlign:(HAlign) hAlign
+                          vAlign:(VAlign) vAlign
+                         hMargin:(int) hMargin
+                         vMargin:(int) vMargin
+                         spacing:(int) spacing {
     WePanelLayer* layer = [WePanelLayer create:contents
-                                      layout:[WePanelLayout layoutForMode:mode]];
+                                        layout:[WePanelLayout layoutForMode:mode]];
     [layer withHAlign:hAlign
-              vAlign:vAlign];
+               vAlign:vAlign];
     [layer withHMargin:hMargin
-              vMargin:vMargin];
+               vMargin:vMargin];
     [layer setSpacing:spacing];
     return [self addLayer:layer];
 }
@@ -539,19 +539,19 @@ ADD_METHOD_TEMPLATE(addHorizontal, addHorizontal1, LAYOUT_MODE_HORIZONTAL)
 }
 
 - (WePanel*) updateHMargin:(int) hMarginValue
-                  vMargin:(int) vMarginValue {
+                   vMargin:(int) vMarginValue {
     for (WePanelLayer* layer in layers) {
         [layer withHMargin:hMarginValue
-                  vMargin:vMarginValue];
+                   vMargin:vMarginValue];
     }
     return self;
 }
 
 - (WePanel*) updateHAlign:(HAlign) hAlignValue
-                  vAlign:(VAlign) vAlignValue {
+                   vAlign:(VAlign) vAlignValue {
     for (WePanelLayer* layer in layers) {
         [layer withHAlign:hAlignValue
-                  vAlign:vAlignValue];
+                   vAlign:vAlignValue];
     }
     return self;
 }
@@ -637,61 +637,31 @@ ADD_METHOD_TEMPLATE(addHorizontal, addHorizontal1, LAYOUT_MODE_HORIZONTAL)
         return;
     }
 
-    //	NSLog(@"drawRect XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-    //	DebugRect(@"bounds", self.bounds);
-    //	DebugRect(@"frame", self.frame);
-
 	CGRect borderRect = self.bounds;
 	borderRect = CGRectInset(borderRect, 0.5, 0.5);
 
-	CGContextRef currentContext = UIGraphicsGetCurrentContext();
-	CGContextSaveGState(currentContext);
-    //	CGContextSetRGBFillColor(currentContext,
-    //							 0,
-    //							 0,
-    //							 1.0f,
-    //							 1.0f);
-    //	CGContextFillRect(currentContext, self.bounds);
-	CGContextSetLineWidth(currentContext, 1);
-    //	CGContextSetRGBStrokeColor(currentContext, 1.0f, 0.0f, 0.0f, 1.0f);
-    // White
-	CGContextSetRGBStrokeColor(currentContext, 1.0f, 1.0f, 1.0f, 1.0f);
-    //    CG_EXTERN void CGContextSetStrokeColorWithColor(CGContextRef c,
-    //                                                    CGColorRef color) CG_AVAILABLE_STARTING(__MAC_10_3, __IPHONE_2_0);
-	CGContextBeginPath(currentContext);
-    // Draw border.
-	CGContextMoveToPoint(currentContext,
-						 borderRect.origin.x,
-						 borderRect.origin.y);
-	CGContextAddLineToPoint(currentContext,
-							borderRect.origin.x + borderRect.size.width,
-							borderRect.origin.y);
-	CGContextAddLineToPoint(currentContext,
-							borderRect.origin.x + borderRect.size.width,
-							borderRect.origin.y + borderRect.size.height);
-	CGContextAddLineToPoint(currentContext,
-							borderRect.origin.x,
-							borderRect.origin.y + borderRect.size.height);
-	CGContextAddLineToPoint(currentContext,
-							borderRect.origin.x,
-							borderRect.origin.y);
+	CGContextRef context = UIGraphicsGetCurrentContext();
+	CGContextSaveGState(context);
+	CGContextSetLineWidth(context, 1);
+    CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
+	CGContextBeginPath(context);
 
-	CGContextMoveToPoint(currentContext,
+    CGContextAddRect(context, borderRect);
+
+	CGContextMoveToPoint(context,
 						 borderRect.origin.x,
 						 borderRect.origin.y);
-	CGContextAddLineToPoint(currentContext,
+	CGContextAddLineToPoint(context,
 							borderRect.origin.x + borderRect.size.width,
 							borderRect.origin.y + borderRect.size.height);
-	CGContextMoveToPoint(currentContext,
+	CGContextMoveToPoint(context,
 						 borderRect.origin.x + borderRect.size.width,
 						 borderRect.origin.y);
-	CGContextAddLineToPoint(currentContext,
+	CGContextAddLineToPoint(context,
 							borderRect.origin.x,
 							borderRect.origin.y + borderRect.size.height);
-	//	CGContextMoveToPoint(currentContext, 0, rect.size.height - 7);
-	//	CGContextAddLineToPoint(currentContext, rect.size.width, rect.size.height - 7);
-	CGContextStrokePath(currentContext);
-	CGContextRestoreGState(currentContext);
+	CGContextStrokePath(context);
+	CGContextRestoreGState(context);
 }
 
 - (WePanel*) withMinSize:(CGSize) value {
@@ -745,7 +715,6 @@ ADD_METHOD_TEMPLATE(addHorizontal, addHorizontal1, LAYOUT_MODE_HORIZONTAL)
 - (WePanel*) setMaxWidth:(int) value {
     self.maxSize = CGSizeMake(value, maxSize.height);
     return self;
-
 }
 
 - (WePanel*) setMaxHeight:(int) value {

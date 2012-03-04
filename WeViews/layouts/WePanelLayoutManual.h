@@ -175,6 +175,8 @@
 #import "WePanelLayout.h"
 
 
+// TODO: We should have two flavors of this: one that reflects the natural size of its contents
+// and one that doesn't.
 /**
  * Layout that implements the "manual" layout strategy.
  *

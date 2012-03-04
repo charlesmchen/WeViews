@@ -192,7 +192,9 @@
 
 
 #ifndef __TRIGGER_DEBUGGER
+#ifndef FELASOLD_RELEASE_FUNC
 #define __TRIGGER_DEBUGGER() { }
+#endif
 #endif
 
 

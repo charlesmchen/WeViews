@@ -191,8 +191,7 @@
 - (CGSize) sizeThatFits:(CGSize) size
                   layer:(WePanelLayer*) layer {
 
-    CGSize marginSize = [layer marginSize];
-    CGSize maxSize = CGSizeMax(CGSizeSubtract(size, marginSize), CGSizeZero);
+    CGRect contentBounds = [layer contentBoundsForPanelSize];
 
     CGSize result = CGSizeZero;
     int rowHeight = 0;
@@ -200,14 +199,14 @@
     int rowCount = 0;
     int rowItemCount = 0;
     for (UIView* item in layer.views) {
-        CGSize itemSize = [item sizeThatFits:maxSize];
+        CGSize itemSize = [item sizeThatFits:contentBounds.size];
         int newRowWidth = rowWidth;
         if (rowItemCount > 0) {
             newRowWidth += layer.spacing;
         }
         newRowWidth += itemSize.width;
 
-        if (newRowWidth <= maxSize.width) {
+        if (newRowWidth <= contentBounds.size.width) {
             // Append to line.
             rowWidth = newRowWidth;
             rowHeight = max(rowHeight, itemSize.height);
@@ -234,7 +233,7 @@
         result.height += rowHeight;
     }
 
-    result = CGSizeAdd(marginSize, result);
+    result = CGSizeAdd([layer insetSize], result);
 
     if (layer.debugLayout) {
         NSLog(@"[%@ (%@) %@]: %@ result: %@",
@@ -252,7 +251,7 @@
 - (void) layoutRow:(NSArray*) row
                  y:(int) y
              layer:(WePanelLayer*) layer
-        totalWidth:(int) totalWidth
+     contentBounds:(CGRect) contentBounds
          rowHeight:(int) rowHeight {
     int count = [row count];
 
@@ -273,13 +272,13 @@
     int x;
     switch (layer.hAlign) {
         case H_ALIGN_LEFT:
-            x = layer.leftMargin;
+            x = contentBounds.origin.x;
             break;
         case H_ALIGN_CENTER:
-            x = (layer.leftMargin + totalWidth - (rowWidth + layer.rightMargin)) / 2;
+            x = contentBounds.origin.x + (contentBounds.size.width - rowWidth) / 2;
             break;
         case H_ALIGN_RIGHT:
-            x = totalWidth - (rowWidth + layer.rightMargin);
+            x = contentBounds.origin.x + contentBounds.size.width - rowWidth;
             break;
         default:
             __FAIL(@"Unknown layer.hAlign: %d", layer.hAlign);
@@ -312,28 +311,26 @@
 - (void) layoutContents:(CGSize) size
                   layer:(WePanelLayer*) layer {
 
-    CGSize marginSize = [layer marginSize];
-    CGSize maxContentSize = CGSizeMax(CGSizeSubtract(size, marginSize), CGSizeZero);
+    CGRect contentBounds = [layer contentBoundsForPanelSize];
 
     if (layer.debugLayout) {
         DebugSize(@"size", size);
-        DebugSize(@"marginSize", marginSize);
-        DebugSize(@"maxContentSize", maxContentSize);
+        DebugRect(@"contentBounds", contentBounds);
     }
 
-    int y = layer.topMargin;
+    int y = contentBounds.origin.y;
 
     int rowWidth = 0, rowHeight = 0;
     NSMutableArray* row = [NSMutableArray array];
     for (UIView* item in layer.views) {
-        CGSize itemSize = [item sizeThatFits:maxContentSize];
+        CGSize itemSize = [item sizeThatFits:contentBounds.size];
 
         int proposedRowWidth = rowWidth + itemSize.width;
         if ([row count] > 0) {
             proposedRowWidth += layer.spacing;
         }
 
-        if (proposedRowWidth <= maxContentSize.width) {
+        if (proposedRowWidth <= contentBounds.size.width) {
 
             if (layer.debugLayout) {
                 NSLog(@"not wrapping(%@): %@, rowWidth: %d, layer.spacing: %d",
@@ -363,7 +360,7 @@
             [self layoutRow:row
                           y:y
                       layer:layer
-                 totalWidth:size.width
+              contentBounds:contentBounds
                   rowHeight:rowHeight];
 
             // reset row
@@ -384,7 +381,7 @@
             [self layoutRow:row
                           y:y
                       layer:layer
-                 totalWidth:size.width
+              contentBounds:contentBounds
                   rowHeight:rowHeight];
 
             // reset row
@@ -402,7 +399,7 @@
         [self layoutRow:row
                       y:y
                   layer:layer
-             totalWidth:size.width
+          contentBounds:contentBounds
               rowHeight:rowHeight];
     }
 }

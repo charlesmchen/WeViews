@@ -248,7 +248,10 @@
 }
 
 - (CGSize) sizeThatFits:(CGSize) size {
-    return image.size;
+    CGSize result = image.size;
+    result.width += 2 * self.borderWidth;
+    result.height += 2 * self.borderWidth;
+    return result;
 }
 
 // TODO: is this necessary?
@@ -278,6 +281,7 @@
 
     CGRect viewFrame = self.frame;
     viewFrame.origin = CGPointZero;
+    viewFrame = CGRectInset(viewFrame, self.borderWidth, self.borderWidth);
 
     CGRect imageRect;
     switch (mode) {
@@ -286,14 +290,14 @@
             break;
         case IMAGE_LAYOUT_MODE_FIT: {
             CGSize imageSize = image.size;
-            CGFloat hFactor = imageSize.width / self.frame.size.width;
-            CGFloat vFactor = imageSize.height / self.frame.size.height;
+            CGFloat hFactor = imageSize.width / viewFrame.size.width;
+            CGFloat vFactor = imageSize.height / viewFrame.size.height;
             if (hFactor > vFactor) {
-                imageRect.size.width = self.frame.size.width;
+                imageRect.size.width = viewFrame.size.width;
                 imageRect.size.height = imageSize.height / hFactor;
             } else {
                 imageRect.size.width = imageSize.width / vFactor;
-                imageRect.size.height = self.frame.size.height;
+                imageRect.size.height = viewFrame.size.height;
             }
 
             imageRect = alignSizeWithinRect(imageRect.size, viewFrame, hAlign, vAlign);
@@ -301,14 +305,14 @@
         }
         case IMAGE_LAYOUT_MODE_FILL: {
             CGSize imageSize = image.size;
-            CGFloat hFactor = imageSize.width / self.frame.size.width;
-            CGFloat vFactor = imageSize.height / self.frame.size.height;
+            CGFloat hFactor = imageSize.width / viewFrame.size.width;
+            CGFloat vFactor = imageSize.height / viewFrame.size.height;
             if (hFactor < vFactor) {
-                imageRect.size.width = self.frame.size.width;
+                imageRect.size.width = viewFrame.size.width;
                 imageRect.size.height = imageSize.height / hFactor;
             } else {
                 imageRect.size.width = imageSize.width / vFactor;
-                imageRect.size.height = self.frame.size.height;
+                imageRect.size.height = viewFrame.size.height;
             }
             imageRect = CGRectCenterOnRect(imageRect, viewFrame);
             break;

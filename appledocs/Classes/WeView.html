@@ -40,6 +40,10 @@
 	
 	<option value="properties">Properties</option>
 	
+	<option value="//api/name/borderColor">&nbsp;&nbsp;&nbsp;&nbsp;borderColor</option>
+	
+	<option value="//api/name/borderWidth">&nbsp;&nbsp;&nbsp;&nbsp;borderWidth</option>
+	
 	<option value="//api/name/handlers">&nbsp;&nbsp;&nbsp;&nbsp;handlers</option>
 	
 	<option value="//api/name/stretchWeight">&nbsp;&nbsp;&nbsp;&nbsp;stretchWeight</option>
@@ -59,11 +63,15 @@
 	
 	<option value="//api/name/addSelectorHandler:target:argument:events:">&nbsp;&nbsp;&nbsp;&nbsp;- addSelectorHandler:target:argument:events:</option>
 	
+	<option value="//api/name/clearBorder">&nbsp;&nbsp;&nbsp;&nbsp;- clearBorder</option>
+	
 	<option value="//api/name/disableInteraction">&nbsp;&nbsp;&nbsp;&nbsp;- disableInteraction</option>
 	
 	<option value="//api/name/purge">&nbsp;&nbsp;&nbsp;&nbsp;- purge</option>
 	
 	<option value="//api/name/setCanStretch:">&nbsp;&nbsp;&nbsp;&nbsp;- setCanStretch:</option>
+	
+	<option value="//api/name/withBorder:color:">&nbsp;&nbsp;&nbsp;&nbsp;- withBorder:color:</option>
 	
 	<option value="//api/name/withClearBackground">&nbsp;&nbsp;&nbsp;&nbsp;- withClearBackground</option>
 	
@@ -101,6 +109,10 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/borderColor">borderColor</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/borderWidth">borderWidth</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/handlers">handlers</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stretchWeight">stretchWeight</a></span></li>
@@ -121,11 +133,15 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addSelectorHandler:target:argument:events:">addSelectorHandler:target:argument:events:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/clearBorder">clearBorder</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/disableInteraction">disableInteraction</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/purge">purge</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setCanStretch:">setCanStretch:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/withBorder:color:">withBorder:color:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/withClearBackground">withClearBackground</a></span></li>
 	
@@ -212,6 +228,20 @@ If you implement the non-optional methods in IWeView (namely,
 	<span class="tooltip">
 		<code><a href="#//api/name/handlers">&nbsp;&nbsp;handlers</a></code>
 		<span class="tooltip"><p>The event <a href="#//api/name/handlers">handlers</a>.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/borderColor">&nbsp;&nbsp;borderColor</a></code>
+		<span class="tooltip"><p>The border color.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/borderWidth">&nbsp;&nbsp;borderWidth</a></code>
+		<span class="tooltip"><p>The border width.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -307,6 +337,20 @@ to 0.0f if value is NO.</p></span>
 	</span>
 	
 	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/withBorder:color:">&ndash;&nbsp;withBorder:color:</a></code>
+		<span class="tooltip"><p>Sets the border width and color.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/clearBorder">&ndash;&nbsp;clearBorder</a></code>
+		<span class="tooltip"><p>Removes the border.</p></span>
+	</span>
+	
+	
 </li>
 						</ul>
 						
@@ -319,6 +363,84 @@ to 0.0f if value is NO.</p></span>
 					<div class="section section-methods">
 						<a title="Properties" name="properties"></a>
 						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/borderColor" title="borderColor"></a>
+	<h3 class="subsubtitle method-title">borderColor</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The border color.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) UIColor *borderColor</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The border color.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">WeView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/borderWidth" title="borderWidth"></a>
+	<h3 class="subsubtitle method-title">borderWidth</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The border width.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) int borderWidth</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The border width.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">WeView.h</code><br />
+	</div>				
+	
+	
+</div>
 						
 						<div class="section-method">
 	<a name="//api/name/handlers" title="handlers"></a>
@@ -667,6 +789,45 @@ to 0.0f if value is NO.</p></span>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/clearBorder" title="clearBorder"></a>
+	<h3 class="subsubtitle method-title">clearBorder</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Removes the border.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (void)clearBorder</code></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Removes the border.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">WeView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/disableInteraction" title="disableInteraction"></a>
 	<h3 class="subsubtitle method-title">disableInteraction</h3>
 	
@@ -786,6 +947,65 @@ to 0.0f if value is NO.</p>
 to 0.0f if value is NO.</p>
 
 <p>See <a href="../Protocols/IWeView.html#//api/name/stretchWeight">[IWeView stretchWeight]</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">WeView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/withBorder:color:" title="withBorder:color:"></a>
+	<h3 class="subsubtitle method-title">withBorder:color:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets the border width and color.</p>
+	</div>		
+	
+	
+	<div class="method-subsection method-declaration"><code>- (id)withBorder:(int)<em>width</em> color:(UIColor *)<em>color</em></code></div>
+	
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>width</em></dt>
+			<dd><p>The border width.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>color</em></dt>
+			<dd><p>The border color.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Itself, for chaining.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sets the border width and color.</p>
 	</div>
 	
 	
@@ -1118,7 +1338,7 @@ should be included when determining the natural size of its superview.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2012 charlesmchen. All rights reserved. (Last updated: 2012-03-01)</span><br />
+						<p><span class="copyright">&copy; 2012 charlesmchen. All rights reserved. (Last updated: 2012-03-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 752)</a>.</span></p>
 						

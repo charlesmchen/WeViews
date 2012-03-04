@@ -272,7 +272,8 @@
 }
 
 - (CGSize) marginSize {
-    return CGSizeMake(leftMargin + rightMargin, topMargin + bottomMargin);
+    return CGSizeMake(self.leftMargin + self.rightMargin + 2 * self.borderWidth,
+                      self.topMargin + self.bottomMargin + 2 * self.borderWidth);
 }
 
 - (CTTypesetterRef) createTypesetter {
@@ -314,7 +315,7 @@
     }
 
     int maxTextWidth = floorf(value.width);
-    maxTextWidth -= self.leftMargin + self.rightMargin;
+    maxTextWidth -= self.leftMargin + self.rightMargin + 2 * self.borderWidth;
     maxTextWidth = max(0, maxTextWidth);
 
     CTTypesetterRef typeSetter = [self createTypesetter];
@@ -326,7 +327,7 @@
     CGFloat leading = font.leading;
     CGFloat lineHeight = ceilf(font.leading * lineHeightFactor);
     int numberOfLines = 0;
-    
+
     while (index < [text length]) {
         CFIndex rawLineCount = CTTypesetterSuggestLineBreak(typeSetter,
                                                      index,
@@ -371,7 +372,7 @@
     }
 
     int maxTextWidth = floorf(self.frame.size.width);
-    maxTextWidth -= self.leftMargin + self.rightMargin;
+    maxTextWidth -= self.leftMargin + self.rightMargin + 2 * self.borderWidth;
     maxTextWidth = max(0, maxTextWidth);
 
     if (maxTextWidth <= 0) {
@@ -394,7 +395,7 @@
     CGContextTranslateCTM(context, 0, self.frame.size.height);
     CGContextScaleCTM(context, 1.0, -1.0);
 
-    int y = self.frame.size.height - (self.topMargin + ascent + 1);
+    int y = self.frame.size.height - (self.topMargin + self.borderWidth + ascent + 1);
     while (index < [text length]) {
         CFIndex count = CTTypesetterSuggestLineBreak(typeSetter,
                                                      index,
@@ -409,13 +410,13 @@
         int x;
         switch (textAlignment) {
             case UITextAlignmentLeft:
-                x = self.leftMargin;
+                x = self.leftMargin + self.borderWidth;
                 break;
             case UITextAlignmentCenter:
-                x = roundf((self.leftMargin + self.leftMargin + maxTextWidth - lineWidth) / 2);
+                x = self.leftMargin + self.borderWidth + roundf((maxTextWidth - lineWidth) / 2);
                 break;
             case UITextAlignmentRight:
-                x = self.leftMargin + maxTextWidth - lineWidth;
+                x = self.leftMargin + self.borderWidth + maxTextWidth - lineWidth;
                 break;
             default:
                 __FAIL(@"Unknown text alignment: %d", textAlignment);

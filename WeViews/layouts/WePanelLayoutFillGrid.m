@@ -230,7 +230,9 @@
     int columnWidths[gridInfo.columnCount];
     int rowHeights[gridInfo.rowCount];
 
-    int left = layer.leftMargin;
+    CGPoint insetOrigin = [layer insetOrigin];
+
+    int left = insetOrigin.x;
     int remainderWidth = extraWidth;
     int remainderCount = gridInfo.columnCount;
     for (int i=0; i < gridInfo.columnCount; i++) {
@@ -241,7 +243,7 @@
         columnWidths[i] = gridInfo.columnWidths[i] + extra;
         left += columnWidths[i] + layer.spacing;
     }
-    int top = layer.topMargin;
+    int top = insetOrigin.y;
     int remainderHeight = extraHeight;
     remainderCount = gridInfo.rowCount;
     for (int i=0; i < gridInfo.rowCount; i++) {

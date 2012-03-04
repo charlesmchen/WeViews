@@ -218,7 +218,6 @@
 
 // TODO: we should revise this.
 - (CGSize) itemSize:(UIView*) item
-              layer:(WePanelLayer*) layer
          horizontal:(BOOL) horizontal
             maxSize:(CGSize) maxSize {
 
@@ -252,7 +251,7 @@
     // ie. the total size less margins and spacing.
     int itemCount = [layer.views count];
     BOOL horizontal = [self isHorizontal];
-    CGSize result = [layer marginSize];
+    CGSize result = [layer insetSize];
     if (horizontal) {
         result.width += layer.spacing * (itemCount - 1);
     } else {
@@ -334,7 +333,6 @@
 
         if (useNaturalSize) {
             itemSizes[i] = [self itemSize:item
-                                    layer:layer
                                horizontal:horizontal
                                   maxSize:maxContentSize];
 
@@ -433,7 +431,6 @@
             }
 
             itemSizes[i] = [self itemSize:item
-                                    layer:layer
                                horizontal:horizontal
                                   maxSize:maxStretchItemSize];
 
@@ -643,8 +640,7 @@
 
     BOOL horizontal = [self isHorizontal];
     BOOL layerStretches = [self isStretch];
-    CGSize marginSize = [layer marginSize];
-    CGSize innerSize = CGSizeMax(CGSizeSubtract(size, marginSize), CGSizeZero);
+    CGRect contentBounds = [layer contentBoundsForPanelSize];
     int itemCount = [layer.views count];
 
     CGSize maxContentSize = [self getMaxContentSize:size
@@ -697,7 +693,6 @@
             itemSizes[i] = CGSizeZero;
         } else {
             itemSizes[i] = [self itemSize:item
-                                    layer:layer
                                horizontal:horizontal
                                   maxSize:maxContentSize];
         }
@@ -937,8 +932,8 @@
         }
     }
 
-    int crossSize = horizontal ? innerSize.height : innerSize.width;
-    int axisIndex = horizontal ? layer.leftMargin : layer.topMargin;
+    int crossSize = horizontal ? contentBounds.size.height : contentBounds.size.width;
+    int axisIndex = horizontal ? contentBounds.origin.x : contentBounds.origin.y;
 
     if (YES) {
         // Honor the axis alignment.
@@ -990,7 +985,7 @@
             itemAxisSize = itemSize.height;
         }
 
-        int crossIndex = horizontal ? layer.topMargin : layer.leftMargin;
+        int crossIndex = horizontal ? contentBounds.origin.y : contentBounds.origin.x;
         if (layerStretches) {
             itemCrossSize = crossSize;
         } else {

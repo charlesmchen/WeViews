@@ -414,9 +414,26 @@ typedef enum {
 - (BOOL) debugLayout;
 
 /**
- * @return the sum of all margins.
+ * Calculates the inset origin by adding the margins and the border size.
+ *
+ * @return the inset origin.
  */
-- (CGSize) marginSize;
+- (CGPoint) insetOrigin;
+
+/**
+ * Calculates the inset size adding the margins and the border size.
+ *
+ * @return the inset size.
+ */
+- (CGSize) insetSize;
+
+/**
+ * Calculates the content bounds by subtracting the margins and the border size
+ * from the current panel size.
+ *
+ * @return the content bounds.
+ */
+- (CGRect) contentBoundsForPanelSize;
 
 /**
  * @return The layout strategy mode.

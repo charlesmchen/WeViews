@@ -191,17 +191,17 @@
                   layer:(WePanelLayer*) layer {
     switch (mode) {
         case LAYOUT_MODE_FILL:
-            return [layer marginSize];
+            return [layer insetSize];
         case LAYOUT_MODE_FILL_NATURAL:
         case LAYOUT_MODE_CENTER: {
             CGSize result = CGSizeZero;
-            CGSize marginSize = [layer marginSize];
-            CGSize maxSize = CGSizeMax(CGSizeSubtract(size, marginSize), CGSizeZero);
+            CGSize insetSize = [layer insetSize];
+            CGSize maxSize = CGSizeMax(CGSizeSubtract(size, insetSize), CGSizeZero);
             for (UIView* item in layer.views) {
                 CGSize itemSize = [item sizeThatFits:maxSize];
                 result = CGSizeMax(result, itemSize);
             }
-            return CGSizeAdd(result, marginSize);
+            return CGSizeAdd(result, insetSize);
         }
         default:
             __FAIL(@"Unknown LayerMode: %d", mode);
@@ -212,30 +212,21 @@
 - (void) layoutContents:(CGSize) size
                   layer:(WePanelLayer*) layer {
 
-    CGSize marginSize = [layer marginSize];
+    CGRect contentBounds = [layer contentBoundsForPanelSize];
 
     switch (mode) {
         case LAYOUT_MODE_FILL:
         case LAYOUT_MODE_FILL_NATURAL: {
-            CGSize itemSize = CGSizeMax(CGSizeSubtract(size, marginSize), CGSizeZero);
-            CGRect itemFrame = CGRectMake(layer.leftMargin,
-                                          layer.topMargin,
-                                          itemSize.width,
-                                          itemSize.height);
             for (UIView* item in layer.views) {
-                [self setFrame:itemFrame
+                [self setFrame:contentBounds
                        forView:item];
             }
             return;
         }
         case LAYOUT_MODE_CENTER: {
-            CGSize maxSize = CGSizeMax(CGSizeSubtract(size, marginSize), CGSizeZero);
             for (UIView* item in layer.views) {
-                CGSize itemSize = CGSizeMax(CGSizeZero, CGSizeMin(maxSize, [item sizeThatFits:maxSize]));
-                CGRect itemFrame = CGRectMake(roundf((size.width - itemSize.width) / 2),
-                                              roundf((size.height - itemSize.height) / 2),
-                                              itemSize.width,
-                                              itemSize.height);
+                CGSize itemSize = CGSizeMax(CGSizeZero, CGSizeMin(contentBounds.size, [item sizeThatFits:contentBounds.size]));
+                CGRect itemFrame = CGSizeCenterOnRect(itemSize, contentBounds);
                 [self setFrame:itemFrame
                        forView:item];
             }

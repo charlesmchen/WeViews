@@ -230,16 +230,18 @@
     int columnWidths[gridInfo.columnCount];
     int rowHeights[gridInfo.rowCount];
 
+    CGPoint insetOrigin = [layer insetOrigin];
+
     int left;
     switch (layer.hAlign) {
         case H_ALIGN_LEFT:
-            left = layer.leftMargin;
+            left = insetOrigin.x;
             break;
         case H_ALIGN_CENTER:
-            left = (layer.leftMargin + size.width - (gridInfo.totalSize.width - layer.leftMargin)) / 2;
+            left = insetOrigin.x + (size.width - gridInfo.totalSize.width) / 2;
             break;
         case H_ALIGN_RIGHT:
-            left = size.width - (gridInfo.totalSize.width - layer.leftMargin);
+            left = insetOrigin.x + size.width - gridInfo.totalSize.width;
             break;
         default:
             __FAIL(@"Unknown layer.hAlign: %d", layer.hAlign);
@@ -253,13 +255,13 @@
     int top;
     switch (layer.vAlign) {
         case V_ALIGN_TOP:
-            top = layer.topMargin;
+            top = insetOrigin.y;
             break;
         case V_ALIGN_CENTER:
-            top = (layer.topMargin + size.height - (gridInfo.totalSize.height - layer.topMargin)) / 2;
+            top = insetOrigin.y + (size.height - gridInfo.totalSize.height) / 2;
             break;
         case V_ALIGN_BOTTOM:
-            top = size.height - (gridInfo.totalSize.height - layer.topMargin);
+            top = insetOrigin.y + size.height - gridInfo.totalSize.height;
             break;
         default:
             __FAIL(@"Unknown layer.vAlign: %d", layer.vAlign);

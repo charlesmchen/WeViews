@@ -605,6 +605,22 @@
     [self updateContents];
 }
 
+- (void) setWeViewBorderColor:(UIColor*) value {
+    WeView* selection = (WeView*) windowModel.selection;
+    selection.borderColor = value;
+//    [WeViewsDemoUtils setLastForegroundColor:value];
+    [selection setNeedsDisplay];
+    [self updateContents];
+}
+
+- (void) setWeViewBorderWidth:(NSNumber*) value {
+    WeView* selection = (WeView*) windowModel.selection;
+    selection.borderWidth = [value intValue];
+//    [selection sizeToFit];
+    [self animateRelayout:selection];
+    [self updateContents];
+}
+
 - (NSString*) formatLayerMode:(NSNumber*) value {
     return [WePanelLayout layoutModeName:[value intValue]];
 }
@@ -965,6 +981,10 @@
                       title:(NSString*) title
                      setter:(SEL) setter {
 
+    if (currentValue == nil) {
+        currentValue = [UIColor clearColor];
+    }
+
     NSMutableArray* contents = [NSMutableArray array];
 
     if (YES) {
@@ -1277,7 +1297,7 @@
                                                              [NSNumber numberWithInt:24],
                                                              [NSNumber numberWithInt:36],
                                                              [NSNumber numberWithInt:48],
-//                                                             [NSNumber numberWithInt:60],
+                                                             //                                                             [NSNumber numberWithInt:60],
                                                              [NSNumber numberWithInt:72],
                                                              nil]
                                               currentOption:[NSNumber numberWithInt:label.font.pointSize]
@@ -1308,6 +1328,26 @@
                                               currentOption:[NSNumber numberWithInt:label.numberOfLines]
                                              formatSelector:@selector(formatNumber:)
                                              setterSelector:@selector(setUILabelNumberOfLines:)]];
+        }
+
+        if ([windowModel.selection isKindOfClass:[WeView class]]) {
+            WeView* view = (WeView*) windowModel.selection;
+
+            [contents addObject:[self makePropertyOptionRow:@"Border Width"
+                                                    options:[NSArray arrayWithObjects:
+                                                             [NSNumber numberWithInt:0],
+                                                             [NSNumber numberWithInt:1],
+                                                             [NSNumber numberWithInt:2],
+                                                             [NSNumber numberWithInt:5],
+                                                             [NSNumber numberWithInt:10],
+                                                             nil]
+                                              currentOption:[NSNumber numberWithInt:view.borderWidth]
+                                             formatSelector:@selector(formatNumber:)
+                                             setterSelector:@selector(setWeViewBorderWidth:)]];
+
+            [contents addObjectsFromArray:[self buildColorRows:view.borderColor
+                                                         title:@"Border Color"
+                                                        setter:@selector(setWeViewBorderColor:)]];
         }
 
         if ([windowModel.selection isKindOfClass:[WeScrollView class]]) {

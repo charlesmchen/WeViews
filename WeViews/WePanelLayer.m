@@ -260,8 +260,21 @@
     return self;
 }
 
-- (CGSize) marginSize {
-    return CGSizeMake(leftMargin + rightMargin, topMargin + bottomMargin);
+- (CGPoint) insetOrigin {
+    return CGPointMake(self.leftMargin + panel.borderWidth,
+                       self.topMargin + panel.borderWidth);
+}
+
+- (CGSize) insetSize {
+    return CGSizeMake(self.leftMargin + self.rightMargin + 2 * panel.borderWidth,
+                      self.topMargin + self.bottomMargin + 2 * panel.borderWidth);
+}
+
+- (CGRect) contentBoundsForPanelSize {
+    CGRect result;
+    result.origin = [self insetOrigin];
+    result.size = CGSizeMax(CGSizeZero, CGSizeSubtract(self.panel.frame.size, [self insetSize]));
+    return result;
 }
 
 - (WePanelLayer*) withHAlign:(HAlign) hAlignValue

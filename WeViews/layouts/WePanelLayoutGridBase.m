@@ -230,12 +230,7 @@
 
 - (LayerGridInfo) getLayerGridInfo:(WePanelLayer*) layer {
 
-    //    NSLog(@"getLayerGridInfo");
-
     LayerGridInfo result;
-    //    result.width = result.height = 0;
-    //    result.width = layer.leftMargin + layer.rightMargin;
-    //    result.height = layer.topMargin + layer.bottomMargin;
 
     RowAndColumnCount rowAndColumnCount = [self rowAndColumnCount:layer];
     int rowCount = result.rowCount = rowAndColumnCount.rowCount;
@@ -271,7 +266,7 @@
                   row,
                   FormatSize(itemSize));
         }
-        
+
         result.columnWidths[column] = max(result.columnWidths[column],
                                           itemSize.width);
         result.maxColumnWidth = max(result.maxColumnWidth,
@@ -300,8 +295,9 @@
     }
 
     result.totalSize = result.contentSize;
-    result.totalSize.width += layer.leftMargin + layer.rightMargin;
-    result.totalSize.height += layer.topMargin + layer.bottomMargin;
+    CGSize insetSize = [layer insetSize];
+    result.totalSize.width += insetSize.width;
+    result.totalSize.height += insetSize.height;
     // Add spacing.
     result.totalSize.width += (columnCount - 1) * layer.spacing;
     result.totalSize.height += (rowCount - 1) * layer.spacing;

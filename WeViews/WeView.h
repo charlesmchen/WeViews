@@ -202,6 +202,16 @@
 @property (nonatomic, retain) NSMutableArray* handlers;
 
 /**
+ * The border color.
+ */
+@property (nonatomic, retain) UIColor* borderColor;
+
+/**
+ * The border width.
+ */
+@property (nonatomic, assign) int borderWidth;
+
+/**
  * Add a handler to be performed for a given set of events.
  *
  * See IHandler.
@@ -329,5 +339,20 @@
  * @return Itself, for chaining.
  */
 - (id) disableInteraction;
+
+/**
+ * Sets the border width and color.
+ *
+ * @param width The border width.
+ * @param color The border color.
+ * @return Itself, for chaining.
+ */
+- (id) withBorder:(int) width
+            color:(UIColor*) color;
+
+/**
+ * Removes the border.
+ */
+- (void) clearBorder;
 
 @end

@@ -260,13 +260,15 @@
     int columnWidths[gridInfo.columnCount];
     int rowHeights[gridInfo.rowCount];
 
+    CGPoint insetOrigin = [layer insetOrigin];
+
     int columnTotal = 0;
     for (int i=0; i < gridInfo.columnCount; i++) {
         int spacing = i * layer.spacing;
         if (gridInfo.columnCount > 1) {
             spacing += extraWidth * i / (gridInfo.columnCount - 1);
         }
-        columnLefts[i] = layer.leftMargin + spacing + columnTotal;
+        columnLefts[i] = insetOrigin.x + spacing + columnTotal;
         columnWidths[i] = gridInfo.columnWidths[i];
         columnTotal += columnWidths[i];
     }
@@ -276,7 +278,7 @@
         if (gridInfo.rowCount > 1) {
             spacing += extraHeight * i / (gridInfo.rowCount - 1);
         }
-        rowTops[i] = layer.topMargin + spacing + rowTotal;
+        rowTops[i] = insetOrigin.y + spacing + rowTotal;
         rowHeights[i] = gridInfo.rowHeights[i];
         rowTotal += rowHeights[i];
     }

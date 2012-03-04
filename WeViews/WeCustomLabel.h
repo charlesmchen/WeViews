@@ -176,7 +176,7 @@
 
 
 /**
- * Alternative to UILabel that includes support for CSS-style margins, 
+ * Alternative to UILabel that includes support for CSS-style margins,
  * custom line spacing.
  * Imitates UILabel/WeCustomLabel as closely as possible.
  *

@@ -225,7 +225,7 @@
     RowAndColumnCount rowAndColumnCount = [self rowAndColumnCount:layer];
     CGSize result = CGSizeMake(layer.spacing * (rowAndColumnCount.columnCount - 1) + cellSizeHint.width * rowAndColumnCount.columnCount,
                                layer.spacing * (rowAndColumnCount.rowCount - 1) + cellSizeHint.height * rowAndColumnCount.rowCount);
-    return CGSizeAdd(layer.marginSize, result);
+    return CGSizeAdd([layer insetSize], result);
 }
 
 - (void) layoutContents:(CGSize) size
@@ -239,15 +239,16 @@
 
     int hSpacingTotal = layer.spacing * (rowAndColumnCount.columnCount - 1);
     int vSpacingTotal = layer.spacing * (rowAndColumnCount.rowCount - 1);
-    CGSize emptySize = CGSizeAdd(layer.marginSize,
+    CGSize emptySize = CGSizeAdd([layer insetSize],
                                  CGSizeMake(hSpacingTotal,
                                             vSpacingTotal));
     CGSize contentSize = CGSizeMax(CGSizeZero, CGSizeSubtract(size, emptySize));
     int cellWidth = contentSize.width / rowAndColumnCount.columnCount;
     int cellHeight = contentSize.height / rowAndColumnCount.rowCount;
 
-    int left = layer.leftMargin;
-    int top = layer.topMargin;
+    CGPoint insetOrigin = [layer insetOrigin];
+    int left = insetOrigin.x;
+    int top = insetOrigin.y;
     // Add rounding error to spacing.
     hSpacingTotal += contentSize.width - rowAndColumnCount.columnCount * cellWidth;
     vSpacingTotal += contentSize.height - rowAndColumnCount.rowCount * cellHeight;
