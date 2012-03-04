@@ -305,6 +305,7 @@
                 // If image is smaller than view frame, don't stretch it larger than
                 // its natural size.
                 imageRect = alignSizeWithinRect(imageSize, viewFrame, hAlign, vAlign);
+                borderRect = CGRectInset(imageRect, -self.borderWidth, -self.borderWidth);
                 break;
             }
             // Otherwise, fall through to "FIT" mode.
