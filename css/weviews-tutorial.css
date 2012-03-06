@@ -1,0 +1,50 @@
+
+.faq_q {
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+.faq_a {
+	padding-bottom: 20px;
+}
+.faq_p {
+	padding-bottom: 10px;
+	padding-left: 25px;
+	text-indent: -25px;
+	padding-left: 0;
+	text-indent: 25px;
+}
+.faq_a li {
+	padding-bottom: 5px;
+}
+
+.illustration {
+	text-indent: 0;
+	padding: 0 0 10px 0;
+}
+
+.item {
+	padding-bottom: 10px;
+}
+
+.item_title {
+	font-weight: bold;
+	font-size: 1.5em;
+	padding-bottom: 10px;
+	color: #888; 
+}
+
+.item_p {
+	padding-bottom: 10px;
+	padding-left: 25px;
+	text-indent: -25px;
+	padding-left: 0;
+	text-indent: 25px;
+	text-indent: 0;
+	padding-left: 15px;
+	text-indent: -15px;
+}
+
+emphasis {
+	font-weight: bold;	
+	text-decoration: underline;
+}

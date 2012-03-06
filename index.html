@@ -10,15 +10,6 @@
 	
 	<style type="text/css">
 
-.social {
-border: 1px solid red;
-}
-
-.social iframe,
-.social div {
-	float: left;
-	margin: 18px;
-}	
 
 	</style>
 </head>
@@ -40,6 +31,13 @@ border: 1px solid red;
 
   <div id="container">
 
+<!-- INSERT sidebar.html BEGIN -->
+
+    <div class="sidebar">
+
+    <div class="download_title">
+    	Download
+	</div>
     <div class="download">
       <a href="https://github.com/charlesmchen/WeViews/zipball/master">
         <img border="0" width="90" src="https://github.com/images/modules/download/zip.png"></a>
@@ -47,11 +45,18 @@ border: 1px solid red;
         <img border="0" width="90" src="https://github.com/images/modules/download/tar.png"></a>
     </div>
 
-    <h1><a href="index.html">WeViews</a></h1>
+<div class="social">
+<div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="WeViews is an Objective-C library for laying out UIViews." data-via="cmchen" data-hashtags="WeViews">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+
+<div>
+<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=charlesmchen&repo=WeViews&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="170px" height="30px"></iframe>
+</div>
 
 <!--
-<div class="social">
-
 <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=charlesmchen&repo=WeViews&type=watch&count=true"
   allowtransparency="true" frameborder="0" scrolling="0" width="170px" height="30px"></iframe>
 
@@ -62,19 +67,49 @@ border: 1px solid red;
 
 <div class="fb-like" data-href="http://charlesmchen.github.com/WeViews/" data-send="false" data-width="450" data-show-faces="false"></div>
 
-</div>
 -->
-
-<div style="clear: both;">
 </div>
 
-<div>
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="WeViews is an Objective-C library for laying out UIViews." data-via="cmchen" data-hashtags="WeViews">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<div class="menu">
+	<div class="menu0">
+		<a href="index.html">Home</a>
+	</div>
+	<div class="menu0">
+		<a href="tutorial.html">Tutorial</a>
+	</div>
+	<div class="menu1">
+		<a href="tutorial-install.html">Tutorial: Install</a>
+	</div>
+	<div class="menu1">
+		<a href="tutorial-demo-app.html">Tutorial: Demo app</a>
+	</div>
+	<div class="menu1">
+		<a href="tutorial-getting-started.html">Tutorial: Getting Started</a>
+	</div>
+	<div class="menu1">
+		<a href="tutorial-nesting-panels.html">Tutorial: Nesting Panels</a>
+	</div>
+	<div class="menu1">
+		<a href="tutorial-layers.html">Tutorial: Layers</a>
+	</div>
+	<div class="menu1">
+		<a href="tutorial-grid-layouts.html">Tutorial: Grid Layouts</a>
+	</div>
+	<div class="menu0">
+		<a href="faq.html">FAQ</a>
+	</div>
+	
 </div>
 
-<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=charlesmchen&repo=WeViews&type=watch&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="170px" height="30px"></iframe>
+    </div>
+
+<!-- INSERT sidebar.html END -->
+
+    <div class="main">
+
+    <h1><a href="index.html">WeViews</a></h1>
+
+
 
   
 <p>WeViews is an Objective-C library for programmatically laying out UIViews.</p>
@@ -205,9 +240,10 @@ The demo directory (WeViewsDemo) is not necessary and should not be included in 
 
 
     
-    
+		</div>
 
-  </div>
+
+	</div>
 
     <script type="text/javascript" src="nivo-slider/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="nivo-slider/jquery.nivo.slider.pack.js"></script>

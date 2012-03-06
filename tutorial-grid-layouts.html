@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	
+	<title>charlesmchen/WeViews @ GitHub</title>
+		
+	<link href="css/weviews.css" rel="stylesheet" type="text/css" />
+	<link href="css/weviews-tutorial.css" rel="stylesheet" type="text/css" />
+	
+	<style type="text/css">
+	</style>
+
+</head>
+</head>
+
+<body>
+  <a href="https://github.com/charlesmchen/WeViews"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+  <div id="container">
+
+<!-- INSERT sidebar.html BEGIN -->
+
+    <div class="sidebar">
+
+    <div class="download_title">
+    	Download
+	</div>
+    <div class="download">
+      <a href="https://github.com/charlesmchen/WeViews/zipball/master">
+        <img border="0" width="90" src="https://github.com/images/modules/download/zip.png"></a>
+      <a href="https://github.com/charlesmchen/WeViews/tarball/master">
+        <img border="0" width="90" src="https://github.com/images/modules/download/tar.png"></a>
+    </div>
+
+<div class="social">
+<div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="WeViews is an Objective-C library for laying out UIViews." data-via="cmchen" data-hashtags="WeViews">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+
+<div>
+<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=charlesmchen&repo=WeViews&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="170px" height="30px"></iframe>
+</div>
+
+<!--
+<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=charlesmchen&repo=WeViews&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="170px" height="30px"></iframe>
+
+<div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="WeViews is an Objective-C library for laying out UIViews." data-via="cmchen" data-hashtags="WeViews">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+
+<div class="fb-like" data-href="http://charlesmchen.github.com/WeViews/" data-send="false" data-width="450" data-show-faces="false"></div>
+
+-->
+</div>
+
+<div class="menu">
+	<div class="menu0">
+		<a href="index.html">Home</a>
+	</div>
+	<div class="menu0">
+		<a href="tutorial.html">Tutorial</a>
+	</div>
+	<div class="menu1">
+		<a href="tutorial-install.html">Tutorial: Install</a>
+	</div>
+	<div class="menu1">
+		<a href="tutorial-demo-app.html">Tutorial: Demo app</a>
+	</div>
+	<div class="menu1">
+		<a href="tutorial-getting-started.html">Tutorial: Getting Started</a>
+	</div>
+	<div class="menu1">
+		<a href="tutorial-nesting-panels.html">Tutorial: Nesting Panels</a>
+	</div>
+	<div class="menu1">
+		<a href="tutorial-layers.html">Tutorial: Layers</a>
+	</div>
+	<div class="menu1">
+		<a href="tutorial-grid-layouts.html">Tutorial: Grid Layouts</a>
+	</div>
+	<div class="menu0">
+		<a href="faq.html">FAQ</a>
+	</div>
+	
+</div>
+
+    </div>
+
+<!-- INSERT sidebar.html END -->
+
+    <h1><a href="index.html">WeViews</a></h1>
+    
+    <h2>Tutorial</h2>
+
+    <h3>Grid Layouts</h3>
+
+			<div class="faq_a">
+				<div class="illustration">
+				<img src="images/weviews_grid_demo_0000.png" width=320 height=260/>
+				<img src="images/weviews_grid_demo_0001.png" width=320 height=260/>
+				</div>
+				<div class="item_p">
+					The "Natural Grid" layout lays out its views at their natural size.
+					Each column has the width of its widest element; 
+					each row has the height of its tallest element. 
+				</div>
+				<div class="item_p">
+					The example on the right is left- and top-aligned.  
+					Note how the alignment effects the rows and columns AND the views within their grid cells.
+				</div>
+				<div class="illustration">
+				<img src="images/weviews_grid_demo_0002.png" width=320 height=260/>
+				</div>
+				<div class="item_p">
+					The "Spacing Grid" layout lays out its views at their natural size.
+					Extra space is divided evenly between the spacing between rows and columns.
+				</div>
+				<div class="illustration">
+				<img src="images/weviews_grid_demo_0003.png" width=320 height=260/>
+				<img src="images/weviews_grid_demo_0004.png" width=320 height=260/>
+				</div>
+				<div class="item_p">
+					The "Fill Grid" layout lays out its views at their natural size.
+					Extra space is divided evenly between the rows and columns.
+				</div>
+				<div class="item_p">
+					Stretching views are stretched to fill their cell.
+					Non-stretching views are aligned within their cell.
+					The example on the right is left- and top-aligned.  
+				</div>
+				<div class="illustration">
+				<img src="images/weviews_grid_demo_0005.png" width=320 height=260/>
+				<img src="images/weviews_grid_demo_0006.png" width=320 height=260/>
+				</div>
+				<div class="item_p">
+					The "Even Fill Grid" layout ignores the natural size of its views.
+					All rows have equal height and all columns have equal width.
+				</div>
+				<div class="item_p">
+					Use the "cellSizeHint" property to control the natural size of the grid.
+				</div>
+				<div class="item_p">
+					As with the "Fill Grid", 
+					Stretching views are stretched to fill their cell.
+					Non-stretching views are aligned within their cell.
+					The example on the right is left- and top-aligned.  
+				</div>
+			</div>
+
+			<div class="item_title">
+				More on Grids
+			</div>
+			<div class="item_p">
+				With all grids, you can set <emphasis>either</emphasis> the row count or the column count, but not both.
+				If you set the row count, the column count is (total number of views in layer / row count).
+			</div>
+			<div class="item_p">
+				Grid layouts divide their space into cells.  
+				Stretching views will be stretched to fill their cell.  
+				Non-stretching views will be aligned within their cell using the layer's alignment properties.
+			</div>
+	
+
+<h2><a href="index.html">Back</a></h2>
+
+  </div>
+
+</body>
+</html>

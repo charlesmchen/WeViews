@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	
+	<title>charlesmchen/WeViews @ GitHub</title>
+		
+	<link href="css/weviews.css" rel="stylesheet" type="text/css" />
+	<link href="css/weviews-tutorial.css" rel="stylesheet" type="text/css" />
+	
+	<style type="text/css">
+	</style>
+
+</head>
+</head>
+
+<body>
+  <a href="https://github.com/charlesmchen/WeViews"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+  <div id="container">
+
+<!-- INSERT sidebar.html BEGIN -->
+
+    <div class="sidebar">
+
+    <div class="download_title">
+    	Download
+	</div>
+    <div class="download">
+      <a href="https://github.com/charlesmchen/WeViews/zipball/master">
+        <img border="0" width="90" src="https://github.com/images/modules/download/zip.png"></a>
+      <a href="https://github.com/charlesmchen/WeViews/tarball/master">
+        <img border="0" width="90" src="https://github.com/images/modules/download/tar.png"></a>
+    </div>
+
+<div class="social">
+<div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="WeViews is an Objective-C library for laying out UIViews." data-via="cmchen" data-hashtags="WeViews">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+
+<div>
+<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=charlesmchen&repo=WeViews&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="170px" height="30px"></iframe>
+</div>
+
+<!--
+<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=charlesmchen&repo=WeViews&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="170px" height="30px"></iframe>
+
+<div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="WeViews is an Objective-C library for laying out UIViews." data-via="cmchen" data-hashtags="WeViews">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+
+<div class="fb-like" data-href="http://charlesmchen.github.com/WeViews/" data-send="false" data-width="450" data-show-faces="false"></div>
+
+-->
+</div>
+
+<div class="menu">
+	<div class="menu0">
+		<a href="index.html">Home</a>
+	</div>
+	<div class="menu0">
+		<a href="tutorial.html">Tutorial</a>
+	</div>
+	<div class="menu1">
+		<a href="tutorial-install.html">Tutorial: Install</a>
+	</div>
+	<div class="menu1">
+		<a href="tutorial-demo-app.html">Tutorial: Demo app</a>
+	</div>
+	<div class="menu1">
+		<a href="tutorial-getting-started.html">Tutorial: Getting Started</a>
+	</div>
+	<div class="menu1">
+		<a href="tutorial-nesting-panels.html">Tutorial: Nesting Panels</a>
+	</div>
+	<div class="menu1">
+		<a href="tutorial-layers.html">Tutorial: Layers</a>
+	</div>
+	<div class="menu1">
+		<a href="tutorial-grid-layouts.html">Tutorial: Grid Layouts</a>
+	</div>
+	<div class="menu0">
+		<a href="faq.html">FAQ</a>
+	</div>
+	
+</div>
+
+    </div>
+
+<!-- INSERT sidebar.html END -->
+
+    <h1><a href="index.html">WeViews</a></h1>
+    
+    <h2>Tutorial</h2>
+
+    <h3>Layers</h3>
+
+			<div class="item_p">
+WePanels group their subviews in layers. 
+Most WePanels will only have a single layer.
+			</div>
+			<div class="item_p">
+Each layer has its own layout strategy, alignment, margins, spacing, etc.
+			</div>
+
+			<div class="illustration">
+			<img src="images/layers_demo.png" />
+			</div>
+			
+			<div class="item_p">
+In this example, a WePanel has a background image in one layer and a group of buttons is a second layer.
+The background layer uses a fill layout with small (5 point) margins.
+The buttons layer uses a horizontal layout with a large (20 point) bottom margin and bottom alignment.
+			</div>
+			<div class="item_p">
+ You shouldn't need to deal much with the WePanelLayer class.
+ Layers are easily created and configured anonymously.
+			</div>
+			<div class="illustration">
+			<img src="images/layers_demo_src.png" />
+			</div>
+			<div class="item_p">
+			Here's the code for the previous example.
+			The [WePanel addFill:] and [WePanel addHorizontal:] methods create and return a 
+			new WePanelLayer instance which is configured by chained methods such as 
+			[WePanelLayer withSpacing:], [WePanelLayer withMargin:],
+			[WePanelLayer withHAlign:] and [WePanelLayer withVAlign:].
+			The code doesn't need to explicitly refer to the WePanelLayer class, retain it or assign it to a variable.
+			</div>
+	
+
+<h2><a href="index.html">Back</a></h2>
+
+  </div>
+
+</body>
+</html>

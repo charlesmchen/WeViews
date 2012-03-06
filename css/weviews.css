@@ -6,10 +6,6 @@ body {
   color: #ffffff;
   color: #000;
 }
-#container {
-  margin: 0 auto;
-  width: 700px;
-}
 h1 { font-size: 3.8em; color: #4183C4; margin-bottom: 3px; }
 h1 .small { font-size: 0.4em; }
 h1 a { text-decoration: none }
@@ -17,7 +13,6 @@ h2 { font-size: 2.0em; color: #4183C4; }
 h3 { font-size: 1.75em; color: #888; }
 a { color: #4183C4; }
 .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-.download { float: right; }
 pre { background: #000; color: #fff; padding: 15px;}
 hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
 .footer { text-align:center; padding-top:30px; font-style: italic; }
@@ -30,4 +25,60 @@ height:600px; /* Make sure your images are the same size */
 
 body {
 	margin-bottom: 100px;
+}
+
+#container {
+	position: relative;
+  margin: 0 auto;
+  width: 670px;
+}
+
+.sidebar {
+	position: absolute;
+	left: 700px;
+	top: 10px;
+	padding: 18px;
+	width: 200px;
+/*
+	border: 1px solid #eee;
+*/
+}
+
+.sidebar > div {
+	padding-bottom: 18px;
+}
+
+.main { 
+/*
+	border: 1px solid #eee;
+*/
+}
+
+.download_title {
+	font-size: 18pt;
+}
+
+.download { 
+}
+
+.social {
+}
+
+.social > iframe,
+.social > div {
+	padding-bottom: 18px;
+}	
+
+.menu a {
+}
+
+.menu .menu0 a {
+}
+
+.menu .menu0 {
+	padding-bottom: 10px;
+}
+
+.menu .menu1 {
+	padding: 0 0 10px 10px;
 }
