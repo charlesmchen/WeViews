@@ -355,7 +355,6 @@
  */
 + (void) clearSubviews:(UIView*) parent;
 
-
 /**
  * Find a UIFont by "name".
  *
@@ -369,5 +368,12 @@
  */
 + (UIFont*) findUIFont:(NSString*) fontName
               fontSize:(CGFloat) fontSize;
+
+/**
+ * Dumps the natural size of all views in a view hierarchy.
+ *
+ * @param view The view.
+ */
++ (void) dumpUIHierarchyNaturalSizes:(UIView*) view;
 
 @end

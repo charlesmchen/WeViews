@@ -429,11 +429,12 @@ typedef enum {
 
 /**
  * Calculates the content bounds by subtracting the margins and the border size
- * from the current panel size.
+ * from a given size.
  *
+ * @param size The size.
  * @return the content bounds.
  */
-- (CGRect) contentBoundsForPanelSize;
+- (CGRect) contentBoundsForSize:(CGSize) size;
 
 /**
  * @return The layout strategy mode.

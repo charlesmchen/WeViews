@@ -413,4 +413,26 @@
 	return font;
 }
 
++ (void) dumpUIHierarchyNaturalSizes:(UIView*) view 
+                              indent:(int) indent {
+    NSMutableString* spacing = [NSMutableString string];
+    for (int i=0; i < indent; i++) {
+        [spacing appendString:@"\t"];
+    }
+    NSLog(@"%@%@.naturalSize: %@", 
+          spacing,
+          [view class],
+          FormatSize([view sizeThatFits:view.superview.frame.size]));
+    for (UIView* subview in view.subviews) {
+        [self dumpUIHierarchyNaturalSizes:subview 
+                                   indent:indent + 1];
+        
+    }
+}
+
++ (void) dumpUIHierarchyNaturalSizes:(UIView*) view {
+    [self dumpUIHierarchyNaturalSizes:view 
+                               indent:0];
+}
+
 @end

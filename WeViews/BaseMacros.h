@@ -210,6 +210,9 @@
 #ifndef WhereLog2
 #define WhereLog2(key, value) NSLog(@"[%@ %@] %@: %@", [self class], NSStringFromSelector(_cmd), key, value)
 #endif
+#ifndef WhereLogN
+#define WhereLogN(msg, args...) NSLog([NSString stringWithFormat:@"[%@ %@] %@", [self class], NSStringFromSelector(_cmd), msg], ## args)
+#endif
 
 
 #ifndef __FAIL

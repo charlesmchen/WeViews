@@ -191,7 +191,7 @@
 - (CGSize) sizeThatFits:(CGSize) size
                   layer:(WePanelLayer*) layer {
 
-    CGRect contentBounds = [layer contentBoundsForPanelSize];
+    CGRect contentBounds = [layer contentBoundsForSize:size];
 
     CGSize result = CGSizeZero;
     int rowHeight = 0;
@@ -311,7 +311,7 @@
 - (void) layoutContents:(CGSize) size
                   layer:(WePanelLayer*) layer {
 
-    CGRect contentBounds = [layer contentBoundsForPanelSize];
+    CGRect contentBounds = [layer contentBoundsForSize:size];
 
     if (layer.debugLayout) {
         DebugSize(@"size", size);

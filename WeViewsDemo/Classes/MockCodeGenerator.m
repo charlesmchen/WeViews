@@ -617,6 +617,21 @@
     if ([item isKindOfClass:[UIView class]]) {
         UIView* view = (UIView*) item;
         UIColor* background = view.backgroundColor;
+        
+        if ([view respondsToSelector:@selector(borderColor)] ||
+            [view respondsToSelector:@selector(borderWidth)]) {
+            WeView* weView = (WeView*) view;
+            UIColor* borderColor = [weView borderColor];
+            int borderWidth = [weView borderWidth];
+            if ((borderWidth > 0) && (borderColor != nil)) {
+                result.createCode = [NSString stringWithFormat:@"[%@\n" \
+                                     @"\twithBorder:%d\n" \
+                                     @"\tcolor:%@]",
+                                     borderWidth,
+                                     [self formatColor:borderColor]];
+            }
+        }
+        
         if ([self isColorClear:background]) {
             if (addBackgroundColorIfClear) {
                 if (useBackgroundColorSetter) {

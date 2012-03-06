@@ -640,7 +640,7 @@
 
     BOOL horizontal = [self isHorizontal];
     BOOL layerStretches = [self isStretch];
-    CGRect contentBounds = [layer contentBoundsForPanelSize];
+    CGRect contentBounds = [layer contentBoundsForSize:size];
     int itemCount = [layer.views count];
 
     CGSize maxContentSize = [self getMaxContentSize:size

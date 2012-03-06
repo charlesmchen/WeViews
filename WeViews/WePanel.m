@@ -258,17 +258,16 @@
 }
 
 - (CGSize) sizeThatFits:(CGSize) value {
-    //    if ([self debugLayout]) {
-    //        NSLog(@"[%@ %@]: %@",
-    //              [self class],
-    //              NSStringFromSelector(_cmd),
-    //              FormatCGSize(value));
-    //    }
 
     CGSize result = minSize;
     for (WePanelLayer* layer in layers) {
         CGSize layerSize = [layer sizeThatFits:value];
         result = CGSizeMax(result, layerSize);
+//        if ([self debugLayout]) {
+//            WhereLogN(@"%@.layerSize = %@", 
+//                      layer.layout.layoutModeName,
+//                      FormatCGSize(layerSize));
+//        }
     }
 
     // The width and height of maxSize operate independently.
@@ -278,6 +277,12 @@
     if (maxSize.height >= 0) {
         result.height = min(result.height, maxSize.height);
     }
+
+//    if ([self debugLayout]) {
+//        WhereLogN(@"in %@ = %@", 
+//                  FormatCGSize(value),
+//                  FormatCGSize(result));
+//    }
 
     return result;
 }

@@ -212,7 +212,7 @@
 - (void) layoutContents:(CGSize) size
                   layer:(WePanelLayer*) layer {
 
-    CGRect contentBounds = [layer contentBoundsForPanelSize];
+    CGRect contentBounds = [layer contentBoundsForSize:size];
 
     switch (mode) {
         case LAYOUT_MODE_FILL:

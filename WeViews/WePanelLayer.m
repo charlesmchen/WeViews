@@ -270,10 +270,10 @@
                       self.topMargin + self.bottomMargin + 2 * panel.borderWidth);
 }
 
-- (CGRect) contentBoundsForPanelSize {
+- (CGRect) contentBoundsForSize:(CGSize) size {
     CGRect result;
     result.origin = [self insetOrigin];
-    result.size = CGSizeMax(CGSizeZero, CGSizeSubtract(self.panel.frame.size, [self insetSize]));
+    result.size = CGSizeMax(CGSizeZero, CGSizeSubtract(size, [self insetSize]));
     return result;
 }
 
