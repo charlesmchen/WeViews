@@ -23,9 +23,9 @@
 
     <div class="sidebar">
 
-    <div class="download_title">
+    <h2 class="download_title">
     	Download
-	</div>
+	</h2>
     <div class="download">
       <a href="https://github.com/charlesmchen/WeViews/zipball/master">
         <img border="0" width="90" src="https://github.com/images/modules/download/zip.png"></a>
@@ -65,24 +65,31 @@
 	<div class="menu0">
 		<a href="tutorial.html">Tutorial</a>
 	</div>
-	<div class="menu1">
+	
+<div class="tutorial_sidebar">
+<!-- INSERT tutorial-index.html BEGIN -->
+	<div>
 		<a href="tutorial-install.html">Tutorial: Install</a>
 	</div>
-	<div class="menu1">
+	<div>
 		<a href="tutorial-demo-app.html">Tutorial: Demo app</a>
 	</div>
-	<div class="menu1">
+	<div>
 		<a href="tutorial-getting-started.html">Tutorial: Getting Started</a>
 	</div>
-	<div class="menu1">
+	<div>
 		<a href="tutorial-nesting-panels.html">Tutorial: Nesting Panels</a>
 	</div>
-	<div class="menu1">
+	<div>
 		<a href="tutorial-layers.html">Tutorial: Layers</a>
 	</div>
-	<div class="menu1">
+	<div>
 		<a href="tutorial-grid-layouts.html">Tutorial: Grid Layouts</a>
 	</div>
+
+<!-- INSERT tutorial-index.html END -->
+</div>
+	
 	<div class="menu0">
 		<a href="faq.html">FAQ</a>
 	</div>
@@ -95,9 +102,7 @@
 
     <h1><a href="index.html">WeViews</a></h1>
     
-    <h2>Tutorial</h2>
-
-    <h3>Layers</h3>
+    <h2>Tutorial: Layers</h2>
 
 			<div class="item_p">
 WePanels group their subviews in layers. 
@@ -105,6 +110,10 @@ Most WePanels will only have a single layer.
 			</div>
 			<div class="item_p">
 Each layer has its own layout strategy, alignment, margins, spacing, etc.
+			</div>
+			<div class="item_p">
+				UIView subviews are drawn in the order they are added.  Therefore, later layers 
+				will appear on top of earlier layers.
 			</div>
 
 			<div class="illustration">
@@ -120,16 +129,24 @@ The buttons layer uses a horizontal layout with a large (20 point) bottom margin
  You shouldn't need to deal much with the WePanelLayer class.
  Layers are easily created and configured anonymously.
 			</div>
-			<div class="illustration">
-			<img src="images/layers_demo_src.png" />
+<script src="https://gist.github.com/1988939.js?file=gistfile1.m"></script>
+			<div class="item_p">
+			The WePanel has two layers.
 			</div>
 			<div class="item_p">
-			Here's the code for the previous example.
-			The [WePanel addFill:] and [WePanel addHorizontal:] methods create and return a 
-			new WePanelLayer instance which is configured by chained methods such as 
+			The [WePanel addFill:] and [WePanel addHorizontal:] methods each create and return a 
+			new WePanelLayer instance.
+			</div>
+			<div class="item_p">
+			They layers are configured by methods such as 
 			[WePanelLayer withSpacing:], [WePanelLayer withMargin:],
 			[WePanelLayer withHAlign:] and [WePanelLayer withVAlign:].
-			The code doesn't need to explicitly refer to the WePanelLayer class, retain it or assign it to a variable.
+			</div>
+			<div class="item_p">
+			These methods each return a reference to the instance, which allows them to be conveniently chained.
+			</div>
+			<div class="item_p">
+			By creating and configuring the layer through chained methods, we never need to explicitly refer to the WePanelLayer class, retain it or assign it to a variable.
 			</div>
 	
 

@@ -23,9 +23,9 @@
 
     <div class="sidebar">
 
-    <div class="download_title">
+    <h2 class="download_title">
     	Download
-	</div>
+	</h2>
     <div class="download">
       <a href="https://github.com/charlesmchen/WeViews/zipball/master">
         <img border="0" width="90" src="https://github.com/images/modules/download/zip.png"></a>
@@ -65,24 +65,31 @@
 	<div class="menu0">
 		<a href="tutorial.html">Tutorial</a>
 	</div>
-	<div class="menu1">
+	
+<div class="tutorial_sidebar">
+<!-- INSERT tutorial-index.html BEGIN -->
+	<div>
 		<a href="tutorial-install.html">Tutorial: Install</a>
 	</div>
-	<div class="menu1">
+	<div>
 		<a href="tutorial-demo-app.html">Tutorial: Demo app</a>
 	</div>
-	<div class="menu1">
+	<div>
 		<a href="tutorial-getting-started.html">Tutorial: Getting Started</a>
 	</div>
-	<div class="menu1">
+	<div>
 		<a href="tutorial-nesting-panels.html">Tutorial: Nesting Panels</a>
 	</div>
-	<div class="menu1">
+	<div>
 		<a href="tutorial-layers.html">Tutorial: Layers</a>
 	</div>
-	<div class="menu1">
+	<div>
 		<a href="tutorial-grid-layouts.html">Tutorial: Grid Layouts</a>
 	</div>
+
+<!-- INSERT tutorial-index.html END -->
+</div>
+	
 	<div class="menu0">
 		<a href="faq.html">FAQ</a>
 	</div>
@@ -95,11 +102,8 @@
 
     <h1><a href="index.html">WeViews</a></h1>
     
-    <h2>Tutorial</h2>
+    <h2>Tutorial: Grid Layouts</h2>
 
-    <h3>Grid Layouts</h3>
-
-			<div class="faq_a">
 				<div class="illustration">
 				<img src="images/weviews_grid_demo_0000.png" width=320 height=260/>
 				<img src="images/weviews_grid_demo_0001.png" width=320 height=260/>
@@ -150,19 +154,51 @@
 					Non-stretching views are aligned within their cell.
 					The example on the right is left- and top-aligned.  
 				</div>
+
+			<div class="item_title">
+				Which Grid Layout should I use?
 			</div>
+			<div class="illustration">
+				<img src="images/grid-decision-tree-670.png"/>
+			</div>
+
 
 			<div class="item_title">
 				More on Grids
 			</div>
 			<div class="item_p">
 				With all grids, you can set <emphasis>either</emphasis> the row count or the column count, but not both.
-				If you set the row count, the column count is (total number of views in layer / row count).
+				If you set the row count, the column count is determined by the number of views in the grid and vice versa.
 			</div>
 			<div class="item_p">
 				Grid layouts divide their space into cells.  
 				Stretching views will be stretched to fill their cell.  
 				Non-stretching views will be aligned within their cell using the layer's alignment properties.
+			</div>	
+
+			<div class="item_title">
+				Uniform Grids
+			</div>
+			<div class="item_p">
+				The Fill, Spacing and Natural Grid layouts (but not the Even Fill Grid layout) 
+				have a uniformGrid property.
+			</div>
+			<div class="item_p">
+				If uniformGrid is YES, the layout makes sure that all columns have the same width 
+				and all rows have the same height.  
+			</div>
+			<div class="item_p">
+				In some ways, this is like the Even Fill Grid layout which is also uniform. 
+				However, there are important differences.  
+			</div>
+			<div class="item_p">
+				The Even Fill Grid's natural size is based only on its margins, spacing and
+				its cellSizeHint.  
+				The natural size of the other Grid layouts is based on the natural size of their views.
+			</div>
+			<div class="item_p">
+				During layout, the Even Fill Grid simply divides its frame evenly among its columns and rows.
+				The other Grid layouts always base their layout on the natural size of their views.
 			</div>
 	
 
