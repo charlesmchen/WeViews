@@ -8,7 +8,7 @@
          url('../fonts/League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');
     font-weight: normal;
     font-style: normal;
-
+	font-weight: 400;
 }
 
 body {
@@ -18,12 +18,14 @@ body {
   font-family: Helvetica, Arial, FreeSans, san-serif;
   color: #ffffff;
   color: #000;
+  font-size: 12pt;
 }
 .titleFont,
 h1,
 h2,
 h3 {
   font-family: LeagueGothicRegular, Helvetica, Arial, FreeSans, san-serif;
+  font-weight: 400;
 }
 h1 { font-size: 3.8em; color: #4c989f; margin-bottom: 3px; }
 h1 .small { font-size: 0.4em; }
