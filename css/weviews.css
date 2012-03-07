@@ -27,17 +27,22 @@ h3 {
   font-family: LeagueGothicRegular, Helvetica, Arial, FreeSans, san-serif;
   font-weight: 400;
 }
-h1 { font-size: 3.8em; color: #4c989f; margin-bottom: 3px; }
+h1 { 
+	color: #4c989f; 
+	margin-bottom: 3px; 
+}
 h1 .small { font-size: 0.4em; }
 h1 a { text-decoration: none }
-h2 { font-size: 2.0em; color: #4c989f; }
-h3 { font-size: 1.75em; color: #888; }
+h2 { 
+	color: #888; 
+}
+h3 { 
+	color: #888; 
+}
 
 h1 { font-size: 5.0em; }
 h2 { font-size: 3.0em; }
 h3 { font-size: 2.0em; }
-h2 { color: #4c989f; }
-h2 { color: #888; }
 
 a { color: #4c989f; }
 .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
@@ -74,6 +79,11 @@ body {
 */
 }
 
+.sidebar > h2 {
+	padding-bottom: 0;
+	margin-bottom: 10px;
+}
+
 .sidebar > div {
 	padding-bottom: 18px;
 }
@@ -91,6 +101,7 @@ font-size: 18pt;
 }
 
 .download { 
+	margin-bottom: 15px;
 }
 
 .social {
