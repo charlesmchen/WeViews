@@ -264,7 +264,7 @@
         CGSize layerSize = [layer sizeThatFits:value];
         result = CGSizeMax(result, layerSize);
 //        if ([self debugLayout]) {
-//            WhereLogN(@"%@.layerSize = %@", 
+//            WhereLogN(@"%@.layerSize = %@",
 //                      layer.layout.layoutModeName,
 //                      FormatCGSize(layerSize));
 //        }
@@ -279,7 +279,7 @@
     }
 
 //    if ([self debugLayout]) {
-//        WhereLogN(@"in %@ = %@", 
+//        WhereLogN(@"in %@ = %@",
 //                  FormatCGSize(value),
 //                  FormatCGSize(result));
 //    }

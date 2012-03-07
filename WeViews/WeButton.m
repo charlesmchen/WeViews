@@ -201,9 +201,9 @@
         __FAIL(@"could not allocate...");
         return nil;
     }
-    
+
     [self initDefaults];
-    
+
     return self;
 }
 
@@ -212,9 +212,9 @@
     if (!self) {
         __FAIL(@"could not allocate");
     }
-    
+
     [self initDefaults];
-    
+
     return self;
 }
 

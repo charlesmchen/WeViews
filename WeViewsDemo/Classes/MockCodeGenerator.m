@@ -617,7 +617,7 @@
     if ([item isKindOfClass:[UIView class]]) {
         UIView* view = (UIView*) item;
         UIColor* background = view.backgroundColor;
-        
+
         if ([view respondsToSelector:@selector(borderColor)] ||
             [view respondsToSelector:@selector(borderWidth)]) {
             WeView* weView = (WeView*) view;
@@ -631,7 +631,7 @@
                                      [self formatColor:borderColor]];
             }
         }
-        
+
         if ([self isColorClear:background]) {
             if (addBackgroundColorIfClear) {
                 if (useBackgroundColorSetter) {

@@ -195,7 +195,7 @@
     self.autoresizingMask = UIViewAutoresizingNone;
     self.opaque = YES;
     mode = SCROLL_MODE_BOTH;
-    
+
     self.minimumZoomScale = 1.0f;
     self.maximumZoomScale = 1.0f;
     stretchWeight = 1.0f;
@@ -211,9 +211,9 @@
         __FAIL(@"could not allocate...");
         return nil;
     }
-    
+
     [self initDefaults];
-    
+
     return self;
 }
 
@@ -222,9 +222,9 @@
     if (!self) {
         __FAIL(@"could not allocate");
     }
-    
+
     [self initDefaults];
-    
+
     return self;
 }
 

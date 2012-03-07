@@ -240,8 +240,8 @@
         UIScrollView* scrollView = (UIScrollView*) item;
         scrollView.scrollEnabled = ((scrollView.contentSize.width > scrollView.frame.size.width) ||
                                     (scrollView.contentSize.height > scrollView.frame.size.height));
-//        WhereLogN(@"item: %@, scrollView.scrollEnabled: %d, scrollView.contentSize: %@, scrollView.frame: %@", 
-//                  [item class], 
+//        WhereLogN(@"item: %@, scrollView.scrollEnabled: %d, scrollView.contentSize: %@, scrollView.frame: %@",
+//                  [item class],
 //                  scrollView.scrollEnabled,
 //                  FormatSize(scrollView.contentSize),
 //                  FormatRect(scrollView.frame));
