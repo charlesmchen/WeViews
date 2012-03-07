@@ -190,25 +190,41 @@
 	[super dealloc];
 }
 
-- (id) init {
-    if (!(self = [super init])) {
-        __FAIL(@"super init failed.");
-    }
-
+- (void) initDefaults {
     self.autoresizesSubviews = NO;
     self.autoresizingMask = UIViewAutoresizingNone;
     self.opaque = YES;
     mode = SCROLL_MODE_BOTH;
-
+    
     self.minimumZoomScale = 1.0f;
     self.maximumZoomScale = 1.0f;
     stretchWeight = 1.0f;
     self.opaque = YES;
     minSize = CGSizeZero;
     debugLayout = NO;
-
     content = nil;
+}
 
+- (id) init {
+    self = [super init];
+    if (self == nil) {
+        __FAIL(@"could not allocate...");
+        return nil;
+    }
+    
+    [self initDefaults];
+    
+    return self;
+}
+
+- (id) initWithFrame:(CGRect) frame {
+    self = [super initWithFrame:frame];
+    if (!self) {
+        __FAIL(@"could not allocate");
+    }
+    
+    [self initDefaults];
+    
     return self;
 }
 

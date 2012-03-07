@@ -181,16 +181,55 @@
 
 @synthesize stretchWeight;
 
-- (id) init {
-    if (!(self = [super init])) {
-        __FAIL(@"super init failed.");
-    }
-
+- (void) initDefaults {
     self.backgroundColor = [UIColor clearColor];
     self.opaque = YES;
     stretchWeight = 0;
     self.userInteractionEnabled = NO;
+}
 
+- (id) init {
+    self = [super init];
+    if (self == nil) {
+        __FAIL(@"could not allocate...");
+        return nil;
+    }
+    
+    [self initDefaults];
+    
+    return self;
+}
+
+- (id) initWithFrame:(CGRect) frame {
+    self = [super initWithFrame:frame];
+    if (!self) {
+        __FAIL(@"could not allocate");
+    }
+    
+    [self initDefaults];
+    
+    return self;
+}
+
+- (id) initWithImage:(UIImage*) image {
+    self = [super initWithImage:image];
+    if (!self) {
+        __FAIL(@"could not allocate");
+    }
+    
+    [self initDefaults];
+    
+    return self;
+}
+
+- (id) initWithImage:(UIImage*) image highlightedImage:(UIImage*) highlightedImage {
+    self = [super initWithImage:image highlightedImage:highlightedImage];
+    if (!self) {
+        __FAIL(@"could not allocate");
+    }
+    
+    [self initDefaults];
+    
     return self;
 }
 

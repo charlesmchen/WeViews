@@ -188,18 +188,35 @@
 	[super dealloc];
 }
 
-- (id) init {
-    if (!(self = [super init])) {
-        __FAIL(@"super init failed.");
-    }
-
+- (void) initDefaults {
     stretchWeight = 0;
     maxNumberOfLines = 0;
     self.backgroundColor = [UIColor clearColor];
     self.opaque = NO;
     self.userInteractionEnabled = NO;
     debugLayout = NO;
+}
 
+- (id) init {
+    self = [super init];
+    if (self == nil) {
+        __FAIL(@"could not allocate...");
+        return nil;
+    }
+    
+    [self initDefaults];
+    
+    return self;
+}
+
+- (id) initWithFrame:(CGRect) frame {
+    self = [super initWithFrame:frame];
+    if (!self) {
+        __FAIL(@"could not allocate");
+    }
+    
+    [self initDefaults];
+    
     return self;
 }
 

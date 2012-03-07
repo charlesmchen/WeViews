@@ -177,11 +177,39 @@
 
 @implementation WeSpacer
 
+- (void) initDefaults {
+    self.userInteractionEnabled = NO;
+    self.stretchWeight = 1.0f;
+    self.backgroundColor = [UIColor clearColor];
+    self.opaque = NO;
+}
+
+- (id) init {
+    self = [super init];
+    if (self == nil) {
+        __FAIL(@"could not allocate...");
+        return nil;
+    }
+    
+    [self initDefaults];
+    
+    return self;
+}
+
+- (id) initWithFrame:(CGRect) frame {
+    self = [super initWithFrame:frame];
+    if (!self) {
+        __FAIL(@"could not allocate");
+    }
+    
+    [self initDefaults];
+    
+    return self;
+}
+
 + (WeSpacer*) create {
     WeSpacer* result = [[[WeSpacer alloc] init] autorelease];
     [result withClearBackground];
-    result.userInteractionEnabled = NO;
-    result.stretchWeight = 1.0f;
     return result;
 }
 

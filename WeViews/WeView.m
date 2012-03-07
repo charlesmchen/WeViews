@@ -191,8 +191,18 @@
 
 - (void) dealloc {
 	[self purge];
-
+    
 	[super dealloc];
+}
+
+- (void) initDefaults {
+    handlers = nil;
+    self.stretchWeight = 0;
+    //    self.opaque = YES;
+    self.opaque = NO;
+    self.backgroundColor = [UIColor clearColor];
+    borderColor = nil;
+    borderWidth = 0;
 }
 
 - (id) init {
@@ -201,15 +211,20 @@
         __FAIL(@"could not allocate...");
         return nil;
     }
+    
+    [self initDefaults];
+    
+    return self;
+}
 
-    handlers = nil;
-    self.stretchWeight = 0;
-//    self.opaque = YES;
-    self.opaque = NO;
-    self.backgroundColor = [UIColor clearColor];
-    borderColor = nil;
-    borderWidth = 0;
-
+- (id) initWithFrame:(CGRect) frame {
+    self = [super initWithFrame:frame];
+    if (!self) {
+        __FAIL(@"could not allocate");
+    }
+    
+    [self initDefaults];
+    
     return self;
 }
 
