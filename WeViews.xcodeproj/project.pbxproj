@@ -1,0 +1,452 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F55A64A31644743B00CC403A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55A64A21644743B00CC403A /* Foundation.framework */; };
+		F55A64FE1644762800CC403A /* HandlerGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64BE1644762800CC403A /* HandlerGroup.m */; };
+		F55A64FF1644762800CC403A /* SelectorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64C11644762800CC403A /* SelectorHandler.m */; };
+		F55A65001644762800CC403A /* SimpleNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64C31644762800CC403A /* SimpleNotifications.m */; };
+		F55A65011644762800CC403A /* URLHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64C51644762800CC403A /* URLHandler.m */; };
+		F55A65021644762800CC403A /* WePanelLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64C91644762800CC403A /* WePanelLayout.m */; };
+		F55A65031644762800CC403A /* WePanelLayoutEvenFillGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64CB1644762800CC403A /* WePanelLayoutEvenFillGrid.m */; };
+		F55A65041644762800CC403A /* WePanelLayoutFillGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64CD1644762800CC403A /* WePanelLayoutFillGrid.m */; };
+		F55A65051644762800CC403A /* WePanelLayoutGridBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64CF1644762800CC403A /* WePanelLayoutGridBase.m */; };
+		F55A65061644762800CC403A /* WePanelLayoutLinear.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64D11644762800CC403A /* WePanelLayoutLinear.m */; };
+		F55A65071644762800CC403A /* WePanelLayoutManual.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64D41644762800CC403A /* WePanelLayoutManual.m */; };
+		F55A65081644762800CC403A /* WePanelLayoutNaturalGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64D61644762800CC403A /* WePanelLayoutNaturalGrid.m */; };
+		F55A65091644762800CC403A /* WePanelLayoutSimple.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64D81644762800CC403A /* WePanelLayoutSimple.m */; };
+		F55A650A1644762800CC403A /* WePanelLayoutSpacingGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64DA1644762800CC403A /* WePanelLayoutSpacingGrid.m */; };
+		F55A650B1644762800CC403A /* WePanelLayoutTextWrap.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64DC1644762800CC403A /* WePanelLayoutTextWrap.m */; };
+		F55A650C1644762800CC403A /* WeActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64DE1644762800CC403A /* WeActionSheet.m */; };
+		F55A650D1644762800CC403A /* WeBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64E01644762800CC403A /* WeBaseObject.m */; };
+		F55A650E1644762800CC403A /* WeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64E21644762800CC403A /* WeButton.m */; };
+		F55A650F1644762800CC403A /* WeCustomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64E41644762800CC403A /* WeCustomImageView.m */; };
+		F55A65101644762800CC403A /* WeCustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64E61644762800CC403A /* WeCustomLabel.m */; };
+		F55A65111644762800CC403A /* WeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64E81644762800CC403A /* WeImageView.m */; };
+		F55A65121644762800CC403A /* WeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64EA1644762800CC403A /* WeLabel.m */; };
+		F55A65131644762800CC403A /* WeLink.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64EC1644762800CC403A /* WeLink.m */; };
+		F55A65141644762800CC403A /* WePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64EF1644762800CC403A /* WePanel.m */; };
+		F55A65151644762800CC403A /* WePanelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64F11644762800CC403A /* WePanelLayer.m */; };
+		F55A65161644762800CC403A /* WeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64F31644762800CC403A /* WeScrollView.m */; };
+		F55A65171644762800CC403A /* WeSpacer.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64F51644762800CC403A /* WeSpacer.m */; };
+		F55A65181644762800CC403A /* WeSpacingProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64F71644762800CC403A /* WeSpacingProxy.m */; };
+		F55A65191644762800CC403A /* WeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64F91644762800CC403A /* WeView.m */; };
+		F55A651A1644762800CC403A /* WeViewOption.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64FB1644762800CC403A /* WeViewOption.m */; };
+		F55A651B1644762800CC403A /* WeViews.m in Sources */ = {isa = PBXBuildFile; fileRef = F55A64FD1644762800CC403A /* WeViews.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F55A649D1644743B00CC403A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F55A649F1644743B00CC403A /* libWeViews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWeViews.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F55A64A21644743B00CC403A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F55A64B71644761F00CC403A /* WeViews-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WeViews-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		F55A64B91644762800CC403A /* AlignmentConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlignmentConstants.h; sourceTree = "<group>"; };
+		F55A64BA1644762800CC403A /* BaseMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMacros.h; sourceTree = "<group>"; };
+		F55A64BB1644762800CC403A /* CGMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMacros.h; sourceTree = "<group>"; };
+		F55A64BD1644762800CC403A /* HandlerGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandlerGroup.h; sourceTree = "<group>"; };
+		F55A64BE1644762800CC403A /* HandlerGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandlerGroup.m; sourceTree = "<group>"; };
+		F55A64BF1644762800CC403A /* IHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHandler.h; sourceTree = "<group>"; };
+		F55A64C01644762800CC403A /* SelectorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectorHandler.h; sourceTree = "<group>"; };
+		F55A64C11644762800CC403A /* SelectorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectorHandler.m; sourceTree = "<group>"; };
+		F55A64C21644762800CC403A /* SimpleNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleNotifications.h; sourceTree = "<group>"; };
+		F55A64C31644762800CC403A /* SimpleNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleNotifications.m; sourceTree = "<group>"; };
+		F55A64C41644762800CC403A /* URLHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLHandler.h; sourceTree = "<group>"; };
+		F55A64C51644762800CC403A /* URLHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLHandler.m; sourceTree = "<group>"; };
+		F55A64C61644762800CC403A /* IWeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWeView.h; sourceTree = "<group>"; };
+		F55A64C81644762800CC403A /* WePanelLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayout.h; sourceTree = "<group>"; };
+		F55A64C91644762800CC403A /* WePanelLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayout.m; sourceTree = "<group>"; };
+		F55A64CA1644762800CC403A /* WePanelLayoutEvenFillGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayoutEvenFillGrid.h; sourceTree = "<group>"; };
+		F55A64CB1644762800CC403A /* WePanelLayoutEvenFillGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayoutEvenFillGrid.m; sourceTree = "<group>"; };
+		F55A64CC1644762800CC403A /* WePanelLayoutFillGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayoutFillGrid.h; sourceTree = "<group>"; };
+		F55A64CD1644762800CC403A /* WePanelLayoutFillGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayoutFillGrid.m; sourceTree = "<group>"; };
+		F55A64CE1644762800CC403A /* WePanelLayoutGridBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayoutGridBase.h; sourceTree = "<group>"; };
+		F55A64CF1644762800CC403A /* WePanelLayoutGridBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayoutGridBase.m; sourceTree = "<group>"; };
+		F55A64D01644762800CC403A /* WePanelLayoutLinear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayoutLinear.h; sourceTree = "<group>"; };
+		F55A64D11644762800CC403A /* WePanelLayoutLinear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayoutLinear.m; sourceTree = "<group>"; };
+		F55A64D21644762800CC403A /* WePanelLayoutMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayoutMacros.h; sourceTree = "<group>"; };
+		F55A64D31644762800CC403A /* WePanelLayoutManual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayoutManual.h; sourceTree = "<group>"; };
+		F55A64D41644762800CC403A /* WePanelLayoutManual.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayoutManual.m; sourceTree = "<group>"; };
+		F55A64D51644762800CC403A /* WePanelLayoutNaturalGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayoutNaturalGrid.h; sourceTree = "<group>"; };
+		F55A64D61644762800CC403A /* WePanelLayoutNaturalGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayoutNaturalGrid.m; sourceTree = "<group>"; };
+		F55A64D71644762800CC403A /* WePanelLayoutSimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayoutSimple.h; sourceTree = "<group>"; };
+		F55A64D81644762800CC403A /* WePanelLayoutSimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayoutSimple.m; sourceTree = "<group>"; };
+		F55A64D91644762800CC403A /* WePanelLayoutSpacingGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayoutSpacingGrid.h; sourceTree = "<group>"; };
+		F55A64DA1644762800CC403A /* WePanelLayoutSpacingGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayoutSpacingGrid.m; sourceTree = "<group>"; };
+		F55A64DB1644762800CC403A /* WePanelLayoutTextWrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayoutTextWrap.h; sourceTree = "<group>"; };
+		F55A64DC1644762800CC403A /* WePanelLayoutTextWrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayoutTextWrap.m; sourceTree = "<group>"; };
+		F55A64DD1644762800CC403A /* WeActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeActionSheet.h; sourceTree = "<group>"; };
+		F55A64DE1644762800CC403A /* WeActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeActionSheet.m; sourceTree = "<group>"; };
+		F55A64DF1644762800CC403A /* WeBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeBaseObject.h; sourceTree = "<group>"; };
+		F55A64E01644762800CC403A /* WeBaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeBaseObject.m; sourceTree = "<group>"; };
+		F55A64E11644762800CC403A /* WeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeButton.h; sourceTree = "<group>"; };
+		F55A64E21644762800CC403A /* WeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeButton.m; sourceTree = "<group>"; };
+		F55A64E31644762800CC403A /* WeCustomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeCustomImageView.h; sourceTree = "<group>"; };
+		F55A64E41644762800CC403A /* WeCustomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeCustomImageView.m; sourceTree = "<group>"; };
+		F55A64E51644762800CC403A /* WeCustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeCustomLabel.h; sourceTree = "<group>"; };
+		F55A64E61644762800CC403A /* WeCustomLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeCustomLabel.m; sourceTree = "<group>"; };
+		F55A64E71644762800CC403A /* WeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeImageView.h; sourceTree = "<group>"; };
+		F55A64E81644762800CC403A /* WeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeImageView.m; sourceTree = "<group>"; };
+		F55A64E91644762800CC403A /* WeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeLabel.h; sourceTree = "<group>"; };
+		F55A64EA1644762800CC403A /* WeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeLabel.m; sourceTree = "<group>"; };
+		F55A64EB1644762800CC403A /* WeLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeLink.h; sourceTree = "<group>"; };
+		F55A64EC1644762800CC403A /* WeLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeLink.m; sourceTree = "<group>"; };
+		F55A64ED1644762800CC403A /* WeMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeMacros.h; sourceTree = "<group>"; };
+		F55A64EE1644762800CC403A /* WePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanel.h; sourceTree = "<group>"; };
+		F55A64EF1644762800CC403A /* WePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanel.m; sourceTree = "<group>"; };
+		F55A64F01644762800CC403A /* WePanelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WePanelLayer.h; sourceTree = "<group>"; };
+		F55A64F11644762800CC403A /* WePanelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WePanelLayer.m; sourceTree = "<group>"; };
+		F55A64F21644762800CC403A /* WeScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeScrollView.h; sourceTree = "<group>"; };
+		F55A64F31644762800CC403A /* WeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeScrollView.m; sourceTree = "<group>"; };
+		F55A64F41644762800CC403A /* WeSpacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeSpacer.h; sourceTree = "<group>"; };
+		F55A64F51644762800CC403A /* WeSpacer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeSpacer.m; sourceTree = "<group>"; };
+		F55A64F61644762800CC403A /* WeSpacingProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeSpacingProxy.h; sourceTree = "<group>"; };
+		F55A64F71644762800CC403A /* WeSpacingProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeSpacingProxy.m; sourceTree = "<group>"; };
+		F55A64F81644762800CC403A /* WeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeView.h; sourceTree = "<group>"; };
+		F55A64F91644762800CC403A /* WeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeView.m; sourceTree = "<group>"; };
+		F55A64FA1644762800CC403A /* WeViewOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeViewOption.h; sourceTree = "<group>"; };
+		F55A64FB1644762800CC403A /* WeViewOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeViewOption.m; sourceTree = "<group>"; };
+		F55A64FC1644762800CC403A /* WeViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeViews.h; sourceTree = "<group>"; };
+		F55A64FD1644762800CC403A /* WeViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeViews.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F55A649C1644743B00CC403A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F55A64A31644743B00CC403A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F55A64941644743B00CC403A = {
+			isa = PBXGroup;
+			children = (
+				F55A64A41644743B00CC403A /* WeViews */,
+				F55A64A11644743B00CC403A /* Frameworks */,
+				F55A64A01644743B00CC403A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F55A64A01644743B00CC403A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F55A649F1644743B00CC403A /* libWeViews.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F55A64A11644743B00CC403A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F55A64A21644743B00CC403A /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F55A64A41644743B00CC403A /* WeViews */ = {
+			isa = PBXGroup;
+			children = (
+				F55A64B81644762800CC403A /* WeViews */,
+				F55A64A51644743B00CC403A /* Supporting Files */,
+			);
+			path = WeViews;
+			sourceTree = "<group>";
+		};
+		F55A64A51644743B00CC403A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F55A64B71644761F00CC403A /* WeViews-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F55A64B81644762800CC403A /* WeViews */ = {
+			isa = PBXGroup;
+			children = (
+				F55A64B91644762800CC403A /* AlignmentConstants.h */,
+				F55A64BA1644762800CC403A /* BaseMacros.h */,
+				F55A64BB1644762800CC403A /* CGMacros.h */,
+				F55A64BC1644762800CC403A /* handlers */,
+				F55A64C61644762800CC403A /* IWeView.h */,
+				F55A64C71644762800CC403A /* layouts */,
+				F55A64DD1644762800CC403A /* WeActionSheet.h */,
+				F55A64DE1644762800CC403A /* WeActionSheet.m */,
+				F55A64DF1644762800CC403A /* WeBaseObject.h */,
+				F55A64E01644762800CC403A /* WeBaseObject.m */,
+				F55A64E11644762800CC403A /* WeButton.h */,
+				F55A64E21644762800CC403A /* WeButton.m */,
+				F55A64E31644762800CC403A /* WeCustomImageView.h */,
+				F55A64E41644762800CC403A /* WeCustomImageView.m */,
+				F55A64E51644762800CC403A /* WeCustomLabel.h */,
+				F55A64E61644762800CC403A /* WeCustomLabel.m */,
+				F55A64E71644762800CC403A /* WeImageView.h */,
+				F55A64E81644762800CC403A /* WeImageView.m */,
+				F55A64E91644762800CC403A /* WeLabel.h */,
+				F55A64EA1644762800CC403A /* WeLabel.m */,
+				F55A64EB1644762800CC403A /* WeLink.h */,
+				F55A64EC1644762800CC403A /* WeLink.m */,
+				F55A64ED1644762800CC403A /* WeMacros.h */,
+				F55A64EE1644762800CC403A /* WePanel.h */,
+				F55A64EF1644762800CC403A /* WePanel.m */,
+				F55A64F01644762800CC403A /* WePanelLayer.h */,
+				F55A64F11644762800CC403A /* WePanelLayer.m */,
+				F55A64F21644762800CC403A /* WeScrollView.h */,
+				F55A64F31644762800CC403A /* WeScrollView.m */,
+				F55A64F41644762800CC403A /* WeSpacer.h */,
+				F55A64F51644762800CC403A /* WeSpacer.m */,
+				F55A64F61644762800CC403A /* WeSpacingProxy.h */,
+				F55A64F71644762800CC403A /* WeSpacingProxy.m */,
+				F55A64F81644762800CC403A /* WeView.h */,
+				F55A64F91644762800CC403A /* WeView.m */,
+				F55A64FA1644762800CC403A /* WeViewOption.h */,
+				F55A64FB1644762800CC403A /* WeViewOption.m */,
+				F55A64FC1644762800CC403A /* WeViews.h */,
+				F55A64FD1644762800CC403A /* WeViews.m */,
+			);
+			name = WeViews;
+			sourceTree = "<group>";
+		};
+		F55A64BC1644762800CC403A /* handlers */ = {
+			isa = PBXGroup;
+			children = (
+				F55A64BD1644762800CC403A /* HandlerGroup.h */,
+				F55A64BE1644762800CC403A /* HandlerGroup.m */,
+				F55A64BF1644762800CC403A /* IHandler.h */,
+				F55A64C01644762800CC403A /* SelectorHandler.h */,
+				F55A64C11644762800CC403A /* SelectorHandler.m */,
+				F55A64C21644762800CC403A /* SimpleNotifications.h */,
+				F55A64C31644762800CC403A /* SimpleNotifications.m */,
+				F55A64C41644762800CC403A /* URLHandler.h */,
+				F55A64C51644762800CC403A /* URLHandler.m */,
+			);
+			path = handlers;
+			sourceTree = "<group>";
+		};
+		F55A64C71644762800CC403A /* layouts */ = {
+			isa = PBXGroup;
+			children = (
+				F55A64C81644762800CC403A /* WePanelLayout.h */,
+				F55A64C91644762800CC403A /* WePanelLayout.m */,
+				F55A64CA1644762800CC403A /* WePanelLayoutEvenFillGrid.h */,
+				F55A64CB1644762800CC403A /* WePanelLayoutEvenFillGrid.m */,
+				F55A64CC1644762800CC403A /* WePanelLayoutFillGrid.h */,
+				F55A64CD1644762800CC403A /* WePanelLayoutFillGrid.m */,
+				F55A64CE1644762800CC403A /* WePanelLayoutGridBase.h */,
+				F55A64CF1644762800CC403A /* WePanelLayoutGridBase.m */,
+				F55A64D01644762800CC403A /* WePanelLayoutLinear.h */,
+				F55A64D11644762800CC403A /* WePanelLayoutLinear.m */,
+				F55A64D21644762800CC403A /* WePanelLayoutMacros.h */,
+				F55A64D31644762800CC403A /* WePanelLayoutManual.h */,
+				F55A64D41644762800CC403A /* WePanelLayoutManual.m */,
+				F55A64D51644762800CC403A /* WePanelLayoutNaturalGrid.h */,
+				F55A64D61644762800CC403A /* WePanelLayoutNaturalGrid.m */,
+				F55A64D71644762800CC403A /* WePanelLayoutSimple.h */,
+				F55A64D81644762800CC403A /* WePanelLayoutSimple.m */,
+				F55A64D91644762800CC403A /* WePanelLayoutSpacingGrid.h */,
+				F55A64DA1644762800CC403A /* WePanelLayoutSpacingGrid.m */,
+				F55A64DB1644762800CC403A /* WePanelLayoutTextWrap.h */,
+				F55A64DC1644762800CC403A /* WePanelLayoutTextWrap.m */,
+			);
+			path = layouts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F55A649E1644743B00CC403A /* WeViews */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F55A64AD1644743B00CC403A /* Build configuration list for PBXNativeTarget "WeViews" */;
+			buildPhases = (
+				F55A649B1644743B00CC403A /* Sources */,
+				F55A649C1644743B00CC403A /* Frameworks */,
+				F55A649D1644743B00CC403A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WeViews;
+			productName = WeViews;
+			productReference = F55A649F1644743B00CC403A /* libWeViews.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F55A64961644743B00CC403A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "charles chen";
+			};
+			buildConfigurationList = F55A64991644743B00CC403A /* Build configuration list for PBXProject "WeViews" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F55A64941644743B00CC403A;
+			productRefGroup = F55A64A01644743B00CC403A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F55A649E1644743B00CC403A /* WeViews */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F55A649B1644743B00CC403A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F55A64FE1644762800CC403A /* HandlerGroup.m in Sources */,
+				F55A64FF1644762800CC403A /* SelectorHandler.m in Sources */,
+				F55A65001644762800CC403A /* SimpleNotifications.m in Sources */,
+				F55A65011644762800CC403A /* URLHandler.m in Sources */,
+				F55A65021644762800CC403A /* WePanelLayout.m in Sources */,
+				F55A65031644762800CC403A /* WePanelLayoutEvenFillGrid.m in Sources */,
+				F55A65041644762800CC403A /* WePanelLayoutFillGrid.m in Sources */,
+				F55A65051644762800CC403A /* WePanelLayoutGridBase.m in Sources */,
+				F55A65061644762800CC403A /* WePanelLayoutLinear.m in Sources */,
+				F55A65071644762800CC403A /* WePanelLayoutManual.m in Sources */,
+				F55A65081644762800CC403A /* WePanelLayoutNaturalGrid.m in Sources */,
+				F55A65091644762800CC403A /* WePanelLayoutSimple.m in Sources */,
+				F55A650A1644762800CC403A /* WePanelLayoutSpacingGrid.m in Sources */,
+				F55A650B1644762800CC403A /* WePanelLayoutTextWrap.m in Sources */,
+				F55A650C1644762800CC403A /* WeActionSheet.m in Sources */,
+				F55A650D1644762800CC403A /* WeBaseObject.m in Sources */,
+				F55A650E1644762800CC403A /* WeButton.m in Sources */,
+				F55A650F1644762800CC403A /* WeCustomImageView.m in Sources */,
+				F55A65101644762800CC403A /* WeCustomLabel.m in Sources */,
+				F55A65111644762800CC403A /* WeImageView.m in Sources */,
+				F55A65121644762800CC403A /* WeLabel.m in Sources */,
+				F55A65131644762800CC403A /* WeLink.m in Sources */,
+				F55A65141644762800CC403A /* WePanel.m in Sources */,
+				F55A65151644762800CC403A /* WePanelLayer.m in Sources */,
+				F55A65161644762800CC403A /* WeScrollView.m in Sources */,
+				F55A65171644762800CC403A /* WeSpacer.m in Sources */,
+				F55A65181644762800CC403A /* WeSpacingProxy.m in Sources */,
+				F55A65191644762800CC403A /* WeView.m in Sources */,
+				F55A651A1644762800CC403A /* WeViewOption.m in Sources */,
+				F55A651B1644762800CC403A /* WeViews.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F55A64AB1644743B00CC403A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F55A64AC1644743B00CC403A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F55A64AE1644743B00CC403A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/WeViews.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WeViews-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F55A64AF1644743B00CC403A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/WeViews.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WeViews-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F55A64991644743B00CC403A /* Build configuration list for PBXProject "WeViews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F55A64AB1644743B00CC403A /* Debug */,
+				F55A64AC1644743B00CC403A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F55A64AD1644743B00CC403A /* Build configuration list for PBXNativeTarget "WeViews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F55A64AE1644743B00CC403A /* Debug */,
+				F55A64AF1644743B00CC403A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F55A64961644743B00CC403A /* Project object */;
+}
