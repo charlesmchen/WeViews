@@ -191,7 +191,7 @@
 - (id) init {
     self = [super init];
     if (self == nil) {
-        __FAIL(@"could not allocate...");
+        _wv___FAIL(@"could not allocate...");
         return nil;
     }
 
@@ -203,7 +203,7 @@
 - (id) initWithFrame:(CGRect) frame {
     self = [super initWithFrame:frame];
     if (!self) {
-        __FAIL(@"could not allocate");
+        _wv___FAIL(@"could not allocate");
     }
 
     [self initDefaults];
@@ -214,7 +214,7 @@
 - (id) initWithImage:(UIImage*) image {
     self = [super initWithImage:image];
     if (!self) {
-        __FAIL(@"could not allocate");
+        _wv___FAIL(@"could not allocate");
     }
 
     [self initDefaults];
@@ -225,7 +225,7 @@
 - (id) initWithImage:(UIImage*) image highlightedImage:(UIImage*) highlightedImage {
     self = [super initWithImage:image highlightedImage:highlightedImage];
     if (!self) {
-        __FAIL(@"could not allocate");
+        _wv___FAIL(@"could not allocate");
     }
 
     [self initDefaults];

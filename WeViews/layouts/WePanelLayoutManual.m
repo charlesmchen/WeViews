@@ -195,8 +195,8 @@
             maxX = frame.origin.x + frame.size.width;
             maxY = frame.origin.y + frame.size.height;
         } else {
-            maxX = max(maxX, frame.origin.x + frame.size.width);
-            maxY = max(maxY, frame.origin.y + frame.size.height);
+            maxX = _wv_max(maxX, frame.origin.x + frame.size.width);
+            maxY = _wv_max(maxY, frame.origin.y + frame.size.height);
         }
     }
     return CGSizeMake(maxX, maxY);

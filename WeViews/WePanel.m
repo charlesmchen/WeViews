@@ -201,7 +201,7 @@
 
 - (id) init {
     if (!(self = [super init])) {
-        __FAIL(@"super init failed.");
+        _wv___FAIL(@"super init failed.");
     }
 
     self.autoresizesSubviews = NO;
@@ -264,7 +264,7 @@
         CGSize layerSize = [layer sizeThatFits:value];
         result = CGSizeMax(result, layerSize);
 //        if ([self debugLayout]) {
-//            WhereLogN(@"%@.layerSize = %@",
+//            _wv_WhereLogN(@"%@.layerSize = %@",
 //                      layer.layout.layoutModeName,
 //                      FormatCGSize(layerSize));
 //        }
@@ -272,14 +272,14 @@
 
     // The width and height of maxSize operate independently.
     if (maxSize.width >= 0) {
-        result.width = min(result.width, maxSize.width);
+        result.width = _wv_min(result.width, maxSize.width);
     }
     if (maxSize.height >= 0) {
-        result.height = min(result.height, maxSize.height);
+        result.height = _wv_min(result.height, maxSize.height);
     }
 
 //    if ([self debugLayout]) {
-//        WhereLogN(@"in %@ = %@",
+//        _wv_WhereLogN(@"in %@ = %@",
 //                  FormatCGSize(value),
 //                  FormatCGSize(result));
 //    }

@@ -388,20 +388,20 @@ TouchMode touchMode;
 
         if (touchMode == TOUCH_MODE_RESIZE_LOWER_RIGHT ||
             touchMode == TOUCH_MODE_RESIZE_UPPER_RIGHT) {
-            diff.x = max(diff.x, -(downTouchViewFrame.size.width - RESIZE_CORNER_SIZE));
+            diff.x = _wv_max(diff.x, -(downTouchViewFrame.size.width - RESIZE_CORNER_SIZE));
             newFrame.size.width += diff.x;
         } else {
-            diff.x = min(diff.x, (downTouchViewFrame.size.width - RESIZE_CORNER_SIZE));
+            diff.x = _wv_min(diff.x, (downTouchViewFrame.size.width - RESIZE_CORNER_SIZE));
             newFrame.origin.x += diff.x;
             newFrame.size.width -= diff.x;
         }
 
         if (touchMode == TOUCH_MODE_RESIZE_LOWER_RIGHT ||
             touchMode == TOUCH_MODE_RESIZE_LOWER_LEFT) {
-            diff.y = max(diff.y, -(downTouchViewFrame.size.height - RESIZE_CORNER_SIZE));
+            diff.y = _wv_max(diff.y, -(downTouchViewFrame.size.height - RESIZE_CORNER_SIZE));
             newFrame.size.height += diff.y;
         } else {
-            diff.y = min(diff.y, (downTouchViewFrame.size.height - RESIZE_CORNER_SIZE));
+            diff.y = _wv_min(diff.y, (downTouchViewFrame.size.height - RESIZE_CORNER_SIZE));
             newFrame.origin.y += diff.y;
             newFrame.size.height -= diff.y;
         }
@@ -414,11 +414,11 @@ TouchMode touchMode;
         if (finalize) {
             // Clip to parent's bounds.
             CGRect parentFrame = touchView.superview.frame;
-            newOrigin.x = min(parentFrame.size.width - touchView.frame.size.width, newOrigin.x);
-            newOrigin.y = min(parentFrame.size.height - touchView.frame.size.height, newOrigin.y);
+            newOrigin.x = _wv_min(parentFrame.size.width - touchView.frame.size.width, newOrigin.x);
+            newOrigin.y = _wv_min(parentFrame.size.height - touchView.frame.size.height, newOrigin.y);
             // Clip in two phases; child may be larger than parent.
-            newOrigin.x = max(0, newOrigin.x);
-            newOrigin.y = max(0, newOrigin.y);
+            newOrigin.x = _wv_max(0, newOrigin.x);
+            newOrigin.y = _wv_max(0, newOrigin.y);
         }
 
         setUIViewOrigin(touchView, newOrigin);

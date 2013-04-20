@@ -184,7 +184,7 @@
 @implementation WeViews
 
 - (id) init {
-    __NOT_IMPLEMENTED();
+    _wv___NOT_IMPLEMENTED();
     return nil;
 }
 
@@ -199,7 +199,7 @@
         result = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg", imageName]];
     }
     if (result == nil) {
-        __FAIL(@"Missing image: %@", imageName);
+        _wv___FAIL(@"Missing image: %@", imageName);
     }
     return result;
 }
@@ -294,7 +294,7 @@
     while (subView != superView) {
         UIView* parent = subView.superview;
         if (parent == nil) {
-            __FAIL(@"Missing parent view: %@", subView);
+            _wv___FAIL(@"Missing parent view: %@", subView);
         }
         point.x += subView.frame.origin.x;
         point.y += subView.frame.origin.y;
@@ -408,7 +408,7 @@
 
 	if (font == nil) {
         NSLog(@"Available Font Families: %@", [UIFont familyNames]);
-		__FAIL(@"Unknown font %@", fontName);
+		_wv___FAIL(@"Unknown font %@", fontName);
 	}
 	return font;
 }

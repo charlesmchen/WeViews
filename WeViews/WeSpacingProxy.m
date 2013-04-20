@@ -188,7 +188,7 @@
 
 - (id) init {
     if (!(self = [super init])) {
-        __FAIL(@"super init failed.");
+        _wv___FAIL(@"super init failed.");
     }
 
     return self;

@@ -171,98 +171,55 @@
 //
 // END OF TERMS AND CONDITIONS
 
+#pragma once
 
 // TODO: This will cause the result to be evaluated twice.
 // Likely compiler optimization, but not a good practice.
 // How to store intermediate result without generics?
-#ifndef sqr
-#define sqr(a) ((a) * (a))
-#endif
-#ifndef min
-//#define min(a, b) (((a) < (b)) ? (a) : (b))
-#define min(a, b) MIN(a, b)
-#endif
-#ifndef max
-#define max(a, b) MAX(a, b)
-//#define max(a, b) (((a) > (b)) ? (a) : (b))
-#endif
-#ifndef clamp01
-#define clamp01(value) max(0.0f, min(1.0f, value))
-#endif
+#define _wv_sqr(a) ((a) * (a))
+#define _wv_min(a, b) MIN(a, b)
+#define _wv_max(a, b) MAX(a, b)
+#define _wv_clamp01(value) _wv_max(0.0f, _wv_min(1.0f, value))
 
 
-#ifndef __TRIGGER_DEBUGGER
-#ifndef FELASOLD_RELEASE_FUNC
-#define __TRIGGER_DEBUGGER() { }
-#endif
-#endif
+#define _wv___TRIGGER_DEBUGGER() { }
 
 
-#ifndef WhereLog
-#define WhereLog(value) NSLog(@"function: %s, file: %s, line: %d, msg: %@", __PRETTY_FUNCTION__, __FILE__, __LINE__, value)
-#endif
-#ifndef WhereLog0
-#define WhereLog0() NSLog(@"[%@ %@]", [self class], NSStringFromSelector(_cmd))
-#endif
-#ifndef WhereLog1
-#define WhereLog1(value) NSLog(@"[%@ %@] %@", [self class], NSStringFromSelector(_cmd), value)
-#endif
-#ifndef WhereLog2
-#define WhereLog2(key, value) NSLog(@"[%@ %@] %@: %@", [self class], NSStringFromSelector(_cmd), key, value)
-#endif
-#ifndef WhereLogN
-#define WhereLogN(msg, args...) NSLog([NSString stringWithFormat:@"[%@ %@] %@", [self class], NSStringFromSelector(_cmd), msg], ## args)
-#endif
+#define _wv_WhereLog(value) NSLog(@"function: %s, file: %s, line: %d, msg: %@", __PRETTY_FUNCTION__, __FILE__, __LINE__, value)
+#define _wv_WhereLog0() NSLog(@"[%@ %@]", [self class], NSStringFromSelector(_cmd))
+#define _wv_WhereLog1(value) NSLog(@"[%@ %@] %@", [self class], NSStringFromSelector(_cmd), value)
+#define _wv_WhereLog2(key, value) NSLog(@"[%@ %@] %@: %@", [self class], NSStringFromSelector(_cmd), key, value)
+#define _wv_WhereLogN(msg, args...) NSLog([NSString stringWithFormat:@"[%@ %@] %@", [self class], NSStringFromSelector(_cmd), msg], ## args)
 
-
-#ifndef __FAIL
 
 // We use usleep() to make sure NSLog buffers are flushed.
 // Is there a better way to do this?
-#define __FAIL(msg, args...) { \
+#define _wv___FAIL(msg, args...) { \
 NSLog(msg, ## args); \
-WhereLog(@"failed."); \
-__TRIGGER_DEBUGGER(); \
+_wv_WhereLog(@"failed."); \
+_wv___TRIGGER_DEBUGGER(); \
 usleep(1000 * 1000); \
 exit(-1); \
 }
 
-#endif
 
+#define _wv___NOT_IMPLEMENTED() [self doesNotRecognizeSelector:_cmd];
 
-#ifndef __NOT_IMPLEMENTED
-#define __NOT_IMPLEMENTED() [self doesNotRecognizeSelector:_cmd];
-#endif
-
-
-#ifndef deallocProperty
 // Use temp local to isolate dealloc loops.
-#define deallocProperty(value) { \
+#define _wv_deallocProperty(value) { \
 if (value != nil) { \
 id temp = value; \
 value = nil; \
 [temp release]; \
 } \
 }
-#endif
 
-
-#ifndef deallocPtr
-#define deallocPtr(ptr) { \
+#define _wv_deallocPtr(ptr) { \
 if (ptr != NULL) { \
 void* _temp = ptr; \
 ptr = NULL; \
 free(_temp); \
 } \
 }
-#endif
 
-
-#ifndef safeMalloc
-#define safeMalloc(ptr, size) { ptr = malloc(size); if (ptr == NULL) { __FAIL(@"%@ could not be allocated", @"ptr"); } }
-#endif
-
-
-#ifndef safeCalloc
-#define safeCalloc(ptr, size1, size2) { ptr = calloc(size1, size2); if (ptr == NULL) { __FAIL(@"%@ could not be allocated", @"ptr"); } }
-#endif
+#define _wv_safeCalloc(ptr, size1, size2) { ptr = calloc(size1, size2); if (ptr == NULL) { _wv___FAIL(@"%@ could not be allocated", @"ptr"); } }

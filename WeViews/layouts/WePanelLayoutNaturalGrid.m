@@ -207,9 +207,9 @@
     //    int rowCount = gridInfo.rowCount;
     int columnCount = gridInfo.columnCount;
 
-    int extraWidth = max(0,
+    int extraWidth = _wv_max(0,
                          size.width - gridInfo.totalSize.width);
-    int extraHeight = max(0,
+    int extraHeight = _wv_max(0,
                           size.height - gridInfo.totalSize.height);
 
     if (layer.debugLayout) {
@@ -244,7 +244,7 @@
             left = insetOrigin.x + size.width - gridInfo.totalSize.width;
             break;
         default:
-            __FAIL(@"Unknown layer.hAlign: %d", layer.hAlign);
+            _wv___FAIL(@"Unknown layer.hAlign: %d", layer.hAlign);
     }
     for (int i=0; i < gridInfo.columnCount; i++) {
         columnLefts[i] = left;
@@ -264,7 +264,7 @@
             top = insetOrigin.y + size.height - gridInfo.totalSize.height;
             break;
         default:
-            __FAIL(@"Unknown layer.vAlign: %d", layer.vAlign);
+            _wv___FAIL(@"Unknown layer.vAlign: %d", layer.vAlign);
     }
     for (int i=0; i < gridInfo.rowCount; i++) {
         rowTops[i] = top;
@@ -279,8 +279,8 @@
              columnWidths:&columnWidths[0]
                rowHeights:&rowHeights[0]];
 
-    deallocPtr(gridInfo.columnWidths);
-    deallocPtr(gridInfo.rowHeights);
+    _wv_deallocPtr(gridInfo.columnWidths);
+    _wv_deallocPtr(gridInfo.rowHeights);
 }
 
 @end

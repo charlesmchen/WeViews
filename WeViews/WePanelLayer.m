@@ -190,15 +190,15 @@
 
 - (void) purge {
     self.panel = nil;
-    deallocProperty(views);
-    deallocProperty(layout);
+    _wv_deallocProperty(views);
+    _wv_deallocProperty(layout);
 
 	[super purge];
 }
 
 - (id) init {
     if (!(self = [super init])) {
-        __FAIL(@"super init failed.");
+        _wv___FAIL(@"super init failed.");
     }
 
     hAlign = H_ALIGN_CENTER;

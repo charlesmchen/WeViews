@@ -208,7 +208,7 @@
 - (id) init {
     self = [super init];
     if (self == nil) {
-        __FAIL(@"could not allocate...");
+        _wv___FAIL(@"could not allocate...");
         return nil;
     }
 
@@ -220,7 +220,7 @@
 - (id) initWithFrame:(CGRect) frame {
     self = [super initWithFrame:frame];
     if (!self) {
-        __FAIL(@"could not allocate");
+        _wv___FAIL(@"could not allocate");
     }
 
     [self initDefaults];
@@ -264,18 +264,18 @@
     switch (mode) {
         case SCROLL_MODE_HORIZONTAL: {
             CGSize result = minSize;
-            result.height = max(result.height, self.contentSize.height);
+            result.height = _wv_max(result.height, self.contentSize.height);
             return result;
         }
         case SCROLL_MODE_VERTICAL: {
             CGSize result = minSize;
-            result.width = max(result.width, self.contentSize.width);
+            result.width = _wv_max(result.width, self.contentSize.width);
             return result;
         }
         case SCROLL_MODE_BOTH:
             return minSize;
         default:
-            __FAIL(@"Unknown mode: %d", mode);
+            _wv___FAIL(@"Unknown mode: %d", mode);
     }
 }
 
@@ -304,7 +304,7 @@
             size = [content sizeThatFits:CGSizeZero];
             break;
         default:
-            __FAIL(@"Unknown mode: %d", mode);
+            _wv___FAIL(@"Unknown mode: %d", mode);
     }
 
     self.contentSize = size;

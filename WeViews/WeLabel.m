@@ -200,7 +200,7 @@
 - (id) init {
     self = [super init];
     if (self == nil) {
-        __FAIL(@"could not allocate...");
+        _wv___FAIL(@"could not allocate...");
         return nil;
     }
 
@@ -212,7 +212,7 @@
 - (id) initWithFrame:(CGRect) frame {
     self = [super initWithFrame:frame];
     if (!self) {
-        __FAIL(@"could not allocate");
+        _wv___FAIL(@"could not allocate");
     }
 
     [self initDefaults];
@@ -240,7 +240,7 @@
            fontSize:(CGFloat) fontSize
               color:(UIColor*) color {
     UIFont* font = [WeViews findUIFont:fontName fontSize:fontSize];
-    //    __FAIL(@"font: %@", font);
+    //    _wv___FAIL(@"font: %@", font);
 
     return [self create:text
                    font:font
@@ -250,13 +250,13 @@
 // TODO: Move this to a category?
 - (CGSize) sizeThatFits :(CGSize) value {
     // For the purposes of text wrap, constrain to a box of infinite height.
-    value.width = max(0, value.width);
+    value.width = _wv_max(0, value.width);
     value.height = MAXFLOAT;
 
     CGSize result = [super sizeThatFits:value];
     if (self.numberOfLines == 0 && maxNumberOfLines > 0) {
         CGSize rawResult = result;
-        result.height = min(result.height,
+        result.height = _wv_min(result.height,
                             self.font.lineHeight * self.maxNumberOfLines);
 
         if (debugLayout) {

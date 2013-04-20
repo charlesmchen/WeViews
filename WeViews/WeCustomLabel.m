@@ -217,9 +217,9 @@
 @synthesize lineHeightFactor;
 
 - (void) dealloc {
-    deallocProperty(text);
-    deallocProperty(font);
-    deallocProperty(textColor);
+    _wv_deallocProperty(text);
+    _wv_deallocProperty(font);
+    _wv_deallocProperty(textColor);
 
 	[super dealloc];
 }
@@ -241,7 +241,7 @@
 - (id) init {
     self = [super init];
     if (self == nil) {
-        __FAIL(@"could not allocate...");
+        _wv___FAIL(@"could not allocate...");
         return nil;
     }
 
@@ -253,7 +253,7 @@
 - (id) initWithFrame:(CGRect) frame {
     self = [super initWithFrame:frame];
     if (!self) {
-        __FAIL(@"could not allocate");
+        _wv___FAIL(@"could not allocate");
     }
 
     [self initDefaults];
@@ -281,7 +281,7 @@
            fontSize:(CGFloat) fontSize
               color:(UIColor*) color {
     UIFont* font = [WeViews findUIFont:fontName fontSize:fontSize];
-    //    __FAIL(@"font: %@", font);
+    //    _wv___FAIL(@"font: %@", font);
 
     return [self create:text
                    font:font
@@ -297,7 +297,7 @@
     if ((text == nil) ||
         (font == nil)) {
         // If configuration is incomplete, return margins size.
-        __FAIL(@"[%@ %@] Should not called until configuration is complete.",
+        _wv___FAIL(@"[%@ %@] Should not called until configuration is complete.",
                [self class],
                NSStringFromSelector(_cmd));
     }
@@ -333,7 +333,7 @@
 
     int maxTextWidth = floorf(value.width);
     maxTextWidth -= self.leftMargin + self.rightMargin + 2 * self.borderWidth;
-    maxTextWidth = max(0, maxTextWidth);
+    maxTextWidth = _wv_max(0, maxTextWidth);
 
     CTTypesetterRef typeSetter = [self createTypesetter];
 
@@ -350,7 +350,7 @@
                                                      index,
                                                      maxTextWidth);
         if (rawLineCount <= 0) {
-            __FAIL(@"Expected result from CTTypesetterSuggestLineBreak: %d", (int) rawLineCount);
+            _wv___FAIL(@"Expected result from CTTypesetterSuggestLineBreak: %d", (int) rawLineCount);
         }
 
         // Core Text line breaks will include trailing whitespace in the current line.
@@ -363,7 +363,7 @@
         CGFloat lineWidth = ceilf((CGFloat) CTLineGetTypographicBounds(ctLine, &ascent, &descent, &leading));
         CFRelease(ctLine);
 
-        result.width = max(result.width, lineWidth);
+        result.width = _wv_max(result.width, lineWidth);
         result.height += lineHeight;
 
         index += rawLineCount;
@@ -390,7 +390,7 @@
 
     int maxTextWidth = floorf(self.frame.size.width);
     maxTextWidth -= self.leftMargin + self.rightMargin + 2 * self.borderWidth;
-    maxTextWidth = max(0, maxTextWidth);
+    maxTextWidth = _wv_max(0, maxTextWidth);
 
     if (maxTextWidth <= 0) {
         return;
@@ -418,7 +418,7 @@
                                                      index,
                                                      maxTextWidth);
         if (count <= 0) {
-            __FAIL(@"Expected result from CTTypesetterSuggestLineBreak: %d", (int) count);
+            _wv___FAIL(@"Expected result from CTTypesetterSuggestLineBreak: %d", (int) count);
         }
 
         CTLineRef ctLine = CTTypesetterCreateLine(typeSetter, CFRangeMake(index, count));
@@ -436,7 +436,7 @@
                 x = self.leftMargin + self.borderWidth + maxTextWidth - lineWidth;
                 break;
             default:
-                __FAIL(@"Unknown text alignment: %d", textAlignment);
+                _wv___FAIL(@"Unknown text alignment: %d", textAlignment);
         }
 
         CGContextSetTextPosition(context, x, y);

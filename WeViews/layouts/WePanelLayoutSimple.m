@@ -204,7 +204,7 @@
             return CGSizeAdd(result, insetSize);
         }
         default:
-            __FAIL(@"Unknown LayerMode: %d", mode);
+            _wv___FAIL(@"Unknown LayerMode: %d", mode);
             return CGSizeZero;
     }
 }
@@ -233,7 +233,7 @@
             return;
         }
         default:
-            __FAIL(@"Unknown LayerMode: %d", mode);
+            _wv___FAIL(@"Unknown LayerMode: %d", mode);
     }
 }
 

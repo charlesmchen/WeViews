@@ -184,9 +184,9 @@
 @synthesize dialog;
 
 - (void) dealloc {
-    deallocProperty(url);
-    deallocProperty(view);
-    deallocProperty(dialog);
+    _wv_deallocProperty(url);
+    _wv_deallocProperty(view);
+    _wv_deallocProperty(dialog);
 
     [super dealloc];
 }
@@ -194,7 +194,7 @@
 - (id) init {
     self = [super init];
     if (self == nil) {
-        __FAIL(@"could not allocate...");
+        _wv___FAIL(@"could not allocate...");
         return nil;
     }
 
@@ -239,7 +239,7 @@
         value = value.superview;
     }
 
-    __FAIL(@"Could not find UIWindow");
+    _wv___FAIL(@"Could not find UIWindow");
 
     return nil;
 }

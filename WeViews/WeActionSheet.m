@@ -190,18 +190,18 @@
 
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 
-	deallocProperty(sheet);
-	deallocProperty(title);
-	deallocProperty(cancelButtonTitle);
-	deallocProperty(items);
-	deallocProperty(dismissTarget);
+	_wv_deallocProperty(sheet);
+	_wv_deallocProperty(title);
+	_wv_deallocProperty(cancelButtonTitle);
+	_wv_deallocProperty(items);
+	_wv_deallocProperty(dismissTarget);
 
 	[super purge];
 }
 
 - (id) init {
 	if(!(self = [super init])) {
-		__FAIL(@"super constructor failed");
+		_wv___FAIL(@"super constructor failed");
 	}
 
     //    cancelIndex = -1;
@@ -243,7 +243,7 @@
 }
 
 - (void) deviceOrientationDidChange {
-    WhereLog0();
+    _wv_WhereLog0();
     [self dismissImmediately];
 }
 

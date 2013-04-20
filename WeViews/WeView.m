@@ -185,8 +185,8 @@
 @synthesize borderWidth;
 
 - (void) purge {
-    deallocProperty(handlers);
-    deallocProperty(borderColor);
+    _wv_deallocProperty(handlers);
+    _wv_deallocProperty(borderColor);
 }
 
 - (void) dealloc {
@@ -208,7 +208,7 @@
 - (id) init {
     self = [super init];
     if (self == nil) {
-        __FAIL(@"could not allocate...");
+        _wv___FAIL(@"could not allocate...");
         return nil;
     }
 
@@ -220,7 +220,7 @@
 - (id) initWithFrame:(CGRect) frame {
     self = [super initWithFrame:frame];
     if (!self) {
-        __FAIL(@"could not allocate");
+        _wv___FAIL(@"could not allocate");
     }
 
     [self initDefaults];
@@ -362,7 +362,7 @@
 }
 
 - (void) setBorderWidth:(int) value {
-    borderWidth = max(0, value);
+    borderWidth = _wv_max(0, value);
     [self setNeedsDisplay];
 }
 

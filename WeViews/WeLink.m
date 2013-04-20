@@ -185,9 +185,9 @@
 @synthesize handlerGroup;
 
 - (void) dealloc {
-    deallocProperty(upColor);
-    deallocProperty(downColor);
-    deallocProperty(handlerGroup);
+    _wv_deallocProperty(upColor);
+    _wv_deallocProperty(downColor);
+    _wv_deallocProperty(handlerGroup);
 
 	[super dealloc];
 }
@@ -203,7 +203,7 @@
 - (id) init {
     self = [super init];
     if (self == nil) {
-        __FAIL(@"could not allocate...");
+        _wv___FAIL(@"could not allocate...");
         return nil;
     }
 
@@ -215,7 +215,7 @@
 - (id) initWithFrame:(CGRect) frame {
     self = [super initWithFrame:frame];
     if (!self) {
-        __FAIL(@"could not allocate");
+        _wv___FAIL(@"could not allocate");
     }
 
     [self initDefaults];
@@ -257,7 +257,7 @@
 #define H_INSET 1
 
 - (void) drawRect :(CGRect) rect {
-    int underlineLength = min([self.text sizeWithFont:self.font].width,
+    int underlineLength = _wv_min([self.text sizeWithFont:self.font].width,
                               self.bounds.size.width);
     int left;
     switch (self.textAlignment) {
@@ -271,7 +271,7 @@
             left = self.frame.size.width - underlineLength;
             break;
         default:
-            __FAIL(@"Unknown text alignment: %d", self.textAlignment);
+            _wv___FAIL(@"Unknown text alignment: %d", self.textAlignment);
     }
     int right = left + underlineLength;
 

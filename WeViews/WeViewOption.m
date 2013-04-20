@@ -183,15 +183,15 @@
 @synthesize customIndex;
 
 - (void) purge {
-    deallocProperty(label);
-    deallocProperty(handler);
+    _wv_deallocProperty(label);
+    _wv_deallocProperty(handler);
 
     [super purge];
 }
 
 - (id) init {
     if (!(self = [super init])) {
-        __FAIL(@"super init failed.");
+        _wv___FAIL(@"super init failed.");
     }
 
     return self;

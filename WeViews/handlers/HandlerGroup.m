@@ -181,7 +181,7 @@
 @synthesize handlers;
 
 - (void) purge {
-    deallocProperty(handlers);
+    _wv_deallocProperty(handlers);
 
     [super purge];
 }
@@ -189,7 +189,7 @@
 - (id) init {
     self = [super init];
     if (self == nil) {
-        __FAIL(@"could not allocate...");
+        _wv___FAIL(@"could not allocate...");
         return nil;
     }
 

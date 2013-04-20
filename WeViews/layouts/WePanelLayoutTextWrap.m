@@ -209,11 +209,11 @@
         if (newRowWidth <= contentBounds.size.width) {
             // Append to line.
             rowWidth = newRowWidth;
-            rowHeight = max(rowHeight, itemSize.height);
+            rowHeight = _wv_max(rowHeight, itemSize.height);
             rowItemCount++;
         } else {
             // Newline.
-            result.width = max(result.width, rowWidth);
+            result.width = _wv_max(result.width, rowWidth);
             if (rowCount > 0) {
                 result.height += layer.spacing;
             }
@@ -226,7 +226,7 @@
         }
     }
     if (rowItemCount > 0) {
-        result.width = max(result.width, rowWidth);
+        result.width = _wv_max(result.width, rowWidth);
         if (rowCount > 0) {
             result.height += layer.spacing;
         }
@@ -281,7 +281,7 @@
             x = contentBounds.origin.x + contentBounds.size.width - rowWidth;
             break;
         default:
-            __FAIL(@"Unknown layer.hAlign: %d", layer.hAlign);
+            _wv___FAIL(@"Unknown layer.hAlign: %d", layer.hAlign);
     }
     for (int i = 0; i < count; i ++) {
         UIView* item = [row objectAtIndex:i];
@@ -297,7 +297,7 @@
                 itemFrames[i].origin.y = y + (rowHeight - itemFrames[i].size.height);
                 break;
             default:
-                __FAIL(@"Unknown layer.vAlign: %d", layer.vAlign);
+                _wv___FAIL(@"Unknown layer.vAlign: %d", layer.vAlign);
         }
 
         [self setFrame:itemFrames[i]
@@ -341,7 +341,7 @@
             }
 
             [row addObject:item];
-            rowHeight = max(rowHeight, itemSize.height);
+            rowHeight = _wv_max(rowHeight, itemSize.height);
             rowWidth = proposedRowWidth;
         } else if ([row count] < 1) {
 
@@ -354,7 +354,7 @@
             }
 
             [row addObject:item];
-            rowHeight = max(rowHeight, itemSize.height);
+            rowHeight = _wv_max(rowHeight, itemSize.height);
             rowWidth += itemSize.width;
 
             [self layoutRow:row
@@ -391,7 +391,7 @@
             rowHeight = 0;
 
             [row addObject:item];
-            rowHeight = max(rowHeight, itemSize.height);
+            rowHeight = _wv_max(rowHeight, itemSize.height);
             rowWidth += itemSize.width;
         }
     }

@@ -199,7 +199,7 @@
         case LAYOUT_MODE_VERTICAL_FILL:
             return NO;
         default:
-            __FAIL(@"Unknown LayerMode: %d", mode);
+            _wv___FAIL(@"Unknown LayerMode: %d", mode);
     }
 }
 
@@ -212,7 +212,7 @@
         case LAYOUT_MODE_VERTICAL:
             return NO;
         default:
-            __FAIL(@"Unknown LayerMode: %d", mode);
+            _wv___FAIL(@"Unknown LayerMode: %d", mode);
     }
 }
 
@@ -276,9 +276,9 @@
     for (int i=0; i < itemCount; i++) {
         if (horizontal) {
             result.width += itemSizes[i].width;
-            result.height = max(result.height, itemSizes[i].height);
+            result.height = _wv_max(result.height, itemSizes[i].height);
         } else {
-            result.width = max(result.width, itemSizes[i].width);
+            result.width = _wv_max(result.width, itemSizes[i].width);
             result.height += itemSizes[i].height;
         }
     }
@@ -304,7 +304,7 @@
     // On the first pass, we want to calculate the size of all non-stretching items.
     for (int i=0; i < itemCount; i++) {
         UIView* item = [layer.views objectAtIndex:i];
-        CGFloat rawStretchWeight = max(0, itemStretchWeight(item));
+        CGFloat rawStretchWeight = _wv_max(0, itemStretchWeight(item));
         stretchWeights[i] = fabsf(rawStretchWeight);
         if (stretchWeights[i] > 0) {
             totalStretchWeight += stretchWeights[i];
@@ -362,7 +362,7 @@
             int remainingCropAmount = totalCropAmount;
             // We want to crop proportionally, so that we crop more
             // from larger items.
-            CGFloat cropFactor = clamp01(remainingCropAmount / (CGFloat) axisSize);
+            CGFloat cropFactor = _wv_clamp01(remainingCropAmount / (CGFloat) axisSize);
             for (int i=0; i < itemCount; i++) {
                 int cropAmount;
                 // round up the amount to crop.
@@ -372,7 +372,7 @@
                     cropAmount = ceilf(itemSizes[i].height * cropFactor);
                 }
                 // Don't crop more than enough to exactly fit non-stretch items in panel.
-                cropAmount = min(remainingCropAmount, cropAmount);
+                cropAmount = _wv_min(remainingCropAmount, cropAmount);
                 remainingCropAmount -= cropAmount;
 
                 int newItemWidth = itemSizes[i].width - cropAmount;
@@ -670,7 +670,7 @@
         UIView* item = [layer.views objectAtIndex:i];
         isSpacer[i] = [item isKindOfClass:[WeSpacer class]];
         // Stretch weight must be zero or positive.
-        CGFloat rawStretchWeight = max(0, itemStretchWeight(item));
+        CGFloat rawStretchWeight = _wv_max(0, itemStretchWeight(item));
         stretchWeights[i] = fabsf(rawStretchWeight);
 
         BOOL itemStretches = NO;
@@ -759,7 +759,7 @@
             int remainingCropAmount = totalCropAmount;
             // We want to crop proportionally, so that we crop more
             // from larger items.
-            CGFloat cropFactor = clamp01(remainingCropAmount / (CGFloat) axisSize);
+            CGFloat cropFactor = _wv_clamp01(remainingCropAmount / (CGFloat) axisSize);
             for (int i=0; i < itemCount; i++) {
                 int cropAmount;
                 // round up the amount to crop.
@@ -769,7 +769,7 @@
                     cropAmount = ceilf(itemSizes[i].height * cropFactor);
                 }
                 // Don't crop more than enough to exactly fit non-stretch items in panel.
-                cropAmount = min(remainingCropAmount, cropAmount);
+                cropAmount = _wv_min(remainingCropAmount, cropAmount);
                 remainingCropAmount -= cropAmount;
                 if (horizontal) {
                     itemSizes[i].width -= cropAmount;
@@ -949,7 +949,7 @@
                     axisIndex += extraAxisSpace;
                     break;
                 default:
-                    __FAIL(@"Unknown hAlign: %d", layer.hAlign);
+                    _wv___FAIL(@"Unknown hAlign: %d", layer.hAlign);
                     break;
             }
         } else {
@@ -964,7 +964,7 @@
                 case V_ALIGN_TOP:
                     break;
                 default:
-                    __FAIL(@"Unknown vAlign: %d", layer.vAlign);
+                    _wv___FAIL(@"Unknown vAlign: %d", layer.vAlign);
                     break;
             }
         }
@@ -990,7 +990,7 @@
             itemCrossSize = crossSize;
         } else {
             // Limit cross size to container cross size.
-            itemCrossSize = min(itemCrossSize, crossSize);
+            itemCrossSize = _wv_min(itemCrossSize, crossSize);
 
             // Respect cross alignment.
             if (horizontal) {
@@ -1004,7 +1004,7 @@
                     case V_ALIGN_TOP:
                         break;
                     default:
-                        __FAIL(@"Unknown vAlign: %d", layer.vAlign);
+                        _wv___FAIL(@"Unknown vAlign: %d", layer.vAlign);
                         break;
                 }
             } else {
@@ -1018,7 +1018,7 @@
                         crossIndex += crossSize - itemCrossSize;
                         break;
                     default:
-                        __FAIL(@"Unknown hAlign: %d", layer.hAlign);
+                        _wv___FAIL(@"Unknown hAlign: %d", layer.hAlign);
                         break;
                 }
             }

@@ -196,7 +196,7 @@
 
 - (id) init {
     if (!(self = [super init])) {
-        __FAIL(@"super init failed.");
+        _wv___FAIL(@"super init failed.");
     }
 
     return self;
@@ -230,7 +230,7 @@
         case LAYOUT_MODE_MANUAL:
             return [WePanelLayoutManual create];
         default:
-            __FAIL(@"Unknown layer mode: %d", value);
+            _wv___FAIL(@"Unknown layer mode: %d", value);
     }
 }
 
@@ -240,7 +240,7 @@
         UIScrollView* scrollView = (UIScrollView*) item;
         scrollView.scrollEnabled = ((scrollView.contentSize.width > scrollView.frame.size.width) ||
                                     (scrollView.contentSize.height > scrollView.frame.size.height));
-//        WhereLogN(@"item: %@, scrollView.scrollEnabled: %d, scrollView.contentSize: %@, scrollView.frame: %@",
+//        _wv_WhereLogN(@"item: %@, scrollView.scrollEnabled: %d, scrollView.contentSize: %@, scrollView.frame: %@",
 //                  [item class],
 //                  scrollView.scrollEnabled,
 //                  FormatSize(scrollView.contentSize),
@@ -249,19 +249,19 @@
 }
 
 - (LayoutMode) mode {
-    __NOT_IMPLEMENTED();
+    _wv___NOT_IMPLEMENTED();
     return -1;
 }
 
 - (CGSize) sizeThatFits:(CGSize) size
                   layer:(WePanelLayer*) layer {
-    __NOT_IMPLEMENTED();
+    _wv___NOT_IMPLEMENTED();
     return CGSizeZero;
 }
 
 - (void) layoutContents:(CGSize) size
                   layer:(WePanelLayer*) layer {
-    __NOT_IMPLEMENTED();
+    _wv___NOT_IMPLEMENTED();
 }
 
 + (NSString*) layoutModeName:(LayoutMode) value {
@@ -293,7 +293,7 @@
         case LAYOUT_MODE_MANUAL:
             return @"Manual";
         default:
-            __FAIL(@"Unknown layer mode: %d", value);
+            _wv___FAIL(@"Unknown layer mode: %d", value);
     }
 }
 

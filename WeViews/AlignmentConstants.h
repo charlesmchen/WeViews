@@ -203,7 +203,7 @@ FormatHAlign(HAlign value) {
         case H_ALIGN_RIGHT:
             return @"Right";
         default:
-            __FAIL(@"Unknown hAlign: %d", value);
+            _wv___FAIL(@"Unknown hAlign: %d", value);
     }
 }
 
@@ -217,7 +217,7 @@ FormatVAlign(VAlign value) {
         case V_ALIGN_BOTTOM:
             return @"Bottom";
         default:
-            __FAIL(@"Unknown VAlign: %d", value);
+            _wv___FAIL(@"Unknown VAlign: %d", value);
     }
 }
 
@@ -237,7 +237,7 @@ alignSizeWithinRect(CGSize size, CGRect rect, HAlign hAlign, VAlign vAlign) {
             result.origin.x = rect.size.width - size.width;
             break;
         default:
-            __FAIL(@"Unknown hAlign: %d", hAlign);
+            _wv___FAIL(@"Unknown hAlign: %d", hAlign);
             break;
     }
     switch (vAlign) {
@@ -251,7 +251,7 @@ alignSizeWithinRect(CGSize size, CGRect rect, HAlign hAlign, VAlign vAlign) {
             result.origin.y = rect.size.height - size.height;
             break;
         default:
-            __FAIL(@"Unknown vAlign: %d", vAlign);
+            _wv___FAIL(@"Unknown vAlign: %d", vAlign);
             break;
     }
     result.origin = CGPointRound(CGPointAdd(result.origin, rect.origin));

@@ -207,9 +207,9 @@
 //    int rowCount = gridInfo.rowCount;
     int columnCount = gridInfo.columnCount;
 
-    int extraWidth = max(0,
+    int extraWidth = _wv_max(0,
                          size.width - gridInfo.totalSize.width);
-    int extraHeight = max(0,
+    int extraHeight = _wv_max(0,
                           size.height - gridInfo.totalSize.height);
 
     if (layer.debugLayout) {
@@ -262,8 +262,8 @@
              columnWidths:&columnWidths[0]
                rowHeights:&rowHeights[0]];
 
-    deallocPtr(gridInfo.columnWidths);
-    deallocPtr(gridInfo.rowHeights);
+    _wv_deallocPtr(gridInfo.columnWidths);
+    _wv_deallocPtr(gridInfo.rowHeights);
 }
 
 @end

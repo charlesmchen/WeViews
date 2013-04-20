@@ -185,7 +185,7 @@
 @synthesize stretchWeight;
 
 - (void) dealloc {
-    deallocProperty(handlerGroup);
+    _wv_deallocProperty(handlerGroup);
 
 	[super dealloc];
 }
@@ -198,7 +198,7 @@
 - (id) init {
     self = [super init];
     if (self == nil) {
-        __FAIL(@"could not allocate...");
+        _wv___FAIL(@"could not allocate...");
         return nil;
     }
 
@@ -210,7 +210,7 @@
 - (id) initWithFrame:(CGRect) frame {
     self = [super initWithFrame:frame];
     if (!self) {
-        __FAIL(@"could not allocate");
+        _wv___FAIL(@"could not allocate");
     }
 
     [self initDefaults];

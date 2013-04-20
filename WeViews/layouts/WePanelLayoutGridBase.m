@@ -240,8 +240,8 @@
     //    result.width += (columnCount - 1) * layer.spacing;
     //    result.height += (rowCount - 1) * layer.spacing;
 
-    safeCalloc(result.columnWidths, sizeof(int), columnCount);
-    safeCalloc(result.rowHeights, sizeof(int), rowCount);
+    _wv_safeCalloc(result.columnWidths, sizeof(int), columnCount);
+    _wv_safeCalloc(result.rowHeights, sizeof(int), rowCount);
     for (int i=0; i < columnCount; i++) {
         result.columnWidths[i] = 0;
     }
@@ -267,13 +267,13 @@
                   FormatSize(itemSize));
         }
 
-        result.columnWidths[column] = max(result.columnWidths[column],
+        result.columnWidths[column] = _wv_max(result.columnWidths[column],
                                           itemSize.width);
-        result.maxColumnWidth = max(result.maxColumnWidth,
+        result.maxColumnWidth = _wv_max(result.maxColumnWidth,
                                     result.columnWidths[column]);
-        result.rowHeights[row] = max(result.rowHeights[row],
+        result.rowHeights[row] = _wv_max(result.rowHeights[row],
                                      itemSize.height);
-        result.maxRowHeight = max(result.maxRowHeight,
+        result.maxRowHeight = _wv_max(result.maxRowHeight,
                                   result.rowHeights[row]);
     }
 
@@ -331,8 +331,8 @@
 - (CGSize) sizeThatFits:(CGSize) size
                   layer:(WePanelLayer*) layer {
     LayerGridInfo gridInfo = [self getLayerGridInfo:layer];
-    deallocPtr(gridInfo.columnWidths);
-    deallocPtr(gridInfo.rowHeights);
+    _wv_deallocPtr(gridInfo.columnWidths);
+    _wv_deallocPtr(gridInfo.rowHeights);
     return gridInfo.totalSize;
 }
 

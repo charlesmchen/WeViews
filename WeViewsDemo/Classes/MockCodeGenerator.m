@@ -341,7 +341,7 @@
         NSLog(@"red: %02X, green: %02X, blue: %02X, alfa: %02X, alpha: %f, alpha: %0.0f, alpha: %.0f",
               red, green, blue, alfa, alpha, alpha, alpha);
     } else {
-        __FAIL(@"Unknown color component count: %d", count);
+        _wv__FAIL(@"Unknown color component count: %d", count);
     }
 
     NSString* result = [NSString stringWithFormat:@"UIColorRGB(0x%02X%02X%02X)", red, green, blue];
@@ -390,7 +390,7 @@
                 layerMethodName = @"addSpacingGrid";
                 break;
             default:
-                __FAIL(@"Unknown layer mode: %d", layer.mode);
+                _wv__FAIL(@"Unknown layer mode: %d", layer.mode);
         }
 
         result = [NSString stringWithFormat:@"[%@ %@:[NSArray arrayWithObjects:\n" \
@@ -435,7 +435,7 @@
                 layerMethodName = @"addManual";
                 break;
             default:
-                __FAIL(@"Unknown layer mode: %d", layer.mode);
+                _wv__FAIL(@"Unknown layer mode: %d", layer.mode);
         }
         result = [NSString stringWithFormat:@"[%@ %@:[NSArray arrayWithObjects:\n" \
                   @"\t%@\n" \
@@ -459,7 +459,7 @@
                 hAlignValue = @"H_ALIGN_RIGHT";
                 break;
             default:
-                __FAIL(@"Unknown hAlign value: %d", layer.hAlign);
+                _wv__FAIL(@"Unknown hAlign value: %d", layer.hAlign);
         }
         switch (layer.vAlign) {
             case V_ALIGN_TOP:
@@ -472,7 +472,7 @@
                 vAlignValue = @"V_ALIGN_BOTTOM";
                 break;
             default:
-                __FAIL(@"Unknown vAlign value: %d", layer.vAlign);
+                _wv__FAIL(@"Unknown vAlign value: %d", layer.vAlign);
         }
 
         result = [NSString stringWithFormat:@"[%@\n" \

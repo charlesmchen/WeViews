@@ -227,8 +227,8 @@ CGPointSubtract(const CGPoint p0, const CGPoint p1) {
 
 CG_INLINE CGPoint
 CGPointMax(const CGPoint p1, const CGPoint p2) {
-	return CGPointMake(max(p1.x, p2.x),
-                       max(p1.y, p2.y));
+	return CGPointMake(_wv_max(p1.x, p2.x),
+                       _wv_max(p1.y, p2.y));
 }
 
 CG_INLINE CGPoint
@@ -239,13 +239,13 @@ CGPointRound(const CGPoint p1) {
 
 CG_INLINE CGFloat
 CGPointDistance(CGPoint p0, CGPoint p1) {
-    CGFloat result = sqrtf(sqr(p0.x - p1.x) + sqr(p0.y - p1.y));
+    CGFloat result = sqrtf(_wv_sqr(p0.x - p1.x) + _wv_sqr(p0.y - p1.y));
     return result;
 }
 
 CG_INLINE CGFloat
 CGPointLength(CGPoint p1) {
-    return sqrtf(sqr(p1.x) + sqr(p1.y));
+    return sqrtf(_wv_sqr(p1.x) + _wv_sqr(p1.y));
 
 }
 
@@ -282,7 +282,7 @@ CGPointBlendFast(const CGPoint p1, const CGPoint p2, const CGFloat factor, const
 
 CG_INLINE CGPoint
 CGPointBlend(const CGPoint p1, const CGPoint p2, const CGFloat value) {
-	CGFloat factor = clamp01(value);
+	CGFloat factor = _wv_clamp01(value);
 	CGFloat nfactor = 1.0f - factor;
 	return CGPointBlendFast(p1, p2, factor, nfactor);
 }
@@ -306,14 +306,14 @@ CGSizeSubtract(const CGSize p1, const CGSize p2) {
 
 CG_INLINE CGSize
 CGSizeMax(const CGSize p1, const CGSize p2) {
-	return CGSizeMake(max(p1.width, p2.width),
-                      max(p1.height, p2.height));
+	return CGSizeMake(_wv_max(p1.width, p2.width),
+                      _wv_max(p1.height, p2.height));
 }
 
 CG_INLINE CGSize
 CGSizeMin(const CGSize p1, const CGSize p2) {
-	return CGSizeMake(min(p1.width, p2.width),
-                      min(p1.height, p2.height));
+	return CGSizeMake(_wv_min(p1.width, p2.width),
+                      _wv_min(p1.height, p2.height));
 }
 
 CG_INLINE CGSize
@@ -323,7 +323,7 @@ CGSizeFitInSize(CGSize r0, CGSize r1) {
     }
     CGFloat widthFactor = r1.width / r0.width;
     CGFloat heightFactor = r1.height / r0.height;
-    CGFloat factor = min(widthFactor, heightFactor);
+    CGFloat factor = _wv_min(widthFactor, heightFactor);
     CGSize result;
     result.width = roundf(r0.width * factor);
     result.height = roundf(r0.height * factor);

@@ -184,9 +184,9 @@
 @synthesize textView;
 
 - (void) dealloc {
-    deallocProperty(background);
-    deallocProperty(popup);
-    deallocProperty(textView);
+    _wv_deallocProperty(background);
+    _wv_deallocProperty(popup);
+    _wv_deallocProperty(textView);
 
     [super dealloc];
 }
@@ -194,7 +194,7 @@
 - (id) init {
     self = [super init];
     if (self == nil) {
-        __FAIL(@"could not allocate...");
+        _wv__FAIL(@"could not allocate...");
         return nil;
     }
 

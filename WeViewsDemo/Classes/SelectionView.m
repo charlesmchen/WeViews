@@ -881,7 +881,7 @@
                    setterSelector:(SEL) setterSelector {
 
     if ([options count] != [labels count]) {
-        __FAIL(@"[options count]: %d, [labels count]: %d", [options count], [labels count]);
+        _wv__FAIL(@"[options count]: %d, [labels count]: %d", [options count], [labels count]);
     }
     NSMutableArray* optionViews = [NSMutableArray array];
     for (int i=0; i < [options count]; i++) {

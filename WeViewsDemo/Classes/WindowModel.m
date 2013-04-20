@@ -212,7 +212,7 @@
 //- (id) init {
 //    self = [super init];
 //    if (self == nil) {
-//        __FAIL(@"could not allocate...");
+//        _wv__FAIL(@"could not allocate...");
 //    }
 //
 //    return self;
@@ -304,8 +304,8 @@
     // Randomize location within parent view
     CGRect parentFrame = parentView.frame;
     CGRect viewFrame = view.frame;
-    int rangeX = max(1, parentFrame.size.width - viewFrame.size.width);
-    int rangeY = max(1, parentFrame.size.height - viewFrame.size.height);
+    int rangeX = _wv_max(1, parentFrame.size.width - viewFrame.size.width);
+    int rangeY = _wv_max(1, parentFrame.size.height - viewFrame.size.height);
     CGPoint randomOrigin = CGPointMake(RANDOM_INT() % rangeX,
                                        RANDOM_INT() % rangeY);
     setUIViewOrigin(view, randomOrigin);

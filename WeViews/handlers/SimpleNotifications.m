@@ -218,7 +218,7 @@ void removeSimpleNotificationListener(id listener) {
 @implementation SimpleNotifications
 
 - (id) init {
-    __NOT_IMPLEMENTED();
+    _wv___NOT_IMPLEMENTED();
     return nil;
 }
 
@@ -265,7 +265,7 @@ void removeSimpleNotificationListener(id listener) {
 
 - (id) init {
     if (!(self = [super init])) {
-        __FAIL(@"super init failed.");
+        _wv___FAIL(@"super init failed.");
     }
 
     name = nil;

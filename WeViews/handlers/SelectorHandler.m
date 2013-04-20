@@ -183,8 +183,8 @@
 @synthesize argument;
 
 - (void) dealloc {
-    deallocProperty(target);
-    deallocProperty(argument);
+    _wv_deallocProperty(target);
+    _wv_deallocProperty(argument);
 
     [super dealloc];
 }
@@ -192,7 +192,7 @@
 - (id) init {
     self = [super init];
     if (self == nil) {
-        __FAIL(@"could not allocate...");
+        _wv___FAIL(@"could not allocate...");
         return nil;
     }
 

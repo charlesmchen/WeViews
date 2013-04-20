@@ -339,7 +339,7 @@
 - (id) init {
     self = [super init];
     if (self == nil) {
-        __FAIL(@"could not allocate...");
+        _wv__FAIL(@"could not allocate...");
     }
 
     self.visibleViews = [NSMutableArray array];
