@@ -4,7 +4,7 @@
 //
 // https://github.com/charlesmchen/WeViews
 //
-// Copyright (c) 2012 Charles Matthew Chen
+// Copyright (c) 2013 Charles Matthew Chen
 // charlesmchen@gmail.com
 //
 // Apache License
@@ -172,13 +172,14 @@
 // END OF TERMS AND CONDITIONS
 
 
+#de
 /**
  * A base class for classes that support purging memory references.
  *
  * iOS developers often inadvertently create circular references in GUI code that
  * block instances from being released.
  */
-@interface WeBaseObject : NSObject {
+@interface NSObject : NSObject {
 }
 
 /**

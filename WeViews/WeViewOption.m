@@ -4,7 +4,7 @@
 //
 // https://github.com/charlesmchen/WeViews
 //
-// Copyright (c) 2012 Charles Matthew Chen
+// Copyright (c) 2013 Charles Matthew Chen
 // charlesmchen@gmail.com
 //
 // Apache License
@@ -177,17 +177,6 @@
 
 
 @implementation WeViewOption
-
-@synthesize label;
-@synthesize handler;
-@synthesize customIndex;
-
-- (void) purge {
-    _wv_deallocProperty(label);
-    _wv_deallocProperty(handler);
-
-    [super purge];
-}
 
 - (id) init {
     if (!(self = [super init])) {

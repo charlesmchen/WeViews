@@ -4,7 +4,7 @@
 //
 // https://github.com/charlesmchen/WeViews
 //
-// Copyright (c) 2012 Charles Matthew Chen
+// Copyright (c) 2013 Charles Matthew Chen
 // charlesmchen@gmail.com
 //
 // Apache License
@@ -365,14 +365,14 @@
 /**
  * Removes all of the panel's contents, purging them if possible.
  *
- * See: [WeBaseObject purge].
+ * See: [NSObject purge].
  */
 - (void) clearWithPurge;
 
 /**
  * Removes all of the panel's contents without purging them.
  *
- * See: [WeBaseObject purge].
+ * See: [NSObject purge].
  */
 - (void) clearWithoutPurge;
 

@@ -4,7 +4,7 @@
 //
 // https://github.com/charlesmchen/WeViews
 //
-// Copyright (c) 2012 Charles Matthew Chen
+// Copyright (c) 2013 Charles Matthew Chen
 // charlesmchen@gmail.com
 //
 // Apache License
