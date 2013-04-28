@@ -226,9 +226,15 @@ CGPointSubtract(const CGPoint p0, const CGPoint p1) {
 }
 
 CG_INLINE CGPoint
-CGPointMax(const CGPoint p1, const CGPoint p2) {
-	return CGPointMake(_wv_max(p1.x, p2.x),
-                       _wv_max(p1.y, p2.y));
+CGPointMin(CGPoint p1, CGPoint p2) {
+    return CGPointMake(min(p1.x, p2.x),
+                       min(p1.y, p2.y));
+}
+
+CG_INLINE CGPoint
+CGPointMax(CGPoint p1, CGPoint p2) {
+    return CGPointMake(max(p1.x, p2.x),
+                       max(p1.y, p2.y));
 }
 
 CG_INLINE CGPoint
