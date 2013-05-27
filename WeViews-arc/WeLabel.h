@@ -264,4 +264,8 @@
  */
 - (id) withClearBackground;
 
+- (id) withLineWrap;
+
+- (id) withTextAlignment:(NSTextAlignment) value;
+
 @end

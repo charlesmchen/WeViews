@@ -280,6 +280,17 @@
     return self;
 }
 
+- (id) withLineWrap {
+    self.numberOfLines = 0;
+    self.lineBreakMode = NSLineBreakByWordWrapping;
+    return self;
+}
+
+- (id) withTextAlignment:(NSTextAlignment) value {
+    self.textAlignment = value;
+    return self;
+}
+
 - (id) withOpaqueBackground:(UIColor*) value {
     self.backgroundColor = value;
     self.opaque = YES;
