@@ -217,6 +217,8 @@ setUIViewWidthHeight(UIView* view, int width, int height) {
 #define RANDOM_INT() (arc4random())
 #endif
 
+#ifndef UICOLOR_MACROS
+#define UICOLOR_MACROS
 
 CG_INLINE UIColor*
 UIColorRGB(unsigned int argb) {
@@ -251,3 +253,5 @@ UIColorRGBWithAlpha(unsigned int argb, CGFloat alpha) {
                             blue:blue/255.0f
                            alpha:alpha];
 }
+
+#endif
