@@ -560,6 +560,11 @@ ADD_METHOD_TEMPLATE(addHorizontal, addHorizontal1, LAYOUT_MODE_HORIZONTAL)
     [self updateTouchMode:YES];
 }
 
+- (id) withUserInteractionEnabled :(BOOL) value {
+    [self setUserInteractionEnabled:value];
+    return self;
+}
+
 - (void) setUserInteractionEnabled :(BOOL) value {
     [super setUserInteractionEnabled:value];
 

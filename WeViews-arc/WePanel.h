@@ -741,4 +741,6 @@
  */
 - (NSArray*) getNonLayerSubviews;
 
+- (id) withUserInteractionEnabled:(BOOL) value;
+
 @end
