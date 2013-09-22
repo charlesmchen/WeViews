@@ -4,157 +4,31 @@
 	<meta charset='utf-8'>
 	
 	<title>charlesmchen/WeViews @ GitHub</title>
-		
+	
+	
 	<link href="css/weviews.css" rel="stylesheet" type="text/css" />
-	<link href="css/weviews-tutorial.css" rel="stylesheet" type="text/css" />
 	
 	<style type="text/css">
-	</style>
 
-</head>
+
+	</style>
 </head>
 
 <body>
 
   <div id="container">
 
-<!-- INSERT sidebar.html BEGIN -->
-
-    <div class="sidebar">
-
-    <h2 class="download_title">
-    	Download
-	</h2>
-    <div class="download">
-      <a href="https://github.com/charlesmchen/WeViews/zipball/master">
-        <img border="0" width="90" src="https://github.com/images/modules/download/zip.png"></a>
-      <a href="https://github.com/charlesmchen/WeViews/tarball/master">
-        <img border="0" width="90" src="https://github.com/images/modules/download/tar.png"></a>
-    </div>
-
-<div class="social">
-<div>
-<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://charlesmchen.github.com/WeViews/index.html" data-text="WeViews is an Objective-C library for laying out UIViews." data-via="cmchen" data-hashtags="WeViews">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</div>
-
-<div>
-<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=charlesmchen&repo=WeViews&type=watch&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="170px" height="30px"></iframe>
-</div>
-
-<!--
-<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=charlesmchen&repo=WeViews&type=watch&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="170px" height="30px"></iframe>
-
-<div>
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="WeViews is an Objective-C library for laying out UIViews." data-via="cmchen" data-hashtags="WeViews">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</div>
-
-<div class="fb-like" data-href="http://charlesmchen.github.com/WeViews/" data-send="false" data-width="450" data-show-faces="false"></div>
-
--->
-</div>
-
-<div class="menu">
-	<div class="menu0">
-		<a href="index.html">Home</a>
-	</div>
-	<div class="menu0">
-		<a href="tutorial.html">Tutorial</a>
-	</div>
-	
-<div class="tutorial_sidebar">
-<!-- INSERT tutorial-index.html BEGIN -->
-	<div>
-		<a href="tutorial-install.html">Tutorial: Install</a>
-	</div>
-	<div>
-		<a href="tutorial-demo-app.html">Tutorial: Demo app</a>
-	</div>
-	<div>
-		<a href="tutorial-getting-started.html">Tutorial: Getting Started</a>
-	</div>
-	<div>
-		<a href="tutorial-nesting-panels.html">Tutorial: Nesting Panels</a>
-	</div>
-	<div>
-		<a href="tutorial-layers.html">Tutorial: Layers</a>
-	</div>
-	<div>
-		<a href="tutorial-grid-layouts.html">Tutorial: Grid Layouts</a>
-	</div>
-
-<!-- INSERT tutorial-index.html END -->
-</div>
-	
-	<div class="menu0">
-		<a href="faq.html">FAQ</a>
-	</div>
-	
-</div>
-
-    </div>
-
-<!-- INSERT sidebar.html END -->
+    <div class="main">
 
     <h1><a href="index.html">WeViews</a></h1>
-    
-    <h2>Tutorial: Getting Started</h2>
 
-			<div class="item_p">
-				Here's a simple WePanel with three buttons in a horizontal layout:
-			</div>
-			<div class="item_p">
-				<img src="images/tutorial_fpanel_0.png" />
-			</div>
-			<div class="item_p">
-				And here's the source:
-			</div>
-<script src="https://gist.github.com/1921458.js?file=gistfile1.m"></script>
-<!--
-			<div class="item_p">
-				<img src="images/tutorial_fpanel_1_src.png" style="border: 1px solid #ddd;"/>
-			</div>
--->
-			<div class="item_p">
-				We create and configure the WePanel with the first statement.
-				The second statement creates and configures a new layer which contains three WeButtons.
-			</div>
-			<div class="item_p">
-				WeViews offers subclasses of many popular UIViews.
-				In this case, WeButton is a subview of UIButton.
-			</div>
-			<div class="item_p">
-				Like many WeViews, WePanel and WeButton offer a variety of factory methods.
-				WeViews factory methods are named "create" and return a new, autoreleased instance.
-			</div>
-			<div class="item_p">
-				WeViews configuration methods often return a reference to the instance so that 
-					invocations can be chained.  
-				This makes for more readable code.  
-			</div>
-			<div class="item_p">
-				The first statement can be read "Create a new WePanel with X background color."
-				The second statement can be read "Add a new horizontal layer to WePanel 
-					with buttons A, B and C that has right and bottom alignment and 10 point margins."
-			</div>
-			
-    <h2>Properties: Margins &amp; Alignment</h2>
-			<div class="item_p">
-				We can set the margins and alignment properties of the horizontal layer.
-				In this case, we align Bottom and Right with 10 point margins.
-			</div>
-			<div class="item_p">
-				<img src="images/tutorial_fpanel_1.png" />
-			</div>
-<script src="https://gist.github.com/1988898.js?file=gistfile1.txt"></script>
-	
 
-<h2><a href="index.html">Back</a></h2>
+	<div>
+		The WeViews library has been superceded by <a href="https://github.com/charlesmchen/WeView2">WeView 2</a> and is defunct. Please use WeView 2 instead.
+	</div>
+  
+	</div>
 
-  </div>
-
+</div>
 </body>
 </html>
